@@ -639,3 +639,63 @@ h2 {
     margin-top: 0.5rem !important;
 }
 
+/* Technical Areas Tag Cloud layout */
+.interest-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.interest-chip {
+    background: linear-gradient(135deg, #0076d6, #00539b);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.interest-chip:hover {
+    transform: scale(1.05);
+}
+
+/* Formal Verification Sign-off Box */
+.declaration-panel {
+    margin: 4rem 0 2rem 0;
+    text-align: center;
+}
+
+.declaration-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+    margin-bottom: 2rem;
+}
+
+.declaration-text {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.signature-space {
+    margin-top: 2rem;
+    display: inline-block;
+    border-top: 1px dashed #94a3b8;
+    padding-top: 0.5rem;
+    min-width: 250px;
+}
+
+.sig-name {
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.sig-title {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
