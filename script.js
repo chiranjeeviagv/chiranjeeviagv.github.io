@@ -300,68 +300,39 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
         });
     }
-    // ==========================================
-    // INTERACTIVE SKILL UPGRADATION FILTER LOGIC
-    // ==========================================
-    const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
-    const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
-
-    upgradeFilters.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active style state from all filter triggers
-            upgradeFilters.forEach(f => f.classList.remove('active'));
-            // Highlight the currently selected filter button
-            btn.classList.add('active');
-
-            const activeTargetCategory = btn.dataset.upgradeFilter;
-
-            upgradationItems.forEach(item => {
-                // If 'all' is selected or the item's category matches, show it; otherwise hide it
-                if (activeTargetCategory === 'all' || item.dataset.ucat === activeTargetCategory) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
 // ============================================================
-// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE
+// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (FIXED)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Grab all filter buttons and list items from the DOM
     const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
     const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
 
-    // 2. Ensure both elements exist before attaching event listeners
     if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
         upgradeFilters.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove the active visual state from all filter buttons
+                // 1. Clear active visual highlights from all filter buttons
                 upgradeFilters.forEach(f => f.classList.remove('active'));
                 
-                // Add the active visual highlight to the clicked button
+                // 2. Add the active blue visual color state to the clicked button
                 btn.classList.add('active');
 
-                // Read the targeted category filter value (e.g., "obe", "ai-iot", "all")
-                const activeCategory = btn.getAttribute('data-upgrade-filter');
+                // 3. Extract the active filtering key (e.g., 'all', 'obe', 'ai-iot')
+                const selectedFilter = btn.getAttribute('data-upgrade-filter');
 
-                // 3. Loop through all 25+ activities and toggle their visibility
+                // 4. Safely traverse all listed activity nodes and toggle states
                 upgradationItems.forEach(item => {
                     const itemCategory = item.getAttribute('data-ucat');
-
-                    // If 'All Activities' is clicked OR the item's category matches, show it
-                    if (activeCategory === 'all' || itemCategory === activeCategory) {
-                        item.style.display = 'flex'; // Displays it smoothly using your CSS flex layout
+                    
+                    if (selectedFilter === 'all' || itemCategory === selectedFilter) {
+                        item.style.display = 'flex'; // Triggers smooth flexbox alignment layout
                     } else {
-                        item.style.display = 'none'; // Hides it completely from view
+                        item.style.display = 'none'; // Safely drops it out of document rendering map
                     }
                 });
             });
         });
     }
 });
-
     // Dynamic text toggler for the Corporate Memberships button
     const membershipsToggleBtn = document.getElementById('membershipsToggleBtn');
     const membershipsPanel = document.getElementById('membershipsPanel');
