@@ -4,195 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Interactive CV</title>
-    <style>
-        :root {
-            --bg-primary: #f4f6f9;
-            --bg-card: #ffffff;
-            --text-main: #2b2d42;
-            --text-muted: #6c757d;
-            --accent-color: #0056b3;
-            --accent-light: #e8f0fe;
-            --border-color: #d8dee4;
-        }
-
-        body.dark-mode {
-            --bg-primary: #0f111a;
-            --bg-card: #161b22;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent-color: #58a6ff;
-            --accent-light: #1f293d;
-            --border-color: #30363d;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 30px 15px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .cv-header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            margin-top: 5px;
-        }
-
-        .contact-info {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 12px 0;
-        }
-
-        .cv-container {
-            max-width: 950px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-        }
-
-        .cv-section {
-            margin-bottom: 35px;
-        }
-
-        h2 {
-            font-size: 1.35rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 12px;
-            margin-bottom: 20px;
-        }
-
-        .instruction-text {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            font-style: italic;
-        }
-
-        .tab-buttons, .filter-buttons, .action-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
-        }
-
-        .btn, .tab-btn, .filter-btn, .ref-btn {
-            background: var(--bg-card);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.88rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .tab-btn.active, .filter-btn.active {
-            background: var(--accent-color);
-            color: #ffffff;
-            border-color: var(--accent-color);
-        }
-
-        .ref-btn {
-            background: var(--accent-light);
-            color: var(--text-main);
-            border-color: transparent;
-        }
-
-        .ref-btn:hover {
-            filter: brightness(0.92);
-        }
-
-        .tab-display-box {
-            background: var(--bg-primary);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            min-height: 120px;
-        }
-
-        .tab-display-box h3 {
-            margin-bottom: 8px;
-            color: var(--text-main);
-        }
-
-        .inline-link {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px dashed var(--accent-color);
-        }
-
-        .inline-link:hover {
-            text-decoration: none;
-            border-bottom-style: solid;
-        }
-
-        .reference-box {
-            margin-top: 15px;
-            padding: 20px;
-            background: var(--bg-primary);
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .reference-box ul {
-            padding-left: 20px;
-        }
-
-        .reference-box li {
-            margin-bottom: 12px;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 10px;
-            list-style: none;
-        }
-
-        .skills-list li {
-            background: var(--bg-primary);
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-
-        .ref-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .block-btn {
-            width: 100%;
-            text-align: left;
-            padding: 12px;
-        }
-    </style>
+    <!-- Links to your separate CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -282,3 +95,62 @@
                 <ul>
                     <li>
                         <strong>Smart Medical Diagnosis System:</strong> Using IoT-driven Machine Learning and Big Data Analytics in the field of Bio-Medical Engineering.
+                        <br><em>Publication No: 11/2024(INA)</em> — <a href="http://ipindia.nic.in" target="_blank" class="inline-link">Verify at IP India Portal 🔗</a>
+                    </li>
+                    <li>
+                        <strong>Power Quality Analysis Using IoT:</strong>
+                        <br><em>Application No: 202441060301 (August 2024)</em> — <a href="http://ipindia.nic.in" target="_blank" class="inline-link">Verify at IP India Portal 🔗</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="papersPanel" class="reference-box hidden">
+                <h3>Refereed Journal Records</h3>
+                <ul>
+                    <li>
+                        "Fuzzy based Unified Control and Power Management Scheme for PV Battery based Hybrid Micro Grids..." (IJAEMA, 2022) 
+                        — <a href="https://google.com" target="_blank" class="inline-link">Open Source Document Link 🔗</a>
+                    </li>
+                    <li>
+                        "Dynamic stability Enhancement of a Smart Grid Using Artificial Neural Network Based STATCOM" (INDJST, 2016) 
+                        — <a href="https://indjst.org" target="_blank" class="inline-link">Open Article Portal 🔗</a>
+                    </li>
+                    <li>
+                        "Transient stability improvement of Single machine infinite bus system using Distributed power flow controller" (IJPAM, 2017) 
+                        — <a href="https://acadpubl.eu" target="_blank" class="inline-link">View PDF Archive 🔗</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="indexesPanel" class="reference-box hidden">
+                <h3>Global Metadata Identifiers</h3>
+                <p>📊 <a href="https://google.com" target="_blank" class="inline-link">Google Scholar Metrics Portfolio</a></p>
+                <p>🆔 <strong>ORCID ID:</strong> <a href="https://orcid.org" target="_blank" class="inline-link">0000-0002-7895-407X</a> | <strong>Scopus Author ID:</strong> 58316331900</p>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h2>References on Request</h2>
+            <div class="ref-grid">
+                <div>
+                    <button class="ref-btn block-btn" data-target="refPerson1">👤 Dr. Dipak D Bhage</button>
+                    <div id="refPerson1" class="reference-box hidden">
+                        <p><strong>Designation:</strong> Professor, PCU, Pune</p>
+                        <p><strong>📞 Telephone Link:</strong> <a href="tel:7083780216" class="inline-link">70837 80216</a></p>
+                    </div>
+                </div>
+                <div>
+                    <button class="ref-btn block-btn" data-target="refPerson2">👤 Mrs. Sangita K Chowdary</button>
+                    <div id="refPerson2" class="reference-box hidden">
+                        <p><strong>Designation:</strong> Professor, SITRC</p>
+                        <p><strong>📞 Telephone Link:</strong> <a href="tel:9730199702" class="inline-link">9730199702</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Links to your separate JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
