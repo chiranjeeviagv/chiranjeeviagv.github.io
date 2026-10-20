@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-    // ==========================================
-    // FIXED INTERACTIVE EDUCATION DASHBOARD LOGIC
+       // ==========================================
+    // INTERACTIVE EDUCATION DASHBOARD LOGIC
     // ==========================================
     const educationRepository = {
         'mtech': {
@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = educationRepository[qualificationKey];
         if (!data) return;
 
-        // Render information inside a highly readable grid format
         eduDisplayBox.innerHTML = `
             <div style="display: grid; grid-template-columns: 140px 1fr; gap: 10px; font-size: 0.95rem; line-height: 1.6;">
                 <strong>🏫 Institution:</strong> <span>${data.inst}</span>
@@ -136,18 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Automatically initialize with M.Tech data on page load
-    updateEducationView('mtech');
+    if (eduDisplayBox) {
+        updateEducationView('mtech');
+    }
 
     eduButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active highlight state from all education buttons
             eduButtons.forEach(b => b.classList.remove('active'));
-            // Assign active highlight state to the clicked button
             btn.classList.add('active');
-            // Pull data from repository map
             updateEducationView(btn.dataset.edu);
         });
     });
+
     // ==========================================
     // INTERACTIVE EXPERIENCE DASHBOARD LOGIC
     // ==========================================
