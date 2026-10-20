@@ -185,66 +185,61 @@ h2 {
     text-align: left;
     padding: 12px;
 }
-/* Interactive Experience Layout Dashboard */
+/* Interactive Experience Dashboard Configuration */
 .experience-controls-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 10px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
     margin-bottom: 20px;
+    margin-top: 15px;
 }
 
 .exp-btn {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: var(--bg-card);
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
-    padding: 12px 16px;
+    background: var(--bg-card, #ffffff);
+    color: var(--text-main, #2b2d42);
+    border: 1px solid var(--border-color, #d8dee4);
+    padding: 12px 18px;
     border-radius: 8px;
     cursor: pointer;
     text-align: left;
+    min-width: 160px;
+    flex: 1 1 calc(20% - 12px);
     transition: all 0.2s ease-in-out;
 }
 
 .exp-btn .btn-title {
     font-weight: 600;
     font-size: 0.95rem;
+    display: block;
 }
 
 .exp-btn .btn-sub {
     font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 2px;
+    color: var(--text-muted, #6c757d);
+    margin-top: 4px;
+    display: block;
 }
 
+/* Active Highlight Tracking States */
 .exp-btn.active {
-    background: var(--accent-color);
-    color: #ffffff;
-    border-color: var(--accent-color);
+    background: var(--accent-color, #0056b3) !important;
+    color: #ffffff !important;
+    border-color: var(--accent-color, #0056b3) !important;
 }
 
 .exp-btn.active .btn-sub {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .experience-display-panel {
-    background: var(--bg-primary);
+    background: var(--bg-primary, #f4f6f9);
     padding: 25px;
-    border-radius: 10px;
-    border-left: 5px solid var(--accent-color);
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color, #0056b3);
+    margin-top: 15px;
     min-height: 140px;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.experience-display-panel h3 {
-    font-size: 1.25rem;
-    margin-bottom: 5px;
-}
-
-.experience-display-panel h4 {
-    color: var(--accent-color);
-    font-weight: 500;
-    margin-bottom: 10px;
 }
 
