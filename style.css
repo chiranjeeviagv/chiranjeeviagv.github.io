@@ -454,3 +454,61 @@ h2 {
     line-height: 1.4;
     color: var(--text-muted, #6c757d);
 }
+/* Skill Upgradation Responsive Timeline Grid */
+.upgrade-activity-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.upgrade-activity-list li {
+    background: var(--bg-primary, #f4f6f9);
+    border: 1px solid var(--border-color, #d8dee4);
+    padding: 14px 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.25s ease;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.upgrade-activity-list li:hover {
+    border-color: var(--accent-color, #0056b3);
+    transform: translateX(4px);
+}
+
+.activity-date {
+    background: var(--accent-color, #0056b3);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Specific Style Overrides for Filter Controls */
+.upgrade-filter-btn {
+    background: var(--bg-card, #ffffff);
+    color: var(--text-main, #2b2d42);
+    border: 1px solid var(--border-color, #d8dee4);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.upgrade-filter-btn.active {
+    background: var(--accent-color, #0056b3) !important;
+    color: #ffffff !important;
+    border-color: var(--accent-color, #0056b3) !important;
+}
+
