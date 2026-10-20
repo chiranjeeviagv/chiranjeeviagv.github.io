@@ -159,3 +159,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+    // ==========================================
+    // INTERACTIVE CONFERENCES DASHBOARD LOGIC
+    // ==========================================
+    const conferenceRepository = {
+        'icmmse': {
+            paper: "“System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0”",
+            event: "5th International E-Conference on Mechanical and Material Science Engineering: Innovation and Research (ICMMSE:IR)",
+            host: "Organized by the Department of Mechanical Engineering, Sandip Institute of Technology & Research Centre, Nashik, Maharashtra",
+            date: "📅 27th and 28th of February 2026"
+        },
+        'gvcon': {
+            paper: "“Cyber Security in smart grids- Role of Digital Advanced devices”",
+            event: "Two-Day National Conference on the theme 'Green and Resilient Energy Systems' (GVCON-2K22)",
+            host: "Conducted by the Electrical & Electronics Engineering Department, Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam",
+            date: "📅 21st to 22nd October, 2022"
+        },
+        'rteee': {
+            paper: "“Transient Stability Improvement of SMIB using DPFC”",
+            event: "Two-Day National Conference on 'Recent Trends in Electrical and Electronics Engineering' (RTEEE)",
+            host: "Held at Vignan’s Institute of Information Technology, Visakhapatnam",
+            date: "📅 14th and 15th of April 2017"
+        }
+    };
+
+    const confButtons = document.querySelectorAll('.conf-btn');
+    const confDisplayBox = document.getElementById('conferenceOutputBox');
+
+    function updateConferenceView(conferenceKey) {
+        const data = conferenceRepository[conferenceKey];
+        if (!data) return;
+
+        confDisplayBox.innerHTML = `
+            <h3>Presented Paper: <span style="font-weight: 500; font-style: italic;">${data.paper}</span></h3>
+            <h4 style="margin: 8px 0; color: var(--accent-color); font-weight: 600;">🏆 ${data.event}</h4>
+            <p style="font-size: 0.95rem; margin-bottom: 6px; opacity: 0.9;">🏫 ${data.host}</p>
+            <p style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted);">${data.date}</p>
+        `;
+    }
+
+    // Automatically load your most recent presentation details on page load
+    updateConferenceView('icmmse');
+
+    confButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            confButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateConferenceView(btn.dataset.conf);
+        });
+    });
+
