@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'ibm-js': {
             title: "IBM Full Stack JavaScript Developer (12-Course Series)",
             desc: "Specialization targeting React engineering, asynchronous JavaScript engines, Node.js infrastructure, Express.js microservices, NoSQL databases, and serverless pipelines.",
-            url: "https://coursera.org"
+            url: "https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243"
         },
         'ms-ai': {
             title: "Microsoft AI and ML Engineering Professional Certificate (5 Courses)",
