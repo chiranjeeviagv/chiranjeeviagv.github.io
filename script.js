@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'ms-ai': {
             title: "Microsoft AI and ML Engineering Professional Certificate (5 Courses)",
             desc: "Validation of architectural expertise in foundations of Machine Learning modeling, algorithms, intelligent agents, and Azure ML pipelines.",
-            url: "https://coursera.org"
+            url: "https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W"
         },
         'ibm-ai': {
             title: "IBM AI Developer Professional Certification (10-Course Series)",
