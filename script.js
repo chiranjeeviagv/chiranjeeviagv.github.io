@@ -286,3 +286,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Dynamic text toggler for the Languages Directory button
+    const languagesToggleBtn = document.getElementById('languagesToggleBtn');
+    const languagesPanel = document.getElementById('languagesPanel');
+
+    if (languagesToggleBtn && languagesPanel) {
+        languagesToggleBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                if (languagesPanel.classList.contains('hidden')) {
+                    languagesToggleBtn.textContent = '🌐 View Languages Directory';
+                } else {
+                    languagesToggleBtn.textContent = '❌ Hide Languages Directory';
+                }
+            }, 10);
+        });
+    }
