@@ -348,4 +348,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
         });
     }
+document.addEventListener("DOMContentLoaded", () => {
+    const platformButtons = document.querySelectorAll(".platform-btn");
+    const displayNode = document.getElementById("platform-display-node");
+
+    // Dynamic Engine Configuration Details from Resume Metadata
+    const platformSpecs = {
+        "Google Meet": "Configured for synchronized virtual instruction, micro-lectures, and real-time screen presentation routines.",
+        "Microsoft Teams": "Configured for academic department alignment, formal board matrices, and deep institutional file distributions.",
+        "Cisco Webex": "Optimized for large-scale engineering symposium presentations and university guest-lecturing configurations.",
+        "GoToMeeting": "Integrated for global external panel discussions and multi-regional technical research coordination meetings."
+    };
+
+    platformButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const systemTarget = e.target.getAttribute("data-platform");
+            
+            if (platformSpecs[systemTarget]) {
+                displayNode.innerHTML = `<strong>Active Framework Configuration [${systemTarget}]:</strong> ${platformSpecs[systemTarget]}`;
+                displayNode.style.display = "block";
+            }
+        });
+    });
+});
+
 
