@@ -88,36 +88,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     // ==========================================
-    // INTERACTIVE EDUCATION DASHBOARD LOGIC
+    // FIXED INTERACTIVE EDUCATION DASHBOARD LOGIC
     // ==========================================
     const educationRepository = {
         'mtech': {
-            degree: "Master of Technology (M.Tech) in High Voltage Engineering (HVE)",
-            institution: "✉️ Jawaharlal Nehru Technological University (JNTU), Kakinada",
-            timeline: "🎓 Concluded in 2012",
-            score: "72%",
-            classification: "Distinction"
+            spec: "High Voltage Engineering (HVE)",
+            inst: "Jawaharlal Nehru Technological University (JNTU), Kakinada",
+            year: "2012",
+            marks: "72% (Distinction)"
         },
         'btech': {
-            degree: "Bachelor of Technology (B.Tech) in Electrical and Electronics Engineering (EEE)",
-            institution: "✉️ Chaitanya Engineering College, Visakhapatnam",
-            timeline: "🎓 Concluded in 2007",
-            score: "71.63%",
-            classification: "Distinction"
+            spec: "Electrical and Electronics Engineering (EEE)",
+            inst: "Chaitanya Engineering College, Visakhapatnam",
+            year: "2007",
+            marks: "71.63% (Distinction)"
         },
         'intermediate': {
-            degree: "Intermediate Education (MPC - Mathematics, Physics, Chemistry)",
-            institution: "✉️ Gayatri Junior College, Vizianagaram",
-            timeline: "🎓 Concluded in 2003",
-            score: "N/A",
-            classification: "First Class"
+            spec: "MPC (Mathematics, Physics, Chemistry)",
+            inst: "Gayatri Junior College, Vizianagaram",
+            year: "2003",
+            marks: "First Class"
         },
         'ssc': {
-            degree: "Secondary School Certificate (SSC)",
-            institution: "✉️ ZP High School, Jami, Vizianagaram",
-            timeline: "🎓 Concluded in 2001",
-            score: "N/A",
-            classification: "First Class"
+            spec: "General Secondary Education",
+            inst: "ZP High School, Jami, Vizianagaram",
+            year: "2001",
+            marks: "First Class"
         }
     };
 
@@ -128,31 +124,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = educationRepository[qualificationKey];
         if (!data) return;
 
-        let gradingBadge = '';
-        if (data.score !== "N/A") {
-            gradingBadge = `<span class="badge" style="background: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-left: 10px;">Grade: ${data.score} (${data.classification})</span>`;
-        } else {
-            gradingBadge = `<span class="badge" style="background: #eef2f7; color: #333333; padding: 3px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-left: 10px;">${data.classification}</span>`;
-        }
-
+        // Render information inside a highly readable grid format
         eduDisplayBox.innerHTML = `
-            <h3>${data.degree} ${gradingBadge}</h3>
-            <h4 style="margin: 8px 0; color: var(--accent-color); font-weight: 500;">${data.institution}</h4>
-            <p style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted);">${data.timeline}</p>
+            <div style="display: grid; grid-template-columns: 140px 1fr; gap: 10px; font-size: 0.95rem; line-height: 1.6;">
+                <strong>🏫 Institution:</strong> <span>${data.inst}</span>
+                <strong>🎓 Specialization:</strong> <span>${data.spec}</span>
+                <strong>📅 Year of Passing:</strong> <span>${data.year}</span>
+                <strong>📈 Percentage/Class:</strong> <span>${data.marks}</span>
+            </div>
         `;
     }
 
-    // Automatically load your highest degree details when the page opens
+    // Automatically initialize with M.Tech data on page load
     updateEducationView('mtech');
 
     eduButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+            // Remove active highlight state from all education buttons
             eduButtons.forEach(b => b.classList.remove('active'));
+            // Assign active highlight state to the clicked button
             btn.classList.add('active');
+            // Pull data from repository map
             updateEducationView(btn.dataset.edu);
         });
     });
-
     // ==========================================
     // INTERACTIVE EXPERIENCE DASHBOARD LOGIC
     // ==========================================
