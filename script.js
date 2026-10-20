@@ -325,6 +325,43 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+// ============================================================
+// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Grab all filter buttons and list items from the DOM
+    const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
+    const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
+
+    // 2. Ensure both elements exist before attaching event listeners
+    if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
+        upgradeFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove the active visual state from all filter buttons
+                upgradeFilters.forEach(f => f.classList.remove('active'));
+                
+                // Add the active visual highlight to the clicked button
+                btn.classList.add('active');
+
+                // Read the targeted category filter value (e.g., "obe", "ai-iot", "all")
+                const activeCategory = btn.getAttribute('data-upgrade-filter');
+
+                // 3. Loop through all 25+ activities and toggle their visibility
+                upgradationItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-ucat');
+
+                    // If 'All Activities' is clicked OR the item's category matches, show it
+                    if (activeCategory === 'all' || itemCategory === activeCategory) {
+                        item.style.display = 'flex'; // Displays it smoothly using your CSS flex layout
+                    } else {
+                        item.style.display = 'none'; // Hides it completely from view
+                    }
+                });
+            });
+        });
+    }
+});
+
     // Dynamic text toggler for the Corporate Memberships button
     const membershipsToggleBtn = document.getElementById('membershipsToggleBtn');
     const membershipsPanel = document.getElementById('membershipsPanel');
