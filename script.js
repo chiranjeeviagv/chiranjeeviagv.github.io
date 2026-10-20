@@ -87,6 +87,67 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    // ==========================================
+    // INTERACTIVE EXPERIENCE DASHBOARD LOGIC
+    // ==========================================
+    const experienceRepository = {
+        'sitrc': {
+            role: "Assistant Professor, EE (AIML)",
+            institution: "Sandip Foundation's - Sandip Institute of Technology and Research Centre, Nashik, Maharashtra",
+            duration: "📅 27-06-2025 to 31-05-2026",
+            details: "Specialized focus handling advanced AI/ML implementations, expert computing systems validation, and departmental academic file management panels."
+        },
+        'gnit': {
+            role: "Assistant Professor, EEE Department",
+            institution: "Guru Nanak Institute of Technology, Ibrahimpatnam, Hyderabad",
+            duration: "📅 16-02-2023 to 11-01-2025",
+            details: "Instructed core power grid computing analysis, directed advanced system protection architectures, and executed student advisory panels."
+        },
+        'mrecw': {
+            role: "Assistant Professor, EEE Department",
+            institution: "Malla Reddy Engineering College for Women (A), MRGI, Secunderabad",
+            duration: "📅 18-07-2022 to 15-02-2023",
+            details: "Managed technical training certifications, laboratory assessments, and structured curriculum data matrices matching university compliance paths."
+        },
+        'aditya': {
+            role: "Sr. Assistant Professor, EEE Department",
+            institution: "Aditya College of Engineering, Surampalem, Andhra Pradesh",
+            duration: "📅 22-11-2019 to 26-07-2021",
+            details: "Assigned head senior responsibilities overseeing institutional exam branches, departmental timetables, and resource mapping operations."
+        },
+        'viit': {
+            role: "Assistant Professor, EEE Department",
+            institution: "Vignan's Institute of Information Technology (A), Visakhapatnam, Andhra Pradesh",
+            duration: "📅 13-03-2015 to 04-11-2019",
+            details: "Handled foundational engineering technology coursework, student research guidance programs, and institutional certification file auditing tasks."
+        }
+    };
+
+    const expButtons = document.querySelectorAll('.exp-btn');
+    const expDisplayBox = document.getElementById('experienceOutputBox');
+
+    function updateExperienceView(profileKey) {
+        const data = experienceRepository[profileKey];
+        if (!data) return;
+
+        expDisplayBox.innerHTML = `
+            <h3>${data.role}</h3>
+            <h4>${data.institution}</h4>
+            <p style="font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">${data.duration}</p>
+            <p style="font-size: 0.95rem; line-height: 1.5; opacity: 0.95;">${data.details}</p>
+        `;
+    }
+
+    // Automatically load the newest professional role on page launch
+    updateExperienceView('sitrc');
+
+    expButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            expButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateExperienceView(btn.dataset.exp);
+        });
+    });
 
     // Toggle Expandable Panels
     const interactionButtons = document.querySelectorAll('.ref-btn');
