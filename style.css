@@ -511,4 +511,16 @@ h2 {
     color: #ffffff !important;
     border-color: var(--accent-color, #0056b3) !important;
 }
+.hidden {
+    display: none !important;
+}
+
+.education-display-panel {
+    background: var(--bg-primary, #f4f6f9);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color, #0056b3);
+    margin-top: 15px;
+    min-height: 120px;
+}
 
