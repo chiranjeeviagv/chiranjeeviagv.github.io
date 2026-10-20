@@ -299,7 +299,7 @@ h2 {
     margin-top: 15px;
     min-height: 120px;
 }
-/* Interactive Education Layout Grid Configuration */
+/* Educational Navigation Layout Styles */
 .education-controls-grid {
     display: flex;
     gap: 12px;
@@ -312,13 +312,13 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: var(--bg-card, #ffffff);
-    color: var(--text-main, #2b2d42);
-    border: 1px solid var(--border-color, #d8dee4);
-    padding: 12px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: left;
+    background: #ffffff !important;
+    color: #2b2d42 !important;
+    border: 1px solid #d8dee4 !important;
+    padding: 12px 18px !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    text-align: left !important;
     min-width: 160px;
     flex: 1 1 calc(25% - 12px);
     transition: all 0.2s ease-in-out;
@@ -327,21 +327,19 @@ h2 {
 .edu-btn .btn-title {
     font-weight: 600;
     font-size: 0.95rem;
-    display: block;
 }
 
 .edu-btn .btn-sub {
     font-size: 0.8rem;
-    color: var(--text-muted, #6c757d);
+    color: #6c757d;
     margin-top: 4px;
-    display: block;
 }
 
-/* Active Highlight Tracking States for Academic Buttons */
+/* Force Blue State Highlight on Selected Button Active Selection Click */
 .edu-btn.active {
-    background: var(--accent-color, #0056b3) !important;
+    background: #0056b3 !important;
     color: #ffffff !important;
-    border-color: var(--accent-color, #0056b3) !important;
+    border-color: #0056b3 !important;
 }
 
 .edu-btn.active .btn-sub {
@@ -349,12 +347,10 @@ h2 {
 }
 
 .education-display-panel {
-    background: var(--bg-primary, #f4f6f9);
+    background: #f4f6f9;
     padding: 25px;
     border-radius: 8px;
-    border-left: 5px solid var(--accent-color, #0056b3);
+    border-left: 5px solid #0056b3;
     margin-top: 15px;
-    min-height: 110px;
+    min-height: 120px;
 }
-
-
