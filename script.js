@@ -88,6 +88,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     // ==========================================
+    // INTERACTIVE EDUCATION DASHBOARD LOGIC
+    // ==========================================
+    const educationRepository = {
+        'mtech': {
+            degree: "Master of Technology (M.Tech) in High Voltage Engineering (HVE)",
+            institution: "✉️ Jawaharlal Nehru Technological University (JNTU), Kakinada",
+            timeline: "🎓 Concluded in 2012",
+            score: "72%",
+            classification: "Distinction"
+        },
+        'btech': {
+            degree: "Bachelor of Technology (B.Tech) in Electrical and Electronics Engineering (EEE)",
+            institution: "✉️ Chaitanya Engineering College, Visakhapatnam",
+            timeline: "🎓 Concluded in 2007",
+            score: "71.63%",
+            classification: "Distinction"
+        },
+        'intermediate': {
+            degree: "Intermediate Education (MPC - Mathematics, Physics, Chemistry)",
+            institution: "✉️ Gayatri Junior College, Vizianagaram",
+            timeline: "🎓 Concluded in 2003",
+            score: "N/A",
+            classification: "First Class"
+        },
+        'ssc': {
+            degree: "Secondary School Certificate (SSC)",
+            institution: "✉️ ZP High School, Jami, Vizianagaram",
+            timeline: "🎓 Concluded in 2001",
+            score: "N/A",
+            classification: "First Class"
+        }
+    };
+
+    const eduButtons = document.querySelectorAll('.edu-btn');
+    const eduDisplayBox = document.getElementById('educationOutputBox');
+
+    function updateEducationView(qualificationKey) {
+        const data = educationRepository[qualificationKey];
+        if (!data) return;
+
+        let gradingBadge = '';
+        if (data.score !== "N/A") {
+            gradingBadge = `<span class="badge" style="background: #e3f2fd; color: #0d47a1; padding: 3px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-left: 10px;">Grade: ${data.score} (${data.classification})</span>`;
+        } else {
+            gradingBadge = `<span class="badge" style="background: #eef2f7; color: #333333; padding: 3px 10px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-left: 10px;">${data.classification}</span>`;
+        }
+
+        eduDisplayBox.innerHTML = `
+            <h3>${data.degree} ${gradingBadge}</h3>
+            <h4 style="margin: 8px 0; color: var(--accent-color); font-weight: 500;">${data.institution}</h4>
+            <p style="font-weight: 600; font-size: 0.88rem; color: var(--text-muted);">${data.timeline}</p>
+        `;
+    }
+
+    // Automatically load your highest degree details when the page opens
+    updateEducationView('mtech');
+
+    eduButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            eduButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateEducationView(btn.dataset.edu);
+        });
+    });
+
+    // ==========================================
     // INTERACTIVE EXPERIENCE DASHBOARD LOGIC
     // ==========================================
     const experienceRepository = {
