@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'google-cyber': {
             title: "Google Cybersecurity Certification (9-Course Series)",
             desc: "System defense strategies targeting asset and network vulnerability mitigation, Linux configuration operations, automated system auditing with Python scripting, threat analysis, and security incident response matrix.",
-            url: "https://coursera.org"
+            url: "https://coursera.org/verify/professional-cert/SZEO3FT6Q193"
         },
         'nptel': {
             title: "NPTEL Advanced Academic Certifications",
