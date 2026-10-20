@@ -325,4 +325,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+    // Dynamic text toggler for the Corporate Memberships button
+    const membershipsToggleBtn = document.getElementById('membershipsToggleBtn');
+    const membershipsPanel = document.getElementById('membershipsPanel');
+
+    if (membershipsToggleBtn && membershipsPanel) {
+        membershipsToggleBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                if (membershipsPanel.classList.contains('hidden')) {
+                    membershipsToggleBtn.textContent = '📜 View Corporate Memberships';
+                } else {
+                    membershipsToggleBtn.textContent = '❌ Hide Corporate Memberships';
+                }
+            }, 10);
+        });
+    }
 
