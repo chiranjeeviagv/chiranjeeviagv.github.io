@@ -185,3 +185,66 @@ h2 {
     text-align: left;
     padding: 12px;
 }
+/* Interactive Experience Layout Dashboard */
+.experience-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.exp-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease-in-out;
+}
+
+.exp-btn .btn-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.exp-btn .btn-sub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.exp-btn.active {
+    background: var(--accent-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
+}
+
+.exp-btn.active .btn-sub {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.experience-display-panel {
+    background: var(--bg-primary);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent-color);
+    min-height: 140px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.experience-display-panel h3 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}
+
+.experience-display-panel h4 {
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
