@@ -301,3 +301,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 10);
         });
     }
+    // ==========================================
+    // INTERACTIVE SKILL UPGRADATION FILTER LOGIC
+    // ==========================================
+    const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
+    const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
+
+    upgradeFilters.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active style state from all filter triggers
+            upgradeFilters.forEach(f => f.classList.remove('active'));
+            // Highlight the currently selected filter button
+            btn.classList.add('active');
+
+            const activeTargetCategory = btn.dataset.upgradeFilter;
+
+            upgradationItems.forEach(item => {
+                // If 'all' is selected or the item's category matches, show it; otherwise hide it
+                if (activeTargetCategory === 'all' || item.dataset.ucat === activeTargetCategory) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
