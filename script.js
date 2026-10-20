@@ -269,4 +269,20 @@ document.addEventListener('DOMContentLoaded', () => {
             updateConferenceView(btn.dataset.conf);
         });
     });
+    // Dynamic text toggler for the Strengths Directory button
+    const strengthsToggleBtn = document.getElementById('strengthsToggleBtn');
+    const strengthsPanel = document.getElementById('strengthsPanel');
+
+    if (strengthsToggleBtn && strengthsPanel) {
+        strengthsToggleBtn.addEventListener('click', () => {
+            // Give the browser a microsecond to toggle the class before reading it
+            setTimeout(() => {
+                if (strengthsPanel.classList.contains('hidden')) {
+                    strengthsToggleBtn.textContent = '📋 View Strengths Directory';
+                } else {
+                    strengthsToggleBtn.textContent = '❌ Hide Strengths Directory';
+                }
+            }, 10);
+        });
+    }
 
