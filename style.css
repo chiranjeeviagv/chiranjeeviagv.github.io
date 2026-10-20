@@ -354,3 +354,46 @@ h2 {
     margin-top: 15px;
     min-height: 120px;
 }
+/* Interactive Strengths Grid and Cards Layout */
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.strength-card {
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #d8dee4);
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.strength-card h4 {
+    color: var(--accent-color, #0056b3);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color, #d8dee4);
+    padding-bottom: 6px;
+}
+
+.strength-card ul {
+    list-style-type: square;
+    padding-left: 18px;
+}
+
+.strength-card li {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    color: var(--text-main, #2b2d42);
+}
+
+.text-left-btn {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+
