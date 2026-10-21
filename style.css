@@ -68,6 +68,27 @@ body { background-color: #f1f5f9; color: #1e293b; padding: 20px; display: flex; 
     margin: 0 auto 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+/* --- Base Tab Visibility Management --- */
+.tab-content {
+    display: none;      /* Hide tabs by default */
+}
+.tab-content.active {
+    display: block;     /* Only show the active tab */
+}
+
+/* --- State Management via Body Class --- */
+
+/* When INDUSTRY View is active: Hide all academic elements */
+body.view-industry .only-academic,
+body.view-industry .subtitle-academic {
+    display: none !important;
+}
+
+/* When ACADEMIC View is active: Hide all industry elements */
+body.view-academic .only-industry,
+body.view-academic .subtitle-industry {
+    display: none !important;
+}
 
 /* ==========================================================================
    DYNAMIC DUAL-VIEW VISIBILITY ENGINE
