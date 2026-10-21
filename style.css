@@ -1,263 +1,80 @@
-### 2. The Styling (`style.css`)
+### 2. Updated Styling (`style.css`)
+Append these new custom structural tokens to your existing `style.css` sheet to build responsive layers for forms and layouts:
+
 ```css
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
+/* --- Append to base style.css layout block --- */
 
-body {
-    background-color: #f0f4f8;
-    color: #1e293b;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Toggle Switcher Banner Container */
-.view-switcher-banner {
-    background: #ffffff;
-    padding: 12px 24px;
-    border-radius: 40px;
-    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    font-weight: 600;
-}
-
-.toggle-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.toggle-btn {
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #e2e8f0;
-    color: #475569;
-}
-
-.toggle-btn.active {
+/* Academic Course Popups */
+.modal-trigger-btn {
     background: #0284c7;
-    color: #ffffff;
-    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
 }
+.modal-trigger-btn:hover { background: #0369a1; }
 
-/* Master Layout Framework */
-.cv-container {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    max-width: 1100px;
-    width: 100%;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
-    overflow: hidden;
-}
-
-/* Sidebar Elements */
-.cv-sidebar {
-    background: #0f172a;
-    color: #f8fafc;
-    padding: 40px 25px;
-}
-
-.profile-zone {
-    text-align: center;
-    margin-bottom: 35px;
-    border-bottom: 2px solid #1e293b;
-    padding-bottom: 25px;
-}
-
-.avatar {
-    width: 80px;
-    height: 80px;
-    background: #38bdf8;
-    border-radius: 50%;
-    display: flex;
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    display: none;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin: 0 auto 15px;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
 }
-
-.profile-zone h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1.2;
+.modal-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: modalSlideUp 0.3s ease-out;
 }
-
-.profile-zone h2 {
-    font-size: 0.9rem;
-    color: #38bdf8;
-    margin-top: 10px;
-    font-weight: 500;
-}
-
-.contact-info h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #94a3b8;
-    margin: 20px 0 10px;
-}
-
-.contact-info p {
-    margin-bottom: 12px;
-    font-size: 0.85rem;
-    line-height: 1.4;
-}
-
-.contact-info a {
-    color: #38bdf8;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-/* Main Display Workspace */
-.cv-main {
-    padding: 40px;
-}
-
-.tab-navigation {
-    display: flex;
-    gap: 15px;
-    border-bottom: 2px solid #f1f5f9;
-    margin-bottom: 30px;
-}
-
-.tab-btn {
-    background: none;
-    border: none;
-    padding: 12px 18px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    color: #64748b;
-    border-bottom: 3px solid transparent;
-    margin-bottom: -2px;
-    transition: all 0.2s ease;
-}
-
-.tab-btn.active {
-    color: #0284c7;
-    border-bottom-color: #0284c7;
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.4s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-/* Structural Components styling */
-h3 {
-    color: #0f172a;
-    margin: 25px 0 15px;
-    font-size: 1.2rem;
-    border-left: 4px solid #0284c7;
-    padding-left: 10px;
+.close-modal-x {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+}
+.close-modal-x:hover { color: #0f172a; }
+.modal-course-list {
+    list-style: none; margin-top: 15px;
+}
+.modal-course-list li {
+    padding: 8px 12px; background: #f8fafc;
+    border-left: 3px solid #0284c7; margin-bottom: 6px;
+    font-size: 0.9rem; font-weight: 500;
 }
 
-.timeline-item, .cert-card {
-    background: #f8fafc;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 15px;
+/* Contact Messaging Form block */
+.contact-form {
+    display: flex; flex-direction: column; gap: 15px;
+    background: #f8fafc; padding: 25px; border-radius: 8px;
     border: 1px solid #e2e8f0;
 }
-
-.date {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #64748b;
-    display: block;
-    margin-top: 4px;
-    margin-bottom: 8px;
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.85rem; font-weight: 700; color: #334155; }
+.form-group input, .form-group textarea {
+    padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;
+    font-size: 0.9rem; outline: none; transition: border 0.2s;
 }
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
+.form-group input:focus, .form-group textarea:focus { border-color: #0284c7; }
+.submit-btn {
+    background: #0f172a; color: white; border: none; padding: 12px;
+    border-radius: 6px; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
-
-.skills-list li {
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.nptel-list {
-    margin-left: 20px;
-    line-height: 1.8;
-    font-size: 0.95rem;
-}
-
-.ref-link {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    margin-top: 10px;
-    display: inline-block;
-}
-
-.ref-link:hover {
-    text-decoration: underline;
-}
-
-.video-container {
-    background: #fffbeb;
-    border: 1px solid #fde68a;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 25px;
-}
-
-/* ==========================================================================
-   VISIBILITY RESOLUTION ENGINE (Dual Views)
-   ========================================================================== */
-body.view-industry .only-academic,
-body.view-industry .subtitle-academic {
-    display: none !important;
-}
-
-body.view-academic .only-industry,
-body.view-academic .subtitle-industry {
-    display: none !important;
-}
-
-body.view-industry .tab-content.only-industry.active { display: block; }
-body.view-academic .tab-content.only-academic.active { display: block; }
-
-@media (max-width: 850px) {
-    .cv-container { grid-template-columns: 1fr; }
-    .tab-navigation { overflow-x: auto; white-space: nowrap; }
-}
+.submit-btn:hover { background: #1e293b; }
