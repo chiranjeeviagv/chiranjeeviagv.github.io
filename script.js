@@ -1,10 +1,10 @@
 /**
  * G V Chiranjeevi Adari - Complete Interactive CV Script File
- * Core Architecture: All dynamic filter lists and tab content display panels 
- * start fully hidden until an explicit user click interaction occurs.
+ * Core Configuration: All dynamic lists and tab content display panels
+ * start fully hidden on landing page load until an explicit user interaction.
  */
 
-// --- 1. DYNAMIC DATA CONFIGURATIONS ---
+// --- 1. DYNAMIC DATA MATRICES ---
 const EDUCATION_DB = {
     mtech: {
         title: "Master of Technology (M.Tech) in High Voltage Engineering",
@@ -75,7 +75,7 @@ const EXPERIENCE_DB = {
     }
 };
 
-// --- 2. APPLICATION BOOTSTRAPPING ENGINE ---
+// --- 2. MAIN INITIALIZATION HANDLERS ---
 document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
     initEducationPanel();
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * 1. Dark/Light Theme Switching Framework
+ * 1. Dark/Light Theme Switcher
  */
 function initThemeToggle() {
     const toggleBtn = document.getElementById("themeToggle");
@@ -101,14 +101,14 @@ function initThemeToggle() {
 }
 
 /**
- * 2. Education Summary Node Manager
+ * 2. Education Component Renderer
  */
 function initEducationPanel() {
     const outputBox = document.getElementById("educationOutputBox");
     const buttons = document.querySelectorAll("[data-edu]");
     if (!outputBox) return;
 
-    // Reset initial landing view to an empty layout state notice
+    // Reset initial status
     outputBox.innerHTML = `<div class="placeholder-notice">ℹ️ Click a milestone button above to view academic credentials.</div>`;
     buttons.forEach(b => b.classList.remove("active"));
 
@@ -132,14 +132,13 @@ function initEducationPanel() {
 }
 
 /**
- * 3. Interactive Certifications Tab Controller
+ * 3. Certifications Tab Infrastructure
  */
 function initCertificationsTabs() {
     const placeholder = document.getElementById("tabContentPlaceholder");
     const buttons = document.querySelectorAll("[data-tab]");
     if (!placeholder) return;
 
-    // Hide contents on startup
     placeholder.innerHTML = `<div class="placeholder-notice">🔍 Click any certification badge above to view verification data.</div>`;
     buttons.forEach(b => b.classList.remove("active"));
 
@@ -162,14 +161,13 @@ function initCertificationsTabs() {
 }
 
 /**
- * 4. Academic Employment History Profile Renderer
+ * 4. Experience Profiles Panel
  */
 function initExperiencePanel() {
     const outputBox = document.getElementById("experienceOutputBox");
     const buttons = document.querySelectorAll("[data-exp]");
     if (!outputBox) return;
 
-    // Force clear view layer contents on initial browser loading cycles
     outputBox.innerHTML = `<div class="placeholder-notice">ℹ️ Select an institution timeline above to open role profiles.</div>`;
     buttons.forEach(b => b.classList.remove("active"));
 
@@ -193,7 +191,7 @@ function initExperiencePanel() {
 }
 
 /**
- * 5. Course Subspecialty Domain Filtering Module
+ * 5. Handled Courses Filtering Modules
  */
 function initCourseFiltering() {
     const filterButtons = document.querySelectorAll("[data-course-filter]");
@@ -202,7 +200,6 @@ function initCourseFiltering() {
     
     if (!coursesContainer) return;
 
-    // Force absolute hidden status on startup
     const courseItems = coursesContainer.querySelectorAll("li");
     courseItems.forEach(item => item.style.display = "none");
     filterButtons.forEach(b => b.classList.remove("active"));
@@ -217,3 +214,16 @@ function initCourseFiltering() {
 
             courseItems.forEach(item => {
                 const itemCategory = item.getAttribute("data-ccat");
+                if (selectedFilter === "all" || itemCategory === selectedFilter) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+}
+
+/**
+ * 6. Faculty Development List Filtering Engine
+ */
