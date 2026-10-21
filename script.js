@@ -528,6 +528,24 @@ function openCredentialModal(title, verificationLink, detailText) {
   // Display target viewport element modal
   overlay.classList.add('active');
 }
+document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".upgrade-filter-btn");
+    const upgradeItems = document.querySelectorAll(".upgrade-item");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            document.querySelector(".upgrade-filter-btn.active")?.classList.remove("active");
+            button.classList.add("active");
+            const activeFilter = button.getAttribute("data-upgrade-filter");
+
+            upgradeItems.forEach(item => {
+                const itemCategory = item.getAttribute("data-ucat");
+                item.style.display = (activeFilter === "all" || itemCategory === activeFilter) ? "list-item" : "none";
+            });
+        });
+    });
+});
+
 
 // Example usage hook for an IBM badge button click
 // openCredentialModal('IBM Full Stack Developer', 'https://example.com', 'Completed formal training tracking backend systems.');
