@@ -7,29 +7,131 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<body class="view-industry">
+    <!-- Top View Switcher Banner -->
+    <div class="view-switcher-banner">
+        <span>Tailor this CV for your needs:</span>
+        <div class="toggle-buttons">
+            <button id="industry-toggle-btn" class="toggle-btn active" onclick="switchView('industry')">Industry View</button>
+            <button id="academic-toggle-btn" class="toggle-btn" onclick="switchView('academic')">Academic & Research View</button>
+        </div>
+    </div>
+<div class="cv-container">
+        <!-- Sidebar -->
+        <header class="cv-sidebar">
+            <div class="profile-zone">
+                <div class="avatar">YN</div>
+                <h1>Your Name</h1>
+                <!-- Dynamic subtitle managed by CSS -->
+                <h2 class="subtitle-industry">Senior Software Engineer</h2>
+                <h2 class="subtitle-academic">Ph.D. Candidate & Researcher</h2>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact & Links</h3>
+                <p>📧 <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p class="only-industry">🌐 <a href="https://yourportfolio.com" target="_blank">Portfolio Website</a></p>
+                <p class="only-academic">🎓 <a href="https://google.com" target="_blank">Google Scholar</a></p>
+                <p>💼 <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a></p>
+                <p>💻 <a href="https://github.com" target="_blank">GitHub Profile</a></p>
+            </div>
+        </header>
 
-    <div class="cv-container">
+        <!-- Main Interactive Content -->
+        <main class="cv-main">
+            <!-- Dynamic Navigation Tabs based on current view -->
+            <nav class="tab-navigation">
+                <button class="tab-btn active" onclick="openTab(event, 'summary-tab')">Overview</button>
+                <button class="tab-btn only-industry" onclick="openTab(event, 'skills-tab')">Technical Skillset</button>
+                <button class="tab-btn" onclick="openTab(event, 'experience-tab')">Experience</button>
+                <button class="tab-btn only-academic" onclick="openTab(event, 'research-tab')">Publications & Research</button>
+            </nav>
+
+            <!-- Tab: Overview -->
+            <section id="summary-tab" class="tab-content active">
+                <div class="only-industry">
+                    <h3>Professional Summary</h3>
+                    <p>Dynamic software engineer with 5+ years of building scalable web platforms and optimizing cloud architecture. Proven track record of translating complex product requirements into clean production code.</p>
+                </div>
+                <div class="only-academic">
+                    <h3>Research Statement</h3>
+                    <p>Investigating decentralized computing paradigms and distributed ledger security frameworks. Dedicated educator with 3 semesters of teaching assistant experience in advanced algorithms.</p>
+                </div>
+            </section>
+
+            <!-- Tab: Technical Skillset (Industry Focus) -->
+            <section id="skills-tab" class="tab-content only-industry">
+                <h3>Core Technologies & Frameworks</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <p>JavaScript (ES6+), TypeScript, Python, Java</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Frontend & Backend</h4>
+                        <p>React, Node.js, Next.js, Express, RESTful APIs</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Experience (Hybrid Content) -->
+            <section id="experience-tab" class="tab-content">
+                <h3>Professional Chronology</h3>
+                
+                <!-- Shown in BOTH views but description shifts focus -->
+                <div class="timeline-item">
+                    <h4>Senior Developer / Research Fellow — Tech Institute</h4>
+                    <span class="date">2024 - Present</span>
+                    <p class="only-industry">Led agile sprints to implement frontend features, improving website load speeds by 35%.</p>
+                    <p class="only-academic">Spearheaded data collection methodology for the department's high-performance cluster computing grant.</p>
+                </div>
+
+                <!-- Academic view only item -->
+                <div class="timeline-item only-academic">
+                    <h4>Graduate Teaching Assistant — University Dept</h4>
+                    <span class="date">2022 - 2024</span>
+                    <p>Instructed bi-weekly recitations for over 120 undergraduate students in Computer Science Foundations.</p>
+                </div>
+            </section>
+
+            <!-- Tab: Publications (Academic Focus) -->
+            <section id="research-tab" class="tab-content only-academic">
+                <h3>Peer-Reviewed Publications</h3>
+                <div class="publication-item">
+                    <h4>"Optimized Network Routing via Localized Consensus Filters"</h4>
+                    <p class="journal">International Journal of Computer Science, 2025</p>
+                    <a href="#" class="ref-link">DOI Reference Link →</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+    
+<div class="cv-container">
         <!-- Sidebar / Header Info -->
         <header class="cv-sidebar">
          <div class="profile-zone">
          <h1>Mr. G v Chiranjeevi adari</h1>
          <h2>Electrical Engineer/Software Developer/ Academician</h2>
-    </div>
+</div>
             
-            <div class="contact-info">
+ <div class="contact-info">
                 <h3>mobile 9949163002</h3>
                 <p>📧 <a href="mailto:chiranjeevi210@gmail.com">Contact E-Mail</a></p>
                 <p>🌐 <a href="https://gvchiranjeeviadari.online" target="_blank">Portfolio Website</a></p>
                 <!-- HTML Anchor Tag with an ID -->
-<a id="linkedin-link" href="#">Visit LinkedIn Profile</a>
-
-<script>
+                <a id="linkedin-link" href="#">Visit LinkedIn Profile</a>
+    <script>
     // Your raw Gurmukhi URL
     const rawUrl = "https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/";
     
     // Convert and apply it to the link
     document.getElementById("linkedin-link").href = encodeURI(rawUrl);
-</script>
+    </script>
             <p>💻 <a href="https://github.com/chiranjeeviagv" target="_blank">GitHub Profile</a></p>
             </div>
         </header>
