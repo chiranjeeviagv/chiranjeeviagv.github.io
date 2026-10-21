@@ -48,6 +48,7 @@
                 <button class="tab-btn" onclick="openTab(event, 'credentials-tab')">Certifications & Skills</button>
                 <button class="tab-btn" onclick="openTab(event, 'experience-tab')">Experience & Milestones</button>
                 <button class="tab-btn only-academic" onclick="openTab(event, 'research-tab')">Publications & Patents</button>
+                <button class="tab-btn" onclick="openTab(event, 'contact-tab')">Contact Me</button>
             </nav>
 
             <!-- Tab: Overview -->
@@ -72,7 +73,7 @@
                 </div>
                 <div class="timeline-item">
                     <h4>B.Tech. (Electrical & Electronics Engineering) — 71.63% (Distinction)</h4>
-                    <span class="date">Chaitanya Engineering College / JNTU — Graduated 2007</span>
+                    <span class="date">Chaitanya Engineering College — Graduated 2007</span>
                 </div>
 
                 <div class="video-container">
@@ -115,26 +116,7 @@
                         <p>10-course credential focusing on Generative AI, Python data science, and Flask app ecosystems.</p>
                         <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
                     </div>
-                    <div class="cert-card">
-                        <h4>IBM Java Developer</h4>
-                        <p>14-course series containing OOP paradigms, Spring Framework, database systems, and design patterns.</p>
-                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
-                    </div>
-                    <div class="cert-card">
-                        <h4>Google Cybersecurity Professional</h4>
-                        <p>9-course sequence addressing network safeguards, Linux infrastructure, SQL, and detection engineering.</p>
-                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
-                    </div>
                 </div>
-
-                <h3 style="margin-top:20px;">Advanced NPTEL Academic Certifications</h3>
-                <ul class="nptel-list">
-                    <li>Advanced Computer Architecture (April 2026)</li>
-                    <li>Advanced Computer Networks (April 2025)</li>
-                    <li>Practical Cybersecurity for Practitioners (2024)</li>
-                    <li>Cloud Computing & Big Data Frameworks (2023 - 2024)</li>
-                    <li>Introduction to Smart Grid Networks (2022)</li>
-                </ul>
             </section>
 
             <!-- Tab: Experience -->
@@ -144,27 +126,47 @@
                 <div class="timeline-item">
                     <h4>Assistant Professor — Sandip Foundation's SITRC, Nashik</h4>
                     <span class="date">2025 - 2026 (Deputed to AI-ML Department)</span>
-                    <p class="only-industry">Built interactive data architectures and applied Python modeling within the division.</p>
-                    <p class="only-academic">Instructed core Artificial Intelligence Techniques, Expert Systems, and AI Web Design models.</p>
+                    <button class="modal-trigger-btn only-academic" onclick="openModal('sitrc-modal')">📚 View Courses Handled</button>
                 </div>
 
                 <div class="timeline-item">
                     <h4>Assistant Professor — Guru Nanak Institute of Technology, Hyderabad</h4>
                     <span class="date">2023 - 2025</span>
-                    <p class="only-academic">Managed accreditation file structures alongside coordinating central exam branch logic.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Assistant Professor — Malla Reddy Engineering College for Women, Secunderabad</h4>
-                    <span class="date">2022 - 2023</span>
-                    <p class="only-academic">Ratified by JNTUH in October 2022.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>Sr. Assistant Professor — Aditya College of Engineering, Surampalem</h4>
-                    <span class="date">2019 - 2021</span>
+                    <button class="modal-trigger-btn only-academic" onclick="openModal('gnit-modal')">📚 View Courses Handled</button>
                 </div>
 
                 <div class="timeline-item">
                     <h4>Assistant Professor — Vignan’s Institute of Information Technology, Visakhapatnam</h4>
                     <span class="date">2015 - 2019</span>
+                    <p>Recipient of the prestigious **Pratibha Award** for academic excellence.</p>
+                </div>
+            </section>
+
+            <!-- Tab: Publications & Patents -->
+            <section id="research-tab" class="tab-content only-academic">
+                <h3>Intellectual Property & Patents</h3>
+                <div class="cert-card">
+                    <h4>Smart Medical Diagnosis System using IoT-Driven Machine Learning & Big Data Analytics</h4>
+                    <p>Bio-medical Engineering Domain — Publication No: 11/2024(INA)</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Power Quality Analysis Using IoT Architecture</h4>
+                    <p>Application Number: 202441060301 — August 2024</p>
+                </div>
+            </section>
+
+            <!-- Tab: Contact Form -->
+            <section id="contact-tab" class="tab-content">
+                <h3>📩 Get In Touch</h3>
+                <p style="margin-bottom: 20px; font-size: 0.95rem; color: #475569;">Have an industry opportunity or research collaboration in mind? Drop a message directly to my inbox.</p>
+                <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="user-name">Your Name</label>
+                        <input type="text" id="user-name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-subject">Subject</label>
+                        <input type="text" id="user-subject" required placeholder="Project Collaboration Request">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-message">Message Details</label>
