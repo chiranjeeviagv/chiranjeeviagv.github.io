@@ -110,35 +110,50 @@
                 <!-- JavaScript automatically renders chosen history profiles here -->
             </div>
         </section>
-        <!-- Coursework Category Filtering -->
-        <section class="cv-section">
-            <h2>Handled Courses & Domain Filtering</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Specialties</button>
-                <button class="filter-btn" data-filter="ai-ml">AI & Computation</button>
-                <button class="filter-btn" data-filter="eee-core">Core Electrical Engineering</button>
-                <button class="filter-btn" data-filter="systems">Systems & Protection</button>
-            </div>
-            
-            <ul class="skills-list" id="coursesContainer">
-                <li data-cat="ai-ml">Artificial Intelligence Techniques</li>
-                <li data-cat="ai-ml">AI Based Web Design</li>
-                <li data-cat="ai-ml">Advanced Python Programming</li>
-                <li data-cat="ai-ml">Introduction to Expert Systems</li>
-                <li data-cat="ai-ml">Discrete Mathematics and Logic</li>
-                <li data-cat="eee-core">Electro Magnetic Fields</li>
-                <li data-cat="eee-core">Microprocessors and Microcontrollers</li>
-                <li data-cat="eee-core">Digital Logic Design</li>
-                <li data-cat="eee-core">Electrical Technology</li>
-                <li data-cat="eee-core">Basic Electrical and Electronics Engineering</li>
-                <li data-cat="systems">Non-Conventional Sources of Energy</li>
-                <li data-cat="systems">High Voltage Engineering</li>
-                <li data-cat="systems">Digital Controllers</li>
-                <li data-cat="systems">Control Systems</li>
-                <li data-cat="systems">Power System Protection</li>
-                <li data-cat="systems">Power System Analysis</li>
-            </ul>
-        </section>
+       <!-- Handled Courses & Domain Filtering Section -->
+<section class="cv-section">
+    <h2>Handled Courses & Domain Filtering</h2>
+    <p class="instruction-text">Select an academic specialty below to view handled courses:</p>
+    
+    <!-- Filter Navigation Controls -->
+    <div class="course-filter-buttons">
+        <button class="course-filter-btn" data-course-filter="all">All Specialties</button>
+        <button class="course-filter-btn" data-course-filter="ai">AI & Computation</button>
+        <button class="course-filter-btn" data-course-filter="electrical">Core Electrical Engineering</button>
+        <button class="course-filter-btn" data-course-filter="protection">Systems & Protection</button>
+    </div>
+    
+    <!-- Dynamic Helper Notice Container -->
+    <div id="course-placeholder-notice" style="padding: 20px; text-align: center; border: 1px dashed #3498db; border-radius: 6px; margin: 15px 0; background-color: rgba(52, 152, 219, 0.05); color: #2980b9; transition: all 0.3s ease;">
+        🔍 <strong>Please select an academic specialty button above</strong> to reveal courses handled.
+    </div>
+    
+    <!-- Filterable Course List Grid -->
+    <ul class="course-list-container" id="coursesContainer">
+        <!-- AI & Computation Specialty -->
+        <li class="course-card-item" data-ccat="ai">Artificial Intelligence Techniques</li>
+        <li class="course-card-item" data-ccat="ai">AI Based Web Design</li>
+        <li class="course-card-item" data-ccat="ai">Advanced Python Programming</li>
+        <li class="course-card-item" data-ccat="ai">Introduction to Expert Systems</li>
+        <li class="course-card-item" data-ccat="ai">Discrete Mathematics and Logic</li>
+        
+        <!-- Core Electrical Engineering Specialty -->
+        <li class="course-card-item" data-ccat="electrical">Electro Magnetic Fields</li>
+        <li class="course-card-item" data-ccat="electrical">Electrical Technology</li>
+        <li class="course-card-item" data-ccat="electrical">Basic Electrical and Electronics Engineering</li>
+        <li class="course-card-item" data-ccat="electrical">High Voltage Engineering</li>
+        
+        <!-- Systems & Protection Specialty -->
+        <li class="course-card-item" data-ccat="protection">Microprocessors and Microcontrollers</li>
+        <li class="course-card-item" data-ccat="protection">Digital Logic Design</li>
+        <li class="course-card-item" data-ccat="protection">Non-Conventional Sources of Energy</li>
+        <li class="course-card-item" data-ccat="protection">Digital Controllers</li>
+        <li class="course-card-item" data-ccat="protection">Control Systems</li>
+        <li class="course-card-item" data-ccat="protection">Power System Protection</li>
+        <li class="course-card-item" data-ccat="protection">Power System Analysis</li>
+    </ul>
+</section>
+
 
         <!-- Publications & Patents -->
         <section class="cv-section">
