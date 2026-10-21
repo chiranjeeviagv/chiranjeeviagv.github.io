@@ -377,7 +377,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
     const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
 
+    // Run our filter mechanism only if the nodes exist on the webpage layout
     if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
+        
+        // --------------------------------------------------------
+        // 🛠️ FIX: RUN INITIAL FILTER PASS ON WEBPAGE LOAD
+        // This ensures the page immediately respects whichever button has the "active" class
+        // --------------------------------------------------------
+        const initialActiveBtn = document.querySelector('.upgrade-filter-btn.active');
+        const defaultFilter = initialActiveBtn ? initialActiveBtn.getAttribute('data-upgrade-filter') : 'all';
+        
+        upgradationItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-ucat');
+            if (defaultFilter === 'all' || itemCategory === defaultFilter) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        // --------------------------------------------------------
+
         upgradeFilters.forEach(btn => {
             btn.addEventListener('click', () => {
                 // 1. Clear active visual highlights from all filter buttons
