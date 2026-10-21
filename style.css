@@ -1,3 +1,11 @@
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+body.dark-theme a {
+  color: #3498db;
+}
+
 :root {
     --bg-primary: #f4f6f9;
     --bg-card: #ffffff;
