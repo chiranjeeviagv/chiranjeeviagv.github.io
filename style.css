@@ -723,3 +723,16 @@ h2 {
 .modal-content {
   background: #fff; padding: 25px; border-radius: 8px; max-width: 500px; width: 90%;
 }
+
+#upgradeActivitiesContainer li {
+    display: flex;
+    align-items: flex-start; /* Keeps multi-line descriptions aligned with bullet points */
+    gap: 10px;               /* Adds breathing room between the bullet/icon and your text */
+    margin-bottom: 12px;
+}
+.upgrade-filter-btn.active {
+    background-color: #0056b3 !important; /* Your signature blue layout hex */
+    color: #ffffff !important;
+    border-color: #0056b3 !important;
+}
+
