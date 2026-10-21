@@ -14,10 +14,20 @@ function switchView(viewType) {
         industryBtn.classList.remove("active");
     }
 
-    // Auto reset to the first tab ('Overview') to prevent an orphaned hidden tab layout
-    const firstTabBtn = document.querySelector(".tab-navigation .tab-btn");
-    if (firstTabBtn) {
-        firstTabBtn.click();
+    // Smart Tab Reset: Check if the currently active tab is hidden in the new view
+    const currentActiveTabButton = document.querySelector(".tab-navigation .tab-btn.active");
+    
+    if (currentActiveTabButton) {
+        const isHiddenInIndustry = viewType === 'industry' && currentActiveTabButton.classList.contains('only-academic');
+        const isHiddenInAcademic = viewType === 'academic' && currentActiveTabButton.classList.contains('only-industry');
+        
+        // If the current tab became hidden, click the first visible tab (Overview)
+        if (isHiddenInIndustry || isHiddenInAcademic) {
+            const firstTabBtn = document.querySelector(".tab-navigation .tab-btn");
+            if (firstTabBtn) {
+                firstTabBtn.click();
+            }
+        }
     }
 }
 
@@ -33,6 +43,13 @@ function openTab(event, tabId) {
         tabButtons[i].classList.remove("active");
     }
 
-    document.getElementById(tabId).classList.add("active");
-    event.currentTarget.classList.add("active");
+    // Safety check to ensure the target element exists before adding class
+    const targetTab = document.getElementById(tabId);
+    if (targetTab) {
+        targetTab.classList.add("active");
+    }
+    
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add("active");
+    }
 }
