@@ -1,81 +1,34 @@
-// Theme Toggle Engine
+// ============================================================================
+// 🌓 MODULE 1: GLOBAL THEME TOGGLE ENGINE
+// ============================================================================
 const themeBtn = document.querySelector('.theme-toggle-btn') || document.getElementById('theme-toggle');
 
 if (themeBtn) {
   themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
-    // Save the choice in local storage
     const isDark = document.body.classList.contains('dark-theme');
     localStorage.setItem('cv-theme', isDark ? 'dark' : 'light');
   });
 }
 
-// Check and apply saved theme layout on startup
 if (localStorage.getItem('cv-theme') === 'dark') {
   document.body.classList.add('dark-theme');
 }
-// Course Domain Selection Filter
-const filterBtns = document.querySelectorAll('.filter-btn');
-const courses = document.querySelectorAll('.courses-list li');
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Remove active styles from other buttons
-    document.querySelector('.filter-btn.active')?.classList.remove('active');
-    btn.classList.add('active');
-    
-    const choice = btn.getAttribute('data-domain');
-    
-    courses.forEach(course => {
-      const category = course.getAttribute('data-category');
-      if (choice === 'all' || category === choice) {
-        course.style.display = 'list-item';
-      } else {
-        course.style.display = 'none';
-      }
-    });
-  });
-});
-// Object Dataset holding your certification details
-const certificationData = {
-  'ibm-fullstack': {
-    title: 'IBM Full Stack Developer Certificate',
-    desc: 'Advanced software development lifecycle tracking, cloud-native building, and JavaScript backend deployment paradigms.',
-    link: 'https://coursera.org'
-  },
-  'microsoft-ai': {
-    title: 'Microsoft AI & ML Engineering',
-    desc: 'Covering model architecture training, cloud intelligence models, and cognitive compute tooling systems.',
-    link: 'https://microsoft.com'
-  }
-};
-
-// Event Handler to inject content dynamically 
-function loadCredential(certId) {
-  const panel = document.getElementById('credential-display-panel');
-  const data = certificationData[certId];
-  
-  if (panel && data) {
-    document.getElementById('display-title').textContent = data.title;
-    document.getElementById('display-details').textContent = data.desc;
-    document.getElementById('display-link').href = data.link;
-    
-    panel.style.display = 'block'; // Make container visible
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-}
-
-// Hooking it up to a button event handler example
-// <button onclick="loadCredential('ibm-fullstack')">IBM Full Stack Developer</button>
-
+// ============================================================================
+// 🚀 MAIN PORTFOLIO ENGINE (DOM LOADED SETUP)
+// ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme Toggle Logic
+    
+    // --- 1. THEME TOGGLE EXTENSION ---
     const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    }
 
-    // Certification Data Map
+    // --- 2. DYNAMIC CERTIFICATIONS DIRECTORY MAP ---
     const certificationData = {
         'ibm-js': {
             title: "IBM Full Stack JavaScript Developer (12-Course Series)",
@@ -119,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderTabContent(key) {
         const data = certificationData[key];
-        if (!data) return;
+        if (!data || !displayContainer) return;
         displayContainer.innerHTML = `
             <h3>${data.title}</h3>
             <p style="margin-bottom: 12px; font-size:0.95rem;">${data.desc}</p>
@@ -127,8 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    // Render first tab automatically on load
-    renderTabContent('ibm-js');
+    if (displayContainer) {
+        renderTabContent('ibm-js');
+    }
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -138,25 +92,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Filter Buttons Logic
+    // --- 3. CORRECTED COURSE FILTRATION MODULE ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const courseItems = document.querySelectorAll('#coursesContainer li');
+    const courseNotice = document.getElementById('course-placeholder-notice');
 
+    // ⚡ FIX: IMMEDIATELY FORCE HIDE ALL COURSES UPON INITIAL LANDING
+    if (courseItems.length > 0) {
+        courseItems.forEach(item => {
+            item.style.display = 'none';
+        });
+    }
+
+    // ⚡ FIX: ENSURE NO BUTTONS ARE PRE-HIGHLIGHTED WHILE THE LIST IS BLANK
+    filterButtons.forEach(b => b.classList.remove('active'));
+
+    // Setup interactive toggle event handlers
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
+            
+            // Hide the informational guide notice banner immediately on click
+            if (courseNotice) {
+                courseNotice.style.display = 'none';
+            }
+
+            // Sync active visual display highlights across controls
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
             const activeFilter = btn.dataset.filter;
 
             courseItems.forEach(item => {
                 if (activeFilter === 'all' || item.dataset.cat === activeFilter) {
-                    item.style.display = 'block';
+                    item.style.display = 'list-item'; // Displays clean list items
                 } else {
                     item.style.display = 'none';
                 }
             });
         });
     });
+});
+
        // ==========================================
     // INTERACTIVE EDUCATION DASHBOARD LOGIC
     // ==========================================
