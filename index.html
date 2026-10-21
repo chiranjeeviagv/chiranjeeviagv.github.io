@@ -3,165 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V Chiranjeevi Adari | Interactive Dashboard</title>
+    <title>G V Chiranjeevi Adari - Interactive CV</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-<body class="dark-mode">
+<body class="light-theme">
 
-    <div class="dashboard-container">
-        
-        <!-- SIDEBAR PROFILE PANEL -->
-        <aside class="sidebar">
-            <div class="sidebar-sticky-content">
-                <div class="profile-header">
-                    <div class="avatar-placeholder">
-                        <i class="fas fa-user-gear"></i>
-                    </div>
-                    <h2>G V Chiranjeevi Adari</h2>
-                    <p class="title-tag">Electrical Engineer &amp; Software Professional</p>
-                </div>
-
-                <nav class="sidebar-nav">
-                    <a href="#overview" class="nav-item active"><i class="fas fa-chart-pie"></i> Overview</a>
-                    <a href="#education" class="nav-item"><i class="fas fa-graduation-cap"></i> Education</a>
-                    <a href="#certifications" class="nav-item"><i class="fas fa-certificate"></i> Credentials</a>
-                    <a href="#skills" class="nav-item"><i class="fas fa-laptop-code"></i> Skills &amp; Courses</a>
-                    <a href="#publications" class="nav-item"><i class="fas fa-book-bookmark"></i> Research &amp; IP</a>
-                    <a href="#experience" class="nav-item"><i class="fas fa-network-wired"></i> Experience</a>
-                </nav>
-
-                <div class="sidebar-footer">
-                    <button id="theme-toggle" class="control-action-btn">
-                        <i class="fas fa-sun"></i> Toggle Mode
-                    </button>
-                </div>
+    <!-- Top Sticky Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="profile-title-block">
+                <h1>G V Chiranjeevi Adari</h1>
+                <p class="sub-role">Electrical Engineer &amp; Software Professional</p>
             </div>
-        </aside>
+            <div class="theme-control-box">
+                <button id="theme-toggle" class="btn-theme"><i class="fas fa-circle-half-stroke"></i> Toggle Theme</button>
+            </div>
+        </div>
+        <div class="header-contact-strip">
+            <span><i class="fas fa-house"></i> 4-243/1/4, BC Colony, Vepagunta, Visakhapatnam - 530047, AP, India</span>
+            <span><i class="fas fa-mobile-screen"></i> +91 9949163002 | +91 9642693002</span>
+            <span><i class="fas fa-envelope"></i> chiranjeevi210@gmail.com</span>
+        </div>
+    </header>
 
-        <!-- MAIN SCROLLABLE CONTENT DISPLAY -->
-        <main class="main-panel">
-            
-            <!-- OVERVIEW PROFILE SECTION -->
-            <section id="overview" class="content-block">
-                <div class="glass-banner">
-                    <h3>Career Objective</h3>
-                    <p>"An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed."</p>
-                </div>
+    <main class="cv-wrapper">
+        
+        <!-- Career Objective -->
+        <section class="cv-section">
+            <h2>Career Objective</h2>
+            <div class="cardobjective">
+                <p>An Electrical Engineer and Software professional, forever a student, dreaming for career in a nice environment which is technically and ethically developed.</p>
+            </div>
+        </section>
 
-                <div class="quick-stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-num">9+</span>
-                        <span class="stat-lbl">Years Teaching Experience</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-num">02</span>
-                        <span class="stat-lbl">Patents Published</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-num">07+</span>
-                        <span class="stat-lbl">IEEE &amp; Refereed Papers</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-num">50+</span>
-                        <span class="stat-lbl">Global Certifications</span>
-                    </div>
-                </div>
+        <!-- Education Summary -->
+        <section class="cv-section">
+            <h2>Education Summary</h2>
+            <p class="instruction-text">Select an academic qualification milestone below to view certification details:</p>
+            <div class="button-row">
+                <button class="btn-interactive active" onclick="showEducation('mtech', this)">M.Tech (HVE) Graduated 2012</button>
+                <button class="btn-interactive" onclick="showEducation('btech', this)">B.Tech (EEE) Graduated 2007</button>
+                <button class="btn-interactive" onclick="showEducation('inter', this)">Intermediate (MPC) Completed 2003</button>
+                <button class="btn-interactive" onclick="showEducation('ssc', this)">Secondary (SSC) Completed 2001</button>
+            </div>
+            <div id="education-display-box" class="dynamic-display-card">
+                <h4>M.Tech (High Voltage Engineering)</h4>
+                <p class="inst-lbl">JNTU, Kakinada (2012)</p>
+                <span class="status-badge-pill">Passed with Distinction — 72%</span>
+            </div>
+        </section>
 
-                <div class="info-card-row">
-                    <div class="info-sub-card">
-                        <h4><i class="fas fa-address-book"></i> Communication Directives</h4>
-                        <ul>
-                            <li><i class="fas fa-envelope"></i> chiranjeevi210@gmail.com</li>
-                            <li><i class="fas fa-phone"></i> +91 9949163002</li>
-                            <li><i class="fas fa-location-dot"></i> Visakhapatnam, AP, India</li>
-                        </ul>
-                    </div>
-                    <div class="info-sub-card">
-                        <h4><i class="fas fa-fingerprint"></i> Metadata Registry</h4>
-                        <ul>
-                            <li><strong>ORCID:</strong> 0000-0002-7895-407X</li>
-                            <li><strong>Scopus ID:</strong> 58316331900</li>
-                            <li><strong>GATE Track:</strong> Qualified (EE - 2014)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <!-- Interactive Certifications Directory -->
+        <section class="cv-section">
+            <h2>Interactive Certifications Directory</h2>
+            <p class="instruction-text">Click any badge button below to dynamically load the credentials and verification hyperlink:</p>
+            <div class="button-row flex-wrap">
+                <button class="btn-badge active" onclick="showCertification('ibm-fs', this)">IBM Full Stack Developer</button>
+                <button class="btn-badge" onclick="showCertification('ms-ai', this)">Microsoft AI &amp; ML Engineering</button>
+                <button class="btn-badge" onclick="showCertification('ibm-ai', this)">IBM AI Developer</button>
+                <button class="btn-badge" onclick="showCertification('ibm-java', this)">IBM Java Developer</button>
+                <button class="btn-badge" onclick="showCertification('ibm-js-back', this)">IBM Backend Javascript Developer</button>
+                <button class="btn-badge" onclick="showCertification('google-cyber', this)">Google Cybersecurity</button>
+                <button class="btn-badge" onclick="showCertification('nptel-cred', this)">NPTEL Credentials</button>
+            </div>
+            <div id="certification-display-box" class="dynamic-display-card">
+                <h4>IBM Full Stack Javascript Developer Professional Certification</h4>
+                <p class="meta-date-stamp"><i class="fas fa-calendar-alt"></i> Issued September 2026 (12-course series)</p>
+                <ul class="syllabus-points-list">
+                    <li>Introduction to Software Engineering</li>
+                    <li>Introduction to HTML, CSS, &amp; JavaScript</li>
+                    <li>Getting Started with Git and GitHub</li>
+                    <li>JavaScript Programming Essentials</li>
+                    <li>Developing Front-End Apps with React</li>
+                    <li>Developing Back-End Apps with Node.js and Express</li>
+                    <li>Get Started with Cloud Native, DevOps, Agile, and NoSQL</li>
+                    <li>Introduction to Containers w/ Docker, Kubernetes &amp; OpenShift</li>
+                    <li>Application Development using Microservices and Serverless</li>
+                    <li>Node.js &amp; MongoDB: Developing Back-end Database Applications</li>
+                    <li>JavaScript Full Stack Capstone Project</li>
+                    <li>Software Developer Career Guide and Interview Preparation</li>
+                </ul>
+                <a id="cert-verify-anchor" href="https://coursera.org" target="_blank" class="link-verify">Verify Credential Link <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </section>
 
-            <!-- EDUCATION TIMELINE BLOCK -->
-            <section id="education" class="content-block">
-                <h3 class="panel-heading"><i class="fas fa-graduation-cap"></i> Academic Timeline</h3>
-                <div class="vertical-track">
-                    <div class="track-node">
-                        <div class="node-meta">2012</div>
-                        <div class="node-body">
-                            <h4>M.Tech — High Voltage Engineering</h4>
-                            <p class="inst">JNTU Kakinada</p>
-                            <span class="score-pill">Distinction &bull; 72%</span>
-                        </div>
-                    </div>
-                    <div class="track-node">
-                        <div class="node-meta">2007</div>
-                        <div class="node-body">
-                            <h4>B.Tech — Electrical &amp; Electronics Engineering</h4>
-                            <p class="inst">Chaitanya Engg. College, Visakhapatnam</p>
-                            <span class="score-pill">Distinction &bull; 71.63%</span>
-                        </div>
-                    </div>
-                    <div class="track-node">
-                        <div class="node-meta">2003</div>
-                        <div class="node-body">
-                            <h4>Intermediate &bull; MPC Spectrum</h4>
-                            <p class="inst">Gayatri Junior College, Vizianagaram</p>
-                            <span class="score-pill">First Class Status</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <!-- Teaching & Academic Experience -->
+        <section class="cv-section">
+            <h2>Teaching &amp; Academic Experience</h2>
+            <p class="instruction-text">Select an institution or a time window below to view role details:</p>
+            <div class="button-row flex-wrap">
+                <button class="btn-interactive active" onclick="showExperience('viit', this)">Vignan's VIIT 2015 - 2029</button>
+                <button class="btn-interactive" onclick="showExperience('sitrc', this)">Sandip SITRC 2025 - 2026</button>
+                <button class="btn-interactive" onclick="showExperience('gnit', this)">Guru Nanak GNIT 2023 - 2025</button>
+                <button class="btn-interactive" onclick="showExperience('mrecw', this)">Malla Reddy MRECW 2022 - 2023</button>
+                <button class="btn-interactive" onclick="showExperience('aditya', this)">Aditya College 2019 - 2021</button>
+            </div>
+            <div id="experience-display-box" class="dynamic-display-card">
+                <h4>Assistant Professor — EEE Department</h4>
+                <h5>Vignan’s Institute of Information Technology(A), Visakhapatnam</h5>
+                <p class="date-range-sub"><i class="fas fa-clock"></i> Timeline: 13-03-2015 to 04-11-2029</p>
+            </div>
+        </section>
 
-            <!-- CREDENTIAL DIRECTORY GRID -->
-            <section id="certifications" class="content-block">
-                <h3 class="panel-heading"><i class="fas fa-certificate"></i> Specialized Micro-Credentials</h3>
-                <div class="badge-tab-container">
-                    <button class="badge-pill active" onclick="showCert('ibm-js')">IBM Full-Stack</button>
-                    <button class="badge-pill" onclick="showCert('ms-ai')">Microsoft AI/ML</button>
-                    <button class="badge-pill" onclick="showCert('google-sec')">Google Cyber</button>
-                </div>
+        <!-- Handled Courses & Domain Filtering -->
+        <section class="cv-section">
+            <h2>Handled Courses &amp; Domain Filtering</h2>
+            <p class="instruction-text">Select an academic specialty below to view handled courses:</p>
+            <div class="button-row">
+                <button class="btn-tab active" onclick="filterCourses('all', this)">All Specialties</button>
+                <button class="btn-tab" onclick="filterCourses('ai', this)">AI &amp; Computation</button>
+                <button class="btn-tab" onclick="filterCourses('ee', this)">Core Electrical Engineering</button>
+                <button class="btn-tab" onclick="filterCourses('sys', this)">Systems &amp; Protection</button>
+            </div>
+            <div class="filtered-items-grid" id="courses-grid-container">
+                <div class="grid-item" data-specialty="ai">Artificial Intelligence Techniques</div>
+                <div class="grid-item" data-specialty="ai">AI Based Web Design</div>
+                <div class="grid-item" data-specialty="ai">Advanced Python Programming</div>
+                <div class="grid-item" data-specialty="ai">Introduction to Expert Systems</div>
+                <div class="grid-item" data-specialty="ai">Discrete Mathematics and Logic</div>
+                <div class="grid-item" data-specialty="ee">Electro Magnetic Fields</div>
+                <div class="grid-item" data-specialty="ee">Electrical Technology</div>
+                <div class="grid-item" data-specialty="ee">Basic Electrical and Electronics Engineering</div>
+                <div class="grid-item" data-specialty="ee">High Voltage Engineering</div>
+                <div class="grid-item" data-specialty="ee">Non-Conventional Sources of Energy</div>
+                <div class="grid-item" data-specialty="sys">Microprocessors and Microcontrollers</div>
+                <div class="grid-item" data-specialty="sys">Digital Logic Design</div>
+                <div class="grid-item" data-specialty="sys">Digital Controllers</div>
+                <div class="grid-item" data-specialty="sys">Control Systems</div>
+                <div class="grid-item" data-specialty="sys">Power system protection</div>
+                <div class="grid-item" data-specialty="sys">Power System analysis</div>
+            </div>
+        </section>
 
-                <div class="cert-display-box" id="cert-viewer">
-                    <!-- Controlled by Javascript logic dynamically -->
-                    <div class="dynamic-cert-content">
-                        <h4>IBM Full Stack JavaScript Developer Professional Certification</h4>
-                        <p class="cert-timeline-stamp"><i class="fas fa-calendar-days"></i> Completed September 2026 &bull; 12-Course Core Engine Array</p>
-                        <ul class="nested-syllabus">
-                            <li>Introduction to Software Engineering &amp; Architecture Matrix</li>
-                            <li>Applied UI Development via HTML5, CSS3, &amp; ES6 JavaScript</li>
-                            <li>Source Versioning Protocols with Git Ecosystem &amp; GitHub Storage</li>
-                            <li>Front-End Application Structuring using React Components</li>
-                            <li>Back-End Server Architecture using Node.js &amp; Express Frameworks</li>
-                        </ul>
-                        <a href="https://coursera.org" target="_blank" class="action-hyperlink-btn">Verify Credential Secure Link <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- HANDLED COURSES & DOMAIN INTERACTIVE FILTERING -->
-            <section id="skills" class="content-block">
-                <h3 class="panel-heading"><i class="fas fa-laptop-code"></i> Specialized Domain Maps</h3>
-                <div class="filter-cluster">
-                    <span class="filter-node active" onclick="arrangeGrid('all')">Show All Courses</span>
-                    <span class="filter-node" onclick="arrangeGrid('ai-comp')">AI &amp; Computational Engineering</span>
-                    <span class="filter-node" onclick="arrangeGrid('ee-core')">Core Electrical &amp; Grid Systems</span>
-                </div>
-
-                <div class="matrix-grid-box" id="skills-matrix">
-                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-brain icon-teal"></i> Artificial Intelligence Techniques</div>
-                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-code icon-teal"></i> AI Based Web Design</div>
-                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-terminal icon-teal"></i> Advanced Python Programming</div>
-                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-calculator icon-teal"></i> Discrete Mathematics and Logic</div>
-                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-bolt icon-orange"></i> High Voltage Engineering</div>
-                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-circle-nodes icon-orange"></i> Electro Magnetic Fields</div>
-                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-microchip"></i> Microprocessors and Microcontrollers</div>
-                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-sliders"></i> Control Systems Engineering</div>
-                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-shield-halved"></i> Power System Protection Matrix</div>
-                </div>
+        <!-- Embedded Literature & Intellectual Property -->
+        <section class="cv-section">
+            <h2>Embedded Literature &amp; Intellectual Property</h2>
+            <p class="instruction-text">Click the action controls below to evaluate formal filings and access document databases:</p>
+            <div class="button-row">
+                <button class="btn-control toggle-btn-active" onclick="toggleLiterature('patents', this)">📋 View Published Patents</button>
+                <button class="btn-control" onclick="toggleLiterature('papers', this)">📝 View Published Research Papers</button>
+                <button class="btn-control" onclick="toggleLiterature('profiles', this)">🔗 Academic Global Profiles</button>
