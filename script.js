@@ -496,78 +496,62 @@ document.getElementById('searchBar').addEventListener('input', (e) => {
   });
 });
 
-// Dynamic Filtering Engine for Academic Courses
-const filterButtons = document.querySelectorAll('.filter-btn');
-const courseItems = document.querySelectorAll('.course-item');
+// ============================================================
+// ACADEMIC COURSES FILTER ENGINE (EMPTY LOAD & TOGGLE)
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const courseFilters = document.querySelectorAll('.course-filter-btn');
+    const courseItems = document.querySelectorAll('#coursesContainer li');
+    const courseNotice = document.getElementById('course-placeholder-notice');
 
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Manage active visual state on buttons
-    document.querySelector('.filter-btn.active')?.classList.remove('active');
-    button.classList.add('active');
-    
-    const targetDomain = button.getAttribute('data-domain');
-    
-    // Evaluate display parameters per individual element node
-    courseItems.forEach(item => {
-      const itemCategory = item.getAttribute('data-category');
-      if (targetDomain === 'all' || itemCategory === targetDomain) {
-        item.style.display = 'block';
-        item.style.opacity = '1';
-      } else {
-        item.style.display = 'none';
-        item.style.opacity = '0';
-      }
-    });
-  });
-});
-// JavaScript Controller logic for Dynamic Overlay Modals
-function openCredentialModal(title, verificationLink, detailText) {
-  // Create modular overlay container dynamically
-  let overlay = document.querySelector('.modal-overlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.className = 'modal-overlay';
-    overlay.innerHTML = `
-      <div class="modal-content">
-        <h3 id="modal-title"></h3>
-        <p id="modal-desc"></p>
-        <a id="modal-verify" href="#" target="_blank" style="color:#3498db; font-weight:bold;">Verify Hyperlink 🔗</a>
-        <button id="modal-close" style="margin-top:15px; display:block;">Close View</button>
-      </div>`;
-    document.body.appendChild(overlay);
-    
-    overlay.querySelector('#modal-close').addEventListener('click', () => {
-      overlay.classList.remove('active');
-    });
-  }
+    if (courseFilters.length > 0 && courseItems.length > 0) {
+        
+        // 1. Initial State Initialization: Hide all courses instantly on startup
+        courseItems.forEach(item => {
+            item.style.display = 'none'; 
+        });
+        
+        // Remove active class from the "All Specialties" button on startup
+        courseFilters.forEach(f => f.classList.remove('active'));
 
-  // Inject situational record elements
-  overlay.querySelector('#modal-title').textContent = title;
-  overlay.querySelector('#modal-desc').textContent = detailText;
-  overlay.querySelector('#modal-verify').href = verificationLink;
-  
-  // Display target viewport element modal
-  overlay.classList.add('active');
-}
-document.addEventListener("DOMContentLoaded", () => {
-    const filterButtons = document.querySelectorAll(".upgrade-filter-btn");
-    const upgradeItems = document.querySelectorAll(".upgrade-item");
+        // 2. Setup Click Event Handlers
+        courseFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                
+                // Remove the initial info banner smoothly on click
+                if (courseNotice && courseNotice.style.display !== 'none') {
+                    courseNotice.style.opacity = '0';
+                    setTimeout(() => {
+                        courseNotice.style.display = 'none';
+                    }, 250);
+                }
 
-    filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            document.querySelector(".upgrade-filter-btn.active")?.classList.remove("active");
-            button.classList.add("active");
-            const activeFilter = button.getAttribute("data-upgrade-filter");
+                // Manage active navigation highlights
+                courseFilters.forEach(f => f.classList.remove('active'));
+                btn.classList.add('active');
 
-            upgradeItems.forEach(item => {
-                const itemCategory = item.getAttribute("data-ucat");
-                item.style.display = (activeFilter === "all" || itemCategory === activeFilter) ? "list-item" : "none";
+                const selectedDomain = btn.getAttribute('data-course-filter');
+
+                // Evaluate data matrix matches
+                courseItems.forEach(item => {
+                    const itemDomain = item.getAttribute('data-ccat');
+                    
+                    if (selectedDomain === 'all' || itemDomain === selectedDomain) {
+                        // Restores grid-block layout visibility structure
+                        item.style.display = 'block'; 
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.transition = 'opacity 0.3s ease';
+                            item.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
-    });
+    }
 });
-
 
 // Example usage hook for an IBM badge button click
 // openCredentialModal('IBM Full Stack Developer', 'https://example.com', 'Completed formal training tracking backend systems.');
