@@ -3,169 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V Chiranjeevi Adari | Interactive Profile</title>
+    <title>G V Chiranjeevi Adari | Interactive Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for visual anchors -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-<body class="light-theme">
+<body class="dark-mode">
 
-    <!-- Sticky Navigation Panel -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <span class="nav-brand">GVCA.Dev</span>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#education">Education</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#experience">Experience</a>
-                <a href="#publications">Publications</a>
-                <a href="#skills">Skills</a>
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header Section -->
-    <header class="hero-section">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>G V Chiranjeevi Adari</h1>
-                <h3>Electrical Engineer &amp; Software Professional</h3>
-                <p class="objective"><i class="fas fa-quote-left"></i> An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed. <i class="fas fa-quote-right"></i></p>
-                <div class="contact-grid">
-                    <span><i class="fas fa-phone"></i> +91 9949163002</span>
-                    <span><i class="fas fa-envelope"></i> chiranjeevi210@gmail.com</span>
-                    <span><i class="fas fa-map-marker-alt"></i> Visakhapatnam, AP, India</span>
-                </div>
-                <div class="meta-badges">
-                    <a href="https://google.com" target="_blank" class="meta-link"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                    <span class="meta-badge"><strong>ORCID ID:</strong> 0000-0002-7895-407X</span>
-                    <span class="meta-badge"><strong>Scopus ID:</strong> 58316331900</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="main-content">
+    <div class="dashboard-container">
         
-        <!-- Milestones Banner -->
-        <section class="section-card milestones-strip">
-            <div class="grid-4">
-                <div class="milestone-item"><i class="fas fa-award icon-gold"></i> <h4>Pratibha Award</h4><p>Winner (2016-17) at VIIT</p></div>
-                <div class="milestone-item"><i class="fas fa-check-circle"></i> <h4>GATE Qualified</h4><p>Electrical Engineering (2014)</p></div>
-                <div class="milestone-item"><i class="fas fa-university"></i> <h4>JNTU Ratified</h4><p>JNTUH &amp; JNTUK Approved</p></div>
-                <div class="milestone-item"><i class="fas fa-user-graduate"></i> <h4>APRCET Qualified</h4><p>Doctoral Track Eligibility</p></div>
-            </div>
-        </section>
+        <!-- SIDEBAR PROFILE PANEL -->
+        <aside class="sidebar">
+            <div class="sidebar-sticky-content">
+                <div class="profile-header">
+                    <div class="avatar-placeholder">
+                        <i class="fas fa-user-gear"></i>
+                    </div>
+                    <h2>G V Chiranjeevi Adari</h2>
+                    <p class="title-tag">Electrical Engineer &amp; Software Professional</p>
+                </div>
 
-        <!-- Education Summary -->
-        <section id="education" class="section-card">
-            <h2 class="section-title"><i class="fas fa-user-graduate"></i> Educational Summary</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-badge">2012</div>
-                    <div class="timeline-panel">
-                        <h4>M.Tech (High Voltage Engineering)</h4>
-                        <p class="institution">JNTU Kakinada</p>
-                        <span class="grade-pill">Distinction - 72%</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-badge">2007</div>
-                    <div class="timeline-panel">
-                        <h4>B.Tech (Electrical &amp; Electronics Engineering)</h4>
-                        <p class="institution">Chaitanya Engineering College, Visakhapatnam</p>
-                        <span class="grade-pill">Distinction - 71.63%</span>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-badge">2003</div>
-                    <div class="timeline-panel">
-                        <h4>Intermediate (MPC)</h4>
-                        <p class="institution">Gayatri Junior College, Vizianagaram</p>
-                        <span class="grade-pill">First Class</span>
-                    </div>
+                <nav class="sidebar-nav">
+                    <a href="#overview" class="nav-item active"><i class="fas fa-chart-pie"></i> Overview</a>
+                    <a href="#education" class="nav-item"><i class="fas fa-graduation-cap"></i> Education</a>
+                    <a href="#certifications" class="nav-item"><i class="fas fa-certificate"></i> Credentials</a>
+                    <a href="#skills" class="nav-item"><i class="fas fa-laptop-code"></i> Skills &amp; Courses</a>
+                    <a href="#publications" class="nav-item"><i class="fas fa-book-bookmark"></i> Research &amp; IP</a>
+                    <a href="#experience" class="nav-item"><i class="fas fa-network-wired"></i> Experience</a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <button id="theme-toggle" class="control-action-btn">
+                        <i class="fas fa-sun"></i> Toggle Mode
+                    </button>
                 </div>
             </div>
-        </section>
+        </aside>
 
-        <!-- Interactive Certifications -->
-        <section id="certifications" class="section-card">
-            <h2 class="section-title"><i class="fas fa-certificate"></i> Technical Certifications Directory</h2>
-            <p class="subtitle-info">Click on any professional credential below to view its embedded syllabus and verification pathway.</p>
+        <!-- MAIN SCROLLABLE CONTENT DISPLAY -->
+        <main class="main-panel">
             
-            <div class="cert-grid">
-                <!-- Cert 1 -->
-                <div class="cert-box">
-                    <div class="cert-header" onclick="toggleAccordion('cert-fullstack')">
-                        <h4>IBM Full Stack JavaScript Developer</h4>
-                        <span class="cert-meta">Sept 2026 | 12 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
+            <!-- OVERVIEW PROFILE SECTION -->
+            <section id="overview" class="content-block">
+                <div class="glass-banner">
+                    <h3>Career Objective</h3>
+                    <p>"An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed."</p>
+                </div>
+
+                <div class="quick-stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-num">9+</span>
+                        <span class="stat-lbl">Years Teaching Experience</span>
                     </div>
-                    <div id="cert-fullstack" class="cert-content">
-                        <ul>
-                            <li>Introduction to Software Engineering</li>
-                            <li>Introduction to HTML, CSS, &amp; JavaScript</li>
-                            <li>Getting Started with Git and GitHub</li>
-                            <li>JavaScript Programming Essentials</li>
-                            <li>Developing Front-End Apps with React</li>
-                            <li>Developing Back-End Apps with Node.js and Express</li>
-                            <li>Get Started with Cloud Native, DevOps, Agile, and NoSQL</li>
-                            <li>Introduction to Containers w/ Docker, Kubernetes &amp; OpenShift</li>
-                            <li>Application Development using Microservices and Serverless</li>
-                            <li>Node.js &amp; MongoDB: Developing Database Apps</li>
-                            <li>JavaScript Full Stack Capstone Project</li>
-                        </ul>
-                        <a href="https://coursera.org" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify Credential</a>
+                    <div class="stat-card">
+                        <span class="stat-num">02</span>
+                        <span class="stat-lbl">Patents Published</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">07+</span>
+                        <span class="stat-lbl">IEEE &amp; Refereed Papers</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">50+</span>
+                        <span class="stat-lbl">Global Certifications</span>
                     </div>
                 </div>
 
-                <!-- Cert 2 -->
-                <div class="cert-box">
-                    <div class="cert-header" onclick="toggleAccordion('cert-aiml')">
-                        <h4>Microsoft AI and ML Engineering</h4>
-                        <span class="cert-meta">July 2026 | 5 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
-                    </div>
-                    <div id="cert-aiml" class="cert-content">
+                <div class="info-card-row">
+                    <div class="info-sub-card">
+                        <h4><i class="fas fa-address-book"></i> Communication Directives</h4>
                         <ul>
-                            <li>Foundations of AI and Machine Learning</li>
-                            <li>AI and Machine Learning Algorithms and Techniques</li>
-                            <li>Building Intelligent Troubleshooting Agents</li>
-                            <li>Microsoft Azure for AI and Machine Learning</li>
-                            <li>Advanced AI and Machine Learning Techniques &amp; Capstone</li>
+                            <li><i class="fas fa-envelope"></i> chiranjeevi210@gmail.com</li>
+                            <li><i class="fas fa-phone"></i> +91 9949163002</li>
+                            <li><i class="fas fa-location-dot"></i> Visakhapatnam, AP, India</li>
                         </ul>
-                        <a href="https://coursera.org" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify Credential</a>
+                    </div>
+                    <div class="info-sub-card">
+                        <h4><i class="fas fa-fingerprint"></i> Metadata Registry</h4>
+                        <ul>
+                            <li><strong>ORCID:</strong> 0000-0002-7895-407X</li>
+                            <li><strong>Scopus ID:</strong> 58316331900</li>
+                            <li><strong>GATE Track:</strong> Qualified (EE - 2014)</li>
+                        </ul>
                     </div>
                 </div>
+            </section>
 
-                <!-- Cert 3 -->
-                <div class="cert-box">
-                    <div class="cert-header" onclick="toggleAccordion('cert-aidev')">
-                        <h4>IBM AI Developer</h4>
-                        <span class="cert-meta">June 2026 | 10 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
+            <!-- EDUCATION TIMELINE BLOCK -->
+            <section id="education" class="content-block">
+                <h3 class="panel-heading"><i class="fas fa-graduation-cap"></i> Academic Timeline</h3>
+                <div class="vertical-track">
+                    <div class="track-node">
+                        <div class="node-meta">2012</div>
+                        <div class="node-body">
+                            <h4>M.Tech — High Voltage Engineering</h4>
+                            <p class="inst">JNTU Kakinada</p>
+                            <span class="score-pill">Distinction &bull; 72%</span>
+                        </div>
                     </div>
-                    <div id="cert-aidev" class="cert-content">
-                        <ul>
-                            <li>Introduction to Software Engineering &amp; AI</li>
-                            <li>Generative AI: Introduction and Applications</li>
-                            <li>Python for Data Science, AI &amp; Development</li>
-                            <li>Developing AI Applications with Python and Flask</li>
-                            <li>Building Generative AI-Powered Applications</li>
-                        </ul>
-                        <a href="https://coursera.org" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify Credential</a>
+                    <div class="track-node">
+                        <div class="node-meta">2007</div>
+                        <div class="node-body">
+                            <h4>B.Tech — Electrical &amp; Electronics Engineering</h4>
+                            <p class="inst">Chaitanya Engg. College, Visakhapatnam</p>
+                            <span class="score-pill">Distinction &bull; 71.63%</span>
+                        </div>
+                    </div>
+                    <div class="track-node">
+                        <div class="node-meta">2003</div>
+                        <div class="node-body">
+                            <h4>Intermediate &bull; MPC Spectrum</h4>
+                            <p class="inst">Gayatri Junior College, Vizianagaram</p>
+                            <span class="score-pill">First Class Status</span>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Cert 4 -->
-                <div class="cert-box">
-                    <div class="cert-header" onclick="toggleAccordion('cert-cyber')">
-                        <h4>Google Cybersecurity Professional</h4>
-                        <span class="cert-meta">July 2026 | 9 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
+            <!-- CREDENTIAL DIRECTORY GRID -->
+            <section id="certifications" class="content-block">
+                <h3 class="panel-heading"><i class="fas fa-certificate"></i> Specialized Micro-Credentials</h3>
+                <div class="badge-tab-container">
+                    <button class="badge-pill active" onclick="showCert('ibm-js')">IBM Full-Stack</button>
+                    <button class="badge-pill" onclick="showCert('ms-ai')">Microsoft AI/ML</button>
+                    <button class="badge-pill" onclick="showCert('google-sec')">Google Cyber</button>
+                </div>
+
+                <div class="cert-display-box" id="cert-viewer">
+                    <!-- Controlled by Javascript logic dynamically -->
+                    <div class="dynamic-cert-content">
+                        <h4>IBM Full Stack JavaScript Developer Professional Certification</h4>
+                        <p class="cert-timeline-stamp"><i class="fas fa-calendar-days"></i> Completed September 2026 &bull; 12-Course Core Engine Array</p>
+                        <ul class="nested-syllabus">
+                            <li>Introduction to Software Engineering &amp; Architecture Matrix</li>
+                            <li>Applied UI Development via HTML5, CSS3, &amp; ES6 JavaScript</li>
+                            <li>Source Versioning Protocols with Git Ecosystem &amp; GitHub Storage</li>
+                            <li>Front-End Application Structuring using React Components</li>
+                            <li>Back-End Server Architecture using Node.js &amp; Express Frameworks</li>
+                        </ul>
+                        <a href="https://coursera.org" target="_blank" class="action-hyperlink-btn">Verify Credential Secure Link <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div id="cert-cyber" class="cert-content">
-                        <ul>
-                            <li>Foundations of Cybersecurity &amp; Managing Risk</li>
-                            <li>Connect and Protect: Networks and Network Security</li>
-                            <li>Tools of the Trade: Linux and SQL</li>
+                </div>
+            </section>
+
+            <!-- HANDLED COURSES & DOMAIN INTERACTIVE FILTERING -->
+            <section id="skills" class="content-block">
+                <h3 class="panel-heading"><i class="fas fa-laptop-code"></i> Specialized Domain Maps</h3>
+                <div class="filter-cluster">
+                    <span class="filter-node active" onclick="arrangeGrid('all')">Show All Courses</span>
+                    <span class="filter-node" onclick="arrangeGrid('ai-comp')">AI &amp; Computational Engineering</span>
+                    <span class="filter-node" onclick="arrangeGrid('ee-core')">Core Electrical &amp; Grid Systems</span>
+                </div>
+
+                <div class="matrix-grid-box" id="skills-matrix">
+                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-brain icon-teal"></i> Artificial Intelligence Techniques</div>
+                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-code icon-teal"></i> AI Based Web Design</div>
+                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-terminal icon-teal"></i> Advanced Python Programming</div>
+                    <div class="matrix-item" data-domain="ai-comp"><i class="fas fa-calculator icon-teal"></i> Discrete Mathematics and Logic</div>
+                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-bolt icon-orange"></i> High Voltage Engineering</div>
+                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-circle-nodes icon-orange"></i> Electro Magnetic Fields</div>
+                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-microchip"></i> Microprocessors and Microcontrollers</div>
+                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-sliders"></i> Control Systems Engineering</div>
+                    <div class="matrix-item" data-domain="ee-core"><i class="fas fa-shield-halved"></i> Power System Protection Matrix</div>
+                </div>
