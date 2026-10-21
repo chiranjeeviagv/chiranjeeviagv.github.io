@@ -20,7 +20,7 @@
         <!-- Sidebar -->
         <header class="cv-sidebar">
             <div class="profile-zone">
-                <!-- Embedded Image Tag (Replaced the placeholder text) -->
+                <!-- Embedded Image Tag (Clean and isolated) -->
                 <img src="profile-pic.jpg" alt="G V Chiranjeevi Adari Profile Picture" class="avatar-img">
                 
                 <h1>G V Chiranjeevi Adari</h1>
@@ -33,13 +33,14 @@
             
             <div class="contact-info">
                 <h3>Contact & Links</h3>
-                <p>📧 <a href="mailto:chiranjeevi210@gmail.com">E-Mail ID</a></p>
+                <p>📞 <a href="mailto:chiranjeevi210@gmail.com">E-Mail ID</a></p>
                 <p class="only-industry">🌐 <a href="https://gvchiranjeeviadari.online/" target="_blank">Personal page</a></p>
                 <p class="only-academic">🎓 <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
-                <p>💼 <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">LinkedIn Profile</a></p>
+                <p>💼 <a id="linkedin-link" href="#">LinkedIn Profile</a></p>
                 <p>💻 <a href="https://github.com/chiranjeeviagv" target="_blank">GitHub Profile</a></p>
             </div>
         </header>
+
         <!-- Main Interactive Content -->
         <main class="cv-main">
             <!-- Dynamic Navigation Tabs based on current view -->
@@ -54,11 +55,11 @@
             <section id="summary-tab" class="tab-content active">
                 <div class="only-industry">
                     <h3>Professional Summary</h3>
-                    <p>Aspiring software developer and web application development for real time projects. Undergone different professional certification courses from reputed platforms </p>
+                    <p>Aspiring software developer and web application development for real time projects. Undergone different professional certification courses from reputed platforms.</p>
                 </div>
                 <div class="only-academic">
                     <h3>Experience</h3>
-                    <p>Served in different institutions of Engineering and Technology background for the past 9 years after M.Tech.  </p>
+                    <p>Served in different institutions of Engineering and Technology background for the past 9 years after M.Tech.</p>
                 </div>
             </section>
 
@@ -81,7 +82,6 @@
             <section id="experience-tab" class="tab-content">
                 <h3>Professional Chronology</h3>
                 
-                <!-- Shown in BOTH views but description shifts focus -->
                 <div class="timeline-item">
                     <h4>Senior Developer / Research Fellow — Tech Institute</h4>
                     <span class="date">2024 - Present</span>
@@ -89,7 +89,6 @@
                     <p class="only-academic">Spearheaded data collection methodology for the department's high-performance cluster computing grant.</p>
                 </div>
 
-                <!-- Academic view only item -->
                 <div class="timeline-item only-academic">
                     <h4>Graduate Teaching Assistant — University Dept</h4>
                     <span class="date">2022 - 2024</span>
@@ -109,104 +108,13 @@
         </main>
     </div>
 
+    <!-- Unified Script Setup -->
     <script src="script.js"></script>
-</body>
-</html>
-
-    
-<div class="cv-container">
-        <!-- Sidebar / Header Info -->
-        <header class="cv-sidebar">
-         <div class="profile-zone">
-         <h1>Mr. G v Chiranjeevi adari</h1>
-         <h2>Electrical Engineer/Software Developer/ Academician</h2>
-</div>
-            
- <div class="contact-info">
-                <h3>mobile 9949163002</h3>
-                <p>📧 <a href="mailto:chiranjeevi210@gmail.com">Contact E-Mail</a></p>
-                <p>🌐 <a href="https://gvchiranjeeviadari.online" target="_blank">Portfolio Website</a></p>
-                <!-- HTML Anchor Tag with an ID -->
-                <a id="linkedin-link" href="#">Visit LinkedIn Profile</a>
     <script>
-    // Your raw Gurmukhi URL
-    const rawUrl = "https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/";
-    
-    // Convert and apply it to the link
-    document.getElementById("linkedin-link").href = encodeURI(rawUrl);
+        // LinkedIn URL encoding setup helper
+        const rawUrl = "https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/";
+        document.getElementById("linkedin-link").href = encodeURI(rawUrl);
+        document.getElementById("linkedin-link").target = "_blank";
     </script>
-            <p>💻 <a href="https://github.com/chiranjeeviagv" target="_blank">GitHub Profile</a></p>
-            </div>
-        </header>
-
-        <!-- Main Interactive Content -->
-        <main class="cv-main">
-            <!-- Navigation Tabs -->
-            <nav class="tab-navigation">
-                <button class="tab-btn active" onclick="openTab(event, 'about')">About Me</button>
-                <button class="tab-btn" onclick="openTab(event, 'experience')">Experience</button>
-                <button class="tab-btn" onclick="openTab(event, 'projects')">Projects</button>
-                <button class="tab-btn" onclick="openTab(event, 'references')">References</button>
-            </nav>
-
-            <!-- Tab Content: About Me -->
-            <section id="about" class="tab-content active">
-                <h3>Professional Summary</h3>
-                <p>An Electrical Engineer and Software professional , forever a student , dreaming for career in a nice environment which is tehnically and ethically developed</p>                
-                <h3>Core Skills</h3>
-                <ul class="skills-list">
-                    <li>HTML5 & CSS3</li>
-                    <li>JavaScript (ES6+)</li>
-                    <li>UI/UX Design</li>
-                    <li>Project Management</li>
-                </ul>
-            </section>
-
-            <!-- Tab Content: Experience -->
-            <section id="experience" class="tab-content">
-                <h3>Work History</h3>
-                <div class="timeline-item">
-                    <h4>AI Web Developer</h4>
-                    <h5>IBM Full stack developer</h5>
-                    <span class="date">2024 - Present</span>
-                    <p>Led a team of developers to rebuild the core web application, improving performance by 40%.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Web Developer — Startup Inc</h4>
-                    <span class="date">2022 - 2024</span>
-                    <p>Developed and maintained responsive client websites. Collaborated closely with UI/UX designers.</p>
-                </div>
-            </section>
-
-            <!-- Tab Content: Projects -->
-            <section id="projects" class="tab-content">
-                <h3>Featured Projects</h3>
-                <div class="project-card">
-                    <h4>E-Commerce Platform</h4>
-                    <p>A fully interactive online storefront built with modern web technologies.</p>
-                    <a href="https://github.com/project" target="_blank" class="project-link">View Source Code →</a>
-                </div>
-                <div class="project-card">
-                    <h4>Interactive Dashboard</h4>
-                    <p>A data visualization tool tracking real-time user metrics.</p>
-                    <a href="https://yourliveproject.com" target="_blank" class="project-link">Live Demo →</a>
-                </div>
-            </section>
-
-            <!-- Tab Content: References -->
-            <section id="references" class="tab-content">
-                <h3>Embedded References</h3>
-                <div class="reference-card">
-                    <blockquote>
-                        "Your Name is an exceptionally talented developer who consistently delivers clean, efficient code and brings an incredible attitude to the team."
-                    </blockquote>
-                    <p class="ref-author">— Jane Doe, Engineering Manager at Tech Corp</p>
-                    <a href="https://linkedin.com" target="_blank" class="ref-verify">Verify Recommendation via LinkedIn</a>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
