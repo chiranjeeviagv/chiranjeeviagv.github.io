@@ -3,683 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V Chiranjeevi Adari - Interactive CV</title>
-    <!-- Links to your separate CSS file -->
+    <title>G V Chiranjeevi Adari | Interactive Profile</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for visual anchors -->
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-<body>
-    <header class="cv-header">
-        <div class="header-content">
-            <h1>G V Chiranjeevi Adari</h1>
-            <p class="subtitle">Electrical Engineer & Software Professional</p>
-            <div class="contact-info">
-                <span>🏠 4-243/1/4, BC Colony, Vepagunta, Visakhapatnam - 530047Andhrapradesh India</span> 
-                <span>📱 +91 9949163002</span> | <span>📱 +91 9642693002</span>
-                <span>📧 chiranjeevi210@gmail.com</span>
+<body class="light-theme">
+
+    <!-- Sticky Navigation Panel -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="nav-brand">GVCA.Dev</span>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#experience">Experience</a>
+                <a href="#publications">Publications</a>
+                <a href="#skills">Skills</a>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <button id="themeToggle" class="btn">🌓 Toggle Theme</button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>G V Chiranjeevi Adari</h1>
+                <h3>Electrical Engineer &amp; Software Professional</h3>
+                <p class="objective"><i class="fas fa-quote-left"></i> An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed. <i class="fas fa-quote-right"></i></p>
+                <div class="contact-grid">
+                    <span><i class="fas fa-phone"></i> +91 9949163002</span>
+                    <span><i class="fas fa-envelope"></i> chiranjeevi210@gmail.com</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Visakhapatnam, AP, India</span>
+                </div>
+                <div class="meta-badges">
+                    <a href="https://google.com" target="_blank" class="meta-link"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                    <span class="meta-badge"><strong>ORCID ID:</strong> 0000-0002-7895-407X</span>
+                    <span class="meta-badge"><strong>Scopus ID:</strong> 58316331900</span>
+                </div>
+            </div>
         </div>
     </header>
-    <main class="cv-container">
-     
-        <section class="cv-section">
-            <h2>Career Objective</h2>
-            <p>An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed.</p>
-        </section>
-                    <!-- Fixed Interactive Education Section -->
-        <section class="cv-section">
-            <h2>Education Summary</h2>
-            <p class="instruction-text">Select an academic qualification milestone below to view certification details:</p>
-            
-            <!-- Academic Tier Selection Controls -->
-            <div class="education-controls-grid">
-                <button class="edu-btn active" data-edu="mtech">
-                    <span class="btn-title">M.Tech (HVE)</span>
-                    <span class="btn-sub">Graduated 2012</span>
-                </button>
-                <button class="edu-btn" data-edu="btech">
-                    <span class="btn-title">B.Tech (EEE)</span>
-                    <span class="btn-sub">Graduated 2007</span>
-                </button>
-                <button class="edu-btn" data-edu="intermediate">
-                    <span class="btn-title">Intermediate (MPC)</span>
-                    <span class="btn-sub">Completed 2003</span>
-                </button>
-                <button class="edu-btn" data-edu="ssc">
-                    <span class="btn-title">Secondary (SSC)</span>
-                    <span class="btn-sub">Completed 2001</span>
-                </button>
-            </div>
 
-            <!-- Single Content Display Box -->
-            <div class="education-display-panel" id="educationOutputBox">
-                <!-- JavaScript automatically renders chosen academic metrics here -->
-            </div>
-        </section>
-
-        <!-- Interactive Certifications Directory -->
-        <section class="cv-section">
-            <h2>Interactive Certifications Directory</h2>
-            <p class="instruction-text">Click any badge button below to dynamically load the credentials and verification hyperlink:</p>
-            
-            <div class="tab-buttons">
-                <button class="tab-btn" data-tab="ibm-js">IBM Full Stack Developer</button>
-                <button class="tab-btn" data-tab="ms-ai">Microsoft AI& ML Engineering</button>
-                <button class="tab-btn" data-tab="ibm-ai">IBM AI Developer</button>
-                <button class="tab-btn" data-tab="ibm-java">IBM Java Developer</button>
-                <button class="tab-btn" data-tab="ibm-backend">IBM Backend Javascript Developer</button>
-                <button class="tab-btn" data-tab="google-cyber">Google Cybersecurity</button>
-                <button class="tab-btn" data-tab="nptel">NPTEL Credentials</button>
-            </div>
-
-            <div class="tab-display-box">
-                <div id="tabContentPlaceholder"></div>
-            </div>
-        </section>
-                <!-- Modernized Interactive Experience Section -->
-        <section class="cv-section">
-            <h2>Teaching & Academic Experience</h2>
-            <p class="instruction-text">Select an institution or a time window below to view role details:</p>
-            
-            <!-- Selection Controls Row -->
-            <div class="experience-controls-grid">
-                <button class="exp-btn active" data-exp="sitrc">
-                    <span class="btn-title">Sandip SITRC</span>
-                    <span class="btn-sub">2025 - 2026</span>
-                </button>
-                <button class="exp-btn" data-exp="gnit">
-                    <span class="btn-title">Guru Nanak GNIT</span>
-                    <span class="btn-sub">2023 - 2025</span>
-                </button>
-                <button class="exp-btn" data-exp="mrecw">
-                    <span class="btn-title">Malla Reddy MRECW</span>
-                    <span class="btn-sub">2022 - 2023</span>
-                </button>
-                <button class="exp-btn" data-exp="aditya">
-                    <span class="btn-title">Aditya College</span>
-                    <span class="btn-sub">2019 - 2021</span>
-                </button>
-                <button class="exp-btn" data-exp="viit">
-                    <span class="btn-title">Vignan's VIIT</span>
-                    <span class="btn-sub">2015 - 2019</span>
-                </button>
-            </div>
-
-            <!-- Single Interactive Output Panel -->
-            <div class="experience-display-panel" id="experienceOutputBox">
-                <!-- JavaScript automatically renders chosen history profiles here -->
-            </div>
-        </section>
-       <!-- Handled Courses & Domain Filtering Section -->
-<section class="cv-section">
-    <h2>Handled Courses & Domain Filtering</h2>
-    <p class="instruction-text">Select an academic specialty below to view handled courses:</p>
-    
-    <!-- 1. The Filter Buttons -->
-    <div class="course-filter-buttons">
-        <button class="course-filter-btn" data-course-filter="all">All Specialties</button>
-        <button class="course-filter-btn" data-course-filter="ai">AI & Computation</button>
-        <button class="course-filter-btn" data-course-filter="electrical">Core Electrical Engineering</button>
-        <button class="course-filter-btn" data-course-filter="protection">Systems & Protection</button>
-    </div>
-    
-    <!-- 2. The Helper Notice -->
-    <div id="course-placeholder-notice" style="padding: 20px; text-align: center; border: 1px dashed #3498db; border-radius: 6px; margin: 15px 0; background-color: rgba(52, 152, 219, 0.05); color: #2980b9; transition: all 0.3s ease;">
-        🔍 <strong>Please select an academic specialty button above</strong> to reveal courses handled.
-    </div>
-    
-    <!-- 3. The Target List Container (Ensure id="coursesContainer") -->
-    <ul id="coursesContainer">
-        <!-- AI & Computation Specialty -->
-        <li data-ccat="ai">Artificial Intelligence Techniques</li>
-        <li data-ccat="ai">AI Based Web Design</li>
-        <li data-ccat="ai">Advanced Python Programming</li>
-        <li data-ccat="ai">Introduction to Expert Systems</li>
-        <li data-ccat="ai">Discrete Mathematics and Logic</li>
+    <main class="main-content">
         
-        <!-- Core Electrical Engineering Specialty -->
-        <li data-ccat="electrical">Electro Magnetic Fields</li>
-        <li data-ccat="electrical">Electrical Technology</li>
-        <li data-ccat="electrical">Basic Electrical and Electronics Engineering</li>
-        <li data-ccat="electrical">High Voltage Engineering</li>
-        
-        <!-- Systems & Protection Specialty -->
-        <li data-ccat="protection">Microprocessors and Microcontrollers</li>
-        <li data-ccat="protection">Digital Logic Design</li>
-        <li data-ccat="protection">Non-Conventional Sources of Energy</li>
-        <li data-ccat="protection">Digital Controllers</li>
-        <li data-ccat="protection">Control Systems</li>
-        <li data-ccat="protection">Power System Protection</li>
-        <li data-ccat="protection">Power System Analysis</li>
-    </ul>
-</section>
-
-        <!-- Publications & Patents -->
-        <section class="cv-section">
-            <h2>Embedded Literature & Intellectual Property</h2>
-            <p class="instruction-text">Click the action controls below to evaluate formal filings and access document databases:</p>
-            
-            <div class="action-row">
-                <button class="ref-btn text-left-btn" data-target="patentsPanel">📋 View Published Patents</button>
-                <button class="ref-btn text-left-btn" data-target="papersPanel">📝 View Published Research Papers</button>
-                <button class="ref-btn text-left-btn" data-target="indexesPanel">🔗 Academic Global Profiles</button>
-            </div>
-
-            <div id="patentsPanel" class="reference-box hidden">
-                <h3>Patents Registry (Indian Patent Office)</h3>
-                <ul>
-                    <li>
-                        <strong>Smart Medical Diagnosis System:</strong> Using IoT-driven Machine Learning and Big Data Analytics in the field of Bio-Medical Engineering.
-                        <br><em>Publication No: 11/2024(INA)</em> — <a href="http://ipindia.nic.in" target="_blank" class="inline-link">Verify at IP India Portal 🔗</a>
-                    </li>
-                    <li>
-                        <strong>Power Quality Analysis Using IoT:</strong>
-                        <br><em>Application No: 202441060301 (August 2024)</em> — <a href="http://ipindia.nic.in" target="_blank" class="inline-link">Verify at IP India Portal 🔗</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="papersPanel" class="reference-box hidden">
-                <h3>Refereed Journal Records</h3>
-                <ul>
-                    <li>
-                        "Fuzzy based Unified Control and Power Management Scheme for PV Battery based Hybrid Micro Grids..." (IJAEMA, 2022) 
-                        — <a href="https://drive.google.com/file/d/1Bhgmof-yxlzp3ZRNAsk2lemdSm7Xe6oA/view" class="inline-link">Open Source Document Link 🔗</a>
-                    </li>
-                    <li>
-                        "Dynamic stability Enhancement of a Smart Grid Using Artificial Neural Network Based STATCOM" (INDJST, 2016) 
-                        — <a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" target="_blank" class="inline-link">Open Article Portal 🔗</a>
-                    </li>
-                    <li>
-                        "Transient stability improvement of Single machine infinite bus system using Distributed power flow controller" (IJPAM, 2017) 
-                        — <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" target="_blank" class="inline-link">View PDF Archive 🔗</a>
-                    </li>
-                    <li> 
-                        "application of SVC for Multi Objective Power problem with PSO"(IJPAM, 2017)
-                        - <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" target="_blank" class="inline-link">Open source Document Link 🔗</a>
-                    </li>
-                </ul>
-            </div>
-<section id="education" class="cv-section">
-                <div id="indexesPanel" class="reference-box hidden">
-                <h3>Global Metadata Identifiers</h3>
-                <p>📊 <a href="https://google.com" target="_blank" class="inline-link">Google Scholar Metrics Portfolio</a></p>
-                <p>🆔 <strong>ORCID ID:</strong> <a href="https://orcid.org" target="_blank" class="inline-link">0000-0002-7895-407X</a> | <strong>Scopus Author ID:</strong> 58316331900</p>
-            </div>
-        </section>
-        <!-- Interactive Conferences Section -->
-        <section class="cv-section">
-            <h2>Conferences Attended</h2>
-            <p class="instruction-text">Select a conference milestone button below to load presentation details:</p>
-            
-            <!-- Conference Selection Controls -->
-            <div class="conference-controls-grid">
-                <button class="conf-btn active" data-conf="icmmse">
-                    <span class="btn-title">ICMMSE:IR</span>
-                    <span class="btn-sub">Feb 2026</span>
-                </button>
-                <button class="conf-btn" data-conf="gvcon">
-                    <span class="btn-title">GVCON-2K22</span>
-                    <span class="btn-sub">Oct 2022</span>
-                </button>
-                <button class="conf-btn" data-conf="rteee">
-                    <span class="btn-title">RTEEE</span>
-                    <span class="btn-sub">Apr 2017</span>
-                </button>
-            </div>
-
-            <!-- Interactive Conference Output Display -->
-            <div class="conference-display-panel" id="conferenceOutputBox">
-                <!-- JavaScript automatically renders chosen presentation details here -->
+        <!-- Milestones Banner -->
+        <section class="section-card milestones-strip">
+            <div class="grid-4">
+                <div class="milestone-item"><i class="fas fa-award icon-gold"></i> <h4>Pratibha Award</h4><p>Winner (2016-17) at VIIT</p></div>
+                <div class="milestone-item"><i class="fas fa-check-circle"></i> <h4>GATE Qualified</h4><p>Electrical Engineering (2014)</p></div>
+                <div class="milestone-item"><i class="fas fa-university"></i> <h4>JNTU Ratified</h4><p>JNTUH &amp; JNTUK Approved</p></div>
+                <div class="milestone-item"><i class="fas fa-user-graduate"></i> <h4>APRCET Qualified</h4><p>Doctoral Track Eligibility</p></div>
             </div>
         </section>
 
-    </main>
-
-    <!-- Links to your separate JavaScript file -->
-    <script src="script.js"></script>
-</body>
-</html>
-        <!-- Interactive Strengths Section -->
-        <section class="cv-section">
-            <h2>Professional Strengths</h2>
-            <p class="instruction-text">Click the action control below to explore core competencies and academic attributes:</p>
-            
-            <div class="action-row">
-                <button class="ref-btn text-left-btn" data-target="strengthsPanel" id="strengthsToggleBtn">📋 View Strengths Directory</button>
+        <!-- Education Summary -->
+        <section id="education" class="section-card">
+            <h2 class="section-title"><i class="fas fa-user-graduate"></i> Educational Summary</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-badge">2012</div>
+                    <div class="timeline-panel">
+                        <h4>M.Tech (High Voltage Engineering)</h4>
+                        <p class="institution">JNTU Kakinada</p>
+                        <span class="grade-pill">Distinction - 72%</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-badge">2007</div>
+                    <div class="timeline-panel">
+                        <h4>B.Tech (Electrical &amp; Electronics Engineering)</h4>
+                        <p class="institution">Chaitanya Engineering College, Visakhapatnam</p>
+                        <span class="grade-pill">Distinction - 71.63%</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-badge">2003</div>
+                    <div class="timeline-panel">
+                        <h4>Intermediate (MPC)</h4>
+                        <p class="institution">Gayatri Junior College, Vizianagaram</p>
+                        <span class="grade-pill">First Class</span>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Core Strengths Expansion Box -->
-            <div id="strengthsPanel" class="reference-box hidden">
-                <div class="strengths-grid">
-                    
-                    <div class="strength-card">
-                        <h4>🏫 Pedagogy & Academic Leadership</h4>
+        <!-- Interactive Certifications -->
+        <section id="certifications" class="section-card">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Technical Certifications Directory</h2>
+            <p class="subtitle-info">Click on any professional credential below to view its embedded syllabus and verification pathway.</p>
+            
+            <div class="cert-grid">
+                <!-- Cert 1 -->
+                <div class="cert-box">
+                    <div class="cert-header" onclick="toggleAccordion('cert-fullstack')">
+                        <h4>IBM Full Stack JavaScript Developer</h4>
+                        <span class="cert-meta">Sept 2026 | 12 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
+                    </div>
+                    <div id="cert-fullstack" class="cert-content">
                         <ul>
-                            <li>9+ years of professional teaching experience post-M.Tech in EEE core fields.</li>
-                            <li>Deep domain knowledge of Outcome Based Education (OBE) and Teaching-Learning processes.</li>
-                            <li>Ability to generate effective teaching impacts using diverse instructional methodologies.</li>
-                            <li>Proven track record of guiding, mentoring, and motivating student bodies.</li>
+                            <li>Introduction to Software Engineering</li>
+                            <li>Introduction to HTML, CSS, &amp; JavaScript</li>
+                            <li>Getting Started with Git and GitHub</li>
+                            <li>JavaScript Programming Essentials</li>
+                            <li>Developing Front-End Apps with React</li>
+                            <li>Developing Back-End Apps with Node.js and Express</li>
+                            <li>Get Started with Cloud Native, DevOps, Agile, and NoSQL</li>
+                            <li>Introduction to Containers w/ Docker, Kubernetes &amp; OpenShift</li>
+                            <li>Application Development using Microservices and Serverless</li>
+                            <li>Node.js &amp; MongoDB: Developing Database Apps</li>
+                            <li>JavaScript Full Stack Capstone Project</li>
                         </ul>
+                        <a href="https://coursera.org" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify Credential</a>
                     </div>
+                </div>
 
-                    <div class="strength-card">
-                        <h4>⚙️ Operational & Administrative Expertise</h4>
+                <!-- Cert 2 -->
+                <div class="cert-box">
+                    <div class="cert-header" onclick="toggleAccordion('cert-aiml')">
+                        <h4>Microsoft AI and ML Engineering</h4>
+                        <span class="cert-meta">July 2026 | 5 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
+                    </div>
+                    <div id="cert-aiml" class="cert-content">
                         <ul>
-                            <li>Handled Department Examination Branch operations and related compliance activities.</li>
-                            <li>Managed complex department accreditation file preparation matrices (NBA/NAAC profiles).</li>
-                            <li>Possess strong time management, execution, and organizational skills.</li>
-                            <li>Ability to carry out institutional tasks with minimal supervision and a positive attitude.</li>
+                            <li>Foundations of AI and Machine Learning</li>
+                            <li>AI and Machine Learning Algorithms and Techniques</li>
+                            <li>Building Intelligent Troubleshooting Agents</li>
+                            <li>Microsoft Azure for AI and Machine Learning</li>
+                            <li>Advanced AI and Machine Learning Techniques &amp; Capstone</li>
                         </ul>
+                        <a href="https://coursera.org" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify Credential</a>
                     </div>
+                </div>
 
-                    <div class="strength-card">
-                        <h4>🌐 Cultural Adaptability & Soft Skills</h4>
+                <!-- Cert 3 -->
+                <div class="cert-box">
+                    <div class="cert-header" onclick="toggleAccordion('cert-aidev')">
+                        <h4>IBM AI Developer</h4>
+                        <span class="cert-meta">June 2026 | 10 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
+                    </div>
+                    <div id="cert-aidev" class="cert-content">
                         <ul>
-                            <li>Unique exposure to diverse teaching styles and students across 3 different regions.</li>
-                            <li>Possess excellent written, structural, and verbal communication skills.</li>
-                            <li>High sincerity, strict punctuality, and robust personal confidence.</li>
-                            <li>Advanced problem analysis skills coupled with rapid technical grasping power.</li>
+                            <li>Introduction to Software Engineering &amp; AI</li>
+                            <li>Generative AI: Introduction and Applications</li>
+                            <li>Python for Data Science, AI &amp; Development</li>
+                            <li>Developing AI Applications with Python and Flask</li>
+                            <li>Building Generative AI-Powered Applications</li>
                         </ul>
+                        <a href="https://coursera.org" target="_blank" class="verify-btn"><i class="fas fa-external-link-alt"></i> Verify Credential</a>
                     </div>
-
                 </div>
-            </div>
-        </section>
-        <!-- Interactive Languages Section -->
-        <section class="cv-section">
-            <h2>Linguistic Profile</h2>
-            <p class="instruction-text">Click the control button below to view full language fluencies and script proficiencies:</p>
-            
-            <div class="action-row">
-                <button class="ref-btn text-left-btn" data-target="languagesPanel" id="languagesToggleBtn">🌐 View Languages Directory</button>
-            </div>
 
-            <!-- Expandable Languages Display Box -->
-            <div id="languagesPanel" class="reference-box hidden">
-                <div class="languages-grid">
-                    
-                    <!-- English -->
-                    <div class="lang-card">
-                        <div class="lang-header">
-                            <h4>English</h4>
-                            <span class="lang-scope">Professional</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-                        <p class="lang-desc">Full professional written and verbal communication competency within higher education systems.</p>
+                <!-- Cert 4 -->
+                <div class="cert-box">
+                    <div class="cert-header" onclick="toggleAccordion('cert-cyber')">
+                        <h4>Google Cybersecurity Professional</h4>
+                        <span class="cert-meta">July 2026 | 9 Courses <i class="fas fa-chevron-down toggle-icon"></i></span>
                     </div>
-
-                    <!-- Telugu -->
-                    <div class="lang-card">
-                        <div class="lang-header">
-                            <h4>Telugu</h4>
-                            <span class="lang-scope">Native / Bilingual</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
-                        <p class="lang-desc">Native fluency. Excellent conversational, instructional, and structural command.</p>
-                    </div>
-
-                    <!-- Hindi -->
-                    <div class="lang-card">
-                        <div class="lang-header">
-                            <h4>Hindi</h4>
-                            <span class="lang-scope">Fluent</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-                        <p class="lang-desc">High verbal and written capability for professional collaboration and regional integration.</p>
-                    </div>
-
-                    <!-- Punjabi Gurmukhi -->
-                    <div class="lang-card">
-                        <div class="lang-header">
-                            <h4>Punjabi Gurmukhi</h4>
-                            <span class="lang-scope">Literate (Read & Write)</span>
-                        </div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
-                        <p class="lang-desc">Possess full functional capability to read, comprehend, and write the formal Gurmukhi script.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
- <!-- Interactive Technical Skill Upgradation Section -->
-<section class="cv-section">
-    <h2>Faculty Development & Skill Upgradation Activities</h2>
-    <p class="instruction-text">Filter workshops, FDPs, and international seminars by core academic domain:</p>
-    
-    <div class="filter-buttons">
-        <button class="upgrade-filter-btn active" data-upgrade-filter="all">All Activities</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="obe">OBE & Pedagogy</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="ai-iot">AI, ML & IoT Engineering</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="grids">Smart Grids & Power Electronics</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="webinars">Webinars & Other Events</button>
-    </div>
-    
-    <ul class="upgrade-activity-list" id="upgradeActivitiesContainer">
-        <!-- Filterable items structured by data-ucat="obe" | "ai-iot" | "grids" | "webinars" -->
-    </ul>
-</section>
-<!-- Interactive Technical Skill Upgradation Section -->
-<section class="cv-section">
-    <h2>Faculty Development & Skill Upgradation Activities</h2>
-    <p class="instruction-text">Filter workshops, FDPs, and international seminars by core academic domain:</p>
-    
-    <!-- Upgradation Domain Filters -->
-    <div class="filter-buttons">
-        <button class="upgrade-filter-btn" data-upgrade-filter="all">All Activities</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="obe">OBE & Pedagogy</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="ai-iot">AI, ML & IoT Engineering</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="grids">Smart Grids & Power Electronics</button>
-        <button class="upgrade-filter-btn" data-upgrade-filter="webinars">Webinars & Other Events</button>
-    </div>
-    
-    <!-- Dynamic Helper Notice Container -->
-    <div id="filter-placeholder-notice" style="padding: 20px; text-align: center; border: 1px dashed #3498db; border-radius: 6px; margin: 15px 0; background-color: rgba(52, 152, 219, 0.05); color: #2980b9; transition: all 0.3s ease;">
-        🔍 <strong>Please select an academic domain button above</strong> to reveal categorized certifications, workshops, and seminars.
-    </div>
-    
-    <!-- Filterable Upgradation List (All 29 items grouped accurately) -->
-    <ul class="upgrade-activity-list" id="upgradeActivitiesContainer">
-        <!-- Structured entries for OBE & Pedagogy, AI/ML & IoT, Smart Grids, and General Webinars -->
-        <!-- Full activity records organized under respective data-ucat attributes -->
-    </ul>
-</section>
-
-<!-- Interactive Technical Skill Upgradation Section Container -->
-<ul class="upgrade-activity-list" id="upgradeActivitiesContainer">
-    <!-- Category 1: OBE & Pedagogy (obe) -->
-    <li class="upgrade-item" data-ucat="obe">Participated in two day FDP on OBE Focused curriculum design organized by IQAC cell, Sandip university, Nashik during 8-9 November 2026.</li>
-    <li class="upgrade-item" data-ucat="obe">Participated in OBE workshop held at VIIT by KLETU from 4-5-2018 to 6-5-2018.</li>
-    <li class="upgrade-item" data-ucat="obe">Participated in one day national workshop on MOOCs and E-learning in higher Education by Guru Angad dev Teaching Learning centre of MHRD, SGTB khalsa college, University of Delhi on 18-08-2018.</li>
-    <li class="upgrade-item" data-ucat="obe">Participated in three day workshop on counselling system and guidance by Medhas I – Train, Hyderabad from 4th to 6th December 2018.</li>
-    <li class="upgrade-item" data-ucat="obe">Attended Faculty Engagement Session on Global best practices in education on 2-4-2026 conducted by TCS ion.</li>
-    <li class="upgrade-item" data-ucat="obe">Attended for National Level webinar on "Art of Teaching" organized by Department of Electrical and Electronics Engineering on 7th July, 2020 by Gayatri Vidya parishad college of Engineering(A), Visakhapatnam.</li>
-
-    <!-- Category 2: AI, ML & IoT Engineering (ai-iot) -->
-    <li class="upgrade-item" data-ucat="ai-iot">Participated and completed in FDP conducted by APSSDC in the month of July 2020 on IOT 13-07-2020 to 25-07-2020.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in 15 days online FDP on "Open business tools for AI and Business applications" from 18th August to 3rd September 2025 organized by 6th Q Research(H), India.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI from 27th January to 31st January 2025 by SKVMs Institute of Technology, Dhule.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in a MHRD-Sponsored INDO-US International workshop on "IOT and ML Based Microgrid & Energy Management" Organized by Department of Electrical and Electronics Engineering, Chaitanya Bharathi Institute of Technology, Hyderabad dated 19th to 23rd February 2024.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in 8 week FDP course on Big Data Computing by IIT Patna through NPTEL-AICTE from August –October 2023.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in 42 hours training program conducted by Excel R on "Python for Data science from 16-05-2022 to 3-06-2022.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in 40 hours training program by Excel-R under EDL initiative on "Artificial intelligence" from 28 March 2022 to 25 April 2022.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated and completed training in Data sciences applied to Industries organized by Directorate of faculty development, JNTU Kakinada from 17-8-2020 to 21-8-2020.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in one week short term training programme on pattern recognition theory and applications through ICT mode organized by NITTTR Kolkata during 21-03-2022 to 25-03-2022.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Participated in 3 day FDP on machine learning conducted at VIIT by APSSDC from 13-09-2020 to 15-09-2020.</li>
-    <li class="upgrade-item" data-ucat="ai-iot">Attended for an international webinar on "impact of AI and ML in Computer" organized by SRM TRP Engineering college on 28-03-2022.</li>
-
-    <!-- Category 3: Smart Grids & Power Electronics (grids) -->
-    <li class="upgrade-item" data-ucat="grids">Attended one week FDP on “Hands on training on Power Electronics and Power systems using Advanced Analytical tools” at Andhra university college of Engineering autonomous from Feb 5, 2018 to Feb 9, 2108.</li>
-    <li class="upgrade-item" data-ucat="grids">Attended for two day workshop on SMART GRIDS and RENEWABLE ENERGY at CPRI, Bangalore on Nov 26,27, 2015.</li>
-    <li class="upgrade-item" data-ucat="grids">Attended for one day workshop on "Renewable energy sources-as alternatives in power sector" conducted by Gayatri Vidya Parishad College of Engineering, at Visakhapatnam on 11-2-2012.</li>
-    <li class="upgrade-item" data-ucat="grids">Participated in five-day online Workshop on 'Integration of renewable energy & EV to microgrid: Prospects and challenges' under the aegis of SPARC. Organized by Department of Electrical and Electronics Engineering, NIT Tiruchirappalli in collaboration with The Hong Kong Polytechnic University. From 21-02-2022 to 25-02-2022.</li>
-    <li class="upgrade-item" data-ucat="grids">Attended for two day workshop on "Integration of Renewable Energy sources to Micro grids, sponsored by DST-SERB from 18 Aug to 19Aug. 2017.</li>
-    <li class="upgrade-item" data-ucat="grids">Participated and completed 40hr online faculty development programme on Advanced Intelligence and ICT application to power system protection sponsored by MOEIT, GoI organized by E&ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam during 18-27 july 2022.</li>
-
-    <!-- Category 4: Webinars & Other Events (webinars) -->
-    <li class="upgrade-item" data-ucat="webinars">Participated in One-Week Faculty Development Program organized by Chameli Devi Institute of Professional Studies, Indore, during 6th to 11th July 2026.</li>
-    <li class="upgrade-item" data-ucat="webinars">Participated in 8 week FDP Course on Ethics in Engineering Practice by IIT Kharagpur through NPTEL-AICTE from August –October 2023.</li>
-    <li class="upgrade-item" data-ucat="webinars">Participated in a webinar on Cryptography Encryption techniques organized by the department of Computer science and applications on 16th july 2020 by SRM arts and Science College, Chengalpattu district.</li>
-    <li class="upgrade-item" data-ucat="webinars">Attended for Webinar on NAAC news release by "Shri Pralhad Joshi", Honorable Minister of Parliamentary Affairs, Coal and Mines on 16th July 2020.</li>
-    <li class="upgrade-item" data-ucat="webinars">Attended for short term course on "soft computing using Sci-lab" conducted by Educational Television centre at Raghu engineering college, Visakhapatnam from 21-7-14 to 25-7-2014.</li>
-    <li class="upgrade-item" data-ucat="webinars">Participated in one week online FDP on "Exploring the significance Indian Knowledge Systems in the Context of National Educational Policy 2020 - The role of Higher Educational Institutions organized by Chaitanya Bharathi institute of Technology, Hyderabad during 5th to 10th February 2024.</li>
-</ul>
-
-
-
-
-        <!-- Projects & Milestones Section -->
-        <section class="cv-section">
-            <h2>Academic Project Guidance & Milestones</h2>
-            <div class="strengths-grid">
-                
-                <div class="strength-card">
-                    <h4>📊 Project Mentorship Count</h4>
-                    <ul style="list-style-type: square; padding-left: 18px; margin-top: 8px;">
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;"><strong>B.Tech Projects Guided:</strong> 08 Completed Batches</li>
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;"><strong>M.Tech Projects Guided:</strong> 02 Completed Scholars</li>
-                    </ul>
-                </div>
-
-                <div class="strength-card">
-                    <h4>🏆 Awards & Recognition</h4>
-                    <ul style="list-style-type: square; padding-left: 18px; margin-top: 8px;">
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;">Received the prestigious <strong>Pratibha Award (2016-17)</strong> at VIIT, Vizag.</li>
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;">Successfully qualified in <strong>GATE 2014</strong>.</li>
-                    </ul>
-                </div>
-
-                <div class="strength-card">
-                    <h4>📝 State Board Ratifications</h4>
-                    <ul style="list-style-type: square; padding-left: 18px; margin-top: 8px;">
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;">Ratified by <strong>JNTUH</strong> in October 2022.</li>
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;">Ratified by <strong>JNTUK Kakinada</strong> on 17-Oct 2015.</li>
-                        <li style="font-size: 0.9rem; margin-bottom: 6px;">Qualified in <strong>APRCET (2018)</strong> for university Doctoral admissions.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-        <!-- Professional Bodies & Registry Keys Section -->
-        <section class="cv-section">
-            <h2>Professional Memberships & Institutional Registries</h2>
-            <p class="instruction-text">Click the control box below to verify formal professional associations and registry identifiers:</p>
-            
-            <div class="action-row">
-                <button class="ref-btn text-left-btn" data-target="membershipsPanel" id="membershipsToggleBtn">📜 View Corporate Memberships</button>
-            </div>
-
-            <!-- Expandable Panel Container -->
-            <div id="membershipsPanel" class="reference-box hidden">
-                <div class="skills-list">
-                    <li style="background: var(--bg-primary); padding: 12px; border-radius: 6px; font-size: 0.9rem;">
-                        <strong>IEEE Member:</strong> ID 100444351
-                    </li>
-                    <li style="background: var(--bg-primary); padding: 12px; border-radius: 6px; font-size: 0.9rem;">
-                        <strong>IAENG Member:</strong> ID 155951
-                    </li>
-                    <li style="background: var(--bg-primary); padding: 12px; border-radius: 6px; font-size: 0.9rem;">
-                        <strong>IAEEEE Member:</strong> ID 71050271
-                    </li>
-                    <li style="background: var(--bg-primary); padding: 12px; border-radius: 6px; font-size: 0.9rem;">
-                        <strong>JNTUH Reg ID:</strong> 3059-191113-150648
-                    </li>
-                    <li style="background: var(--bg-primary); padding: 12px; border-radius: 6px; font-size: 0.9rem;">
-                        <strong>UNIPUNE ID:</strong> 52092500466
-                    </li>
-                </div>
-            </div>
-        </section>
-            <!-- Academic Research / Book Projects Section -->
-<section id="future-plans-research" class="cv-section">
-    <h2>Academic Projects & Research Targets</h2>
-    <div class="project-card">
-        <h3>Post-Graduate Research Thesis</h3>
-        <p><strong>Title:</strong> Fuzzy logic controller and decision maker for damping Load frequency oscillations of Four area systems</p>
-    </div>
-    <div class="project-card">
-        <h3>Graduation Level Project</h3>
-        <p><strong>Title:</strong> Load frequency control of single area power system using Fuzzy logic</p>
-    </div>
-    
-    <div class="publications-pipeline">
-        <h3>Forthcoming Publications (2026 Pipeline)</h3>
-        <ul>
-            <li><strong>Book Monograph:</strong> <em>Logical Introduction to Digital Electronics</em> (Accepted by BPB Publications, currently in Editing phase).</li>
-            <li><strong>Reputed Journal Work:</strong> Two Quality Research papers addressing Power system Grid topologies (One paper accepted for formal publication).</li>
-            <li><strong>Academic Milestone:</strong> Ph.D completion matrix initiated.</li>
-        </ul>
-    </div>
-</section>
-
-<!-- Hobbies & Personal Profile Grid -->
-<section id="personal-meta-profile" class="cv-section">
-    <h2>Personal Matrix & Heritage Interests</h2>
-    <div class="personal-grid">
-        <div class="hobbies-panel">
-            <h3>Cultural & Research Hobbies</h3>
-            <ul>
-                <li>Exploring Historic Landscapes and Regional Indian Heritage during leisure windows.</li>
-                <li>Investigating Civilizational Heritage and Core Dynamics of the Nation.</li>
-                <li>Evaluating Structural and Historical Documentaries.</li>
-            </ul>
-        </div>
-        <div class="details-panel">
-            <h3>Identity Meta-Data</h3>
-            <p><strong>Father's Name:</strong> Sri Ramarao</p>
-            <p><strong>Date of Birth:</strong> 17 December 1985</p>
-            <p><strong>Geographic Mobility:</strong> Willing to Relocate Globally</p>
-        </div>
-    </div>
-</section>
-
-<!-- Interactive Online Meeting Platform Integration -->
-<section id="virtual-collaboration" class="cv-section">
-    <h2>Virtual Operations & Class Coordination</h2>
-    <p>Select a digital ecosystem tool to view coordination configurations:</p>
-    <div class="platform-controls">
-        <button class="platform-btn" data-platform="Google Meet">Google Meet Integration</button>
-        <button class="platform-btn" data-platform="Microsoft Teams">Microsoft Teams Environment</button>
-        <button class="platform-btn" data-platform="Cisco Webex">Cisco Webex Portal</button>
-        <button class="platform-btn" data-platform="GoToMeeting">GoToMeeting Panel</button>
-    </div>
-    <div id="platform-display-node" class="hidden-panel-node"></div>
-</section>
-<section id="job-roles-portfolio" class="cv-section">
-    <h2>Core Academic & Operational Job Roles</h2>
-    <div class="roles-grid">
-        <div class="role-tag">📚 Teaching Core UG & PG Courses (EEE & AI domains)</div>
-        <div class="role-tag">🛠️ Preparation of Department Files for Accreditation (NBA / NAAC profiles)</div>
-        <div class="role-tag">📁 Structuring and Maintaining Course Work Compliance Documentation</div>
-        <div class="role-tag">🔬 Engineering Laboratory Assessment & System Operations</div>
-        <div class="role-tag">🎯 Student Body Mentoring & Continuous Internal Assessment Evaluation</div>
-        <div class="role-tag">📅 Departmental Academic Timetable Preparation</div>
-        <div class="role-tag">🛡️ Department Examination Branch Coordinator</div>
-    </div>
-    <!-- Inside the Publications section, add this Book Chapter block -->
-<h3>Published Book Chapters</h3>
-<ul class="publications-list">
-    <li>
-        <strong>Cyber security in smart Grids: Role of Digital Advanced Devices</strong> — 
-        Published in <em>Cyber security: Issues, Challenges, Solutions, and Business Dynamics</em>, 
-        IGI Global Publications (October 2022). <br>
-        <small>ISBN: 9781668458273 | pp. 18-32 | DOI: 10.4018/978-1-6684-5827-3.ch002</small>
-    </li>
-</ul>
-
-<!-- Append these two items to your existing Refereed Journal Records list -->
-<li>
-    "A grid interfaced low frequency wind power" — 
-    <em>International Journal for Research in Applied Science & Engineering Technology (IJRASET)</em>, 
-    Volume 3, Issue III, March 2015, pp. 544-549. 
-    <a href="https://ijraset.com" target="_blank" class="verify-link">View Document 🔗</a>
-</li>
-<li>
-    "Simulation based Analysis for fixing Optimal stages for a H-Bridge cascaded Multi Level Converters" — 
-    <em>International Journal of Scientific Engineering and Technology Research (IJSETR)</em>, 
-    Volume 5, Issue 7, March 2016, pp. 1342-1346. 
-    <a href="https://ijsetr.com" target="_blank" class="verify-link">View Archive 🔗</a>
-</li>
-<section id="professional-references" class="cv-section">
-    <h2>Professional References</h2>
-    <div class="references-layout">
-        <div class="reference-card">
-            <h4>Mr. K Prasad</h4>
-            <p>Rtd. Senior Lecturer</p>
-            <p class="ref-inst">Government Polytechnic, Vizianagaram</p>
-            <p class="ref-contact">📞 +91 9912340292</p>
-        </div>
-        <div class="reference-card">
-            <h4>Mr. K Srikanth</h4>
-            <p>Associate Professor</p>
-            <p class="ref-inst">Gayatri Vidya Parishad College of Engineering, Visakhapatnam</p>
-            <p class="ref-contact">📞 +91 9440897892</p>
-        </div>
-        <div class="reference-card">
-            <h4>Dr. Dipak D Bhage</h4>
-            <p>Professor</p>
-            <p class="ref-inst">Purnima University (PCU), Pune</p>
-            <p class="ref-contact">📞 +91 7083780216</p>
-        </div>
-        <div class="reference-card">
-            <h4>Mrs. Sangita K Chowdary</h4>
-            <p>Professor</p>
-            <p class="ref-inst">Sandip Institute of Technology & Research Centre (SITRC)</p>
-            <p class="ref-contact">📞 +91 9730199702</p>
-        </div>
-    </div>
-</section>
-
-</section>
-<section id="areas-of-interest" class="cv-section">
-    <h2>Technical Domains & Areas of Interest</h2>
-    <div class="interest-tag-container">
-        <span class="interest-chip">⚡ Non-Conventional Energy Sources</span>
-        <span class="interest-chip">🎛️ Digital Logic Design</span>
-        <span class="interest-chip">🤖 Artificial Intelligence & ML</span>
-        <span class="interest-chip">🕹️ Microcontrollers & Embedded Systems</span>
-        <span class="interest-chip">🧲 Electromagnetics & Field Theory</span>
-        <span class="interest-chip">🛡️ Cyber Security in Smart Grids</span>
-    </div>
-</section>
-
-<section id="formal-declaration" class="declaration-panel">
-    <hr class="declaration-divider">
-    <p class="declaration-text">
-        📜 <em>"The information furnished here is true and correct to the best of my knowledge and professional record."</em>
-    </p>
-    <div class="signature-space">
-        <p class="sig-name">G V Chiranjeevi Adari</p>
-        <p class="sig-title">Electrical Engineer & Software Professional</p>
-    </div>
-</section>
-
-<!-- HTML -->
-<button id="scrollTopBtn" style="display:none; position:fixed; bottom:20px; right:20px;">⬆️ Top</button>
-<!-- HTML -->
-<div class="accordion">
-  <button class="accordion-header">What is this website?</button>
-  <div class="accordion-content" style="display:none;">
-    <p>This is a custom webpage built with HTML, CSS, and JS!</p>
-  </div>
-</div>
-<!-- HTML -->
-<input type="text" id="searchBar" placeholder="Search items...">
-<ul id="itemList">
-  <li>HTML Basics</li>
-  <li>CSS Styling</li>
-  <li>JavaScript Interactivity</li>
-</ul>
-<!-- HTML Structure Mapping Example -->
-<div class="filter-controls">
-  <button class="filter-btn active" data-domain="all">All Specialties</button>
-  <button class="filter-btn" data-domain="ai">AI & Computation</button>
-  <button class="filter-btn" data-domain="electrical">Core Electrical Engineering</button>
-</div>
-
-<ul id="course-list">
-  <li class="course-item" data-category="ai">Artificial Intelligence Techniques</li>
-  <li class="course-item" data-category="ai">Advanced Python Programming</li>
-  <li class="course-item" data-category="electrical">Electro Magnetic Fields</li>
-  <li class="course-item" data-category="electrical">High Voltage Engineering</li>
-</ul>
-
-<!-- Match your HTML layout with these data properties -->
-<div class="filter-controls">
-  <button class="filter-btn active" data-domain="all">All Specialties</button>
-  <button class="filter-btn" data-domain="ai">AI & Computation</button>
-  <button class="filter-btn" data-domain="electrical">Core Electrical Engineering</button>
-</div>
-
-<ul class="courses-list">
-  <li data-category="ai">Artificial Intelligence Techniques</li>
-  <li data-category="ai">Advanced Python Programming</li>
-  <li data-category="electrical">Electro Magnetic Fields</li>
-  <li data-category="electrical">High Voltage Engineering</li>
-</ul>
-<!-- HTML Anchor Container below your Badge Buttons -->
-<div id="credential-display-panel" style="display:none; margin: 15px 0; padding: 15px; border: 1px dashed #3498db; border-radius: 6px;">
-  <h4 id="display-title"></h4>
-  <p id="display-details"></p>
-  <a id="display-link" href="#" target="_blank">Verify Credential Link 🔗</a>
-</div>
+                    <div id="cert-cyber" class="cert-content">
+                        <ul>
+                            <li>Foundations of Cybersecurity &amp; Managing Risk</li>
+                            <li>Connect and Protect: Networks and Network Security</li>
+                            <li>Tools of the Trade: Linux and SQL</li>
