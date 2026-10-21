@@ -371,75 +371,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 // ============================================================
-// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (EMPTY LOAD)
+// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (WITH NOTICE)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
     const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
     const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
+    const placeholderNotice = document.getElementById('filter-placeholder-notice');
 
     if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
         
-        // --------------------------------------------------------
-        // 🛠️ INITIAL LOAD STATE: FORCE HIDE ALL ENTRIES COMPLETELY
-        // --------------------------------------------------------
+        // 1. Initial State Initialization pass
         upgradationItems.forEach(item => {
             item.style.display = 'none'; 
         });
-
-        // Clear active class highlighting from "All Activities" button on startup
         upgradeFilters.forEach(f => f.classList.remove('active'));
-        // --------------------------------------------------------
 
+        // 2. Click Handling Interactivity Logic Loop
         upgradeFilters.forEach(btn => {
             btn.addEventListener('click', () => {
-                // 1. Clear active visual highlights from all filter buttons
+                // Remove placeholder text node layout spacing dynamically if active
+                if (placeholderNotice) {
+                    placeholderNotice.style.opacity = '0';
+                    setTimeout(() => {
+                        placeholderNotice.style.display = 'none';
+                    }, 300);
+                }
+
+                // Handle interactive active button highlight classes
                 upgradeFilters.forEach(f => f.classList.remove('active'));
-                
-                // 2. Add the active blue visual color state to the clicked button
                 btn.classList.add('active');
 
-                // 3. Extract the active filtering key (e.g., 'all', 'obe', 'ai-iot')
                 const selectedFilter = btn.getAttribute('data-upgrade-filter');
 
-                // 4. Safely traverse all listed activity nodes and toggle states
+                // Evaluate data matrix sorting matches
                 upgradationItems.forEach(item => {
                     const itemCategory = item.getAttribute('data-ucat');
                     
                     if (selectedFilter === 'all' || itemCategory === selectedFilter) {
-                        item.style.display = 'flex'; // Reveals matching items cleanly on click
+                        item.style.display = 'flex';
                         item.style.opacity = '0';
                         setTimeout(() => {
                             item.style.transition = 'opacity 0.3s ease';
                             item.style.opacity = '1';
                         }, 10);
                     } else {
-                        item.style.display = 'none'; // Keeps non-matching items hidden
-                    }
-                });
-            });
-        });
-    }
-});
-
-        upgradeFilters.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // 1. Clear active visual highlights from all filter buttons
-                upgradeFilters.forEach(f => f.classList.remove('active'));
-                
-                // 2. Add the active blue visual color state to the clicked button
-                btn.classList.add('active');
-
-                // 3. Extract the active filtering key (e.g., 'all', 'obe', 'ai-iot')
-                const selectedFilter = btn.getAttribute('data-upgrade-filter');
-
-                // 4. Safely traverse all listed activity nodes and toggle states
-                upgradationItems.forEach(item => {
-                    const itemCategory = item.getAttribute('data-ucat');
-                    
-                    if (selectedFilter === 'all' || itemCategory === selectedFilter) {
-                        item.style.display = 'flex'; // Triggers smooth flexbox alignment layout
-                    } else {
-                        item.style.display = 'none'; // Safely drops it out of document rendering map
+                        item.style.display = 'none';
                     }
                 });
             });
