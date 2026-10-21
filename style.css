@@ -1,209 +1,64 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* Base Layout & Styling from template */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background-color: #f1f5f9; color: #1e293b; padding: 20px; display: flex; flex-direction: column; align-items: center; }
 
-body {
-    background-color: #f4f7f6;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-/* Grid Layout */
-.cv-container {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    max-width: 1000px;
-    width: 100%;
+/* View Switcher Bar styling */
+.view-switcher-banner {
     background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-/* Sidebar Styling */
-.cv-sidebar {
-    background-color: #1e293b;
-    color: #fff;
-    padding: 40px 30px;
-}
-
-.profile-zone {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.avatar {
-    width: 90px;
-    height: 90px;
-    background: #38bdf8;
-    color: #1e293b;
-    font-size: 2rem;
-    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 0 auto 15px;
-}
-
-.profile-zone h1 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.profile-zone h2 {
-    font-size: 0.9rem;
-    color: #94a3b8;
-    font-weight: 400;
-}
-
-.contact-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 5px;
-}
-
-.contact-info p {
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-}
-
-.contact-info a {
-    color: #38bdf8;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-/* Main Content Area */
-.cv-main {
-    padding: 40px;
-}
-
-/* Interactive Tabs */
-.tab-navigation {
-    display: flex;
-    gap: 10px;
-    border-bottom: 2px solid #e2e8f0;
-    margin-bottom: 30px;
-}
-
-.tab-btn {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    color: #64748b;
-    transition: all 0.2s ease;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-}
-
-.tab-btn:hover {
-    color: #1e293b;
-}
-
-.tab-btn.active {
-    color: #38bdf8;
-    border-bottom: 2px solid #38bdf8;
-}
-
-/* Dynamic Content Display */
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Content Elements Styling */
-h3 {
-    margin: 25px 0 15px;
-    color: #1e293b;
-}
-
-h3:first-of-type {
-    margin-top: 0;
-}
-
-.skills-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skills-list li {
-    background: #f1f5f9;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.85rem;
+    gap: 15px;
+    margin-bottom: 25px;
     font-weight: 500;
 }
+.toggle-buttons { display: flex; gap: 8px; }
+.toggle-btn {
+    border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer;
+    font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; background: #e2e8f0; color: #475569;
+}
+.toggle-btn.active { background: #0284c7; color: white; }
 
-.timeline-item, .project-card, .reference-card {
-    background: #f8fafc;
-    border-left: 4px solid #38bdf8;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 0 8px 8px 0;
+/* Core Structure Layout */
+.cv-container { display: grid; grid-template-columns: 280px 1fr; max-width: 1000px; width: 100%; background: #fff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; }
+.cv-sidebar { background: #0f172a; color: white; padding: 30px 20px; }
+.avatar { width: 70px; height: 70px; background: #38bdf8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; color: #0f172a; margin: 0 auto 15px; }
+.profile-zone { text-align: center; margin-bottom: 30px; }
+.profile-zone h1 { font-size: 1.3rem; margin-bottom: 5px; }
+.contact-info p { margin-bottom: 10px; font-size: 0.85rem; }
+.contact-info a { color: #38bdf8; text-decoration: none; }
+.cv-main { padding: 40px; }
+
+/* Interactive Tabs Layout */
+.tab-navigation { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 25px; }
+.tab-btn { background: none; border: none; padding: 10px 15px; font-size: 0.95rem; font-weight: 600; cursor: pointer; color: #64748b; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.tab-btn.active { color: #0284c7; border-bottom-color: #0284c7; }
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.timeline-item, .skill-category, .publication-item { background: #f8fafc; border-left: 4px solid #38bdf8; padding: 15px; margin-bottom: 15px; border-radius: 0 6px 6px 0; }
+.date { font-size: 0.8rem; color: #64748b; }
+.ref-link { font-size: 0.85rem; color: #0284c7; text-decoration: none; display: inline-block; margin-top: 8px; }
+
+/* ==========================================================================
+   DYNAMIC DUAL-VIEW VISIBILITY ENGINE
+   ========================================================================== */
+
+/* 1. When body is in INDUSTRY VIEW: Hide all academic-only elements */
+body.view-industry .only-academic, 
+body.view-industry .subtitle-academic {
+    display: none !important;
 }
 
-.date {
-    font-size: 0.8rem;
-    color: #64748b;
-    display: block;
-    margin-bottom: 8px;
+/* 2. When body is in ACADEMIC VIEW: Hide all industry-only elements */
+body.view-academic .only-industry, 
+body.view-academic .subtitle-industry {
+    display: none !important;
 }
 
-.project-link, .ref-verify {
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 0.85rem;
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.project-link:hover, .ref-verify:hover {
-    text-decoration: underline;
-}
-
-blockquote {
-    font-style: italic;
-    color: #475569;
-    margin-bottom: 8px;
-}
-
-.ref-author {
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .cv-container {
-        grid-template-columns: 1fr;
-    }
-    .tab-navigation {
-        overflow-x: auto;
-    }
-}
+/* Ensure tab contents that match the view are displayed if they are active */
+body.view-industry .tab-content.only-industry.active { display: block; }
+body.view-academic .tab-content.only-academic.active { display: block; }
