@@ -472,45 +472,7 @@ document.getElementById('searchBar').addEventListener('input', (e) => {
   });
 });
 
-// ============================================================================
-// 🌓 MODULE 1: THEME TOGGLE & CERTIFICATION UTILITIES
-// ============================================================================
-const themeBtn = document.querySelector('.theme-toggle-btn') || document.getElementById('theme-toggle');
 
-if (themeBtn) {
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    const isDark = document.body.classList.contains('dark-theme');
-    localStorage.setItem('cv-theme', isDark ? 'dark' : 'light');
-  });
-}
-
-if (localStorage.getItem('cv-theme') === 'dark') {
-  document.body.classList.add('dark-theme');
-}
-
-// Full implementation of the consolidated JavaScript logic for theme toggling, course filtering, dynamic tab rendering, and education repository handling can be structured inside an optimized DOMContentLoaded event listener.
-document.addEventListener('DOMContentLoaded', () => {
-    const courseFilters = document.querySelectorAll('.course-filter-btn');
-    const courseItems = document.querySelectorAll('#coursesContainer li');
-    const courseNotice = document.getElementById('course-placeholder-notice');
-
-    if (courseItems.length > 0) {
-        courseItems.forEach(item => { item.style.display = 'none'; });
-    }
-
-    if (courseFilters.length > 0) {
-        courseFilters.forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (courseNotice) courseNotice.style.display = 'none';
-                courseFilters.forEach(f => f.classList.remove('active'));
-                btn.classList.add('active');
-                const selectedDomain = btn.getAttribute('data-course-filter');
-                courseItems.forEach(item => {
-                    const itemDomain = item.getAttribute('data-ccat');
-                    item.style.display = (selectedDomain === 'all' || itemDomain === selectedDomain) ? 'list-item' : 'none';
-                });
-            });
         });
     }
 });
