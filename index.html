@@ -328,50 +328,23 @@
                 </div>
             </div>
         </section>
-   document.addEventListener("DOMContentLoaded", () => {
-  // 1. Target the exact classes from your HTML structure
-  const filterButtons = document.querySelectorAll(".upgrade-filter-btn");
-  const container = document.getElementById("upgradeActivitiesContainer");
-
-  // Verify elements exist to prevent console errors
-  if (!container || filterButtons.length === 0) return;
-
-  filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      // 2. Safely swap the visual 'active' state on your specific buttons
-      document.querySelector(".upgrade-filter-btn.active")?.classList.remove("active");
-      button.classList.add("active");
-
-      // 3. Get the filter value (all, obe, ai-iot, grids, webinars)
-      const targetFilter = button.getAttribute("data-upgrade-filter");
-
-      // 4. Find all child list items inside your container
-      const listItems = container.querySelectorAll("li");
-
-      listItems.forEach(item => {
-        // Match against your 'data-ucat' attribute on the list items
-        const itemCategory = item.getAttribute("data-ucat");
-
-        if (targetFilter === "all" || itemCategory === targetFilter) {
-          // Reset inline display parameters to show matching item
-          item.style.display = ""; 
-          item.style.opacity = "0";
-          
-          // Smooth fade-in transition
-          setTimeout(() => {
-            item.style.transition = "opacity 0.3s ease";
-            item.style.opacity = "1";
-          }, 10);
-        } else {
-          // Hide non-matching items completely
-          item.style.display = "none";
-        }
-      });
-    });
-  });
-});
-
-
+ <!-- Interactive Technical Skill Upgradation Section -->
+<section class="cv-section">
+    <h2>Faculty Development & Skill Upgradation Activities</h2>
+    <p class="instruction-text">Filter workshops, FDPs, and international seminars by core academic domain:</p>
+    
+    <div class="filter-buttons">
+        <button class="upgrade-filter-btn active" data-upgrade-filter="all">All Activities</button>
+        <button class="upgrade-filter-btn" data-upgrade-filter="obe">OBE & Pedagogy</button>
+        <button class="upgrade-filter-btn" data-upgrade-filter="ai-iot">AI, ML & IoT Engineering</button>
+        <button class="upgrade-filter-btn" data-upgrade-filter="grids">Smart Grids & Power Electronics</button>
+        <button class="upgrade-filter-btn" data-upgrade-filter="webinars">Webinars & Other Events</button>
+    </div>
+    
+    <ul class="upgrade-activity-list" id="upgradeActivitiesContainer">
+        <!-- Filterable items structured by data-ucat="obe" | "ai-iot" | "grids" | "webinars" -->
+    </ul>
+</section>
 
 
 
