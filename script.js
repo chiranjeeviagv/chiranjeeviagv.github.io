@@ -1,9 +1,10 @@
 /**
- * G V Chiranjeevi Adari - Interactive CV Script File
- * Restores all interactions, filtering, data injections, and theme modes.
+ * G V Chiranjeevi Adari - Complete Interactive CV Script File
+ * Core Architecture: All dynamic filter lists and tab content display panels 
+ * start fully hidden until an explicit user click interaction occurs.
  */
 
-// --- 1. DATABASES FOR STATIC CONTENT INJECTIONS ---
+// --- 1. DYNAMIC DATA CONFIGURATIONS ---
 const EDUCATION_DB = {
     mtech: {
         title: "Master of Technology (M.Tech) in High Voltage Engineering",
@@ -74,224 +75,145 @@ const EXPERIENCE_DB = {
     }
 };
 
-// --- 2. MAIN INITIALIZATION CONTROLLER ---
+// --- 2. APPLICATION BOOTSTRAPPING ENGINE ---
 document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
     initEducationPanel();
     initCertificationsTabs();
     initExperiencePanel();
     initCourseFiltering();
+    initFdpFiltering();
 });
 
 /**
- * 1. Dark/Light Theme Switching Engine
+ * 1. Dark/Light Theme Switching Framework
  */
 function initThemeToggle() {
     const toggleBtn = document.getElementById("themeToggle");
     if (!toggleBtn) return;
-
-    // Evaluate persistence values
     if (localStorage.getItem("theme") === "dark") {
         document.body.classList.add("dark-theme");
     }
-
     toggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-theme");
-        const status = document.body.classList.contains("dark-theme") ? "dark" : "light";
-        localStorage.setItem("theme", status);
+        localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
     });
 }
 
 /**
- * 2. Education Content Renderer
+ * 2. Education Summary Node Manager
  */
 function initEducationPanel() {
     const outputBox = document.getElementById("educationOutputBox");
     const buttons = document.querySelectorAll("[data-edu]");
-    if (!outputBox || buttons.length === 0) return;
+    if (!outputBox) return;
 
-    function renderEducation(key) {
-        const data = EDUCATION_DB[key];
-        if (!data) return;
-        outputBox.innerHTML = `
-            <div class="display-card entry-animate">
-                <h3>${data.title}</h3>
-                <h4>${data.institution}</h4>
-                <span class="timeline-badge">${data.timeline}</span>
-                <p>${data.details}</p>
-            </div>
-        `;
-    }
-
-    // Default load (First active item)
-    renderEducation("mtech");
+    // Reset initial landing view to an empty layout state notice
+    outputBox.innerHTML = `<div class="placeholder-notice">ℹ️ Click a milestone button above to view academic credentials.</div>`;
+    buttons.forEach(b => b.classList.remove("active"));
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             buttons.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
-            renderEducation(btn.getAttribute("data-edu"));
+            
+            const data = EDUCATION_DB[btn.getAttribute("data-edu")];
+            if (!data) return;
+            outputBox.innerHTML = `
+                <div class="display-card entry-animate">
+                    <h3>${data.title}</h3>
+                    <h4>${data.institution}</h4>
+                    <span class="timeline-badge">${data.timeline}</span>
+                    <p>${data.details}</p>
+                </div>
+            `;
         });
     });
 }
 
 /**
- * 3. Certifications Dynamic Loader
+ * 3. Interactive Certifications Tab Controller
  */
 function initCertificationsTabs() {
     const placeholder = document.getElementById("tabContentPlaceholder");
     const buttons = document.querySelectorAll("[data-tab]");
-    if (!placeholder || buttons.length === 0) return;
+    if (!placeholder) return;
 
-    function renderCert(key) {
-        const data = CERTIFICATIONS_DB[key];
-        if (!data) return;
-        placeholder.innerHTML = `
-            <div class="cert-card entry-animate">
-                <h3>${data.title}</h3>
-                <p>${data.desc}</p>
-                <a href="${data.link}" target="_blank" class="verify-link">Verify Credential Link 🔗</a>
-            </div>
-        `;
-    }
-
-    // Default load
-    renderCert("ibm-js");
-    buttons[0].classList.add("active");
+    // Hide contents on startup
+    placeholder.innerHTML = `<div class="placeholder-notice">🔍 Click any certification badge above to view verification data.</div>`;
+    buttons.forEach(b => b.classList.remove("active"));
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             buttons.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
-            renderCert(btn.getAttribute("data-tab"));
+            
+            const data = CERTIFICATIONS_DB[btn.getAttribute("data-tab")];
+            if (!data) return;
+            placeholder.innerHTML = `
+                <div class="cert-card entry-animate">
+                    <h3>${data.title}</h3>
+                    <p>${data.desc}</p>
+                    <a href="${data.link}" target="_blank" class="verify-link">Verify Credential Link 🔗</a>
+                </div>
+            `;
         });
     });
 }
 
 /**
- * 4. Experience Profiles Panel
+ * 4. Academic Employment History Profile Renderer
  */
 function initExperiencePanel() {
     const outputBox = document.getElementById("experienceOutputBox");
     const buttons = document.querySelectorAll("[data-exp]");
-    if (!outputBox || buttons.length === 0) return;
+    if (!outputBox) return;
 
-    function renderExperience(key) {
-        const data = EXPERIENCE_DB[key];
-        if (!data) return;
-        outputBox.innerHTML = `
-            <div class="display-card entry-animate">
-                <h3>${data.role}</h3>
-                <h4>${data.institution}</h4>
-                <span class="timeline-badge">${data.timeline}</span>
-                <p class="achievements-text"><strong>Key Scope:</strong> ${data.achievements}</p>
-            </div>
-        `;
-    }
-
-    // Default load
-    renderExperience("sitrc");
+    // Force clear view layer contents on initial browser loading cycles
+    outputBox.innerHTML = `<div class="placeholder-notice">ℹ️ Select an institution timeline above to open role profiles.</div>`;
+    buttons.forEach(b => b.classList.remove("active"));
 
     buttons.forEach(btn => {
         btn.addEventListener("click", () => {
             buttons.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
-            renderExperience(btn.getAttribute("data-exp"));
+            
+            const data = EXPERIENCE_DB[btn.getAttribute("data-exp")];
+            if (!data) return;
+            outputBox.innerHTML = `
+                <div class="display-card entry-animate">
+                    <h3>${data.role}</h3>
+                    <h4>${data.institution}</h4>
+                    <span class="timeline-badge">${data.timeline}</span>
+                    <p class="achievements-text"><strong>Key Scope:</strong> ${data.achievements}</p>
+                </div>
+            `;
         });
     });
 }
 
 /**
-document.addEventListener("DOMContentLoaded", () => {
-    initThemeToggle();
-    initEducationPanel();
-    initCertificationsTabs();
-    initExperiencePanel();
-    initCourseFiltering();
-    initFdpFiltering(); // <-- Add this new module runner here
-});
-
-/**
- * Faculty Development & Skill Upgradation Filtering Engine
- */
-function initFdpFiltering() {
-    const filterButtons = document.querySelectorAll("[data-fdp-filter]");
-    const fdpContainer = document.getElementById("fdpContainer");
-    const placeholderNotice = document.getElementById("fdp-placeholder-notice");
-    
-    if (!fdpContainer || filterButtons.length === 0) return;
-
-    // 1. Force hide all list items initially on landing page load
-    const fdpItems = fdpContainer.querySelectorAll("li");
-    fdpItems.forEach(item => item.style.display = "none");
-    filterButtons.forEach(b => b.classList.remove("active"));
-
-    // 2. Click Handler
-    filterButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            // Manage active button style class toggles
-            filterButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            const selectedFilter = btn.getAttribute("data-fdp-filter");
-
-            // Hide the placeholder notice card upon first interaction
-            if (placeholderNotice) {
-                placeholderNotice.style.display = "none";
-            }
-
-            // 3. Filter display evaluations
-            fdpItems.forEach(item => {
-                const itemCategory = item.getAttribute("data-fcat");
-                if (selectedFilter === "all") {
-                    item.style.display = "block";
-                } else if (itemCategory === selectedFilter) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
-    });
-}
-
- * 5. Course Domain Filtering System
+ * 5. Course Subspecialty Domain Filtering Module
  */
 function initCourseFiltering() {
     const filterButtons = document.querySelectorAll("[data-course-filter]");
     const coursesContainer = document.getElementById("coursesContainer");
     const placeholderNotice = document.getElementById("course-placeholder-notice");
     
-    if (!coursesContainer || filterButtons.length === 0) return;
+    if (!coursesContainer) return;
 
-    // Initially hide all list items until a user selection occurs
+    // Force absolute hidden status on startup
     const courseItems = coursesContainer.querySelectorAll("li");
     courseItems.forEach(item => item.style.display = "none");
+    filterButtons.forEach(b => b.classList.remove("active"));
 
     filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
-            // Manage button active layout states
             filterButtons.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
 
             const selectedFilter = btn.getAttribute("data-course-filter");
+            if (placeholderNotice) placeholderNotice.style.display = "none";
 
-            // Remove or hide the instruction helper badge
-            if (placeholderNotice) {
-                placeholderNotice.style.display = "none";
-            }
-
-            // Execute conditional sorting rules
             courseItems.forEach(item => {
                 const itemCategory = item.getAttribute("data-ccat");
-                if (selectedFilter === "all") {
-                    item.style.display = "block";
-                } else if (itemCategory === selectedFilter) {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
-            });
-        });
-    });
-}
