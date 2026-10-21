@@ -202,6 +202,59 @@ function initExperiencePanel() {
 }
 
 /**
+document.addEventListener("DOMContentLoaded", () => {
+    initThemeToggle();
+    initEducationPanel();
+    initCertificationsTabs();
+    initExperiencePanel();
+    initCourseFiltering();
+    initFdpFiltering(); // <-- Add this new module runner here
+});
+
+/**
+ * Faculty Development & Skill Upgradation Filtering Engine
+ */
+function initFdpFiltering() {
+    const filterButtons = document.querySelectorAll("[data-fdp-filter]");
+    const fdpContainer = document.getElementById("fdpContainer");
+    const placeholderNotice = document.getElementById("fdp-placeholder-notice");
+    
+    if (!fdpContainer || filterButtons.length === 0) return;
+
+    // 1. Force hide all list items initially on landing page load
+    const fdpItems = fdpContainer.querySelectorAll("li");
+    fdpItems.forEach(item => item.style.display = "none");
+    filterButtons.forEach(b => b.classList.remove("active"));
+
+    // 2. Click Handler
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Manage active button style class toggles
+            filterButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            const selectedFilter = btn.getAttribute("data-fdp-filter");
+
+            // Hide the placeholder notice card upon first interaction
+            if (placeholderNotice) {
+                placeholderNotice.style.display = "none";
+            }
+
+            // 3. Filter display evaluations
+            fdpItems.forEach(item => {
+                const itemCategory = item.getAttribute("data-fcat");
+                if (selectedFilter === "all") {
+                    item.style.display = "block";
+                } else if (itemCategory === selectedFilter) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        });
+    });
+}
+
  * 5. Course Domain Filtering System
  */
 function initCourseFiltering() {
