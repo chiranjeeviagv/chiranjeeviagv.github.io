@@ -43,10 +43,12 @@ body { background-color: #f1f5f9; color: #1e293b; padding: 20px; display: flex; 
 .date { font-size: 0.8rem; color: #64748b; }
 .ref-link { font-size: 0.85rem; color: #0284c7; text-decoration: none; display: inline-block; margin-top: 8px; }
 .avatar-img {
-    width: 120px;          /* Shrinks the width of your photo */
-    height: 120px;         /* Keeps the aspect ratio perfectly square */
-    object-fit: cover;     /* Prevents squishing or distortion if the original file isn't square */
-    border-radius: 50%;    /* Optional: Makes the profile image a clean circle cutout */
+    width: 100%;           /* Ensures it scales down to fit the sidebar width exactly */
+    max-width: 150px;      /* Prevents it from becoming too large on wide screens */
+    height: auto;          /* Maintains the natural aspect ratio so it doesn't stretch */
+    display: block;        /* Prevents layout alignment issues with inline elements */
+    margin: 0 auto 15px;   /* Centers the image horizontally and adds space underneath */
+    border-radius: 8px;    /* Optional: Gives it clean, slightly rounded corners */
 }
 
 /* ==========================================================================
