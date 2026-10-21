@@ -3,51 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V Chiranjeevi Adari - Interactive CV</title>
+    <title>Your Name - Interactive CV</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="view-industry">
+<body>
 
-    <!-- Mode Selector Controls -->
-    <div class="view-switcher-banner">
-        <span>Select CV Presentation Mode:</span>
-        <div class="toggle-buttons">
-            <button id="industry-toggle-btn" class="toggle-btn active" onclick="switchView('industry')">💻 Industry (Software/AI)</button>
-            <button id="academic-toggle-btn" class="toggle-btn" onclick="switchView('academic')">🎓 Academic & Research</button>
-        </div>
-    </div>
-
-    <!-- Main CV container with sidebar and workspace layout; full code omitted to prevent excessive source reproduction, available in full repository source. -->
     <div class="cv-container">
-        <!-- Persistent Left Column -->
+        <!-- Sidebar / Header Info -->
         <header class="cv-sidebar">
             <div class="profile-zone">
-                <div class="avatar-container">
-                    <img src="profile.jpg" alt="G V Chiranjeevi Adari" class="profile-photo">
-                </div>
-                <h1>G V Chiranjeevi Adari</h1>
-                <h2 class="subtitle-industry">Electrical & Full-Stack AI/Software Engineer</h2>
-                <h2 class="subtitle-academic">Assistant Professor (EEE & AI-ML) / Ph.D. Researcher</h2>
+                <div class="avatar">YN</div>
+                <h1>Your Name</h1>
+                <h2>Your Profession / Role</h2>
             </div>
             
             <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>📞 <strong>Phone:</strong> <a href="tel:+919949163002">9949163002</a></p>
-                <p>📧 <strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></p>
-                <p>📍 <strong>Location:</strong> Vepagunta, Visakhapatnam, India</p>
+                <h3>Contact</h3>
+                <p>📧 <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p>🌐 <a href="https://yourportfolio.com" target="_blank">Portfolio Website</a></p>
+                <p>💼 <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a></p>
+                <p>💻 <a href="https://github.com" target="_blank">GitHub Profile</a></p>
             </div>
         </header>
 
-        <!-- Right Multi-Tab Workspace Area -->
+        <!-- Main Interactive Content -->
         <main class="cv-main">
+            <!-- Navigation Tabs -->
             <nav class="tab-navigation">
-                <button class="tab-btn active" onclick="openTab(event, 'about-tab')">Overview</button>
-                <button class="tab-btn" onclick="openTab(event, 'credentials-tab')">Certifications & Skills</button>
-                <button class="tab-btn" onclick="openTab(event, 'experience-tab')">Experience & Milestones</button>
-                <button class="tab-btn only-academic" onclick="openTab(event, 'research-tab')">Publications & Patents</button>
-                <button class="tab-btn" onclick="openTab(event, 'contact-tab')">Contact Me</button>
+                <button class="tab-btn active" onclick="openTab(event, 'about')">About Me</button>
+                <button class="tab-btn" onclick="openTab(event, 'experience')">Experience</button>
+                <button class="tab-btn" onclick="openTab(event, 'projects')">Projects</button>
+                <button class="tab-btn" onclick="openTab(event, 'references')">References</button>
             </nav>
-            <!-- Tab contents, timeline items, skills, interactive modals, and forms are structured in the complete repository files. -->
+
+            <!-- Tab Content: About Me -->
+            <section id="about" class="tab-content active">
+                <h3>Professional Summary</h3>
+                <p>Write a compelling summary of who you are, your core strengths, and what drives you professionally. Keep it punchy and tailored to your target industry.</p>
+                
+                <h3>Core Skills</h3>
+                <ul class="skills-list">
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>UI/UX Design</li>
+                    <li>Project Management</li>
+                </ul>
+            </section>
+
+            <!-- Tab Content: Experience -->
+            <section id="experience" class="tab-content">
+                <h3>Work History</h3>
+                <div class="timeline-item">
+                    <h4>Senior Developer — Tech Corp</h4>
+                    <span class="date">2024 - Present</span>
+                    <p>Led a team of developers to rebuild the core web application, improving performance by 40%.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Web Developer — Startup Inc</h4>
+                    <span class="date">2022 - 2024</span>
+                    <p>Developed and maintained responsive client websites. Collaborated closely with UI/UX designers.</p>
+                </div>
+            </section>
+
+            <!-- Tab Content: Projects -->
+            <section id="projects" class="tab-content">
+                <h3>Featured Projects</h3>
+                <div class="project-card">
+                    <h4>E-Commerce Platform</h4>
+                    <p>A fully interactive online storefront built with modern web technologies.</p>
+                    <a href="https://github.com/project" target="_blank" class="project-link">View Source Code →</a>
+                </div>
+                <div class="project-card">
+                    <h4>Interactive Dashboard</h4>
+                    <p>A data visualization tool tracking real-time user metrics.</p>
+                    <a href="https://yourliveproject.com" target="_blank" class="project-link">Live Demo →</a>
+                </div>
+            </section>
+
+            <!-- Tab Content: References -->
+            <section id="references" class="tab-content">
+                <h3>Embedded References</h3>
+                <div class="reference-card">
+                    <blockquote>
+                        "Your Name is an exceptionally talented developer who consistently delivers clean, efficient code and brings an incredible attitude to the team."
+                    </blockquote>
+                    <p class="ref-author">— Jane Doe, Engineering Manager at Tech Corp</p>
+                    <a href="https://linkedin.com" target="_blank" class="ref-verify">Verify Recommendation via LinkedIn</a>
+                </div>
+            </section>
         </main>
     </div>
 
