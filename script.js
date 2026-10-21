@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 // ============================================================
-// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (WITH NOTICE)
+// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (WITH DYNAMIC NOTICE)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
     const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
@@ -380,24 +380,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
         
-        // 1. Initial State Initialization pass
+        // 1. 🛠️ INITIAL LOAD STATE: FORCE HIDE ALL 29 LIST ENTRIES IMMEDIATELY
         upgradationItems.forEach(item => {
             item.style.display = 'none'; 
         });
+
+        // 2. Ensure no buttons are pre-highlighted blue while the list is empty
         upgradeFilters.forEach(f => f.classList.remove('active'));
 
-        // 2. Click Handling Interactivity Logic Loop
+        // 3. Click Handling Interactivity Logic Loop
         upgradeFilters.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove placeholder text node layout spacing dynamically if active
-                if (placeholderNotice) {
+                
+                // 💡 DYNAMICALLY FADE OUT AND REMOVE THE PLACEHOLDER ALERT BOX
+                if (placeholderNotice && placeholderNotice.style.display !== 'none') {
                     placeholderNotice.style.opacity = '0';
                     setTimeout(() => {
                         placeholderNotice.style.display = 'none';
-                    }, 300);
+                    }, 250); // Matches transition timing smoothly
                 }
 
-                // Handle interactive active button highlight classes
+                // Manage interactive active button highlight visual states
                 upgradeFilters.forEach(f => f.classList.remove('active'));
                 btn.classList.add('active');
 
@@ -408,14 +411,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const itemCategory = item.getAttribute('data-ucat');
                     
                     if (selectedFilter === 'all' || itemCategory === selectedFilter) {
-                        item.style.display = 'flex';
+                        item.style.display = 'flex'; // Restores clean flexbox layout structure
                         item.style.opacity = '0';
                         setTimeout(() => {
                             item.style.transition = 'opacity 0.3s ease';
                             item.style.opacity = '1';
                         }, 10);
                     } else {
-                        item.style.display = 'none';
+                        item.style.display = 'none'; // Drops out of rendering grid instantly
                     }
                 });
             });
