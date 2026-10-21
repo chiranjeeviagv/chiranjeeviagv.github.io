@@ -16,6 +16,46 @@
             <button id="academic-toggle-btn" class="toggle-btn" onclick="switchView('academic')">Academic & Research View</button>
         </div>
     </div>
+<script>
+    // 1. Logic for Switching Views (Industry vs Academic)
+    function switchView(viewType) {
+        // Update the body class to trigger CSS state changes
+        document.body.className = 'view-' + viewType;
+
+        // Toggle active state styling on the banner buttons
+        document.getElementById('industry-toggle-btn').classList.toggle('active', viewType === 'industry');
+        document.getElementById('academic-toggle-btn').classList.toggle('active', viewType === 'academic');
+        
+        // Edge case: If an academic-only tab is open but we switch to industry view,
+        // force-return to the Overview tab so the user isn't stuck on a hidden screen.
+        if (viewType === 'industry') {
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab && activeTab.classList.contains('only-academic')) {
+                // Click the first tab button automatically
+                document.querySelector('.tab-navigation .tab-btn').click();
+            }
+        }
+    }
+
+    // 2. Logic for Switching Navigation Tabs
+    function openTab(evt, tabId) {
+        // Hide all tab contents
+        const tabContents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+
+        // Deactivate all tab buttons
+        const tabButtons = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active");
+        }
+
+        // Show the targeted tab and highlight its button
+        document.getElementById(tabId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
 
     
     <div class="cv-container">
