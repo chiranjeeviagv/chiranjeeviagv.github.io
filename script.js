@@ -1,3 +1,73 @@
+// Theme Toggle Engine
+const themeBtn = document.querySelector('.theme-toggle-btn') || document.getElementById('theme-toggle');
+
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    // Save the choice in local storage
+    const isDark = document.body.classList.contains('dark-theme');
+    localStorage.setItem('cv-theme', isDark ? 'dark' : 'light');
+  });
+}
+
+// Check and apply saved theme layout on startup
+if (localStorage.getItem('cv-theme') === 'dark') {
+  document.body.classList.add('dark-theme');
+}
+// Course Domain Selection Filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const courses = document.querySelectorAll('.courses-list li');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active styles from other buttons
+    document.querySelector('.filter-btn.active')?.classList.remove('active');
+    btn.classList.add('active');
+    
+    const choice = btn.getAttribute('data-domain');
+    
+    courses.forEach(course => {
+      const category = course.getAttribute('data-category');
+      if (choice === 'all' || category === choice) {
+        course.style.display = 'list-item';
+      } else {
+        course.style.display = 'none';
+      }
+    });
+  });
+});
+// Object Dataset holding your certification details
+const certificationData = {
+  'ibm-fullstack': {
+    title: 'IBM Full Stack Developer Certificate',
+    desc: 'Advanced software development lifecycle tracking, cloud-native building, and JavaScript backend deployment paradigms.',
+    link: 'https://coursera.org'
+  },
+  'microsoft-ai': {
+    title: 'Microsoft AI & ML Engineering',
+    desc: 'Covering model architecture training, cloud intelligence models, and cognitive compute tooling systems.',
+    link: 'https://microsoft.com'
+  }
+};
+
+// Event Handler to inject content dynamically 
+function loadCredential(certId) {
+  const panel = document.getElementById('credential-display-panel');
+  const data = certificationData[certId];
+  
+  if (panel && data) {
+    document.getElementById('display-title').textContent = data.title;
+    document.getElementById('display-details').textContent = data.desc;
+    document.getElementById('display-link').href = data.link;
+    
+    panel.style.display = 'block'; // Make container visible
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// Hooking it up to a button event handler example
+// <button onclick="loadCredential('ibm-fullstack')">IBM Full Stack Developer</button>
+
 document.addEventListener('DOMContentLoaded', () => {
     // Theme Toggle Logic
     const themeToggle = document.getElementById('themeToggle');
