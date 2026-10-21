@@ -371,31 +371,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 // ============================================================
-// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (FIXED)
+// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (CLEAN LOAD)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
     const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
     const upgradationItems = document.querySelectorAll('#upgradeActivitiesContainer li');
 
-    // Run our filter mechanism only if the nodes exist on the webpage layout
     if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
         
         // --------------------------------------------------------
-        // 🛠️ FIX: RUN INITIAL FILTER PASS ON WEBPAGE LOAD
-        // This ensures the page immediately respects whichever button has the "active" class
+        // 🛠️ INITIAL STATE: HIDE ALL ENTRIES ON WEBPAGE LOAD
         // --------------------------------------------------------
-        const initialActiveBtn = document.querySelector('.upgrade-filter-btn.active');
-        const defaultFilter = initialActiveBtn ? initialActiveBtn.getAttribute('data-upgrade-filter') : 'all';
-        
         upgradationItems.forEach(item => {
-            const itemCategory = item.getAttribute('data-ucat');
-            if (defaultFilter === 'all' || itemCategory === defaultFilter) {
-                item.style.display = 'flex';
-            } else {
-                item.style.display = 'none';
-            }
+            item.style.display = 'none'; 
         });
+
+        // Optional: Remove active highlight from "All Activities" button on startup 
+        // so the user knows they need to make a fresh selection.
+        const allBtn = document.querySelector('[data-upgrade-filter="all"]');
+        if (allBtn) allBtn.classList.remove('active');
         // --------------------------------------------------------
+
+        upgradeFilters.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 1. Clear active visual highlights from all filter buttons
+                upgradeFilters.forEach(f => f.classList.remove('active'));
+                
+                // 2. Add the active blue visual color state to the clicked button
+                btn.classList.add('active');
+
+                // 3. Extract the active filtering key (e.g., 'all', 'obe', 'ai-iot')
+                const selectedFilter = btn.getAttribute('data-upgrade-filter');
+
+                // 4. Safely traverse all listed activity nodes and toggle states
+                upgradationItems.forEach(item => {
+                    const itemCategory = item.getAttribute('data-ucat');
+                    
+                    if (selectedFilter === 'all' || itemCategory === selectedFilter) {
+                        item.style.display = 'flex'; // Shows matching items cleanly
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.transition = 'opacity 0.3s ease';
+                            item.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        item.style.display = 'none'; // Keeps non-matching items hidden
+                    }
+                });
+            });
+        });
+    }
+});
 
         upgradeFilters.forEach(btn => {
             btn.addEventListener('click', () => {
