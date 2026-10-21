@@ -372,4 +372,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// JavaScript
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.style.display = 'block';
+  } else {
+    scrollTopBtn.style.display = 'none';
+  }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+// JavaScript
+document.querySelectorAll('.accordion-header').forEach(button => {
+  button.addEventListener('click', () => {
+    const content = button.nextElementSibling;
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  });
+});
+// JavaScript
+document.getElementById('searchBar').addEventListener('input', (e) => {
+  const filter = e.target.value.toLowerCase();
+  const items = document.querySelectorAll('#itemList li');
+  
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(filter) ? '' : 'none';
+  });
+});
 
