@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 // ============================================================
-// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (CLEAN LOAD)
+// FACULTY DEVELOPMENT & SKILL UPGRADATION FILTER ENGINE (EMPTY LOAD)
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
     const upgradeFilters = document.querySelectorAll('.upgrade-filter-btn');
@@ -380,16 +380,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (upgradeFilters.length > 0 && upgradationItems.length > 0) {
         
         // --------------------------------------------------------
-        // 🛠️ INITIAL STATE: HIDE ALL ENTRIES ON WEBPAGE LOAD
+        // 🛠️ INITIAL LOAD STATE: FORCE HIDE ALL ENTRIES COMPLETELY
         // --------------------------------------------------------
         upgradationItems.forEach(item => {
             item.style.display = 'none'; 
         });
 
-        // Optional: Remove active highlight from "All Activities" button on startup 
-        // so the user knows they need to make a fresh selection.
-        const allBtn = document.querySelector('[data-upgrade-filter="all"]');
-        if (allBtn) allBtn.classList.remove('active');
+        // Clear active class highlighting from "All Activities" button on startup
+        upgradeFilters.forEach(f => f.classList.remove('active'));
         // --------------------------------------------------------
 
         upgradeFilters.forEach(btn => {
@@ -408,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const itemCategory = item.getAttribute('data-ucat');
                     
                     if (selectedFilter === 'all' || itemCategory === selectedFilter) {
-                        item.style.display = 'flex'; // Shows matching items cleanly
+                        item.style.display = 'flex'; // Reveals matching items cleanly on click
                         item.style.opacity = '0';
                         setTimeout(() => {
                             item.style.transition = 'opacity 0.3s ease';
