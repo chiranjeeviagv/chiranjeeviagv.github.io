@@ -496,62 +496,47 @@ document.getElementById('searchBar').addEventListener('input', (e) => {
   });
 });
 
-// ============================================================
-// ACADEMIC COURSES FILTER ENGINE (EMPTY LOAD & TOGGLE)
-// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
     const courseFilters = document.querySelectorAll('.course-filter-btn');
     const courseItems = document.querySelectorAll('#coursesContainer li');
     const courseNotice = document.getElementById('course-placeholder-notice');
 
-    if (courseFilters.length > 0 && courseItems.length > 0) {
-        
-        // 1. Initial State Initialization: Hide all courses instantly on startup
+    if (courseItems.length > 0) {
+        // FORCE HIDE EVERYTHING ON LANDING RIGHT AWAY
         courseItems.forEach(item => {
             item.style.display = 'none'; 
         });
-        
-        // Remove active class from the "All Specialties" button on startup
+    }
+
+    if (courseFilters.length > 0) {
+        // Remove any default active styling tags on landing
         courseFilters.forEach(f => f.classList.remove('active'));
 
-        // 2. Setup Click Event Handlers
+        // Handle button clicks
         courseFilters.forEach(btn => {
             btn.addEventListener('click', () => {
                 
-                // Remove the initial info banner smoothly on click
-                if (courseNotice && courseNotice.style.display !== 'none') {
-                    courseNotice.style.opacity = '0';
-                    setTimeout(() => {
-                        courseNotice.style.display = 'none';
-                    }, 250);
+                // Hide the placeholder alert instantly
+                if (courseNotice) {
+                    courseNotice.style.display = 'none';
                 }
 
-                // Manage active navigation highlights
+                // Highlight active button
                 courseFilters.forEach(f => f.classList.remove('active'));
                 btn.classList.add('active');
 
                 const selectedDomain = btn.getAttribute('data-course-filter');
 
-                // Evaluate data matrix matches
                 courseItems.forEach(item => {
                     const itemDomain = item.getAttribute('data-ccat');
                     
                     if (selectedDomain === 'all' || itemDomain === selectedDomain) {
-                        // Restores grid-block layout visibility structure
-                        item.style.display = 'block'; 
-                        item.style.opacity = '0';
-                        setTimeout(() => {
-                            item.style.transition = 'opacity 0.3s ease';
-                            item.style.opacity = '1';
-                        }, 10);
+                        item.style.display = 'list-item'; // Shows matching items as a clean list bullet
                     } else {
-                        item.style.display = 'none';
+                        item.style.display = 'none'; // Hides non-matching items
                     }
                 });
             });
         });
     }
 });
-
-// Example usage hook for an IBM badge button click
-// openCredentialModal('IBM Full Stack Developer', 'https://example.com', 'Completed formal training tracking backend systems.');
