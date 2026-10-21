@@ -5,142 +5,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Interactive CV</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
-<body class="light-theme">
+<body class="view-industry">
 
-    <!-- Top Sticky Header -->
-    <header class="main-header">
-        <div class="header-container">
-            <div class="profile-title-block">
+    <!-- View Switcher Controls -->
+    <div class="view-switcher-banner">
+        <span>Select CV Mode:</span>
+        <div class="toggle-buttons">
+            <button id="industry-toggle-btn" class="toggle-btn active" onclick="switchView('industry')">💻 Industry (Software/AI Focus)</button>
+            <button id="academic-toggle-btn" class="toggle-btn" onclick="switchView('academic')">🎓 Academic & Research Focus</button>
+        </div>
+    </div>
+
+    <div class="cv-container">
+        <!-- Sidebar -->
+        <header class="cv-sidebar">
+            <div class="profile-zone">
+                <div class="avatar">GV</div>
                 <h1>G V Chiranjeevi Adari</h1>
-                <p class="sub-role">Electrical Engineer &amp; Software Professional</p>
+                <h2 class="subtitle-industry">Electrical & Full-Stack AI/Software Engineer</h2>
+                <h2 class="subtitle-academic">Assistant Professor (EEE & AI-ML) / Ph.D. Researcher</h2>
             </div>
-            <div class="theme-control-box">
-                <button id="theme-toggle" class="btn-theme"><i class="fas fa-circle-half-stroke"></i> Toggle Theme</button>
+            
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p>📞 <strong>Phone:</strong> <a href="tel:+919949163002">9949163002</a></p>
+                <p>📧 <strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></p>
+                <p>📍 <strong>Location:</strong> Vepagunta, Visakhapatnam, India</p>
+                
+                <h3>Research Links</h3>
+                <p>🔬 <a href="https://google.com" target="_blank">Google Scholar Profile</a></p>
+                <p>🆔 <strong>ORCID ID:</strong> 0000-0002-7895-407X</p>
+                <p>🔍 <strong>Scopus ID:</strong> 58316331900</p>
             </div>
-        </div>
-        <div class="header-contact-strip">
-            <span><i class="fas fa-house"></i> 4-243/1/4, BC Colony, Vepagunta, Visakhapatnam - 530047, AP, India</span>
-            <span><i class="fas fa-mobile-screen"></i> +91 9949163002 | +91 9642693002</span>
-            <span><i class="fas fa-envelope"></i> chiranjeevi210@gmail.com</span>
-        </div>
-    </header>
+        </header>
 
-    <main class="cv-wrapper">
-        
-        <!-- Career Objective -->
-        <section class="cv-section">
-            <h2>Career Objective</h2>
-            <div class="cardobjective">
-                <p>An Electrical Engineer and Software professional, forever a student, dreaming for career in a nice environment which is technically and ethically developed.</p>
-            </div>
-        </section>
+        <!-- Main Content -->
+        <main class="cv-main">
+            <!-- Dynamic Navigation Tabs -->
+            <nav class="tab-navigation">
+                <button class="tab-btn active" onclick="openTab(event, 'about-tab')">Overview</button>
+                <button class="tab-btn" onclick="openTab(event, 'credentials-tab')">Certifications & Skills</button>
+                <button class="tab-btn" onclick="openTab(event, 'experience-tab')">Experience & Milestones</button>
+                <button class="tab-btn only-academic" onclick="openTab(event, 'research-tab')">Publications & Patents</button>
+            </nav>
 
-        <!-- Education Summary -->
-        <section class="cv-section">
-            <h2>Education Summary</h2>
-            <p class="instruction-text">Select an academic qualification milestone below to view certification details:</p>
-            <div class="button-row">
-                <button class="btn-interactive active" onclick="showEducation('mtech', this)">M.Tech (HVE) Graduated 2012</button>
-                <button class="btn-interactive" onclick="showEducation('btech', this)">B.Tech (EEE) Graduated 2007</button>
-                <button class="btn-interactive" onclick="showEducation('inter', this)">Intermediate (MPC) Completed 2003</button>
-                <button class="btn-interactive" onclick="showEducation('ssc', this)">Secondary (SSC) Completed 2001</button>
-            </div>
-            <div id="education-display-box" class="dynamic-display-card">
-                <h4>M.Tech (High Voltage Engineering)</h4>
-                <p class="inst-lbl">JNTU, Kakinada (2012)</p>
-                <span class="status-badge-pill">Passed with Distinction — 72%</span>
-            </div>
-        </section>
+            <!-- Tab: Overview -->
+            <section id="about-tab" class="tab-content active">
+                <div class="only-industry">
+                    <h3>Career Objective</h3>
+                    <p>An Electrical Engineer and Software professional, forever a student, dreaming of a career in an environment which is technically and ethically developed, leveraging extensive full-stack development, artificial intelligence, and machine learning skills.</p>
+                </div>
+                <div class="only-academic">
+                    <h3>Academic Profile</h3>
+                    <p>Dedicated Educator with over 13 years of professional teaching experience across diverse regions. Currently driving student growth and technical curricula spanning Electrical and Electronics Engineering alongside deputed tracks in AI-ML engineering applications.</p>
+                </div>
 
-        <!-- Interactive Certifications Directory -->
-        <section class="cv-section">
-            <h2>Interactive Certifications Directory</h2>
-            <p class="instruction-text">Click any badge button below to dynamically load the credentials and verification hyperlink:</p>
-            <div class="button-row flex-wrap">
-                <button class="btn-badge active" onclick="showCertification('ibm-fs', this)">IBM Full Stack Developer</button>
-                <button class="btn-badge" onclick="showCertification('ms-ai', this)">Microsoft AI &amp; ML Engineering</button>
-                <button class="btn-badge" onclick="showCertification('ibm-ai', this)">IBM AI Developer</button>
-                <button class="btn-badge" onclick="showCertification('ibm-java', this)">IBM Java Developer</button>
-                <button class="btn-badge" onclick="showCertification('ibm-js-back', this)">IBM Backend Javascript Developer</button>
-                <button class="btn-badge" onclick="showCertification('google-cyber', this)">Google Cybersecurity</button>
-                <button class="btn-badge" onclick="showCertification('nptel-cred', this)">NPTEL Credentials</button>
-            </div>
-            <div id="certification-display-box" class="dynamic-display-card">
-                <h4>IBM Full Stack Javascript Developer Professional Certification</h4>
-                <p class="meta-date-stamp"><i class="fas fa-calendar-alt"></i> Issued September 2026 (12-course series)</p>
-                <ul class="syllabus-points-list">
-                    <li>Introduction to Software Engineering</li>
-                    <li>Introduction to HTML, CSS, &amp; JavaScript</li>
-                    <li>Getting Started with Git and GitHub</li>
-                    <li>JavaScript Programming Essentials</li>
-                    <li>Developing Front-End Apps with React</li>
-                    <li>Developing Back-End Apps with Node.js and Express</li>
-                    <li>Get Started with Cloud Native, DevOps, Agile, and NoSQL</li>
-                    <li>Introduction to Containers w/ Docker, Kubernetes &amp; OpenShift</li>
-                    <li>Application Development using Microservices and Serverless</li>
-                    <li>Node.js &amp; MongoDB: Developing Back-end Database Applications</li>
-                    <li>JavaScript Full Stack Capstone Project</li>
-                    <li>Software Developer Career Guide and Interview Preparation</li>
+                <h3>Education Summary</h3>
+                <div class="timeline-item">
+                    <h4>Ph.D. (Power Systems - Smart Grid) — In Progress</h4>
+                    <span class="date">JNTUK, Kakinada (Part-Time Mode)</span>
+                </div>
+                <div class="timeline-item">
+                    <h4>M.Tech. (High Voltage Engineering) — 72% (Distinction)</h4>
+                    <span class="date">JNTU, Kakinada — Graduated 2012</span>
+                </div>
+                <div class="timeline-item">
+                    <h4>B.Tech. (Electrical & Electronics Engineering) — 71.63% (Distinction)</h4>
+                    <span class="date">Chaitanya Engineering College / JNTU — Graduated 2007</span>
+                </div>
+
+                <div class="video-container">
+                    <h3>🎥 Featured Sample Lecture</h3>
+                    <a href="https://youtu.be" target="_blank" class="ref-link">Watch Recorded Lecture Demo on YouTube →</a>
+                </div>
+            </section>
+
+            <!-- Tab: Credentials & Skills -->
+            <section id="credentials-tab" class="tab-content">
+                <div class="only-industry">
+                    <h3>Programming & Technical Skillset</h3>
+                    <ul class="skills-list">
+                        <li>Advanced Python</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Java Foundations</li>
+                        <li>Node.js & Express</li>
+                        <li>React Development</li>
+                        <li>MongoDB / NoSQL</li>
+                        <li>Docker & Kubernetes</li>
+                        <li>AI & ML Engineering</li>
+                        <li>Cybersecurity Tools</li>
+                    </ul>
+                </div>
+
+                <h3>Professional Cloud & Technical Certifications</h3>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <h4>IBM Full Stack JavaScript Developer</h4>
+                        <p>12-course series covering React, Node.js, Express, Containers, DevOps, and Microservices.</p>
+                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Microsoft AI and ML Engineering</h4>
+                        <p>5-course series exploring foundational algorithms, troubleshooting agents, and Azure AI pipelines.</p>
+                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
+                    </div>
+                    <div class="cert-card">
+                        <h4>IBM AI Developer</h4>
+                        <p>10-course credential focusing on Generative AI, Python data science, and Flask app ecosystems.</p>
+                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
+                    </div>
+                    <div class="cert-card">
+                        <h4>IBM Java Developer</h4>
+                        <p>14-course series containing OOP paradigms, Spring Framework, database systems, and design patterns.</p>
+                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
+                    </div>
+                    <div class="cert-card">
+                        <h4>Google Cybersecurity Professional</h4>
+                        <p>9-course sequence addressing network safeguards, Linux infrastructure, SQL, and detection engineering.</p>
+                        <a href="https://coursera.org" target="_blank" class="ref-link">Verify Credentials →</a>
+                    </div>
+                </div>
+
+                <h3 style="margin-top:20px;">Advanced NPTEL Academic Certifications</h3>
+                <ul class="nptel-list">
+                    <li>Advanced Computer Architecture (April 2026)</li>
+                    <li>Advanced Computer Networks (April 2025)</li>
+                    <li>Practical Cybersecurity for Practitioners (2024)</li>
+                    <li>Cloud Computing & Big Data Frameworks (2023 - 2024)</li>
+                    <li>Introduction to Smart Grid Networks (2022)</li>
                 </ul>
-                <a id="cert-verify-anchor" href="https://coursera.org" target="_blank" class="link-verify">Verify Credential Link <i class="fas fa-external-link-alt"></i></a>
-            </div>
-        </section>
+            </section>
 
-        <!-- Teaching & Academic Experience -->
-        <section class="cv-section">
-            <h2>Teaching &amp; Academic Experience</h2>
-            <p class="instruction-text">Select an institution or a time window below to view role details:</p>
-            <div class="button-row flex-wrap">
-                <button class="btn-interactive active" onclick="showExperience('viit', this)">Vignan's VIIT 2015 - 2029</button>
-                <button class="btn-interactive" onclick="showExperience('sitrc', this)">Sandip SITRC 2025 - 2026</button>
-                <button class="btn-interactive" onclick="showExperience('gnit', this)">Guru Nanak GNIT 2023 - 2025</button>
-                <button class="btn-interactive" onclick="showExperience('mrecw', this)">Malla Reddy MRECW 2022 - 2023</button>
-                <button class="btn-interactive" onclick="showExperience('aditya', this)">Aditya College 2019 - 2021</button>
-            </div>
-            <div id="experience-display-box" class="dynamic-display-card">
-                <h4>Assistant Professor — EEE Department</h4>
-                <h5>Vignan’s Institute of Information Technology(A), Visakhapatnam</h5>
-                <p class="date-range-sub"><i class="fas fa-clock"></i> Timeline: 13-03-2015 to 04-11-2029</p>
-            </div>
-        </section>
+            <!-- Tab: Experience -->
+            <section id="experience-tab" class="tab-content">
+                <h3>Chronological Profile</h3>
+                
+                <div class="timeline-item">
+                    <h4>Assistant Professor — Sandip Foundation's SITRC, Nashik</h4>
+                    <span class="date">2025 - 2026 (Deputed to AI-ML Department)</span>
+                    <p class="only-industry">Built interactive data architectures and applied Python modeling within the division.</p>
+                    <p class="only-academic">Instructed core Artificial Intelligence Techniques, Expert Systems, and AI Web Design models.</p>
+                </div>
 
-        <!-- Handled Courses & Domain Filtering -->
-        <section class="cv-section">
-            <h2>Handled Courses &amp; Domain Filtering</h2>
-            <p class="instruction-text">Select an academic specialty below to view handled courses:</p>
-            <div class="button-row">
-                <button class="btn-tab active" onclick="filterCourses('all', this)">All Specialties</button>
-                <button class="btn-tab" onclick="filterCourses('ai', this)">AI &amp; Computation</button>
-                <button class="btn-tab" onclick="filterCourses('ee', this)">Core Electrical Engineering</button>
-                <button class="btn-tab" onclick="filterCourses('sys', this)">Systems &amp; Protection</button>
-            </div>
-            <div class="filtered-items-grid" id="courses-grid-container">
-                <div class="grid-item" data-specialty="ai">Artificial Intelligence Techniques</div>
-                <div class="grid-item" data-specialty="ai">AI Based Web Design</div>
-                <div class="grid-item" data-specialty="ai">Advanced Python Programming</div>
-                <div class="grid-item" data-specialty="ai">Introduction to Expert Systems</div>
-                <div class="grid-item" data-specialty="ai">Discrete Mathematics and Logic</div>
-                <div class="grid-item" data-specialty="ee">Electro Magnetic Fields</div>
-                <div class="grid-item" data-specialty="ee">Electrical Technology</div>
-                <div class="grid-item" data-specialty="ee">Basic Electrical and Electronics Engineering</div>
-                <div class="grid-item" data-specialty="ee">High Voltage Engineering</div>
-                <div class="grid-item" data-specialty="ee">Non-Conventional Sources of Energy</div>
-                <div class="grid-item" data-specialty="sys">Microprocessors and Microcontrollers</div>
-                <div class="grid-item" data-specialty="sys">Digital Logic Design</div>
-                <div class="grid-item" data-specialty="sys">Digital Controllers</div>
-                <div class="grid-item" data-specialty="sys">Control Systems</div>
-                <div class="grid-item" data-specialty="sys">Power system protection</div>
-                <div class="grid-item" data-specialty="sys">Power System analysis</div>
-            </div>
-        </section>
+                <div class="timeline-item">
+                    <h4>Assistant Professor — Guru Nanak Institute of Technology, Hyderabad</h4>
+                    <span class="date">2023 - 2025</span>
+                    <p class="only-academic">Managed accreditation file structures alongside coordinating central exam branch logic.</p>
+                </div>
 
-        <!-- Embedded Literature & Intellectual Property -->
-        <section class="cv-section">
-            <h2>Embedded Literature &amp; Intellectual Property</h2>
-            <p class="instruction-text">Click the action controls below to evaluate formal filings and access document databases:</p>
-            <div class="button-row">
-                <button class="btn-control toggle-btn-active" onclick="toggleLiterature('patents', this)">📋 View Published Patents</button>
-                <button class="btn-control" onclick="toggleLiterature('papers', this)">📝 View Published Research Papers</button>
-                <button class="btn-control" onclick="toggleLiterature('profiles', this)">🔗 Academic Global Profiles</button>
+                <div class="timeline-item">
+                    <h4>Assistant Professor — Malla Reddy Engineering College for Women, Secunderabad</h4>
+                    <span class="date">2022 - 2023</span>
+                    <p class="only-academic">Ratified by JNTUH in October 2022.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Sr. Assistant Professor — Aditya College of Engineering, Surampalem</h4>
+                    <span class="date">2019 - 2021</span>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Assistant Professor — Vignan’s Institute of Information Technology, Visakhapatnam</h4>
+                    <span class="date">2015 - 2019</span>
