@@ -404,3 +404,60 @@ document.getElementById('searchBar').addEventListener('input', (e) => {
   });
 });
 
+// Dynamic Filtering Engine for Academic Courses
+const filterButtons = document.querySelectorAll('.filter-btn');
+const courseItems = document.querySelectorAll('.course-item');
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Manage active visual state on buttons
+    document.querySelector('.filter-btn.active')?.classList.remove('active');
+    button.classList.add('active');
+    
+    const targetDomain = button.getAttribute('data-domain');
+    
+    // Evaluate display parameters per individual element node
+    courseItems.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+      if (targetDomain === 'all' || itemCategory === targetDomain) {
+        item.style.display = 'block';
+        item.style.opacity = '1';
+      } else {
+        item.style.display = 'none';
+        item.style.opacity = '0';
+      }
+    });
+  });
+});
+// JavaScript Controller logic for Dynamic Overlay Modals
+function openCredentialModal(title, verificationLink, detailText) {
+  // Create modular overlay container dynamically
+  let overlay = document.querySelector('.modal-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'modal-overlay';
+    overlay.innerHTML = `
+      <div class="modal-content">
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+        <a id="modal-verify" href="#" target="_blank" style="color:#3498db; font-weight:bold;">Verify Hyperlink 🔗</a>
+        <button id="modal-close" style="margin-top:15px; display:block;">Close View</button>
+      </div>`;
+    document.body.appendChild(overlay);
+    
+    overlay.querySelector('#modal-close').addEventListener('click', () => {
+      overlay.classList.remove('active');
+    });
+  }
+
+  // Inject situational record elements
+  overlay.querySelector('#modal-title').textContent = title;
+  overlay.querySelector('#modal-desc').textContent = detailText;
+  overlay.querySelector('#modal-verify').href = verificationLink;
+  
+  // Display target viewport element modal
+  overlay.classList.add('active');
+}
+
+// Example usage hook for an IBM badge button click
+// openCredentialModal('IBM Full Stack Developer', 'https://example.com', 'Completed formal training tracking backend systems.');
