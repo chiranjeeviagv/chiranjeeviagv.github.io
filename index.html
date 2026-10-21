@@ -20,33 +20,38 @@
         <!-- Sidebar -->
         <header class="cv-sidebar">
             <div class="profile-zone">
-                <!-- Embedded Image Tag (Clean and isolated) -->
                 <img src="profile-pic.jpg" alt="G V Chiranjeevi Adari Profile Picture" class="avatar-img">
-                
                 <h1>G V Chiranjeevi Adari</h1>
-                <!-- Dynamic subtitle managed by CSS -->
+                <!-- Dynamic subtitles managed by CSS -->
                 <h2 class="subtitle-industry">Software Full stack Developer</h2>
-                <h2 class="subtitle-industry">AI and Java developer</h2>
+                <h2 class="subtitle-industry">AI and Java Developer</h2>
                 <h2 class="subtitle-academic">Electrical Engineer</h2>
                 <h2 class="subtitle-academic">Assistant Professor</h2>
             </div>
             
             <div class="contact-info">
                 <h3>Contact & Links</h3>
-                <p>📞 <a href="mailto:chiranjeevi210@gmail.com">E-Mail ID</a></p>
-                <p class="only-industry">🌐 <a href="https://gvchiranjeeviadari.online/" target="_blank">Personal page</a></p>
+                <p>📞 <span>Mobile: 9949163002</span></p>
+                <p>📧 <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></p>
+                <p class="only-industry">🌐 <a href="https://gvchiranjeeviadari.online/" target="_blank">Personal Portfolio</a></p>
                 <p class="only-academic">🎓 <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
                 <p>💼 <a id="linkedin-link" href="#">LinkedIn Profile</a></p>
                 <p>💻 <a href="https://github.com/chiranjeeviagv" target="_blank">GitHub Profile</a></p>
+                
+                <div class="personal-details" style="margin-top: 20px; border-top: 1px solid #334155; padding-top: 15px; font-size: 0.8rem; opacity: 0.9;">
+                    <p><strong>DOB:</strong> 17 December 1985</p>
+                    <p><strong>Residence:</strong> Visakhapatnam, India</p>
+                    <p><strong>Languages:</strong> English, Hindi, Telugu, Punjabi (Gurmukhi)</p>
+                </div>
             </div>
         </header>
 
         <!-- Main Interactive Content -->
         <main class="cv-main">
-            <!-- Dynamic Navigation Tabs based on current view -->
+            <!-- Dynamic Navigation Tabs -->
             <nav class="tab-navigation">
                 <button class="tab-btn active" onclick="openTab(event, 'summary-tab')">Overview</button>
-                <button class="tab-btn only-industry" onclick="openTab(event, 'skills-tab')">Technical Skillset</button>
+                <button class="tab-btn" onclick="openTab(event, 'skills-tab')">Skills & Certifications</button>
                 <button class="tab-btn" onclick="openTab(event, 'experience-tab')">Experience</button>
                 <button class="tab-btn only-academic" onclick="openTab(event, 'research-tab')">Publications & Research</button>
             </nav>
@@ -54,67 +59,105 @@
             <!-- Tab: Overview -->
             <section id="summary-tab" class="tab-content active">
                 <div class="only-industry">
-                    <h3>Professional Summary</h3>
-                    <p>Aspiring software developer and web application development for real time projects. Undergone different professional certification courses from reputed platforms.</p>
+                    <h3>Career Objective</h3>
+                    <p style="margin-bottom: 20px;">An Electrical Engineer and Software professional, forever a student, dreaming for career in a nice environment which is technically and ethically developed.</p>
                 </div>
                 <div class="only-academic">
-                    <h3>Experience</h3>
-                    <p>Served in different institutions of Engineering and Technology background for the past 9 years after M.Tech.</p>
+                    <h3>Career Objective</h3>
+                    <p style="margin-bottom: 20px;">To grow as a good professional by contributing my skills for the development of the organization besides self-improvement.</p>
+                </div>
+
+                <h3>Educational Summary</h3>
+                <div class="timeline-item">
+                    <h4>M.Tech (High Voltage Engineering)</h4>
+                    <span class="date">JNTUK, Kakinada — 2012</span>
+                    <p>First Class with Distinction (72%)</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>B.Tech (Electrical & Electronics Engineering)</h4>
+                    <span class="date">Chaitanya Engineering College / JNTUH — 2007</span>
+                    <p>First Class with Distinction (71.63%)</p>
+                </div>
+                <div class="timeline-item only-academic">
+                    <h4>Ph.D (Power Systems - Smart Grid)</h4>
+                    <span class="date">JNTUK, Kakinada — Ongoing</span>
+                    <p>Pursuing research in part-time mode.</p>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <h3>Core Strengths</h3>
+                    <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.6;">
+                        <li>13 years of professional academic and development experience.</li>
+                        <li>Unique exposure to educational and technical methodologies across multiple regions.</li>
+                        <li>Proven ability to design effective learning frameworks and practical software tools.</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- Tab: Technical Skillset (Industry Focus) -->
-            <section id="skills-tab" class="tab-content only-industry">
-                <h3>Core Technologies & Frameworks</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Languages</h4>
-                        <p>JavaScript (ES6+), TypeScript, Python, Java</p>
+            <!-- Tab: Skills & Certifications -->
+            <section id="skills-tab" class="tab-content">
+                <div class="only-industry">
+                    <h3>Programming & Core Expertise</h3>
+                    <div class="skills-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+                        <div class="skill-category">
+                            <h4>Development Domains</h4>
+                            <p>Full Stack Web Development, Back-end Database Architecture, AI Application Design</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Languages & Tools</h4>
+                            <p>JavaScript (ES6+), Python, Java, Advanced Python Programming, MATLAB Programming</p>
+                        </div>
                     </div>
-                    <div class="skill-category">
-                        <h4>Frontend & Backend</h4>
-                        <p>React, Node.js, Next.js, Express, RESTful APIs</p>
-                    </div>
+                </div>
+
+                <h3>Professional Technical Certifications</h3>
+                <div class="timeline-item only-industry">
+                    <h4>IBM Full Stack JavaScript Developer</h4>
+                    <span class="date">Issued Sept 2026 (12-Course Specialization)</span>
+                    <p>Comprehensive credential covering Git/GitHub, React front-end, Node.js & Express back-end, Docker, Kubernetes, OpenShift, Microservices, and MongoDB data layers.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Microsoft AI and ML Engineering</h4>
+                    <span class="date">Issued July 2026</span>
+                    <p>Algorithmic foundational learning, building intelligent troubleshooting agents, and executing advanced machine learning pipelines on Microsoft Azure.</p>
+                </div>
+                <div class="timeline-item only-industry">
+                    <h4>IBM JavaScript Backend Developer</h4>
+                    <span class="date">Issued Aug 2026 (13-Course Specialization)</span>
+                    <p>Focused engineering on cloud-native apps, application security, backend workflows, and deployment observability monitoring platforms.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>IBM AI Developer & IBM Java Developer Portfolio</h4>
+                    <span class="date">Issued June - July 2026</span>
+                    <p>Generative AI integrations for software cycles, Python/Flask application structures, beginner-to-advanced Java lifecycle patterns, and Spring Framework enterprise designs.</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Google Cybersecurity Professional</h4>
+                    <span class="date">Issued July 2026</span>
+                    <p>Network asset configuration monitoring, risk identification matrices, Linux environments, SQL security tracking systems, and automation scripts via Python.</p>
+                </div>
+
+                <h3>NPTEL Certifications</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                    <div class="skill-category">✔️ Advanced Computer Architecture (2026)</div>
+                    <div class="skill-category">✔️ Advanced Computer Networks (2025)</div>
+                    <div class="skill-category">✔️ Practical Cybersecurity (2024)</div>
+                    <div class="skill-category">✔️ Cloud Computing (2024)</div>
+                    <div class="skill-category">✔️ Big Data Computing (2023)</div>
+                    <div class="skill-category">✔️ Introduction to Smart Grid (2022)</div>
                 </div>
             </section>
 
-            <!-- Tab: Experience (Hybrid Content) -->
+            <!-- Tab: Experience -->
             <section id="experience-tab" class="tab-content">
                 <h3>Professional Chronology</h3>
                 
                 <div class="timeline-item">
-                    <h4>Senior Developer / Research Fellow — Tech Institute</h4>
-                    <span class="date">2024 - Present</span>
-                    <p class="only-industry">Led agile sprints to implement frontend features, improving website load speeds by 35%.</p>
-                    <p class="only-academic">Spearheaded data collection methodology for the department's high-performance cluster computing grant.</p>
+                    <h4>Assistant Professor (Deputation to AIML)</h4>
+                    <h5>Sandip Foundation's SITRC / Sandip University, Nashik</h5>
+                    <span class="date">June 2025 — May 2026</span>
+                    <p class="only-industry">Taught AI-based design platforms, designed modern analytical labs, and coordinated cross-functional student project paths.</p>
+                    <p class="only-academic">Handled specialized instruction for advanced Artificial Intelligence techniques, Python engineering, and logic workflows.</p>
                 </div>
 
-                <div class="timeline-item only-academic">
-                    <h4>Graduate Teaching Assistant — University Dept</h4>
-                    <span class="date">2022 - 2024</span>
-                    <p>Instructed bi-weekly recitations for over 120 undergraduate students in Computer Science Foundations.</p>
-                </div>
-            </section>
-
-            <!-- Tab: Publications (Academic Focus) -->
-            <section id="research-tab" class="tab-content only-academic">
-                <h3>Peer-Reviewed Publications</h3>
-                <div class="publication-item">
-                    <h4>"Optimized Network Routing via Localized Consensus Filters"</h4>
-                    <p class="journal">International Journal of Computer Science, 2025</p>
-                    <a href="#" class="ref-link">DOI Reference Link →</a>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <!-- Unified Script Setup -->
-    <script src="script.js"></script>
-    <script>
-        // LinkedIn URL encoding setup helper
-        const rawUrl = "https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/";
-        document.getElementById("linkedin-link").href = encodeURI(rawUrl);
-        document.getElementById("linkedin-link").target = "_blank";
-    </script>
-</body>
-</html>
+                <div class="timeline-item">
