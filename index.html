@@ -115,7 +115,7 @@
     <h2>Handled Courses & Domain Filtering</h2>
     <p class="instruction-text">Select an academic specialty below to view handled courses:</p>
     
-    <!-- Filter Navigation Controls -->
+    <!-- 1. The Filter Buttons -->
     <div class="course-filter-buttons">
         <button class="course-filter-btn" data-course-filter="all">All Specialties</button>
         <button class="course-filter-btn" data-course-filter="ai">AI & Computation</button>
@@ -123,37 +123,36 @@
         <button class="course-filter-btn" data-course-filter="protection">Systems & Protection</button>
     </div>
     
-    <!-- Dynamic Helper Notice Container -->
+    <!-- 2. The Helper Notice -->
     <div id="course-placeholder-notice" style="padding: 20px; text-align: center; border: 1px dashed #3498db; border-radius: 6px; margin: 15px 0; background-color: rgba(52, 152, 219, 0.05); color: #2980b9; transition: all 0.3s ease;">
         🔍 <strong>Please select an academic specialty button above</strong> to reveal courses handled.
     </div>
     
-    <!-- Filterable Course List Grid -->
-    <ul class="course-list-container" id="coursesContainer">
+    <!-- 3. The Target List Container (Ensure id="coursesContainer") -->
+    <ul id="coursesContainer">
         <!-- AI & Computation Specialty -->
-        <li class="course-card-item" data-ccat="ai">Artificial Intelligence Techniques</li>
-        <li class="course-card-item" data-ccat="ai">AI Based Web Design</li>
-        <li class="course-card-item" data-ccat="ai">Advanced Python Programming</li>
-        <li class="course-card-item" data-ccat="ai">Introduction to Expert Systems</li>
-        <li class="course-card-item" data-ccat="ai">Discrete Mathematics and Logic</li>
+        <li data-ccat="ai">Artificial Intelligence Techniques</li>
+        <li data-ccat="ai">AI Based Web Design</li>
+        <li data-ccat="ai">Advanced Python Programming</li>
+        <li data-ccat="ai">Introduction to Expert Systems</li>
+        <li data-ccat="ai">Discrete Mathematics and Logic</li>
         
         <!-- Core Electrical Engineering Specialty -->
-        <li class="course-card-item" data-ccat="electrical">Electro Magnetic Fields</li>
-        <li class="course-card-item" data-ccat="electrical">Electrical Technology</li>
-        <li class="course-card-item" data-ccat="electrical">Basic Electrical and Electronics Engineering</li>
-        <li class="course-card-item" data-ccat="electrical">High Voltage Engineering</li>
+        <li data-ccat="electrical">Electro Magnetic Fields</li>
+        <li data-ccat="electrical">Electrical Technology</li>
+        <li data-ccat="electrical">Basic Electrical and Electronics Engineering</li>
+        <li data-ccat="electrical">High Voltage Engineering</li>
         
         <!-- Systems & Protection Specialty -->
-        <li class="course-card-item" data-ccat="protection">Microprocessors and Microcontrollers</li>
-        <li class="course-card-item" data-ccat="protection">Digital Logic Design</li>
-        <li class="course-card-item" data-ccat="protection">Non-Conventional Sources of Energy</li>
-        <li class="course-card-item" data-ccat="protection">Digital Controllers</li>
-        <li class="course-card-item" data-ccat="protection">Control Systems</li>
-        <li class="course-card-item" data-ccat="protection">Power System Protection</li>
-        <li class="course-card-item" data-ccat="protection">Power System Analysis</li>
+        <li data-ccat="protection">Microprocessors and Microcontrollers</li>
+        <li data-ccat="protection">Digital Logic Design</li>
+        <li data-ccat="protection">Non-Conventional Sources of Energy</li>
+        <li data-ccat="protection">Digital Controllers</li>
+        <li data-ccat="protection">Control Systems</li>
+        <li data-ccat="protection">Power System Protection</li>
+        <li data-ccat="protection">Power System Analysis</li>
     </ul>
 </section>
-
 
         <!-- Publications & Patents -->
         <section class="cv-section">
