@@ -70,3 +70,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+// 4. Interactive Accordion Toggler for Academic Experience
+function toggleAccordion(element) {
+    // Close any other open panels to keep display clean (Optional)
+    const allPanels = document.querySelectorAll('.accordion-panel');
+    const allIcons = document.querySelectorAll('.accordion-icon');
+    
+    allPanels.forEach(panel => {
+        if (panel !== element.nextElementSibling) {
+            panel.classList.remove('open');
+        }
+    });
+    allIcons.forEach(icon => {
+        if (icon !== element.querySelector('.accordion-icon')) {
+            icon.textContent = '+';
+        }
+    });
+
+    // Toggle the selected panel
+    const panel = element.nextElementSibling;
+    const icon = element.querySelector('.accordion-icon');
+    
+    if (panel.classList.contains('open')) {
+        panel.classList.remove('open');
+        icon.textContent = '+';
+    } else {
+        panel.classList.add('open');
+        icon.textContent = '−';
+    }
+}
+
