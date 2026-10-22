@@ -6,193 +6,145 @@
     <title>Mr. G V Chiranjeevi Adari - Interactive CV</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- Defaulting view to industry layout -->
 <body class="view-industry">
-       <!-- Top View Switcher Banner -->
+
+    <!-- 1. View Switcher Bar -->
     <div class="view-switcher-banner">
         <span>Tailor this CV for your needs:</span>
         <div class="toggle-buttons">
-            <!-- Ensure the onclick listeners match your script function exactly -->
             <button id="industry-toggle-btn" class="toggle-btn active" onclick="switchView('industry')">Industry View</button>
             <button id="academic-toggle-btn" class="toggle-btn" onclick="switchView('academic')">Academic & Research View</button>
         </div>
     </div>
-<script>
-    // 1. Logic for Switching Views (Industry vs Academic)
-    function switchView(viewType) {
-        // Update the body class to trigger CSS state changes
-        document.body.className = 'view-' + viewType;
 
-        // Toggle active state styling on the banner buttons
-        document.getElementById('industry-toggle-btn').classList.toggle('active', viewType === 'industry');
-        document.getElementById('academic-toggle-btn').classList.toggle('active', viewType === 'academic');
-        
-        // Edge case: If an academic-only tab is open but we switch to industry view,
-        // force-return to the Overview tab so the user isn't stuck on a hidden screen.
-        if (viewType === 'industry') {
-            const activeTab = document.querySelector('.tab-content.active');
-            if (activeTab && activeTab.classList.contains('only-academic')) {
-                // Click the first tab button automatically
-                document.querySelector('.tab-navigation .tab-btn').click();
-            }
-        }
-    }
-
-    // 2. Logic for Switching Navigation Tabs
-    function openTab(evt, tabId) {
-        // Hide all tab contents
-        const tabContents = document.getElementsByClassName("tab-content");
-        for (let i = 0; i < tabContents.length; i++) {
-            tabContents[i].classList.remove("active");
-        }
-
-        // Deactivate all tab buttons
-        const tabButtons = document.getElementsByClassName("tab-btn");
-        for (let i = 0; i < tabButtons.length; i++) {
-            tabButtons[i].classList.remove("active");
-        }
-
-        // Show the targeted tab and highlight its button
-        document.getElementById(tabId).classList.add("active");
-        evt.currentTarget.classList.add("active");
-    }
-</script>
-
-    
+    <!-- Main CV Framework Container -->
     <div class="cv-container">
-        <!-- Sidebar -->
-        <header class="cv-sidebar">
+        
+        <!-- 2. Left Sidebar (Profile & Direct Contact) -->
+        <aside class="cv-sidebar">
             <div class="profile-zone">
                 <img src="profile-pic.jpg" alt="G V Chiranjeevi Adari Profile Picture" class="avatar-img">
                 <h1>G V Chiranjeevi Adari</h1>
-                <!-- Dynamic subtitles managed by CSS -->
-                <h2 class="subtitle-industry">Software Full stack Developer</h2>
-                <h2 class="subtitle-industry">AI and Java Developer</h2>
+                
+                <!-- Dynamic Subtitles dependent on chosen view -->
+                <h2 class="subtitle-industry">Software Full Stack Developer</h2>
+                <h2 class="subtitle-industry">AI & Java Developer</h2>
                 <h2 class="subtitle-academic">Electrical Engineer</h2>
                 <h2 class="subtitle-academic">Assistant Professor</h2>
+                
+                <p style="font-size: 0.75rem; color: #64748b; margin-top: 5px;">DOB: 17 Dec 1985</p>
             </div>
-            
+
+            <!-- Verification Links Section inside Contacts -->
             <div class="contact-info">
                 <h3>Contact & Links</h3>
-                <p>📞 <span>Mobile: 9949163002</span></p>
+                <p>📞 <span>9949163002</span></p>
                 <p>📧 <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></p>
-                <p class="only-industry">🌐 <a href="https://gvchiranjeeviadari.online/" target="_blank">Personal Portfolio</a></p>
-                <p class="only-academic">🎓 <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
-                <p>💼 <a id="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" href="#">LinkedIn Profile</a></p>
-                <p>💻 <a href="https://github.com/chiranjeeviagv" target="_blank">GitHub Profile</a></p>
+                <p>🌐 <a href="#" class="verify-link">Personal Portfolio</a></p>
+                <p>🎓 <a href="#" class="verify-link">Google Scholar</a></p>
+                <!-- Live Verified LinkedIn Link Added Below -->
+                <p>💼 <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank" rel="noopener noreferrer" class="verify-link">LinkedIn Profile</a></p>
+                <p>💻 <a href="#" class="verify-link">GitHub Profile</a></p>
                 
-                <div class="personal-details" style="margin-top: 20px; border-top: 1px solid #334155; padding-top: 15px; font-size: 0.8rem; opacity: 0.9;">
-                    <p><strong>DOB:</strong> 17 December 1985</p>
-                    <p><strong>Residence:</strong> H No 4-243 ,5th lane ,BC Colony,Vepagunta ,Visakhapatnam, India-530047</strong></p>
-                    <p><strong>Languages:</strong> English, Hindi, Telugu, Punjabi (Gurmukhi)</p>
+                <div style="margin-top: 20px; font-size: 0.8rem; color: #94a3b8; border-top: 1px solid #334155; padding-top: 10px;">
+                    <p><strong>Residence:</strong><br>H No 4-243, 5th lane, BC Colony, Vepagunta, Visakhapatnam, India-530047</p>
+                    <p><strong>Languages:</strong><br>English, Hindi, Telugu, Punjabi</p>
                 </div>
             </div>
-        </header>
+        </aside>
 
-        <!-- Main Interactive Content -->
+        <!-- 3. Right Main Content Area (Interactive Tabs System) -->
         <main class="cv-main">
-            <!-- Dynamic Navigation Tabs -->
+            
+            <!-- Tab Navigation Bar -->
             <nav class="tab-navigation">
-                <button class="tab-btn active" onclick="openTab(event, 'summary-tab')">Overview</button>
-                <button class="tab-btn" onclick="openTab(event, 'skills-tab')">Skills & Certifications</button>
-                <button class="tab-btn" onclick="openTab(event, 'experience-tab')">Experience</button>
-                <button class="tab-btn only-academic" onclick="openTab(event, 'research-tab')">Publications & Research</button>
+                <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview</button>
+                <button class="tab-btn" onclick="openTab(event, 'skills')">Skills & Certifications</button>
+                <button class="tab-btn" onclick="openTab(event, 'experience')">Experience</button>
+                <!-- Academic View exclusive tab button -->
+                <button class="tab-btn only-academic" onclick="openTab(event, 'publications')">Publications & Research</button>
             </nav>
 
-            <!-- Tab: Overview -->
-            <section id="summary-tab" class="tab-content active">
-                <div class="only-industry">
-                    <h3>Career Objective</h3>
-                    <p style="margin-bottom: 20px;">An Electrical Engineer and Software professional, forever a student, dreaming for career in a nice environment which is technically and ethically developed.</p>
-                </div>
-                <div class="only-academic">
-                    <h3>Career Objective</h3>
-                    <p style="margin-bottom: 20px;">To grow as a good professional by contributing my skills for the development of the organization besides self-improvement.</p>
-                </div>
+            <!-- TAB CONTAINER 1: Overview -->
+            <section id="overview" class="tab-content active">
+                <h3>Career Objective</h3>
+                <p class="subtitle-industry" style="line-height: 1.6; margin-bottom: 15px;">
+                    To grow as a good professional by contributing my skills for the development of the organization besides self-improvement.
+                </p>
+                <p class="subtitle-academic" style="line-height: 1.6; margin-bottom: 15px;">
+                    An Electrical Engineer and Software professional, forever a student, dreaming for career in a nice environment which is technically and ethically developed.
+                </p>
 
                 <h3>Educational Summary</h3>
                 <div class="timeline-item">
-                    <h4>M.Tech (High Voltage Engineering)</h4>
-                    <span class="date">JNTUK, Kakinada — 2012</span>
+                    <span class="date">Ongoing</span>
+                    <h4>Ph.D (Power Systems - Smart Grid) <a href="#" class="verify-link">[Verify Status]</a></h4>
+                    <h5>JNTUK, Kakinada</h5>
+                    <p>Pursuing research in part-time mode.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">2012</span>
+                    <h4>M.Tech (High Voltage Engineering) <a href="#" class="verify-link">[Verify Degree]</a></h4>
+                    <h5>JNTUK, Kakinada</h5>
                     <p>First Class with Distinction (72%)</p>
                 </div>
                 <div class="timeline-item">
-                    <h4>B.Tech (Electrical & Electronics Engineering)</h4>
-                    <span class="date">Chaitanya Engineering College / JNTUH — 2007</span>
+                    <span class="date">2007</span>
+                    <h4>B.Tech (Electrical & Electronics Engineering) <a href="#" class="verify-link">[Verify Degree]</a></h4>
+                    <h5>Chaitanya Engineering College / JNTUH</h5>
                     <p>First Class with Distinction (71.63%)</p>
-                </div>
-                <div class="timeline-item only-academic">
-                    <h4>Ph.D (Power Systems - Smart Grid)</h4>
-                    <span class="date">JNTUK, Kakinada — Ongoing</span>
-                    <p>Pursuing research in part-time mode.</p>
-                </div>
-
-                <div style="margin-top: 25px;">
-                    <h3>Core Strengths</h3>
-                    <ul style="padding-left: 20px; font-size: 0.95rem; line-height: 1.6;">
-                        <li>Possess 9 years of professional experience (After M.Tech) in teaching Electrical and Electronics subjects</li>
-                        <li>Unique exposure to educational and technical methodologies across multiple regions.</li>
-                        <li>Proven ability to design effective learning frameworks and practical software tools.</li>
-                        <li>Ability to carry out tasks with minimal supervision with positive attitude</li>
-                        <li>Handled Department Examination branch and related activities and Accreditation related activities</li>
-                        <li>Having a good knowledge of OBE and Teaching Learning process</li>
-                        <li>Ability to generate effective teaching by making use of various methodologies</li>
-                    </ul>
                 </div>
             </section>
 
-            <!-- Tab: Skills & Certifications -->
-            <section id="skills-tab" class="tab-content">
-                <div class="only-industry">
-                    <h3>Programming & Core Expertise</h3>
-                    <div class="skills-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
-                        <div class="skill-category">
-                            <h4>Development Domains</h4>
-                            <p>Full Stack Web Development, Back-end Database Architecture, AI Application Design</p>
-                        </div>
-                        <div class="skill-category">
-                            <h4>Languages & Tools</h4>
-                            <p>JavaScript (ES6+), Python, Java, Advanced Python Programming, MATLAB Programming</p>
-                        </div>
+            <!-- TAB CONTAINER 2: Skills & Certifications -->
+            <section id="skills" class="tab-content">
+                <h3>Core Strengths</h3>
+                <ul style="padding-left: 20px; line-height: 1.7; margin-bottom: 20px;">
+                    <li>Possess 9 years of professional experience in teaching Electrical and Electronics subjects.</li>
+                    <li>Unique exposure to educational and technical methodologies across multiple regions.</li>
+                    <li>Proven ability to design effective learning frameworks and practical software tools.</li>
+                    <li>Having a good knowledge of OBE (Outcome Based Education) and Teaching Learning process.</li>
+                </ul>
+
+                <h3>Programming & Core Expertise</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Development Domains</h4>
+                        <p>Full Stack Web Development, Back-end Database Architecture, AI Application Design</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Languages & Tools</h4>
+                        <p>JavaScript (ES6+), Python, Java, Advanced Python Programming, MATLAB Programming</p>
                     </div>
                 </div>
 
                 <h3>Professional Technical Certifications</h3>
-<div class="timeline-item only-industry">
-    <h4>
-        <a href="#" class="(https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" rel="noopener noreferrer">IBM Full Stack JavaScript Developer</a>
-    </h4>
-    <span class="date">Issued Sept 2026 (12-Course Specialization)</span>
-    <p>Comprehensive credential covering Git/GitHub, React front-end, Node.js & Express back-end, Docker, Kubernetes, OpenShift, Microservices, and MongoDB data layers.</p>
-</div>
-<div class="timeline-item">
-    <h4>
-        <a href="#" class="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" rel="noopener noreferrer">Microsoft AI and ML Engineering</a>
-    </h4>
-    <span class="date">Issued July 2026</span>
-    <p>Algorithmic foundational learning, building intelligent troubleshooting agents, and executing advanced machine learning pipelines on Microsoft Azure.</p>
-</div>
-<div class="timeline-item only-industry">
-    <h4>
-        <a href="#" class="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" rel="noopener noreferrer">IBM JavaScript Backend Developer</a>
-    </h4>
-    <span class="date">Issued Aug 2026 (13-Course Specialization)</span>
-    <p>Focused engineering on cloud-native apps, application security, backend workflows, and deployment observability monitoring platforms.</p>
-</div>
-<div class="timeline-item">
-    <h4>
-        <a href="#" class="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5 " target="_blank" rel="noopener noreferrer"> IBM Java Developer Portfolio</a>
-    </h4>
-    <span class="date">Issued June - July 2026</span>
-    <p>Generative AI integrations for software cycles, Python/Flask application structures, beginner-to-advanced Java lifecycle patterns, and Spring Framework enterprise designs.</p>
-</div>
-<div class="timeline-item">
-    <h4>
-        <a href="#" class="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" rel="noopener noreferrer">Google Cybersecurity Professional</a>
-    </h4>
-    <span class="date">Issued July 2026</span>
-    <p>Network asset configuration monitoring, risk identification matrices, Linux environments, SQL security tracking systems, and automation scripts via Python.</p>
-</div>
-
+                <div class="timeline-item">
+                    <span class="date">Issued Sept 2026</span>
+                    <h4>IBM Full Stack JavaScript Developer — <a href="#" class="verify-link">View Credential</a></h4>
+                    <p>Comprehensive credential covering Git/GitHub, React front-end, Node.js & Express back-end, Docker, Kubernetes, OpenShift, Microservices, and MongoDB data layers.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">Issued Aug 2026</span>
+                    <h4>IBM JavaScript Backend Developer — <a href="#" class="verify-link">View Credential</a></h4>
+                    <p>Focused engineering on cloud-native apps, application security, backend workflows, and deployment observability monitoring platforms.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">Issued July 2026</span>
+                    <h4>Microsoft AI and ML Engineering — <a href="#" class="verify-link">View Credential</a></h4>
+                    <p>Algorithmic foundational learning, building intelligent troubleshooting agents, and executing advanced machine learning pipelines on Microsoft Azure.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">Issued June - July 2026</span>
+                    <h4>IBM Java Developer Portfolio — <a href="#" class="verify-link">View Credential</a></h4>
+                    <p>Generative AI integrations for software cycles, Python/Flask application structures, beginner-to-advanced Java lifecycle patterns, and Spring Framework enterprise designs.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="date">Issued July 2026</span>
+                    <h4>Google Cybersecurity Professional — <a href="#" class="verify-link">View Credential</a></h4>
+                    <p>Network asset configuration monitoring, risk identification matrices, Linux environments, SQL security tracking systems, and automation scripts via Python.</p>
+                </div>
 <h3>NPTEL Certifications</h3>
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
     <div class="skill-category">
