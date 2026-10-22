@@ -15,37 +15,21 @@ function switchView(viewType) {
     }
 
     // Smart Tab Reset: Check if the currently active tab is hidden in the new view
-    const firstTabBtn = document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)") || document.querySelector(".tab-navigation .tab-btn");
+    const currentActiveTabButton = document.querySelector(".tab-navigation .tab-btn.active");
     
     if (currentActiveTabButton) {
         const isHiddenInIndustry = viewType === 'industry' && currentActiveTabButton.classList.contains('only-academic');
         const isHiddenInAcademic = viewType === 'academic' && currentActiveTabButton.classList.contains('only-industry');
         
-        // If the current tab became hidden, click the first visible tab (Overview)
+        // If the current tab became hidden, click the first universally visible tab
         if (isHiddenInIndustry || isHiddenInAcademic) {
-            const firstTabBtn = document.querySelector(".tab-navigation .tab-btn");
+            const firstTabBtn = document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)") || document.querySelector(".tab-navigation .tab-btn");
             if (firstTabBtn) {
                 firstTabBtn.click();
             }
         }
     }
 }
-// 3. Verification Link Handler (Optional)
-document.addEventListener("DOMContentLoaded", () => {
-    const verifyLinks = document.querySelectorAll(".verify-link");
-    
-    verifyLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            const href = link.getAttribute("href");
-            
-            // Prevent navigating if the link is still an empty placeholder
-            if (href === "#" || href === "") {
-                event.preventDefault();
-                alert(`Verification link for "${link.textContent.trim()}" will be updated soon!`);
-            }
-        });
-    });
-});
 
 // 2. Core Tab System Logic
 function openTab(event, tabId) {
@@ -69,3 +53,20 @@ function openTab(event, tabId) {
         event.currentTarget.classList.add("active");
     }
 }
+
+// 3. Verification Link Handler
+document.addEventListener("DOMContentLoaded", () => {
+    const verifyLinks = document.querySelectorAll(".verify-link");
+    
+    verifyLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            const href = link.getAttribute("href");
+            
+            // Prevent navigating if the link is still an empty placeholder
+            if (href === "#" || href === "") {
+                event.preventDefault();
+                alert(`Verification link for "${link.textContent.trim()}" will be updated soon!`);
+            }
+        });
+    });
+});
