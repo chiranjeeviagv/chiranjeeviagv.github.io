@@ -30,6 +30,22 @@ function switchView(viewType) {
         }
     }
 }
+// 3. Verification Link Handler (Optional)
+document.addEventListener("DOMContentLoaded", () => {
+    const verifyLinks = document.querySelectorAll(".verify-link");
+    
+    verifyLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            const href = link.getAttribute("href");
+            
+            // Prevent navigating if the link is still an empty placeholder
+            if (href === "#" || href === "") {
+                event.preventDefault();
+                alert(`Verification link for "${link.textContent.trim()}" will be updated soon!`);
+            }
+        });
+    });
+});
 
 // 2. Core Tab System Logic
 function openTab(event, tabId) {
