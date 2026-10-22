@@ -41,6 +41,19 @@ body { background-color: #f1f5f9; color: #1e293b; padding: 20px; display: flex; 
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* Styling for verification links */
+.verify-link {
+    color: inherit; /* Keeps the text color the same as your H4 or list element */
+    text-decoration: none; /* Removes default harsh underlines */
+    border-bottom: 1px dashed #666; /* Subtle visual cue that it is clickable */
+    transition: all 0.2s ease;
+}
+
+.verify-link:hover {
+    color: #0066cc; /* Shifts color on hover to indicate interactivity */
+    border-bottom: 1px solid #0066cc;
+    cursor: pointer;
+}
 
 /* Shared List Item Panels */
 .timeline-item, .skill-category, .publication-item { background: #f8fafc; border-left: 4px solid #38bdf8; padding: 15px; margin-bottom: 15px; border-radius: 0 6px 6px 0; }
