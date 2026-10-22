@@ -15,7 +15,7 @@ function switchView(viewType) {
     }
 
     // Smart Tab Reset: Check if the currently active tab is hidden in the new view
-    const currentActiveTabButton = document.querySelector(".tab-navigation .tab-btn.active");
+    const firstTabBtn = document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)") || document.querySelector(".tab-navigation .tab-btn");
     
     if (currentActiveTabButton) {
         const isHiddenInIndustry = viewType === 'industry' && currentActiveTabButton.classList.contains('only-academic');
