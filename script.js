@@ -1,8 +1,12 @@
-// 1. Handle switching between Industry and Academic Views
+// ==========================================================================
+// 1. DUAL-VIEW TOGGLE LOGIC (INDUSTRY VS ACADEMIC)
+// ==========================================================================
 function switchView(viewType) {
     const body = document.body;
     const industryBtn = document.getElementById("industry-toggle-btn");
     const academicBtn = document.getElementById("academic-toggle-btn");
+
+    if (!industryBtn || !academicBtn) return; // Safety check
 
     if (viewType === 'industry') {
         body.className = "view-industry";
@@ -14,14 +18,12 @@ function switchView(viewType) {
         industryBtn.classList.remove("active");
     }
 
-    // Smart Tab Reset: Check if the currently active tab is hidden in the new view
+    // Smart Tab Reset if the current tab is hidden in the new view
     const currentActiveTabButton = document.querySelector(".tab-navigation .tab-btn.active");
-    
     if (currentActiveTabButton) {
         const isHiddenInIndustry = viewType === 'industry' && currentActiveTabButton.classList.contains('only-academic');
         const isHiddenInAcademic = viewType === 'academic' && currentActiveTabButton.classList.contains('only-industry');
         
-        // If the current tab became hidden, click the first universally visible tab
         if (isHiddenInIndustry || isHiddenInAcademic) {
             const firstTabBtn = document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)") || document.querySelector(".tab-navigation .tab-btn");
             if (firstTabBtn) {
@@ -31,7 +33,9 @@ function switchView(viewType) {
     }
 }
 
-// 2. Core Tab System Logic
+// ==========================================================================
+// 2. MAIN TABS NAVIGATION LOGIC
+// ==========================================================================
 function openTab(event, tabId) {
     const tabContents = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabContents.length; i++) {
@@ -43,7 +47,6 @@ function openTab(event, tabId) {
         tabButtons[i].classList.remove("active");
     }
 
-    // Safety check to ensure the target element exists before adding class
     const targetTab = document.getElementById(tabId);
     if (targetTab) {
         targetTab.classList.add("active");
@@ -54,43 +57,26 @@ function openTab(event, tabId) {
     }
 }
 
-// 3. Verification Link Handler
-document.addEventListener("DOMContentLoaded", () => {
-    const verifyLinks = document.querySelectorAll(".verify-link");
-    
-    verifyLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            const href = link.getAttribute("href");
-            
-            // Prevent navigating if the link is still an empty placeholder
-            if (href === "#" || href === "") {
-                event.preventDefault();
-                alert(`Verification link for "${link.textContent.trim()}" will be updated soon!`);
-            }
-        });
-    });
-});
-// 4. Interactive Accordion Toggler for Academic Experience
+// ==========================================================================
+// 3. EXPERIENCE ACCORDION EXPANSION LOGIC
+// ==========================================================================
 function toggleAccordion(element) {
-    // Close any other open panels to keep display clean (Optional)
+    const panel = element.nextElementSibling;
+    const icon = element.querySelector('.accordion-icon');
+    if (!panel || !icon) return;
+
+    // Optional: Close other open panels for clean readability
     const allPanels = document.querySelectorAll('.accordion-panel');
     const allIcons = document.querySelectorAll('.accordion-icon');
     
-    allPanels.forEach(panel => {
-        if (panel !== element.nextElementSibling) {
-            panel.classList.remove('open');
-        }
+    allPanels.forEach(p => {
+        if (p !== panel) p.classList.remove('open');
     });
-    allIcons.forEach(icon => {
-        if (icon !== element.querySelector('.accordion-icon')) {
-            icon.textContent = '+';
-        }
+    allIcons.forEach(i => {
+        if (i !== icon) i.textContent = '+';
     });
 
-    // Toggle the selected panel
-    const panel = element.nextElementSibling;
-    const icon = element.querySelector('.accordion-icon');
-    
+    // Toggle target state
     if (panel.classList.contains('open')) {
         panel.classList.remove('open');
         icon.textContent = '+';
@@ -100,3 +86,67 @@ function toggleAccordion(element) {
     }
 }
 
+// ==========================================================================
+// 4. PUBLICATIONS SUB-TAB LOGIC
+// ==========================================================================
+function switchSubPub(event, targetSubId) {
+    const subContents = document.querySelectorAll(".sub-pub-content");
+    subContents.forEach(content => content.classList.remove("active"));
+
+    const subButtons = document.querySelectorAll(".sub-nav-btn");
+    subButtons.forEach(btn => btn.classList.remove("active"));
+
+    const activePanel = document.getElementById(targetSubId);
+    if (activePanel) {
+        activePanel.classList.add("active");
+    }
+
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add("active");
+    }
+}
+
+// ==========================================================================
+// 5. EMPTY PLACEHOLDER LINK WARNINGS
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const verifyLinks = document.querySelectorAll(".verify-link");
+    verifyLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            const href = link.getAttribute("href");
+            if (href === "#" || href === "") {
+                event.preventDefault();
+                alert(`Verification link for "${link.textContent.trim()}" will be updated soon!`);
+            }
+        });
+    });
+});
+
+// ==========================================================================
+// 3. EXPERIENCE ACCORDION EXPANSION LOGIC (FIXED)
+// ==========================================================================
+function toggleAccordion(element) {
+    const panel = element.nextElementSibling;
+    const icon = element.querySelector('.accordion-icon');
+    if (!panel || !icon) return;
+
+    // Optional: Close other open panels for clean readability
+    const allPanels = document.querySelectorAll('.accordion-panel');
+    const allIcons = document.querySelectorAll('.accordion-icon');
+    
+    allPanels.forEach(p => {
+        if (p !== panel) p.classList.remove('open');
+    });
+    allIcons.forEach(i => {
+        if (i !== icon) i.textContent = '+';
+    });
+
+    // Toggle target state using the 'open' class matching your CSS
+    if (panel.classList.contains('open')) {
+        panel.classList.remove('open');
+        icon.textContent = '+';
+    } else {
+        panel.classList.add('open');
+        icon.textContent = '−';
+    }
+}
