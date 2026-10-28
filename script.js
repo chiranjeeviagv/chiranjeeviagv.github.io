@@ -1,123 +1,69 @@
-// ==========================================================================
-// 1. DUAL-VIEW TOGGLE LOGIC (INDUSTRY VS ACADEMIC)
-// ==========================================================================
-function switchView(viewType) {
-    const body = document.body;
-    const industryBtn = document.getElementById("industry-toggle-btn");
-    const academicBtn = document.getElementById("academic-toggle-btn");
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- DOM Element Registries ---
+    const tabIndustry = document.getElementById('tab-industry');
+    const tabAcademic = document.getElementById('tab-academic');
+    const viewIndustry = document.getElementById('view-industry');
+    const viewAcademic = document.getElementById('view-academic');
+    
+    const btnQualifications = document.getElementById('btn-qualifications');
+    const modalQualifications = document.getElementById('qualifications-modal');
+    const btnModalClose = document.getElementById('modal-close');
+    const overlayModal = document.getElementById('modal-overlay');
 
-    if (!industryBtn || !academicBtn) return; // Safety check
-
-    if (viewType === 'industry') {
-        body.className = "view-industry";
-        industryBtn.classList.add("active");
-        academicBtn.classList.remove("active");
-    } else {
-        body.className = "view-academic";
-        academicBtn.classList.add("active");
-        industryBtn.classList.remove("active");
-    }
-
-    // Smart Tab Reset if the current tab is hidden in the new view
-    const currentActiveTabButton = document.querySelector(".tab-navigation .tab-btn.active");
-    if (currentActiveTabButton) {
-        const isHiddenInIndustry = viewType === 'industry' && currentActiveTabButton.classList.contains('only-academic');
-        const isHiddenInAcademic = viewType === 'academic' && currentActiveTabButton.classList.contains('only-industry');
-        
-        if (isHiddenInIndustry || isHiddenInAcademic) {
-            const firstTabBtn = document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)") || document.querySelector(".tab-navigation .tab-btn");
-            if (firstTabBtn) {
-                firstTabBtn.click();
-            }
+    // --- Tab Switcher Logic ---
+    function switchView(selectedView) {
+        if (selectedView === 'industry') {
+            viewIndustry.classList.remove('hidden');
+            viewAcademic.classList.add('hidden');
+            
+            // Set active/inactive tab design patterns
+            tabIndustry.className = "flex-1 py-4 text-center font-bold border-b-2 border-indigo-600 text-indigo-600 transition cursor-pointer flex items-center justify-center gap-2";
+            tabAcademic.className = "flex-1 py-4 text-center font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer flex items-center justify-center gap-2";
+        } else {
+            viewAcademic.classList.remove('hidden');
+            viewIndustry.classList.add('hidden');
+            
+            tabAcademic.className = "flex-1 py-4 text-center font-bold border-b-2 border-indigo-600 text-indigo-600 transition cursor-pointer flex items-center justify-center gap-2";
+            tabIndustry.className = "flex-1 py-4 text-center font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer flex items-center justify-center gap-2";
         }
     }
-}
 
-// ==========================================================================
-// 2. MAIN TABS NAVIGATION LOGIC
-// ==========================================================================
-function openTab(event, tabId) {
-    const tabContents = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < tabContents.length; i++) {
-        tabContents[i].classList.remove("active");
-    }
+    tabIndustry.addEventListener('click', () => switchView('industry'));
+    tabAcademic.addEventListener('click', () => switchView('academic'));
 
-    const tabButtons = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < tabButtons.length; i++) {
-        tabButtons[i].classList.remove("active");
-    }
 
-    const targetTab = document.getElementById(tabId);
-    if (targetTab) {
-        targetTab.classList.add("active");
-    }
+    // --- Accordion Interactivity Logic ---
+    const accordionButtons = document.querySelectorAll('.accordion-toggle');
     
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add("active");
-    }
-}
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const contentPanel = document.getElementById(targetId);
+            const icon = button.querySelector('.toggle-icon');
+            const labelText = button.querySelector('span');
 
-// ==========================================================================
-// 3. EXPERIENCE ACCORDION EXPANSION LOGIC
-// ==========================================================================
-function toggleAccordion(element) {
-    const panel = element.nextElementSibling;
-    const icon = element.querySelector('.accordion-icon');
-    if (!panel || !icon) return;
-
-    // Close other open panels for clean readability
-    const allPanels = document.querySelectorAll('.accordion-panel');
-    const allIcons = document.querySelectorAll('.accordion-icon');
-    
-    allPanels.forEach(p => {
-        if (p !== panel) p.classList.remove('open');
-    });
-    allIcons.forEach(i => {
-        if (i !== icon) i.textContent = '+';
-    });
-
-    // Toggle target state using the 'open' class matching your CSS
-    if (panel.classList.contains('open')) {
-        panel.classList.remove('open');
-        icon.textContent = '+';
-    } else {
-        panel.classList.add('open');
-        icon.textContent = '−';
-    }
-}
-
-// ==========================================================================
-// 4. PUBLICATIONS SUB-TAB LOGIC
-// ==========================================================================
-function switchSubPub(event, targetSubId) {
-    const subContents = document.querySelectorAll(".sub-pub-content");
-    subContents.forEach(content => content.classList.remove("active"));
-
-    const subButtons = document.querySelectorAll(".sub-nav-btn");
-    subButtons.forEach(btn => btn.classList.remove("active"));
-
-    const activePanel = document.getElementById(targetSubId);
-    if (activePanel) {
-        activePanel.classList.add("active");
-    }
-
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add("active");
-    }
-}
-
-// ==========================================================================
-// 5. EMPTY PLACEHOLDER LINK WARNINGS
-// ==========================================================================
-document.addEventListener("DOMContentLoaded", () => {
-    const verifyLinks = document.querySelectorAll(".verify-link");
-    verifyLinks.forEach(link => {
-        link.addEventListener("click", (event) => {
-            const href = link.getAttribute("href");
-            if (href === "#" || href === "") {
-                event.preventDefault();
-                alert(`Verification link for "${link.textContent.trim()}" will be updated soon!`);
+            if (contentPanel.classList.contains('hidden')) {
+                contentPanel.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+                labelText.innerText = 'Collapse';
+            } else {
+                contentPanel.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+                labelText.innerText = 'Expand';
             }
         });
     });
+
+
+    // --- Qualifications Modal Viewport Logic ---
+    function toggleModal() {
+        document.body.classList.toggle('modal-active');
+        modalQualifications.classList.toggle('opacity-0');
+        modalQualifications.classList.toggle('pointer-events-none');
+    }
+
+    btnQualifications.addEventListener('click', toggleModal);
+    btnModalClose.addEventListener('click', toggleModal);
+    overlayModal.addEventListener('click', toggleModal); // Closes when clicking outside the content window
 });
