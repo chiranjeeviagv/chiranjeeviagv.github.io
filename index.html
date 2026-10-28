@@ -120,47 +120,6 @@ body.view-academic .tab-btn.only-industry{display:none!important}
 .sub-pub-content.active{display:block;animation:fadeIn .25s ease}
 .publication-item{background:var(--neutral-50);border-left:4px solid var(--primary-400);padding:16px 18px;margin-bottom:14px;border-radius:0 var(--radius-xs) var(--radius-xs) 0;transition:var(--t)}
 
-  .publication-item:hover{transform:translateX(3px)}
-.publication-item h4{margin-bottom:4px}
-.pub-meta{font-size:.85rem;color:var(--neutral-600);margin-top:4px;line-height:1.5}
-.book-panel{border-left-color:var(--warning-500)}
-.patent-panel{border-left-color:var(--success-500)}
-.exposure-card{background:var(--white);border:1px solid var(--neutral-200);border-radius:var(--radius-sm);padding:20px 22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(15,23,42,.03);transition:var(--t)}
-.exposure-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px)}
-.exposure-card h4{font-size:1.05rem;margin-bottom:14px;border-bottom:2px solid var(--primary-400);padding-bottom:8px}
-.exposure-list{padding-left:22px;list-style-type:square}
-.exposure-list li{font-size:.88rem;color:var(--neutral-700);line-height:1.6;margin-bottom:10px}
-.exposure-list li:last-child{margin-bottom:0}
-.exposure-list strong{color:var(--primary-700);font-weight:600}
-.courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:16px}
-.course-card{background:var(--white);border:1px solid var(--neutral-200);border-radius:var(--radius-sm);padding:22px;box-shadow:0 4px 6px rgba(15,23,42,.03);transition:var(--t)}
-.course-card:hover{transform:translateY(-3px);box-shadow:0 12px 20px rgba(15,23,42,.08)}
-.course-card h4{font-size:1rem;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid transparent}
-.cs-ai-theme h4{color:var(--primary-700);border-bottom-color:var(--primary-400)}
-.electrical-theme h4{color:var(--neutral-800);border-bottom-color:var(--neutral-400)}
-.power-theme h4{color:var(--success-600);border-bottom-color:var(--success-400)}
-.course-list{list-style:none;padding:0}
-.course-list li{font-size:.88rem;color:var(--neutral-700);padding:7px 0;border-bottom:1px dashed var(--neutral-100);display:flex;align-items:center;gap:8px}
-.course-list li::before{content:'\2022';color:var(--primary-400);font-weight:700;font-size:1.1rem}
-.course-list li:last-child{border-bottom:none}
-@media(max-width:860px){
-.cv-container{grid-template-columns:1fr}
-.cv-sidebar{padding:28px 24px}
-.cv-sidebar::after{width:100%;height:4px;top:auto;bottom:0;left:0;right:0;background:linear-gradient(90deg,var(--primary-600),var(--primary-400),var(--accent-500))}
-.profile-zone h1{font-size:1.6rem}
-}
-@media(max-width:600px){
-body{padding:12px 8px}
-.view-switcher-banner{padding:10px 16px;flex-direction:column;gap:10px}
-.toggle-buttons{width:100%;justify-content:center}
-.cv-main{padding:20px 16px}
-.tab-btn{padding:10px 12px;font-size:.88rem}
-.skills-grid,.courses-grid,.nptel-grid{grid-template-columns:1fr}
-.timeline-item,.exposure-card,.course-card{padding:14px}
-h3{font-size:1.1rem}
-h4{font-size:.98rem}
-}
-
 <div class="cv-container">
   <aside class="cv-sidebar">
     <div class="profile-zone">
@@ -546,86 +505,77 @@ h4{font-size:.98rem}
   </main>
 </div>
 
-<script>
 function switchView(viewType){
-  var body=document.body;
-  var industryBtn=document.getElementById("industry-toggle-btn");
-  var academicBtn=document.getElementById("academic-toggle-btn");
-  if(viewType==='industry'){
-    body.className="view-industry";
-    industryBtn.classList.add("active");
-    academicBtn.classList.remove("active");
-  }else{
-    body.className="view-academic";
-    academicBtn.classList.add("active");
-    industryBtn.classList.remove("active");
-  }
-  var currentActive=document.querySelector(".tab-navigation .tab-btn.active");
-  if(currentActive){
-    var hiddenInIndustry=viewType==='industry'&&currentActive.classList.contains('only-academic');
-    var hiddenInAcademic=viewType==='academic'&&currentActive.classList.contains('only-industry');
-    if(hiddenInIndustry||hiddenInAcademic){
-      var firstBtn=document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)")||document.querySelector(".tab-navigation .tab-btn");
-      if(firstBtn) firstBtn.click();
-    }
-  }
+var body=document.body;
+var industryBtn=document.getElementById("industry-toggle-btn");
+var academicBtn=document.getElementById("academic-toggle-btn");
+if(viewType==='industry'){
+body.className="view-industry";
+industryBtn.classList.add("active");
+academicBtn.classList.remove("active");
+}else{
+body.className="view-academic";
+academicBtn.classList.add("active");
+industryBtn.classList.remove("active");
 }
-
+var currentActive=document.querySelector(".tab-navigation .tab-btn.active");
+if(currentActive){
+var hiddenInIndustry=viewType==='industry'&&currentActive.classList.contains('only-academic');
+var hiddenInAcademic=viewType==='academic'&&currentActive.classList.contains('only-industry');
+if(hiddenInIndustry||hiddenInAcademic){
+var firstBtn=document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)")||document.querySelector(".tab-navigation .tab-btn");
+if(firstBtn) firstBtn.click();
+}
+}
+}
 function openTab(event,tabId){
-  var contents=document.getElementsByClassName("tab-content");
-  for(var i=0;i<contents.length;i++) contents[i].classList.remove("active");
-  var buttons=document.getElementsByClassName("tab-btn");
-  for(var i=0;i<buttons.length;i++) buttons[i].classList.remove("active");
-  var target=document.getElementById(tabId);
-  if(target) target.classList.add("active");
-  if(event&&event.currentTarget) event.currentTarget.classList.add("active");
+var contents=document.getElementsByClassName("tab-content");
+for(var i=0;i<contents.length;i++) contents[i].classList.remove("active");
+var buttons=document.getElementsByClassName("tab-btn");
+for(var i=0;i<buttons.length;i++) buttons[i].classList.remove("active");
+var target=document.getElementById(tabId);
+if(target) target.classList.add("active");
+if(event&&event.currentTarget) event.currentTarget.classList.add("active");
 }
-
 function toggleAccordion(element){
-  var panel=element.nextElementSibling;
-  var icon=element.querySelector('.accordion-icon');
-  var parent=element.parentElement;
-  if(!panel||!icon) return;
-  var allPanels=document.querySelectorAll('.accordion-panel');
-  var allIcons=document.querySelectorAll('.accordion-icon');
-  var allItems=document.querySelectorAll('.accordion-item');
-  allPanels.forEach(function(p){if(p!==panel)p.classList.remove('open')});
-  allIcons.forEach(function(i){if(i!==icon)i.textContent='+'});
-  allItems.forEach(function(it){if(it!==parent)it.classList.remove('open')});
-  if(panel.classList.contains('open')){
-    panel.classList.remove('open');
-    icon.textContent='+';
-    parent.classList.remove('open');
-  }else{
-    panel.classList.add('open');
-    icon.textContent='\u2212';
-    parent.classList.add('open');
-  }
+var panel=element.nextElementSibling;
+var icon=element.querySelector('.accordion-icon');
+var parent=element.parentElement;
+if(!panel||!icon) return;
+var allPanels=document.querySelectorAll('.accordion-panel');
+var allIcons=document.querySelectorAll('.accordion-icon');
+var allItems=document.querySelectorAll('.accordion-item');
+allPanels.forEach(function(p){if(p!==panel)p.classList.remove('open')});
+allIcons.forEach(function(i){if(i!==icon)i.textContent='+'});
+allItems.forEach(function(it){if(it!==parent)it.classList.remove('open')});
+if(panel.classList.contains('open')){
+panel.classList.remove('open');
+icon.textContent='+';
+parent.classList.remove('open');
+}else{
+panel.classList.add('open');
+icon.textContent='\u2212';
+parent.classList.add('open');
 }
-
+}
 function switchSubPub(event,targetSubId){
-  var subContents=document.querySelectorAll(".sub-pub-content");
-  subContents.forEach(function(c){c.classList.remove("active")});
-  var subButtons=document.querySelectorAll(".sub-nav-btn");
-  subButtons.forEach(function(b){b.classList.remove("active")});
-  var activePanel=document.getElementById(targetSubId);
-  if(activePanel) activePanel.classList.add("active");
-  if(event&&event.currentTarget) event.currentTarget.classList.add("active");
+var subContents=document.querySelectorAll(".sub-pub-content");
+subContents.forEach(function(c){c.classList.remove("active")});
+var subButtons=document.querySelectorAll(".sub-nav-btn");
+subButtons.forEach(function(b){b.classList.remove("active")});
+var activePanel=document.getElementById(targetSubId);
+if(activePanel) activePanel.classList.add("active");
+if(event&&event.currentTarget) event.currentTarget.classList.add("active");
 }
-
 document.addEventListener("DOMContentLoaded",function(){
-  var links=document.querySelectorAll(".verify-link");
-  links.forEach(function(link){
-    link.addEventListener("click",function(event){
-      var href=link.getAttribute("href");
-      if(href==="#"||href===""){
-        event.preventDefault();
-        alert('Verification link for "'+link.textContent.trim()+'" will be updated soon!');
-      }
-    });
-  });
+var links=document.querySelectorAll(".verify-link");
+links.forEach(function(link){
+link.addEventListener("click",function(event){
+var href=link.getAttribute("href");
+if(href==="#"||href===""){
+event.preventDefault();
+alert('Verification link for "'+link.textContent.trim()+'" will be updated soon!');
+}
 });
-</script>
-
-</body>
-</html>
+});
+});
