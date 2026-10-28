@@ -65,7 +65,7 @@ function toggleAccordion(element) {
     const icon = element.querySelector('.accordion-icon');
     if (!panel || !icon) return;
 
-    // Optional: Close other open panels for clean readability
+    // Close other open panels for clean readability
     const allPanels = document.querySelectorAll('.accordion-panel');
     const allIcons = document.querySelectorAll('.accordion-icon');
     
@@ -76,7 +76,7 @@ function toggleAccordion(element) {
         if (i !== icon) i.textContent = '+';
     });
 
-    // Toggle target state
+    // Toggle target state using the 'open' class matching your CSS
     if (panel.classList.contains('open')) {
         panel.classList.remove('open');
         icon.textContent = '+';
@@ -121,32 +121,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-// ==========================================================================
-// 3. EXPERIENCE ACCORDION EXPANSION LOGIC (FIXED)
-// ==========================================================================
-function toggleAccordion(element) {
-    const panel = element.nextElementSibling;
-    const icon = element.querySelector('.accordion-icon');
-    if (!panel || !icon) return;
-
-    // Optional: Close other open panels for clean readability
-    const allPanels = document.querySelectorAll('.accordion-panel');
-    const allIcons = document.querySelectorAll('.accordion-icon');
-    
-    allPanels.forEach(p => {
-        if (p !== panel) p.classList.remove('open');
-    });
-    allIcons.forEach(i => {
-        if (i !== icon) i.textContent = '+';
-    });
-
-    // Toggle target state using the 'open' class matching your CSS
-    if (panel.classList.contains('open')) {
-        panel.classList.remove('open');
-        icon.textContent = '+';
-    } else {
-        panel.classList.add('open');
-        icon.textContent = '−';
-    }
-}
