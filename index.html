@@ -124,7 +124,6 @@ body.view-academic .tab-btn.only-industry{display:none!important}
 .pub-meta{font-size:.85rem;color:var(--neutral-600);margin-top:4px;line-height:1.5}
 .book-panel{border-left-color:var(--warning-500)}
 .patent-panel{border-left-color:var(--success-500)}
-
 .exposure-card{background:var(--white);border:1px solid var(--neutral-200);border-radius:var(--radius-sm);padding:20px 22px;margin-bottom:16px;box-shadow:0 2px 6px rgba(15,23,42,.03);transition:var(--t)}
 .exposure-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px)}
 .exposure-card h4{font-size:1.05rem;margin-bottom:14px;border-bottom:2px solid var(--primary-400);padding-bottom:8px}
@@ -132,7 +131,6 @@ body.view-academic .tab-btn.only-industry{display:none!important}
 .exposure-list li{font-size:.88rem;color:var(--neutral-700);line-height:1.6;margin-bottom:10px}
 .exposure-list li:last-child{margin-bottom:0}
 .exposure-list strong{color:var(--primary-700);font-weight:600}
-
 .courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:16px}
 .course-card{background:var(--white);border:1px solid var(--neutral-200);border-radius:var(--radius-sm);padding:22px;box-shadow:0 4px 6px rgba(15,23,42,.03);transition:var(--t)}
 .course-card:hover{transform:translateY(-3px);box-shadow:0 12px 20px rgba(15,23,42,.08)}
@@ -144,35 +142,23 @@ body.view-academic .tab-btn.only-industry{display:none!important}
 .course-list li{font-size:.88rem;color:var(--neutral-700);padding:7px 0;border-bottom:1px dashed var(--neutral-100);display:flex;align-items:center;gap:8px}
 .course-list li::before{content:'\2022';color:var(--primary-400);font-weight:700;font-size:1.1rem}
 .course-list li:last-child{border-bottom:none}
-
 @media(max-width:860px){
-  .cv-container{grid-template-columns:1fr}
-  .cv-sidebar{padding:28px 24px}
-  .cv-sidebar::after{width:100%;height:4px;top:auto;bottom:0;left:0;right:0;background:linear-gradient(90deg,var(--primary-600),var(--primary-400),var(--accent-500))}
-  .profile-zone h1{font-size:1.6rem}
+.cv-container{grid-template-columns:1fr}
+.cv-sidebar{padding:28px 24px}
+.cv-sidebar::after{width:100%;height:4px;top:auto;bottom:0;left:0;right:0;background:linear-gradient(90deg,var(--primary-600),var(--primary-400),var(--accent-500))}
+.profile-zone h1{font-size:1.6rem}
 }
 @media(max-width:600px){
-  body{padding:12px 8px}
-  .view-switcher-banner{padding:10px 16px;flex-direction:column;gap:10px}
-  .toggle-buttons{width:100%;justify-content:center}
-  .cv-main{padding:20px 16px}
-  .tab-btn{padding:10px 12px;font-size:.88rem}
-  .skills-grid,.courses-grid,.nptel-grid{grid-template-columns:1fr}
-  .timeline-item,.exposure-card,.course-card{padding:14px}
-  h3{font-size:1.1rem}
-  h4{font-size:.98rem}
+body{padding:12px 8px}
+.view-switcher-banner{padding:10px 16px;flex-direction:column;gap:10px}
+.toggle-buttons{width:100%;justify-content:center}
+.cv-main{padding:20px 16px}
+.tab-btn{padding:10px 12px;font-size:.88rem}
+.skills-grid,.courses-grid,.nptel-grid{grid-template-columns:1fr}
+.timeline-item,.exposure-card,.course-card{padding:14px}
+h3{font-size:1.1rem}
+h4{font-size:.98rem}
 }
-</style>
-</head>
-<body class="view-academic">
-
-<div class="view-switcher-banner">
-  <span class="label">Interactive CV</span>
-  <div class="toggle-buttons">
-    <button id="industry-toggle-btn" class="toggle-btn" onclick="switchView('industry')">Industry View</button>
-    <button id="academic-toggle-btn" class="toggle-btn active" onclick="switchView('academic')">Academic View</button>
-  </div>
-</div>
 
 <div class="cv-container">
   <aside class="cv-sidebar">
