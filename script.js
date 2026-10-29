@@ -239,6 +239,88 @@ function showCertificationsModal() {
     `;
     openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
 }
+// FORMATTED CONTENT MAPPING: CONFERENCES ATTENDED TIMELINE
+function showConferencesModal() {
+    const conferencesHTML = `
+        <div class="modal-credentials-layout">
+            <style>
+                .conf-timeline {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    margin-top: 10px;
+                }
+                .conf-card {
+                    background: #f8f9fa;
+                    border-left: 4px solid #007bff;
+                    padding: 16px;
+                    border-radius: 0 6px 6px 0;
+                    text-align: left;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                }
+                .conf-paper-title {
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: #1a1a1a;
+                    line-height: 1.4;
+                    margin-bottom: 6px;
+                }
+                .conf-name {
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: #4e73df;
+                    margin-bottom: 4px;
+                }
+                .conf-meta {
+                    font-size: 0.85rem;
+                    color: #666;
+                    line-height: 1.5;
+                }
+                .conf-meta strong {
+                    color: #444;
+                }
+            </style>
+
+            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
+                Review my verified record of national and international conference presentations below:
+            </p>
+
+            <div class="conf-timeline">
+                <!-- CONFERENCE 1 -->
+                <div class="conf-card">
+                    <div class="conf-paper-title">"System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0"</div>
+                    <div class="conf-name">5th International E-Conference on Mechanical and Material Science Engineering: Innovation and Research (ICMMSE:IR)</div>
+                    <div class="conf-meta">
+                        <strong>Organized by:</strong> Department of Mechanical Engineering, Sandip Institute of Technology & Research Centre (SITRC), Nashik, Maharashtra<br>
+                        <strong>Timeline:</strong> 27th and 28th of February 2026
+                    </div>
+                </div>
+
+                <!-- CONFERENCE 2 -->
+                <div class="conf-card">
+                    <div class="conf-paper-title">"Cyber Security in smart grids- Role of Digital Advanced devices"</div>
+                    <div class="conf-name">Two Day National Conference on "Green and Resilient Energy Systems" (GVCON-2K22)</div>
+                    <div class="conf-meta">
+                        <strong>Organized by:</strong> Electrical & Electronics Engineering Department, Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam<br>
+                        <strong>Timeline:</strong> 21st to 22nd October, 2022
+                    </div>
+                </div>
+
+                <!-- CONFERENCE 3 -->
+                <div class="conf-card">
+                    <div class="conf-paper-title">"Transient Stability Improvement of SMIB using DPFC"</div>
+                    <div class="conf-name">Two Day National Conference on "Recent Trends in Electrical and Electronics Engineering" (RTEEE)</div>
+                    <div class="conf-meta">
+                        <strong>Organized by:</strong> Vignan's Institute of Information Technology, Visakhapatnam<br>
+                        <strong>Timeline:</strong> 14th and 15th of April 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    openHTMLModal('Conferences Attended & Research Presentations', conferencesHTML);
+}
+
 // 2️⃣ MODAL PAYLOAD: PROFESSIONAL EXPERIENCE TIMELINE
 function showExperienceModal() {
     const experienceHTML = `
