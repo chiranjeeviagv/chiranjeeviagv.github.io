@@ -34,4 +34,22 @@ function switchView(viewType) {
         industrySections.forEach(el => el.classList.remove('hidden'));
     }
 }
+// Modal Interaction Control
+function openModal(title, text) {
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-body').innerText = text;
+    document.getElementById('details-modal').classList.remove('hidden');
+}
+
+function closeModal() {
+    document.getElementById('details-modal').classList.add('hidden');
+}
+
+// Close popup if user clicks anywhere outside the main modal window box
+window.onclick = function(event) {
+    const modal = document.getElementById('details-modal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
 
