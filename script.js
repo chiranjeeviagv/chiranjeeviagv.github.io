@@ -1,69 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- DOM Element Registries ---
-    const tabIndustry = document.getElementById('tab-industry');
-    const tabAcademic = document.getElementById('tab-academic');
-    const viewIndustry = document.getElementById('view-industry');
-    const viewAcademic = document.getElementById('view-academic');
-    
-    const btnQualifications = document.getElementById('btn-qualifications');
-    const modalQualifications = document.getElementById('qualifications-modal');
-    const btnModalClose = document.getElementById('modal-close');
-    const overlayModal = document.getElementById('modal-overlay');
+// Pre-defined texts for dynamic Career Objectives
+const objectives = {
+    academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
+    industry: "Result-driven professional seeking a core technical role in the industry to apply practical problem-solving skills, engineering workflows, and system optimization."
+};
 
-    // --- Tab Switcher Logic ---
-    function switchView(selectedView) {
-        if (selectedView === 'industry') {
-            viewIndustry.classList.remove('hidden');
-            viewAcademic.classList.add('hidden');
-            
-            // Set active/inactive tab design patterns
-            tabIndustry.className = "flex-1 py-4 text-center font-bold border-b-2 border-indigo-600 text-indigo-600 transition cursor-pointer flex items-center justify-center gap-2";
-            tabAcademic.className = "flex-1 py-4 text-center font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer flex items-center justify-center gap-2";
-        } else {
-            viewAcademic.classList.remove('hidden');
-            viewIndustry.classList.add('hidden');
-            
-            tabAcademic.className = "flex-1 py-4 text-center font-bold border-b-2 border-indigo-600 text-indigo-600 transition cursor-pointer flex items-center justify-center gap-2";
-            tabIndustry.className = "flex-1 py-4 text-center font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer flex items-center justify-center gap-2";
-        }
+function switchView(viewType) {
+    // 1. Manage Active Button Styles
+    const btnAcademic = document.getElementById('btn-academic');
+    const btnIndustry = document.getElementById('btn-industry');
+    
+    if (viewType === 'academic') {
+        btnAcademic.classList.add('active');
+        btnIndustry.classList.remove('active');
+    } else {
+        btnIndustry.classList.add('active');
+        btnAcademic.classList.remove('active');
     }
 
-    tabIndustry.addEventListener('click', () => switchView('industry'));
-    tabAcademic.addEventListener('click', () => switchView('academic'));
+    // 2. Change the text content inside the Career Objective dynamically
+    document.getElementById('objective-text').innerText = objectives[viewType];
 
+    // 3. Select and filter sections based on view classes
+    const academicSections = document.querySelectorAll('.academic-only');
+    const industrySections = document.querySelectorAll('.industry-only');
 
-    // --- Accordion Interactivity Logic ---
-    const accordionButtons = document.querySelectorAll('.accordion-toggle');
-    
-    accordionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-target');
-            const contentPanel = document.getElementById(targetId);
-            const icon = button.querySelector('.toggle-icon');
-            const labelText = button.querySelector('span');
-
-            if (contentPanel.classList.contains('hidden')) {
-                contentPanel.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-                labelText.innerText = 'Collapse';
-            } else {
-                contentPanel.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-                labelText.innerText = 'Expand';
-            }
-        });
-    });
-
-
-    // --- Qualifications Modal Viewport Logic ---
-    function toggleModal() {
-        document.body.classList.toggle('modal-active');
-        modalQualifications.classList.toggle('opacity-0');
-        modalQualifications.classList.toggle('pointer-events-none');
+    if (viewType === 'academic') {
+        // Show Academic, Hide Industry
+        academicSections.forEach(el => el.classList.remove('hidden'));
+        industrySections.forEach(el => el.classList.add('hidden'));
+    } else if (viewType === 'industry') {
+        // Hide Academic, Show Industry
+        academicSections.forEach(el => el.classList.add('hidden'));
+        industrySections.forEach(el => el.classList.remove('hidden'));
     }
-
-    btnQualifications.addEventListener('click', toggleModal);
-    btnModalClose.addEventListener('click', toggleModal);
-    overlayModal.addEventListener('click', toggleModal); // Closes when clicking outside the content window
-});
+}
