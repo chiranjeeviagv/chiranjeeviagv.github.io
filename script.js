@@ -387,6 +387,315 @@ function showCertificationsModal() {
     `;
     openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
 }
+// FORMATTED CONTENT MAPPING: PROFESSIONAL DEVELOPMENT & TRAINING PAYLOAD
+function showDevelopmentProgramsModal() {
+    const programsHTML = `
+        <div class="modal-credentials-layout">
+            <style>
+                .dev-tab-container {
+                    display: flex;
+                    gap: 8px;
+                    border-bottom: 2px solid #e3e6f0;
+                    margin-bottom: 20px;
+                    padding-bottom: 5px;
+                    overflow-x: auto;
+                }
+                .dev-tab-btn {
+                    padding: 8px 16px;
+                    font-size: 0.88rem;
+                    font-weight: 600;
+                    color: #666;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    border-bottom: 3px solid transparent;
+                    transition: all 0.2s ease;
+                }
+                .dev-tab-btn.active {
+                    color: #28a745;
+                    border-bottom-color: #28a745;
+                }
+                .dev-panel { display: none; }
+                .dev-panel.active { display: block; }
+                .program-section-title {
+                    font-size: 1.1rem;
+                    color: #28a745;
+                    margin: 15px 0 10px 0;
+                    padding-bottom: 3px;
+                    text-align: left;
+                    font-weight: 600;
+                }
+                .pub-title { font-weight: 600; color: #222; }
+                .pub-meta { font-size: 0.85rem; color: #666; margin-top: 4px; }
+                .credential-link { font-size: 0.85rem; white-space: nowrap; }
+            </style>
+
+            <p style="margin-bottom: 15px; color: #555; text-align: left; font-size: 0.92rem;">
+                Use the tabs below to navigate across different thematic specializations and academic programs.
+            </p>
+
+            <!-- Navigation Tabs Matrix -->
+            <div class="dev-tab-container">
+                <button class="dev-tab-btn active" onclick="switchDevTab(event, 'tab-pedagogy')">🎓 Teaching & Pedagogy</button>
+                <button class="dev-tab-btn" onclick="switchDevTab(event, 'tab-grids')">⚡ Smart Grids & Systems</button>
+                <button class="dev-tab-btn" onclick="switchDevTab(event, 'tab-ai-tech')">🤖 AI, Data Science & Tech</button>
+                <button class="dev-tab-btn" onclick="switchDevTab(event, 'tab-webinars')">🌐 Webinars & Others</button>
+            </div>
+            
+            <!-- PANEL 1: TEACHING METHODOLOGIES & OBE -->
+            <div id="tab-pedagogy" class="dev-panel active">
+                <div class="program-section-title">Teaching Methodologies and Outcome Based Education</div>
+                <table class="modal-data-table">
+                    <thead>
+                        <tr><th style="width: 75%;">Program Details</th><th style="width: 25%;">Link</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Two-day FDP on OBE Focused curriculum design</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> IQAC cell, Sandip university, Nashik<br><strong>Timeline:</strong> 8-9 November 2026</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">OBE workshop held at VIIT</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> KLETU<br><strong>Timeline:</strong> 04-05-2018 to 06-05-2018</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">One day national workshop on MOOCs and E-learning in higher Education</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Guru Angad dev Teaching Learning centre of MHRD, SGTB khalsa college, University of Delhi<br><strong>Timeline:</strong> 18-08-2018</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Three day workshop on counselling system and guidance</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Medhas I – Train, Hyderabad<br><strong>Timeline:</strong> 4th to 6th December 2018</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PANEL 2: POWER SYSTEMS & SMART GRIDS -->
+            <div id="tab-grids" class="dev-panel">
+                <div class="program-section-title">Power Systems, Electronics & Smart Grids</div>
+                <table class="modal-data-table">
+                    <thead>
+                        <tr><th style="width: 75%;">Program Details</th><th style="width: 25%;">Link</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pub-title">40hr online faculty development programme on Advanced Intelligence and ICT application to power system protection</div>
+                                <div class="pub-meta"><strong>Sponsored by:</strong> MOEIT, GoI | <strong>Organized by:</strong> E&ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam<br><strong>Timeline:</strong> 18-27 july 2022</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Five-day online Workshop on 'Integration of renewable energy & EV to microgrid: Prospects and challenges'</div>
+                                <div class="pub-meta"><strong>Under Aegis of:</strong> SPARC | <strong>Organized by:</strong> Department of Electrical and Electronics Engineering, NIT Tiruchirappalli in collaboration with The Hong Kong Polytechnic University<br><strong>Timeline:</strong> 21-02-2022 to 25-02-2022</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">One week FDP on “Hands on training on Power Electronics and Power systems using Advanced Analytical tools”</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Andhra university college of Engineering autonomous<br><strong>Timeline:</strong> Feb 5, 2018 to Feb 9, 2018</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">MHRD-Sponsored INDO-US International workshop on “IOT and ML Based Microgrid & Energy Management”</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, Chaitanya Bharathi Institute of Technology, Hyderabad<br><strong>Timeline:</strong> 19th to 23rd February 2024</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Two day workshop on “Integration of Renewable Energy sources to Micro grids</div>
+                                <div class="pub-meta"><strong>Sponsored by:</strong> DST-SERB | <strong>Timeline:</strong> 18 Aug to 19Aug. 2017</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Two day workshop on SMART GRIDS and RENEWABLE ENERGY</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> CPRI, Bangalore<br><strong>Timeline:</strong> Nov 26,27, 2015</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">One day workshop on “Renewable energy sources-as alternatives in power sector”</div>
+<div class="pub-meta"><strong>Organized by:</strong> Gayatri Vidya Parishad College of Engineering, Visakhapatnam<br><strong>Timeline:</strong> 11-2-2012</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PANEL 3: EMERGING TRENDS, AI & DATA SCIENCE ANALYTICS -->
+            <div id="tab-ai-tech" class="dev-panel">
+                <div class="program-section-title">Emerging Trends, AI & Data Science Analytics</div>
+                <table class="modal-data-table">
+                    <thead>
+                        <tr><th style="width: 75%;">Program Details</th><th style="width: 25%;">Link</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pub-title">ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> SKVMs Institute of Technology, Dhule<br><strong>Timeline:</strong> 27th January to 31st January 2025</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">15 days online FDP on ”Open business tools for AI and Business applications”</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> 6th Q Research(H), India<br><strong>Timeline:</strong> 18th August to 3rd September 2025</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">One-Week Faculty Development Program</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Chameli Devi Institute of Professional Studies, Indore<br><strong>Timeline:</strong> 6th to 11th July 2026</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">8 week FDP course on Big Data Computing</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> IIT Patna through NPTEL-AICTE<br><strong>Timeline:</strong> August –October 2023</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">8 week FDP Course on Ethics in Engineering Practice</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> IIT Kharagpur through NPTEL-AICTE<br><strong>Timeline:</strong> August –October 2023</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">FDP on IOT</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> APSSDC<br><strong>Timeline:</strong> 13-07-2020 to 25-07-2020</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">42 hours training program: Python for Data science</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> ExcelR<br><strong>Timeline:</strong> 16-05-2022 to 3-06-2022</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">40 hours training program under EDL initiative: Artificial intelligence</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> ExcelR<br><strong>Timeline:</strong> 28 March 2022 to 25 April 2022</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">One week short term training programme on pattern recognition theory and applications</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> NITTTR Kolkata through ICT mode<br><strong>Timeline:</strong> 21-03-2022 to 25-03-2022</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Training in Data sciences applied to Industries</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Directorate of faculty development, JNTU Kakinada<br><strong>Timeline:</strong> 17-8-2020 to 21-8-2020</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">3 day FDP on machine learning</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> APSSDC at VIIT<br><strong>Timeline:</strong> 13-09-2020 to 15-09-2020</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- PANEL 4: TECHNICAL WEBINARS & NATIONAL EDUCATION PROGRAMS -->
+            <div id="tab-webinars" class="dev-panel">
+                <div class="program-section-title">Technical Webinars & National Education Programs</div>
+                <table class="modal-data-table">
+                    <thead>
+                        <tr><th style="width: 75%;">Session Topic & Host Body</th><th style="width: 25%;">Link</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Faculty Engagement Session on Global best practices in education</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> TCS iON | <strong>Timeline:</strong> 2-4-2026</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">One week online FDP on ”Exploring the significance Indian Knowledge Systems in the Context of National Educational Policy 2020</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Chaitanya Bharathi institute of Technology, Hyderabad | <strong>Timeline:</strong> 5th to 10th February 2024</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">International webinar on “impact of AI and ML in Computer”</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> SRM TRP Engineering college | <strong>Timeline:</strong> 28-03-2022</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">National Level webinar on “Art of Teaching”</div>
+                                <tr>
+                            <td>
+                                <div class="pub-title">National Level webinar on “Art of Teaching”</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, Gayatri Vidya parishad college of Engineering(A), Visakhapatnam<br><strong>Timeline:</strong> 7th July, 2020</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Webinar on Cryptography Encryption techniques</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> Department of Computer science and applications, SRM arts and Science College, Chengalpattu district<br><strong>Timeline:</strong> 16th july 2020</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Webinar on NAAC news release by "Shri Pralhad Joshi"</div>
+                                <div class="pub-meta"><strong>Honorable Minister of:</strong> Parliamentary Affairs, Coal and Mines<br><strong>Timeline:</strong> 16th July 2020</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="pub-title">Short term course on “soft computing using Sci-lab”</div>
+                                <div class="pub-meta"><strong>Conducted by:</strong> Educational Television centre at Raghu engineering college, Visakhapatnam<br><strong>Timeline:</strong> 21-7-14 to 25-7-2014</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">View ↗</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 // 2️⃣ MODAL PAYLOAD: PROFESSIONAL EXPERIENCE TIMELINE
 function showExperienceModal() {
     const experienceHTML = `
