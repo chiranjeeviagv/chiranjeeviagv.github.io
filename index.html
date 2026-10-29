@@ -48,59 +48,91 @@
         <!-- ==========================================================================
            TWO COLUMN GRID WRAPPER (This fixes the layout from your screenshot)
            ========================================================================== -->
-        <div class="cv-grid-container">
+<div class="cv-grid-container">
 
-            <section id="qualifications">
-                <h2>Qualifications</h2>
-                <p>Details about degrees, university, and academic milestones common across roles.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="qualifications">Explore More</button>
-                </div>
-            </section>
+    <!-- ==========================================
+       ACADEMIC VIEW ONLY BLOCKS 
+       ========================================== -->
 
-            <section id="publications">
-                <h2>Publications</h2>
-                <p>List of journals, conference papers, and academic research publications.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="publications">Explore More</button>
-                </div>
-            </section>
-
-            <section id="experience">
-                <h2>Experience</h2>
-                <p>Teaching, research assistantships, and institutional responsibilities.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="experience">Explore More</button>
-                </div>
-            </section>
-
-            <section id="fdps">
-                <h2>Skill Development Programs / FDPs / Workshops</h2>
-                <p>Details of Faculty Development Programs, workshops attended or organized.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="fdps">Explore More</button>
-                </div>
-            </section>
-
-            <section id="certifications">
-                <h2>Certifications</h2>
-                <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="certifications">Explore More</button>
-                </div>
-            </section>
-
-            <section id="references">
-                <h2>References</h2>
-                <p>Available upon request from both academic mentors and industry leads.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="references">Explore More</button>
-                </div>
-            </section>
-
+    <!-- 1. Qualifications (Academic) -->
+    <section id="qualifications" class="academic-only">
+        <h2>Qualifications</h2>
+        <p>Details about degrees, university, and academic milestones common across roles.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="qualifications">Explore More</button>
         </div>
-    </main>
+    </section>
 
+    <!-- 2. Publications (Academic) -->
+    <section id="publications" class="academic-only">
+        <h2>Publications</h2>
+        <p>List of journals, conference papers, and academic research publications.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="publications">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 3. Experience (Academic) -->
+    <section id="experience" class="academic-only">
+        <h2>Experience</h2>
+        <p>Teaching, research assistantships, and institutional responsibilities.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="experience">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 4. Skill Development / FDPs (Academic) -->
+    <section id="fdps" class="academic-only">
+        <h2>Skill Development Programs / FDPs / Workshops</h2>
+        <p>Details of Faculty Development Programs, workshops attended or organized.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="fdps">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 5. Subject Area Expertise (Academic) -->
+    <section id="subject-expertise" class="academic-only">
+        <h2>Subject Area Expertise</h2>
+        <p>Advanced domain expertise fields including High Voltage Engineering, Power Systems, AI, Machine Learning, and transient stability control systems.</p>
+        <div class="action-buttons">
+            <!-- Ensure you build a modal payload function for this button if you expand it later -->
+            <button class="explore-btn" data-section="expertise">Explore More</button>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+       INDUSTRY VIEW ONLY BLOCKS 
+       ========================================== -->
+
+    <!-- 1. Certifications (Industry) -->
+    <section id="certifications" class="industry-only">
+        <h2>Certifications</h2>
+        <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="certifications">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 2. Skills (Industry) -->
+    <section id="skills" class="industry-only">
+        <h2>Skills</h2>
+        <p>Core industry competencies: Full-Stack JavaScript engineering, Cloud Computing infrastructure, Big Data operations, Cyber Security systems optimization, and Python scripting workflows.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="skills">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 3. References (Industry) -->
+    <section id="references" class="industry-only">
+        <h2>References</h2>
+        <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="references">Explore More</button>
+        </div>
+    </section>
+
+</div>
     <!-- Dynamic Modal Overlay Framework Box -->
     <div id="details-modal" class="modal-overlay hidden">
         <div class="modal-content">
