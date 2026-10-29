@@ -1,796 +1,90 @@
-<!-- HEADER / COMMON VIEW -->
-<header class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-40">
-    <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col lg:flex-row items-center justify-between gap-6">
-        <!-- Profile Info Card -->
-        <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left w-full lg:w-auto">
-            <img src="profile-pic.jpg" alt="G V Chiranjeevi Adari" class="w-28 h-28 rounded-full object-cover border-4 border-indigo-600 shadow-md shrink-0">
-            <div class="space-y-1">
-                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">G V Chiranjeevi Adari</h1>
-                <p class="text-indigo-600 font-semibold text-base sm:text-lg flex flex-wrap justify-center sm:justify-start gap-x-2 gap-y-1">
-                    <span>Assistant Professor (Electrical Engineering)</span>
-                    <span class="text-slate-300 hidden sm:inline">•</span>
-                    <span>Technical Researcher</span>
-                    <span class="text-slate-300 hidden sm:inline">•</span>
-                    <span>Web Developer</span>
-                </p>
-                
-                <!-- Contact Details Grid -->
-                <div class="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-2 mt-3 text-xs sm:text-sm text-slate-600">
-                    <a href="mailto:chiranjeevi210@gmail.com" class="hover:text-indigo-600 transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-envelope text-indigo-500"></i> chiranjeevi210@gmail.com
-                    </a>
-                    <a href="tel:+919949163002" class="hover:text-indigo-600 transition flex items-center gap-1.5">
-                        <i class="fa-solid fa-phone text-indigo-500"></i> +91-9949163002
-                    </a>
-                    <span class="flex items-center gap-1.5">
-                        <i class="fa-solid fa-location-dot text-indigo-500"></i> Visakhapatnam, Andhra Pradesh, India
-                    </span>
-                </div>
-
-                <!-- Academic Registration & Research Profile Anchors -->
-                <div class="flex flex-wrap justify-center sm:justify-start gap-x-3 gap-y-1.5 pt-2 text-xs">
-                    <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-slate-100 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md font-medium transition flex items-center gap-1">
-                        <i class="fa-solid fa-graduation-cap text-indigo-500"></i> Google Scholar
-                    </a>
-                    <a href="https://scopus.com" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-slate-100 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md font-medium transition flex items-center gap-1">
-                        <i class="fa-solid fa-book-open text-indigo-500"></i> Scopus Profile
-                    </a>
-                    <a href="https://orcid.org" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-slate-100 text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md font-medium transition flex items-center gap-1">
-                        <i class="fa-brands fa-orcid text-emerald-500"></i> ORCID
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- View Qualifications Global Button Platform -->
-        <div class="w-full lg:w-auto flex flex-col sm:flex-row items-center gap-3 shrink-0">
-            <button id="btn-qualifications" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow transition flex items-center justify-center gap-2 cursor-pointer">
-                <i class="fa-solid fa-graduation-cap"></i> View Qualifications
-            </button>
-        </div>
-    </div>
-
-    <!-- VIEW TOGGLE TABS -->
-    <div class="max-w-5xl mx-auto px-4">
-        <div class="flex border-t border-slate-100">
-            <button id="tab-industry" class="flex-1 py-4 text-center font-bold border-b-2 border-indigo-600 text-indigo-600 transition cursor-pointer flex items-center justify-center gap-2">
-                <i class="fa-solid fa-briefcase"></i> Industry View
-            </button>
-            <button id="tab-academic" class="flex-1 py-4 text-center font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer flex items-center justify-center gap-2">
-                <i class="fa-solid fa-university"></i> Academic View
-            </button>
-        </div>
-    </div>
-</header>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V chiranjeevi Adari interactive CV</title>
-    <!-- Tailwind CSS Engine -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- Custom External Stylesheet -->
+    <title>G V Chiranjeevi Adari - Interactive Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body>
 
-    <!-- HEADER / COMMON VIEW -->
-    <header class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-40">
-        <div class="max-w-5xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <!-- Profile Info -->
-            <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                <img src="profile-pic.jpg" alt="Profile Picture" class="w-24 h-24 rounded-full object-cover border-4 border-indigo-600 shadow-md">
-                <div>
-                    <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">G V Chiranjeevi Adari</h1>
-                    <p class="text-indigo-600 font-medium text-lg">Professional Designation /Assistant Professor/ web developer</p>
-                    <!-- Contact Details -->
-                    <div class="flex flex-wrap justify-center sm:justify-start gap-4 mt-2 text-sm text-slate-600">
-                        <span><i class="fa-solid fa-envelope text-indigo-500 mr-1"></i> chiranjeevi210@gmail.com</span>
-                        <span><i class="fa-solid fa-phone text-indigo-500 mr-1"></i>+919949163002</span>
-                        <span><i class="fa-solid fa-location-dot text-indigo-500 mr-1"></i> Visakhapatnam, andhrapradesh , india</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Global Action Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-                <button id="btn-qualifications" class="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow transition flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-graduation-cap"></i> View Qualifications
-                </button>
-            </div>
-        </div>
-
-        <!-- VIEW TOGGLE TABS -->
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="flex border-t border-slate-100">
-                <button id="tab-industry" class="flex-1 py-4 text-center font-bold border-b-2 border-indigo-600 text-indigo-600 transition cursor-pointer flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-briefcase"></i> Industry View
-                </button>
-                <button id="tab-academic" class="flex-1 py-4 text-center font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-university"></i> Academic View
-                </button>
-            </div>
+    <header>
+        <h1>G V Chiranjeevi Adari</h1>
+        <p class="subtitle">Interactive web page</p>
+        
+        <!-- Toggle Views Control -->
+        <div class="view-toggle">
+            <button id="btn-academic" class="toggle-btn active" onclick="switchView('academic')">Academic view</button>
+            <button id="btn-industry" class="toggle-btn" onclick="switchView('industry')">Industry view</button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT COLLAPSIBLE BY VIEW -->
-    <main class="flex-grow max-w-5xl w-full mx-auto px-4 py-8">
-        
-        <!-- ================= INDUSTRY VIEW ================= -->
-        <div id="view-industry" class="space-y-8 dynamic-view">
-            <!-- Programming Skills Section -->
-            <section class="bg-white p-6 rounded-xl shadow-xs border border-slate-100">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2"><i class="fa-solid fa-code text-indigo-600"></i> Programming Skills</h2>
-                    <button class="accordion-toggle text-slate-500 hover:text-indigo-600 font-medium text-sm flex items-center gap-1 cursor-pointer" data-target="skills-content">
-                        <span>Expand</span> <i class="fa-solid fa-chevron-down toggle-icon"></i>
-                    </button>
-                </div>
-                <div id="skills-content" class="accordion-content hidden border-t border-slate-100 pt-4 mt-2">
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">Python</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">JavaScript</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">Java</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">HTML5 / CSS3</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-sm font-medium rounded-full">SQL</span>
-                    </div>
-                </div>
-            </section>
+    <main class="container">
+        <!-- Top Info Grid -->
+        <section class="info-grid">
+            <div class="contact-details">
+                <h3>Contact details</h3>
+                <ul>
+                    <li><strong>E-Mail ID:</strong> <a href="mailto:example@email.com">example@email.com</a></li>
+                    <li><strong>Address:</strong> Your Address Here</li>
+                    <li><strong>Mobile Number:</strong> +1234567890</li>
+                    <li><strong>LinkedIn Profile:</strong> <a href="#" target="_blank">://linkedin.com</a></li>
+                    <li><strong>Google Scholar profile:</strong> <a href="#" target="_blank">://google.com</a></li>
+                </ul>
+            </div>
+            <div class="profile-image-container">
+                <div class="profile-placeholder">Profile Image</div>
+            </div>
+        </section>
 
-            <!-- Coursera Certifications Section -->
-<section class="bg-white p-6 rounded-xl shadow-xs border border-slate-100">
-    <div class="flex justify-between items-center mb-4">
-        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2"><i class="fa-solid fa-certificate text-indigo-600"></i> Coursera Certifications</h2>
-        <button class="accordion-toggle text-slate-500 hover:text-indigo-600 font-medium text-sm flex items-center gap-1 cursor-pointer" data-target="coursera-content">
-            <span>Expand</span> <i class="fa-solid fa-chevron-down toggle-icon"></i>
-        </button>
-    </div>
-    <div id="coursera-content" class="accordion-content hidden border-t border-slate-100 pt-4 mt-2">
-        <ul class="space-y-4">
-            <!-- IBM Full Stack JavaScript Developer -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">IBM Full Stack JavaScript Developer</h4>
-                    <p class="text-sm text-slate-500">13-Course Professional Specialization • 2026 Cohort</p>
-                </div>
-                <a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- IBM JavaScript Backend Developer -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">IBM JavaScript Backend Developer</h4>
-                    <p class="text-sm text-slate-500">13-Course Professional Specialization • 2026 Cohort</p>
-                </div>
-                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- IBM AI Developer -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">IBM AI Developer</h4>
-                    <p class="text-sm text-slate-500">10-Course Professional Specialization • 2026 Cohort</p>
-                </div>
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/E06UAT9KFM8S"_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Microsoft AI and ML Engineering -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Microsoft AI and ML Engineering</h4>
-                    <p class="text-sm text-slate-500">5-Course Professional Specialization • 2026 Cohort</p>
-                </div>
-                <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- IBM Java Developer -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">IBM Java Developer</h4>
-                    <p class="text-sm text-slate-500">14-Course Professional Specialization • 2026 Cohort</p>
-                </div>
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/CGMXJ0SN33A5" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Google Cybersecurity Professional -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Google Cybersecurity Professional</h4>
-                    <p class="text-sm text-slate-500">9-Course Professional Specialization • 2026 Cohort</p>
-                </div>
-                <a href="https://www.coursera.org/account/accomplishments/professional-cert/SZEO3FT6Q193" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-        </ul>
-    </div>
-</section>
-
-           <!-- NPTEL Certifications Section -->
-<section class="bg-white p-6 rounded-xl shadow-xs border border-slate-100">
-    <div class="flex justify-between items-center mb-4">
-        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2"><i class="fa-solid fa-award text-indigo-600"></i> NPTEL Certifications</h2>
-        <button class="accordion-toggle text-slate-500 hover:text-indigo-600 font-medium text-sm flex items-center gap-1 cursor-pointer" data-target="nptel-content">
-            <span>Expand</span> <i class="fa-solid fa-chevron-down toggle-icon"></i>
-        </button>
-    </div>
-    <div id="nptel-content" class="accordion-content hidden border-t border-slate-100 pt-4 mt-2">
-        <ul class="space-y-4">
-            <!-- Advanced Computer Architecture -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Advanced Computer Architecture</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • April 2026</p>
-                </div>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Advanced Computer Networks -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Advanced Computer Networks</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • April 2025</p>
-                </div>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Practical Cyber Security for Cyber Security Practitioners -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Practical Cyber Security for Cyber Security Practitioners</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • October 2024</p>
-                </div>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Cloud Computing -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Cloud Computing</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • October 2024</p>
-                </div>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Big Data Computing -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Big Data Computing</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • October 2023</p>
-                </div>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 underline text-sm font-medium shrink-0">Verify <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            </li>
-
-            <!-- Ethics in Engineering Practice -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Ethics in Engineering Practice</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • October 2023</p>
-                </div>
-                <span class="text-xs font-semibold text-slate-400 italic mt-1">Verified via CV Profile</span>
-            </li>
-
-            <!-- Introduction to Smart Grid -->
-            <li class="flex justify-between items-start gap-4">
-                <div>
-                    <h4 class="font-semibold text-slate-800">Introduction to Smart Grid</h4>
-                    <p class="text-sm text-slate-500">NPTEL IIT Certification • September 2022</p>
-                </div>
-                <span class="text-xs font-semibold text-slate-400 italic mt-1">Verified via CV Profile</span>
-            </li>
-        </ul>
-    </div>
-</section>
-
-        <!-- ================= ACADEMIC VIEW ================= -->
-        <div id="view-academic" class="space-y-8 dynamic-view hidden">
-            <!-- Academic Experience Section -->
-            <section class="bg-white p-6 rounded-xl shadow-xs border border-slate-100">
-                <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-chalkboard-user text-indigo-600"></i> Academic Experience</h2>
-                <div class="relative border-l-2 border-indigo-100 ml-3 pl-6 space-y-6">
-                    <div class="relative">
-                        <div class="timeline-dot"></div>
-                        <h3 class="font-bold text-slate-800">Assistant Professor</h3>
-                        <p class="text-sm text-slate-500 font-medium">ABC Institute of Technology • 2022 - Present</p>
-                        <p class="text-slate-600 mt-1 text-sm">Delivering lectures, mentoring undergraduate capstones, and driving department accreditations.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Subjects Handled Section -->
-            <section class="bg-white p-6 rounded-xl shadow-xs border border-slate-100">
-                <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-book text-indigo-600"></i> Subjects Handled</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
-                        <h4 class="font-semibold text-slate-800">Design & Analysis of Algorithms</h4>
-                        <p class="text-xs text-slate-500 mt-0.5">B.Tech 3rd Year • Core Curriculum</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Skill Development Programs Section -->
-            <section class="bg-white p-6 rounded-xl shadow-xs border border-slate-100">
-
-  <main class="cv-main">
-    <nav class="tab-navigation">
-      <button class="tab-btn active" onclick="openTab(event,'overview')">Overview</button>
-      <button class="tab-btn" onclick="openTab(event,'skills')">Skills &amp; Certifications</button>
-      <button class="tab-btn only-academic" onclick="openTab(event,'experience')">Experience</button>
-      <button class="tab-btn only-academic" onclick="openTab(event,'publications')">Publications &amp; Research</button>
-    </nav>
-
-    <section id="overview" class="tab-content active">
-      <h3>Career Objective</h3>
-      <p class="subtitle-industry" style="line-height:1.7;margin-bottom:16px;color:var(--neutral-700);">
-        An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed.
-      </p>
-      <p class="subtitle-academic" style="line-height:1.7;margin-bottom:16px;color:var(--neutral-700);">
-        To grow as a good professional by contributing my skills for the development of the organization besides self-improvement.
-      </p>
-
-      <section id="education">
-  <h3>Educational Summary</h3>
-  <!-- GLOBAL QUALIFICATIONS MODAL OVERLAY -->
-<div id="qualifications-modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50 transition-opacity duration-200">
-    <!-- Blur Backdrop Backdrop -->
-    <div id="modal-overlay" class="absolute w-full h-full bg-slate-900/40 backdrop-blur-xs"></div>
-    
-    <!-- Modal Container Box -->
-    <div class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded-xl shadow-2xl z-50 overflow-y-auto max-h-[85vh]">
-        <!-- Sticky Header Context Bar -->
-        <div class="py-4 text-left px-6 border-b border-slate-100 flex justify-between items-center sticky top-0 bg-white z-10">
-            <p class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <i class="fa-solid fa-graduation-cap text-indigo-600"></i> Educational Qualifications
-            </p>
-            <button id="modal-close" class="cursor-pointer text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-50 transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-        </div>
-
-        <!-- Qualifications Body Timeline Data -->
-        <div class="p-6 space-y-6">
+        <!-- Main Dynamic Content Sections -->
+        <section class="career-content">
             
-            <!-- M.Tech Card Section -->
-            <div class="flex gap-4 items-start border-l-2 border-indigo-100 pl-4 relative ml-2">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-xs"></div>
-                <div class="flex-1 space-y-1">
-                    <div class="flex flex-wrap items-start justify-between gap-2">
-                        <h4 class="font-bold text-slate-800 text-base sm:text-lg">M.Tech. in High Voltage Engineering (HVE)</h4>
-                        <span class="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full">Pass Year: 2012</span>
-                    </div>
-                    <p class="text-sm font-medium text-slate-600">Jawaharlal Nehru Technological University (JNTUK), Kakinada</p>
-                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs pt-1">
-                        <span class="text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-sm"><i class="fa-solid fa-star text-[10px]"></i> First Class with Distinction</span>
-                        <span class="text-slate-500 font-medium"><i class="fa-solid fa-chart-simple"></i> Aggregate: 72.00%</span>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 hover:underline">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View M.Tech Certificate
-                        </a>
-                    </div>
-                </div>
+            <!-- Career Objective (changes text based on view) -->
+            <div class="section-box common-view">
+                <h2>Career Objective</h2>
+                <p id="objective-text">Seeking a challenging position in an academic institution to leverage research and teaching skills.</p>
             </div>
 
-            <!-- B.Tech Card Section -->
-            <div class="flex gap-4 items-start border-l-2 border-indigo-100 pl-4 relative ml-2">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-xs"></div>
-                <div class="flex-1 space-y-1">
-                    <div class="flex flex-wrap items-start justify-between gap-2">
-                        <h4 class="font-bold text-slate-800 text-base sm:text-lg">B.Tech. in Electrical & Electronics Engineering</h4>
-                        <span class="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full">Pass Year: 2007</span>
-                    </div>
-                    <p class="text-sm font-medium text-slate-600">Chaitanya Engineering College, Visakhapatnam / JNTUH</p>
-                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs pt-1">
-                        <span class="text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded-sm"><i class="fa-solid fa-star text-[10px]"></i> First Class with Distinction</span>
-                        <span class="text-slate-500 font-medium"><i class="fa-solid fa-chart-simple"></i> Aggregate: 71.63%</span>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 hover:underline">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View B.Tech Certificate
-                        </a>
-                    </div>
-                </div>
+            <!-- Qualifications (Always visible) -->
+            <div class="section-box common-view">
+                <h2>Qualifications</h2>
+                <p>Details about degrees, university, and academic milestones common across roles.</p>
             </div>
 
-            <!-- Intermediate Card Section -->
-            <div class="flex gap-4 items-start border-l-2 border-indigo-100 pl-4 relative ml-2">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-xs"></div>
-                <div class="flex-1 space-y-1">
-                    <div class="flex flex-wrap items-start justify-between gap-2">
-                        <h4 class="font-bold text-slate-800 text-base sm:text-lg">Intermediate (MPC)</h4>
-                        <span class="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full">Pass Year: 2003</span>
-                    </div>
-                    <p class="text-sm font-medium text-slate-600">Gayatri Junior College, Vizianagaram / BIEAP</p>
-                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs pt-1">
-                        <span class="text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded-sm">First Class</span>
-                        <span class="text-slate-500 font-medium"><i class="fa-solid fa-chart-simple"></i> Aggregate: 94.10%</span>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 hover:underline">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Intermediate Certificate
-                        </a>
-                    </div>
-                </div>
+            <!-- Publications (Academic only) -->
+            <div class="section-box academic-only">
+                <h2>Publications</h2>
+                <p>List of journals, conference papers, and academic research publications.</p>
             </div>
 
-            <!-- SSC Card Section -->
-            <div class="flex gap-4 items-start border-l-2 border-indigo-100 pl-4 relative ml-2">
-                <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white shadow-xs"></div>
-                <div class="flex-1 space-y-1">
-                    <div class="flex flex-wrap items-start justify-between gap-2">
-                        <h4 class="font-bold text-slate-800 text-base sm:text-lg">Secondary School Certificate (SSC)</h4>
-                        <span class="px-2.5 py-0.5 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full">Pass Year: 2001</span>
-                    </div>
-                    <p class="text-sm font-medium text-slate-600">ZP High School, Jami, Vizianagaram / BSEAP</p>
-                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs pt-1">
-                        <span class="text-blue-600 font-semibold bg-blue-50 px-2 py-0.5 rounded-sm">First Class</span>
-                        <span class="text-slate-500 font-medium"><i class="fa-solid fa-chart-simple"></i> Aggregate: 89.86%</span>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-600 hover:text-indigo-700 hover:underline">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View SSC Certificate
-                        </a>
-                    </div>
-                </div>
+            <!-- Experience (Academic only) -->
+            <div class="section-box academic-only">
+                <h2>Experience</h2>
+                <p>Teaching, research assistantships, and institutional responsibilities.</p>
             </div>
 
-        </div>
-    </div>
-</div>
+            <!-- Skill Development (Academic only) -->
+            <div class="section-box academic-only">
+                <h2>Skill development programs / FDPs / workshops</h2>
+                <p>Details of Faculty Development Programs, workshops attended or organized.</p>
+            </div>
 
-    <section id="skills" class="tab-content">
-      <h3>Core Strengths</h3>
-      <ul class="core-list">
-        <li>Possess 9 years of professional experience in teaching Electrical and Electronics subjects.</li>
-        <li>Unique exposure to educational and technical methodologies across multiple regions.</li>
-        <li>Proven ability to design effective learning frameworks and practical software tools.</li>
-        <li>Having a good knowledge of OBE (Outcome Based Education) and Teaching Learning process.</li>
-      </ul>
+            <!-- Certifications (Industry only) -->
+            <div class="section-box industry-only hidden">
+                <h2>Certifications</h2>
+                <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
+            </div>
 
-      <h3>Programming &amp; Core Expertise</h3>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h4>Development Domains</h4>
-          <p>Full Stack Web Development, Back-end Database Architecture, AI Application Design</p>
-        </div>
-        <div class="skill-category">
-          <h4>Languages &amp; Tools</h4>
-          <p>JavaScript (ES6+), Python, Java, Advanced Python Programming, MATLAB Programming</p>
-        </div>
-      </div>
+            <!-- References (Always visible) -->
+            <div class="section-box common-view">
+                <h2>References</h2>
+                <p>Available upon request from both academic mentors and industry leads.</p>
+            </div>
 
-      <h3 class="only-industry">Professional Certifications</h3>
-      <div class="timeline-item only-industry">
-        <span class="date">Sept 2026</span>
-        <h4>IBM Full Stack JavaScript Developer <a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" class="verify-link" target="_blank" rel="noopener">View Credential</a></h4>
-        <p>Comprehensive credential covering Git/GitHub, React front-end, Node.js &amp; Express back-end, Docker, Kubernetes, OpenShift, Microservices, and MongoDB data layers.</p>
-      </div>
-      <div class="timeline-item only-industry">
-        <span class="date">Aug 2026</span>
-        <h4>IBM JavaScript Backend Developer <a href="https://www.coursera.org/account/accomplishments/specialization/R9G3UO4SYXJM" class="verify-link" target="_blank" rel="noopener">View Credential</a></h4>
-        <p>Focused engineering on cloud-native apps, application security, backend workflows, and deployment observability monitoring platforms.</p>
-      </div>
-      <div class="timeline-item only-industry">
-        <span class="date">July 2026</span>
-        <h4>Microsoft AI and ML Engineering <a href="#" class="verify-link">View Credential</a></h4>
-        <p>Algorithmic foundational learning, building intelligent troubleshooting agents, and executing advanced machine learning pipelines on Microsoft Azure.</p>
-      </div>
-      <div class="timeline-item only-industry">
-        <span class="date">June - July 2026</span>
-        <h4>IBM Java Developer Portfolio <a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" class="verify-link" target="_blank" rel="noopener">View Credential</a></h4>
-        <p>Generative AI integrations for software cycles, Python/Flask application structures, beginner-to-advanced Java lifecycle patterns, and Spring Framework enterprise designs.</p>
-      </div>
-      <div class="timeline-item only-industry">
-        <span class="date">July 2026</span>
-        <h4>Google Cybersecurity Professional <a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" class="verify-link" target="_blank" rel="noopener">View Credential</a></h4>
-        <p>Network asset configuration monitoring, risk identification matrices, Linux environments, SQL security tracking systems, and automation scripts via Python.</p>
-      </div>
+        </section>
+    </main>
 
-      <h3>NPTEL Certifications</h3>
-      <div class="nptel-grid">
-        <div class="nptel-item"><a href="#" target="_blank" rel="noopener">Advanced Computer Architecture (2026)</a></div>
-        <div class="nptel-item"><a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" rel="noopener">Advanced Computer Networks (2025)</a></div>
-        <div class="nptel-item"><a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view?usp=sharing" target="_blank" rel="noopener">Practical Cybersecurity (2024)</a></div>
-        <div class="nptel-item"><a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view?usp=sharing" target="_blank" rel="noopener">Cloud Computing (2024)</a></div>
-        <div class="nptel-item"><a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view?usp=sharing" target="_blank" rel="noopener">Big Data Computing (2023)</a></div>
-        <div class="nptel-item"><a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view?usp=sharing" target="_blank" rel="noopener">Introduction to Smart Grid (2022)</a></div>
-      </div>
-    </section>
-
-    <section id="experience" class="tab-content only-academic">
-  <h3>Academic &amp; Research Chronology</h3>
-  <p class="section-hint">Click on any institution below to expand and view service details.</p>
-  <div class="accordion-wrapper">
-    
-    <!-- Experience Item 1 -->
-    <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
-        <span>Sandip Foundation's — SITRC, Nashik, Maharashtra</span>
-        <span class="accordion-icon">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p><strong>Period of Service:</strong> 27-06-2025 to 31-05-2026</p>
-        <p><strong>Designation:</strong> Assistant Professor</p>
-        <p><strong>Department:</strong> Electrical Engineering (AIML)</p>
-        <p><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify Experience Document]</a></p>
-      </div>
-    </div>
-
-    <!-- Experience Item 2 -->
-    <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
-        <span>Guru Nanak Institute of Technology, Hyderabad</span>
-        <span class="accordion-icon">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p><strong>Period of Service:</strong> 16-02-2023 to 11-01-2025</p>
-        <p><strong>Designation:</strong> Assistant Professor</p>
-        <p><strong>Department:</strong> Electrical &amp; Electronics Engineering (EEE)</p>
-        <p><a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify Experience Document]</a></p>
-      </div>
-    </div>
-
-    <!-- Experience Item 3 -->
-    <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
-        <span>Malla Reddy Engineering College for Women (A), Secunderabad</span>
-        <span class="accordion-icon">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p><strong>Period of Service:</strong> 18-07-2022 to 15-02-2023</p>
-        <p><strong>Designation:</strong> Assistant Professor</p>
-        <p><strong>Department:</strong> Electrical &amp; Electronics Engineering (EEE)</p>
-        <p><a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify Experience Document]</a></p>
-      </div>
-    </div>
-<!-- Experience Item 4 -->
-    <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
-        <span>Aditya College of engineering, East Godavari</span>
-        <span class="accordion-icon">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p><strong>Period of Service:</strong> 19-11-2019 to 28-07-2021</p>
-        <p><strong>Designation:</strong>Sr.  Assistant Professor</p>
-        <p><strong>Department:</strong> Electrical &amp; Electronics Engineering (EEE)</p>
-        <p><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify Experience Document]</a></p>
-      </div>
-    </div>
-<!-- Experience Item 5 -->
-    <div class="accordion-item">
-      <button class="accordion-header" onclick="toggleAccordion(this)">
-        <span>Vignan's Institute of information Technology, Visakhapatnam</span>
-        <span class="accordion-icon">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p><strong>Period of Service:</strong> 13-03-2015 to 04-11-2019</p>
-        <p><strong>Designation:</strong>  Assistant Professor</p>
-        <p><strong>Department:</strong> Electrical &amp; Electronics Engineering (EEE)</p>
-        <p><a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify Experience Document]</a></p>
-      </div>
-    </div>
-  </div>
-</section>
- <div id="skill-development" class="only-academic" style="margin-top: 32px;">
-  <h3>Skill Development Programs Attended</h3>
-  <div class="accordion-wrapper">
-    <p class="section-hint" style="margin-bottom:12px;">Comprehensive log of Faculty Development Programs (FDPs), workshops, and international academic engagements.</p>
-
-    <!-- Category 1 -->
-    <div class="exposure-card">
-      <h4>Teaching Methodologies &amp; Outcome Based Education (OBE)</h4>
-      <ul class="exposure-list">
-        <li>Participated in a two-day FDP on <strong>OBE Focused Curriculum Design</strong> organized by the IQAC Cell, Sandip University, Nashik (8-9 November 2026). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in an <strong>OBE Workshop</strong> held at VIIT by KLETU (4-6 May 2018). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a one-day National Workshop on <strong>MOOCs and E-Learning in Higher Education</strong> by Guru Angad Dev Teaching Learning Centre of MHRD, SGTB Khalsa College, University of Delhi (18-08-2018). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a three-day workshop on <strong>Counselling System and Guidance</strong> by Medhas I-Train, Hyderabad (4-6 December 2018). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-      </ul>
-    </div>
-
-    <!-- Category 2 -->
-    <div class="exposure-card">
-      <h4>Electronics &amp; Internet of Things (IoT)</h4>
-      <ul class="exposure-list">
-        <li>Attended a one-week FDP on <strong>Hands-on Training on Power Electronics and Power Systems</strong> using Advanced Analytical Tools at Andhra University College of Engineering Autonomous (5-9 February 2018). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated and completed an FDP conducted by <strong>APSSDC on IoT</strong> (13-25 July 2020). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-      </ul>
-    </div>
-
-    <!-- Category 3 -->
-    <div class="exposure-card">
-      <h4>Workshops, FDPs &amp; Skill Development Programs</h4>
-      <ul class="exposure-list">
-        <li>Participated in a One-Week FDP organized by <strong>Chameli Devi Institute of Professional Studies</strong>, Indore (6-11 July 2026). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a 15-day online FDP on <strong>Open Business Tools for AI and Business Applications</strong> organized by 6th Q Research (H), India (18 August - 3 September 2025). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in an ISTE-Approved one-week online FDP on <strong>Emerging Trends and Applications of Generative AI</strong> by SVKM's Institute of Technology, Dhule (27-31 January 2025). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a MHRD-Sponsored INDO-US International Workshop on <strong>IoT and ML Based Microgrid &amp; Energy Management</strong> organized by the Department of EEE, Chaitanya Bharathi Institute of Technology, Hyderabad (19-23 February 2024). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in an 8-week FDP course on <strong>Big Data Computing</strong> by IIT Patna through NPTEL-AICTE (August-October 2023). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in an 8-week FDP course on <strong>Ethics in Engineering Practice</strong> by IIT Kharagpur through NPTEL-AICTE (August-October 2023). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a 42-hour training program conducted by ExcelR on <strong>Python for Data Science</strong> (16 May - 3 June 2022). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a 40-hour training program by ExcelR under the EDL initiative on <strong>Artificial Intelligence</strong> (28 March - 25 April 2022). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a one-week short-term training programme on <strong>Pattern Recognition Theory and Applications</strong> through ICT mode organized by NITTTR Kolkata (21-25 March 2022). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated and completed training in <strong>Data Sciences Applied to Industries</strong> organized by the Directorate of Faculty Development, JNTU Kakinada (17-21 August 2020). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a 3-day FDP on <strong>Machine Learning</strong> conducted at VIIT by APSSDC (13-15 September 2020). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-      </ul>
-    </div>
-
-    <!-- Category 4 -->
-    <div class="exposure-card">
-      <h4>Power Systems &amp; Smart Grids</h4>
-      <ul class="exposure-list">
-        <li>Participated and completed a 40-hour online FDP on <strong>Advanced Intelligence and ICT Application to Power System Protection</strong> sponsored by MoEIT, GoI, organized by E&amp;ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam (18-27 July 2022). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a five-day online workshop on <strong>Integration of Renewable Energy &amp; EV to Microgrid</strong> under the aegis of SPARC, organized by the Department of EEE, NIT Tiruchirappalli in collaboration with The Hong Kong Polytechnic University (21-25 February 2022). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended a two-day workshop on <strong>Integration of Renewable Energy Sources to Microgrids</strong>, sponsored by DST-SERB (18-19 August 2017). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended a two-day workshop on <strong>Smart Grids and Renewable Energy</strong> at CPRI, Bangalore (26-27 November 2015). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended a one-day workshop on <strong>Renewable Energy Sources - As Alternatives in Power Sector</strong> conducted by Gayatri Vidya Parishad College of Engineering, Visakhapatnam (11-02-2012). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-      </ul>
-    </div>
-
-    <!-- Category 5 -->
-    <div class="exposure-card">
-      <h4>Webinars &amp; Cross-Disciplinary Events</h4>
-      <ul class="exposure-list">
-        <li>Attended a Faculty Engagement Session on <strong>Global Best Practices in Education</strong> conducted by TCS iON (02-04-2026). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a one-week online FDP on <strong>Exploring the Significance of Indian Knowledge Systems</strong> in the Context of National Education Policy (NEP) 2020, organized by CBIT, Hyderabad (5-10 February 2024). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended an International Webinar on the <strong>Impact of AI and ML in Computers</strong> organized by SRM TRP Engineering College (28-03-2022). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended a National Level Webinar on the <strong>Art of Teaching</strong> organized by the Department of EEE, Gayatri Vidya Parishad College of Engineering (A), Visakhapatnam (07-07-2020). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Participated in a webinar on <strong>Cryptography Encryption Techniques</strong> organized by the Department of Computer Science and Applications, SRM Arts and Science College, Chengalpattu (16-07-2020). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended a Webinar on the <strong>NAAC News Release</strong> by Shri Pralhad Joshi, Honorable Minister of Parliamentary Affairs, Coal and Mines (16-07-2020). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-        <li>Attended a short-term course on <strong>Soft Computing Using Sci-Lab</strong> conducted by the Educational Television Centre at Raghu Engineering College, Visakhapatnam (21-25 July 2014). <a href="YOUR_LINK_HERE" class="verify-link" target="_blank" rel="noopener noreferrer">[Verify]</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-      <h3>Courses Handled</h3>
-      <p class="section-hint">Comprehensive teaching portfolio spanning Computer Science, Artificial Intelligence, and Core Electrical Systems engineering.</p>
-      <div class="courses-grid">
-        <div class="course-card cs-ai-theme">
-          <h4>Computer Science &amp; AI</h4>
-          <ul class="course-list">
-            <li>Artificial Intelligence Techniques</li>
-            <li>AI-Based Web Design</li>
-            <li>Advanced Python Programming</li>
-            <li>Introduction to Expert Systems</li>
-            <li>Discrete Mathematics and Logic</li>
-            <li>Software Testing Certification</li>
-          </ul>
-        </div>
-        <div class="course-card electrical-theme">
-          <h4>Core Electrical &amp; Electronics</h4>
-          <ul class="course-list">
-            <li>Control Systems</li>
-            <li>Electromagnetic Fields</li>
-            <li>Microprocessors and Microcontrollers</li>
-            <li>Digital Logic Design</li>
-            <li>Digital Controllers</li>
-            <li>Electrical Technology</li>
-            <li>Basic Electrical and Electronics Engineering</li>
-          </ul>
-        </div>
-        <div class="course-card power-theme">
-          <h4>Power Systems &amp; Energy</h4>
-          <ul class="course-list">
-            <li>High Voltage Engineering</li>
-            <li>Power System Analysis</li>
-            <li>Power System Protection</li>
-            <li>Non-Conventional Sources of Energy</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications" class="tab-content only-academic">
-      <h3>Publications &amp; Research Portfolio</h3>
-      <p class="section-hint">Select a category tab below to filter research outcomes, patents, and peer-reviewed journals.</p>
-
-      <div class="pub-sub-nav">
-        <button class="sub-nav-btn active" onclick="switchSubPub(event,'journals-panel')">Journal Papers</button>
-        <button class="sub-nav-btn" onclick="switchSubPub(event,'books-panel')">Book Chapters</button>
-        <button class="sub-nav-btn" onclick="switchSubPub(event,'patents-panel')">Patents</button>
-      </div>
-
-      <div id="journals-panel" class="sub-pub-content active">
-        <div class="publication-item">
-          <span class="date">Nov 2022</span>
-          <h4>Fuzzy based Unified Control and Power Management Scheme for PV Battery based Hybrid Micro Grids</h4>
-          <p class="pub-meta">The International Journal of Analytical and Experimental Modal Analysis (IJAEMA) | Volume XIV, Issue XI</p>
-        </div>
-      </div>
-
-      <div id="books-panel" class="sub-pub-content">
-        <div class="publication-item book-panel">
-          <span class="date">October 2022</span>
-          <h4>Cyber Security in Smart Grids: Role of Digital Advanced Devices</h4>
-          <p class="pub-meta">Book: Cybersecurity Issues, Challenges, and Solutions in the Business World | IGI Global</p>
-        </div>
-      </div>
-
-      <div id="patents-panel" class="sub-pub-content">
-        <div class="publication-item patent-panel">
-          <span class="date">Published 2024</span>
-          <h4>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics</h4>
-          <p class="pub-meta">Domain: Biomedical Engineering | Reference Number: 11/2024(INA)</p>
-        </div>
-      </div>
-    </section>
-  </main>
-</div>
-
-function switchView(viewType){
-var body=document.body;
-var industryBtn=document.getElementById("industry-toggle-btn");
-var academicBtn=document.getElementById("academic-toggle-btn");
-if(viewType==='industry'){
-body.className="view-industry";
-industryBtn.classList.add("active");
-academicBtn.classList.remove("active");
-}else{
-body.className="view-academic";
-academicBtn.classList.add("active");
-industryBtn.classList.remove("active");
-}
-var currentActive=document.querySelector(".tab-navigation .tab-btn.active");
-if(currentActive){
-var hiddenInIndustry=viewType==='industry'&&currentActive.classList.contains('only-academic');
-var hiddenInAcademic=viewType==='academic'&&currentActive.classList.contains('only-industry');
-if(hiddenInIndustry||hiddenInAcademic){
-var firstBtn=document.querySelector(".tab-navigation .tab-btn:not(.only-academic):not(.only-industry)")||document.querySelector(".tab-navigation .tab-btn");
-if(firstBtn) firstBtn.click();
-}
-}
-}
-function openTab(event,tabId){
-var contents=document.getElementsByClassName("tab-content");
-for(var i=0;i<contents.length;i++) contents[i].classList.remove("active");
-var buttons=document.getElementsByClassName("tab-btn");
-for(var i=0;i<buttons.length;i++) buttons[i].classList.remove("active");
-var target=document.getElementById(tabId);
-if(target) target.classList.add("active");
-if(event&&event.currentTarget) event.currentTarget.classList.add("active");
-}
-function toggleAccordion(element){
-var panel=element.nextElementSibling;
-var icon=element.querySelector('.accordion-icon');
-var parent=element.parentElement;
-if(!panel||!icon) return;
-var allPanels=document.querySelectorAll('.accordion-panel');
-var allIcons=document.querySelectorAll('.accordion-icon');
-var allItems=document.querySelectorAll('.accordion-item');
-allPanels.forEach(function(p){if(p!==panel)p.classList.remove('open')});
-allIcons.forEach(function(i){if(i!==icon)i.textContent='+'});
-allItems.forEach(function(it){if(it!==parent)it.classList.remove('open')});
-if(panel.classList.contains('open')){
-panel.classList.remove('open');
-icon.textContent='+';
-parent.classList.remove('open');
-}else{
-panel.classList.add('open');
-icon.textContent='\u2212';
-parent.classList.add('open');
-}
-}
-function switchSubPub(event,targetSubId){
-var subContents=document.querySelectorAll(".sub-pub-content");
-subContents.forEach(function(c){c.classList.remove("active")});
-var subButtons=document.querySelectorAll(".sub-nav-btn");
-subButtons.forEach(function(b){b.classList.remove("active")});
-var activePanel=document.getElementById(targetSubId);
-if(activePanel) activePanel.classList.add("active");
-if(event&&event.currentTarget) event.currentTarget.classList.add("active");
-}
-document.addEventListener("DOMContentLoaded",function(){
-var links=document.querySelectorAll(".verify-link");
-links.forEach(function(link){
-link.addEventListener("click",function(event){
-var href=link.getAttribute("href");
-if(href==="#"||href===""){
-event.preventDefault();
-alert('Verification link for "'+link.textContent.trim()+'" will be updated soon!');
-}
-});
-});
-});
+    <script src="script.js"></script>
+</body>
+</html>
