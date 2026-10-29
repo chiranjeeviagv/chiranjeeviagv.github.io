@@ -7,37 +7,34 @@ const objectives = {
 let currentActiveView = 'academic';
 
 // INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
+// UNIFIED INTERACTIVE SWITCH & INITIALIZATION ENGINE
 document.addEventListener("DOMContentLoaded", () => {
-    // Top view navigation selection hooks
-        // Top view navigation selection hooks
+    // 1. Top view navigation selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
-    // Section modal exploration triggers
+    // 2. Section modal exploration triggers (FIXED & ALIGNED)
     document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
     document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
-        // Add this line inside your document.addEventListener("DOMContentLoaded", () => { ... }) block:
-    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
-
-    // ADDED: Direct event listener triggers for your new academic and industry columns
+    
+    // Core listener triggers connecting your new academic and industry columns
     document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
     document.querySelector('[data-section="skills"]')?.addEventListener('click', showSkillsModal);
+    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
     
-    // STABILIZED LOOKUP: Checks for data-attribute first, falls back to direct ID lookup
+    // Stabilized Lookup for Skill Development button
     const fdpBtn = document.querySelector('[data-section="fdps"]') || document.getElementById('btn-explore-fdps');
     if (fdpBtn) {
         fdpBtn.addEventListener('click', showDevelopmentProgramsModal);
-    } else {
-        console.warn("Warning: Skill Development button element could not be found in index.html structural tracking.");
     }
 
-    // Bind explicit target buttons to remove modal window layer
+    // 3. Bind explicit target close buttons
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
-    // Ambient backdrop background click safety release setup
+    // 4. Ambient backdrop background click safety release setup
     const modalOverlay = document.getElementById('details-modal');
     modalOverlay?.addEventListener('click', (event) => {
         if (event.target === modalOverlay) {
