@@ -28,7 +28,6 @@ header h1 {
     margin-bottom: 20px;
 }
 
-/* View Toggle Buttons styling */
 .view-toggle {
     display: inline-flex;
     gap: 15px;
@@ -52,13 +51,11 @@ header h1 {
     color: white;
 }
 
-/* Layout Container */
 .container {
     max-width: 900px;
     margin: 0 auto;
 }
 
-/* Top Block Contact & Profile Grid */
 .info-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -92,7 +89,6 @@ header h1 {
     text-decoration: underline;
 }
 
-/* Placeholder for Profile Picture */
 .profile-placeholder {
     width: 150px;
     height: 180px;
@@ -106,7 +102,6 @@ header h1 {
     border-radius: 4px;
 }
 
-/* Center Content Blocks styling */
 .career-content {
     display: flex;
     flex-direction: column;
@@ -133,12 +128,10 @@ header h1 {
     padding-bottom: 5px;
 }
 
-/* Class helper to hide elements smoothly */
 .hidden {
     display: none !important;
 }
 
-/* Responsive adjust */
 @media (max-width: 600px) {
     .info-grid {
         grid-template-columns: 1fr;
