@@ -191,10 +191,10 @@ header h1 {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    display: none; /* Changed from 'flex' to 'none' to hide it until a button is clicked */
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    z-index: 1000;
 }
 
 .modal-card {
@@ -292,60 +292,4 @@ header h1 {
         font-size: 0.8rem;
         padding: 4px 10px;
     }
-}
-
-/* Container separating actions horizontally inside your cards */
-.card-actions-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 15px;
-    width: 100%;
-}
-
-/* Base formatting overrides ensuring interactive elements scale uniformly */
-.explore-btn {
-    padding: 8px 18px !important;
-    font-size: 0.88rem !important;
-    border-radius: 6px !important;
-    cursor: pointer !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease-in-out !important;
-}
-
-/* Main action button highlights */
-.explore-btn.main-btn {
-    color: #007bff;
-    background: #e6f2ff;
-    border: 1px solid #b3d7ff;
-}
-
-.explore-btn.main-btn:hover {
-    background: #007bff;
-    color: white;
-}
-
-/* Secondary directional navigation arrows styling */
-.explore-btn.nav-btn {
-    color: #6c757d;
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-}
-
-.explore-btn.nav-btn:hover {
-    background: #495057;
-    color: white;
-    border-color: #495057;
-}
-
-/* Top button special configuration tint */
-.explore-btn.back-to-top {
-    color: #28a745;
-    background: #e8f5e9;
-    border: 1px solid #c8e6c9;
-}
-.explore-btn.back-to-top:hover {
-    background: #28a745;
-    color: white;
 }
