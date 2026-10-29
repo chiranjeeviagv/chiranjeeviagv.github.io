@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn("Warning: Skill Development button element could not be found in index.html structural tracking.");
     }
-
+document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
     // Bind explicit target buttons to remove modal window layer
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
