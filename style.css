@@ -102,6 +102,17 @@ header h1 {
     border-radius: 4px;
 }
 
+/* Styling for your newly added profile picture */
+.profile-image {
+    width: 150px;
+    height: 180px;
+    object-fit: cover; /* Ensures your photo crops cleanly without distortion */
+    border-radius: 6px; /* Rounds the corners slightly to match the card design */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow depth */
+    display: block;
+    margin: 0 auto;
+}
+
 /* Master grid container spanning 100% width area */
 .career-content-grid {
     display: grid;
