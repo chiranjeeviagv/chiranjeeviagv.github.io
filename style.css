@@ -1,3 +1,205 @@
+/* Base Screen Configurations */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Banner Container Alignment */
+.main-header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+}
+
+.view-toggle-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Button UI Definitions */
+.toggle-btn, .download-pdf-btn, .explore-btn, .close-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #d1d3e2;
+    background-color: #ffffff;
+    color: #4e73df;
+}
+
+.toggle-btn.active {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.download-pdf-btn {
+    background-color: #28a745;
+    color: #ffffff;
+    border-color: #28a745;
+}
+
+.download-pdf-btn:hover { background-color: #218838; }
+
+.explore-btn {
+    background-color: #ffffff;
+    border-color: #007bff;
+    color: #007bff;
+    width: 100%;
+}
+
+.explore-btn:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Core Content Constraints Wrapper */
+.page-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Top Profile Summary Hero Row Row */
+.profile-hero-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.hero-card {
+    background: #ffffff;
+    border: 1px solid #e3e6f0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Biological Section Contact Layout Profile Details */
+.bio-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.bio-details h3 { margin-top: 0; color: #333; }
+.bio-details ul { list-style: none; padding: 0; margin: 0; }
+.bio-details li { margin-bottom: 8px; font-size: 0.9rem; }
+.bio-details a { color: #007bff; text-decoration: none; }
+
+.bio-img-container {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e3e6f0;
+}
+
+/* ==========================================================================
+   THE SIDE-BY-SIDE MAIN CARD GRID (Fixes your display loop)
+   ========================================================================== */
+.cv-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.cv-grid-container section {
+    background: #ffffff;
+    border: 1px solid #e3e6f0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-grid-container section h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.cv-grid-container section p {
+    color: #666666;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    flex-grow: 1; /* Aligns all buttons to clean baselines */
+}
+
+/* Modal Core Mask Layer Layout Definitions */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-overlay.hidden { display: none !important; }
+
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.modal-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+.modal-data-table th, .modal-data-table td {
+    border: 1px solid #eaecf0;
+    padding: 12px;
+    text-align: left;
+}
+.modal-data-table th { background-color: #f8f9fa; }
+
+/* Responsive Media Viewport Collapse Filters */
+@media (max-width: 900px) {
+    .cv-grid-container, .profile-hero-row {
+        grid-template-columns: 1fr;
+    }
+    .main-header { justify-content: center; text-align: center; }
+}
+
 /* ==========================================================================
    DYNAMIC TWO-COLUMN RESPONSIVE LAYOUT ENGINE
    ========================================================================== */
