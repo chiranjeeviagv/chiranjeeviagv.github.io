@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- Direct layout rules targeting modern browser column assignment overrides -->
-    <style>
-        .info-grid {
-            display: flex !important;
-            flex-direction: row !important; /* Strict side-by-side row behavior */
-            justify-content: space-between !important; /* Snaps text left, image far right */
-            align-items: center !important; /* Centers them vertically against one another */
-            gap: 40px !important;
+       <style>
+        /* Unbreakable container architecture */
+        .info-grid-container {
             background: white !important;
             padding: 30px !important;
             border-radius: 8px !important;
@@ -23,15 +19,28 @@
             box-sizing: border-box !important;
         }
 
-        .contact-details {
-            /* FIXED: Assigned a clean, non-conflicting 70% width to save 30% space for the image */
-            width: 70% !important; 
-            max-width: 70% !important; 
+        .layout-table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            border: none !important;
+        }
+
+        .left-column {
+            width: 75% !important;
+            vertical-align: top !important;
+            text-align: left !important;
+        }
+
+        .right-column {
+            width: 25% !important;
+            vertical-align: middle !important;
+            text-align: right !important;
         }
 
         .contact-details h3 {
             margin-bottom: 15px !important;
             color: #007bff !important;
+            font-size: 1.3rem !important;
         }
 
         .contact-details ul {
@@ -43,20 +52,15 @@
         .contact-details li {
             margin-bottom: 10px !important;
             font-size: 1rem !important;
+            color: #333 !important;
         }
 
         .profile-image-container {
-            /* FIXED: Allocated the remaining 25% spacing for the photograph track */
-            width: 25% !important;
-            max-width: 25% !important;
-            display: flex !important;
-            justify-content: flex-end !important; 
-            align-items: center !important;
+            display: inline-block !important;
         }
 
         .profile-image {
             width: 160px !important; 
-            max-width: 100% !important; /* Ensures it shrinks nicely if the container narrows */
             height: auto !important;
             object-fit: cover !important;
             border-radius: 6px !important;
@@ -64,24 +68,19 @@
             border: 1px solid #eef1f5 !important;
         }
 
-        /* Responsive stack for smaller mobile device viewports */
+        /* Mobile adaptation rule handles layout restructuring safely */
         @media (max-width: 768px) {
-            .info-grid {
-                flex-direction: column !important;
+            .layout-table, .layout-table tr, .left-column, .right-column {
+                display: block !important;
+                width: 100% !important;
                 text-align: center !important;
-                gap: 20px !important;
             }
-            .contact-details {
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-            .profile-image-container {
-                width: 100% !important;
-                max-width: 100% !important;
-                justify-content: center !important;
+            .right-column {
+                margin-top: 25px !important;
             }
         }
     </style>
+
 </head>
 <body>
 
