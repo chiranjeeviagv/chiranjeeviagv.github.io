@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Interactive webpage</title>
     <link rel="stylesheet" href="style.css">
- <!-- Inline styles to absolutely force the two-column contact section layout -->
+    
+    <!-- Direct layout rules targeting modern browser column assignment overrides -->
     <style>
         .info-grid {
             display: flex !important;
-            flex-direction: row !important; /* Locks left-to-right axis layout */
-            justify-content: space-between !important; /* Pushes text left, photo far right */
-            align-items: center !important; /* Perfectly balances elements vertically */
-            grid-template-columns: 3fr 1fr !important; /* Left gets 75%, Right gets 25% */
+            flex-direction: row !important; /* Strict side-by-side row behavior */
+            justify-content: space-between !important; /* Snaps text left, image far right */
+            align-items: center !important; /* Centers them vertically against one another */
             gap: 40px !important;
             background: white !important;
             padding: 30px !important;
@@ -20,11 +20,13 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
             margin-bottom: 40px !important;
             width: 100% !important;
+            box-sizing: border-box !important;
         }
 
         .contact-details {
-            max-width: 70% !important; /* Restricts the text block width so the image fits next to it */
-            width: 100% !important;
+            /* FIXED: Assigned a clean, non-conflicting 70% width to save 30% space for the image */
+            width: 70% !important; 
+            max-width: 70% !important; 
         }
 
         .contact-details h3 {
@@ -44,14 +46,17 @@
         }
 
         .profile-image-container {
+            /* FIXED: Allocated the remaining 25% spacing for the photograph track */
+            width: 25% !important;
+            max-width: 25% !important;
             display: flex !important;
-            justify-content: flex-end !important; /* Pushes image flush to the right */
+            justify-content: flex-end !important; 
             align-items: center !important;
-            width: 100% !important;
         }
 
         .profile-image {
-            width: 160px !important; /* Locked explicit portrait width */
+            width: 160px !important; 
+            max-width: 100% !important; /* Ensures it shrinks nicely if the container narrows */
             height: auto !important;
             object-fit: cover !important;
             border-radius: 6px !important;
@@ -59,18 +64,25 @@
             border: 1px solid #eef1f5 !important;
         }
 
+        /* Responsive stack for smaller mobile device viewports */
         @media (max-width: 768px) {
             .info-grid {
-                grid-template-columns: 1fr !important; /* Stacks layout on mobile viewports */
+                flex-direction: column !important;
                 text-align: center !important;
+                gap: 20px !important;
+            }
+            .contact-details {
+                width: 100% !important;
+                max-width: 100% !important;
             }
             .profile-image-container {
+                width: 100% !important;
+                max-width: 100% !important;
                 justify-content: center !important;
             }
         }
     </style>
 </head>
-
 <body>
 
     <header>
