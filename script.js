@@ -1,10 +1,8 @@
-// Pre-defined texts for dynamic Career Objectives
 const objectives = {
     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
     industry: "Result-driven professional seeking a core technical role in the industry to apply practical problem-solving skills, engineering workflows, and system optimization."
 };
 
-// Tracks active view globally
 let currentActiveView = 'academic';
 
 function switchView(viewType) {
@@ -12,6 +10,7 @@ function switchView(viewType) {
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     
+    // 1. Manage Active Toggle Button Selection highlights
     if (viewType === 'academic') {
         btnAcademic.classList.add('active');
         btnIndustry.classList.remove('active');
@@ -20,27 +19,29 @@ function switchView(viewType) {
         btnAcademic.classList.remove('active');
     }
 
+    // 2. Change the text content inside the Career Objective dynamically
     const objectiveTextEl = document.getElementById('objective-text');
     if (objectiveTextEl) {
         objectiveTextEl.innerText = objectives[viewType];
     }
 
+    // 3. Target and toggle display modes to preserve your CSS grid proportions cleanly
     const academicSections = document.querySelectorAll('.academic-only');
     const industrySections = document.querySelectorAll('.industry-only');
 
-    // Update main grid items
     if (viewType === 'academic') {
-        academicSections.forEach(el => el.style.setProperty('display', 'flex', 'important')); 
-        industrySections.forEach(el => el.style.setProperty('display', 'none', 'important'));
+        // Clearing display lets it naturally fall back to your native 'style.css' block definitions
+        academicSections.forEach(el => el.style.display = ''); 
+        industrySections.forEach(el => el.style.display = 'none');
         
-        // Show/Hide relevant navigation button tracks
+        // Synchronize helper button tracks
         document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'inline-block');
         document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'none');
     } else {
-        academicSections.forEach(el => el.style.setProperty('display', 'none', 'important'));
-        industrySections.forEach(el => el.style.setProperty('display', 'flex', 'important'));
+        academicSections.forEach(el => el.style.display = 'none');
+        industrySections.forEach(el => el.style.display = '');
         
-        // Show/Hide relevant navigation button tracks
+        // Synchronize helper button tracks
         document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'inline-block');
     }
@@ -120,7 +121,7 @@ function showQualificationsModal() {
     
     openHTMLModal('Qualifications', qualificationsHTML);
 }
-/ FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
+// FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
 function showCertificationsModal() {
     const certificationsHTML = `
         <div class="modal-credentials-layout">
@@ -288,7 +289,7 @@ function openHTMLModal(title, htmlContent) {
 
 // FIXED: Added backticks (``) around the HTML structure so variables render properly
 function openModal(title, text) {
-    openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
+    openHTMLModal(title, <p style="color:#333; line-height:1.6; text-align:left;">${text}</p>);
 }
 
 function closeModal() {
@@ -304,4 +305,4 @@ window.onclick = function(event) {
     if (event.target === modal) {
         closeModal();
     }
-}
+};
