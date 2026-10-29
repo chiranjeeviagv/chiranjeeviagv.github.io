@@ -419,7 +419,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://google.com" target="_blank" class="credential-link">View Drive File ↗</a>
+                            <a href="DOI- 10.4018/978-1-6684-5827-3.ch002" target="_blank" class="credential-link">View Drive File ↗</a>
                         </td>
                     </tr>
                 </tbody>
@@ -759,6 +759,16 @@ function showReferencesModal() {
             <p class="ref-intro">
                 The following mentors and institutional leads are available to provide professional or academic verification of my teaching methodologies, engineering workflows, and research contributions:
             </p>
+
+                <!-- REFERENCE  -->
+                <div class="ref-card">
+                    <div class="ref-name">Dr. S Suryaprakasarao</div>
+                    <div class="ref-title">Former Professor(AMC) , HOD ENT</div>
+                    <div class="ref-org">,  Gayatri Medical college GVPIHC&MT, Visakhapatnam</div>
+                    <div class="ref-contact">
+                        <strong>Cell:</strong> <a href="tel:+918688381481" class="ref-phone-link">+91 8688381481</a>
+                    </div>
+                </div>
 
             <div class="ref-grid">
                 <!-- REFERENCE 1 -->
