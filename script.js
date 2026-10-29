@@ -5,7 +5,7 @@ const objectives = {
 };
 
 function switchView(viewType) {
-    // 1. Manage Active Button Styles
+    // 1. Manage Active Button Styling
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     
@@ -25,11 +25,11 @@ function switchView(viewType) {
     const industrySections = document.querySelectorAll('.industry-only');
 
     if (viewType === 'academic') {
-        // Show Academic, Hide Industry
+        // Show Academic elements, Hide Industry elements
         academicSections.forEach(el => el.classList.remove('hidden'));
         industrySections.forEach(el => el.classList.add('hidden'));
     } else if (viewType === 'industry') {
-        // Hide Academic, Show Industry
+        // Hide Academic elements, Show Industry elements
         academicSections.forEach(el => el.classList.add('hidden'));
         industrySections.forEach(el => el.classList.remove('hidden'));
     }
