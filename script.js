@@ -204,7 +204,7 @@ function showCertificationsModal() {
                     <tr>
                         <td><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href=" " target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
@@ -223,9 +223,24 @@ function showCertificationsModal() {
                     </tr>
                     <tr>
                         <td><strong>Google Cyber Security</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
-                        <td>Microsoft</td>
+                        <td>Google</td>
                         <td><a href="https://www.coursera.org/account/accomplishments/professional-cert/SZEO3FT6Q193" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
+                </tbody>
+            </table>
+
+            <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
+                NPTEL (IIT) Certifications
+            </h3>
+            <table class="modal-data-table">
+                <thead>
+                    <tr>
+                        <th>Course Module</th>
+                        <th>Timeline</th>
+                        <th>Verification Link</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <tr>
                         <td><strong>Advanced Computer Architecture</strong></td>
                         <td>April 2026</td>
@@ -360,32 +375,32 @@ function showExperienceModal() {
                     <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #007bff; font-size: 0.85rem;">Electrical Engineering (AI & ML)</span></td>
                         <td>Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra</td>
-                        <td>June 2025 – May 2026</td>
+                        <td>27-06-2025 – 31-05-2026</td>
                         <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad</td>
-                        <td>Feb 2023 – Jan 2025</td>
+                        <td>16-02-2023 – 11-01-2025</td>
                         <td><a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" class="credential-link">View Experience ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Malla Reddy Engineering College for Women (Autonomous), Secunderabad</td>
-                        <td>July 2022 – Feb 2023</td>
+                        <td>18-07-2022 – 15-02-2023</td>
                         <td><a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Senior Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Aditya College of Engineering, Surampalem, Andhra Pradesh</td>
-                        <td>Nov 2019 – July 2021</td>
-                        <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing"_blank" class="credential-link">View Service Doc ↗</a></td>
+                        <td>22-11-2019 – 26-07-2021</td>
+                        <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
                     </tr>
                      <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh</td>
-                        <td>March 2015 – Nov 2019</td>
-                        <td><a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing"_blank" class="credential-link">View Experience ↗</a></td>
+                        <td>13-03-2015 – 04-11-2019</td>
+                        <td><a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" target="_blank" class="credential-link">View Experience ↗</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -531,36 +546,6 @@ function showPublicationsModal() {
     openHTMLModal('Publications & Research Portfolios', publicationsHTML);
 }
 
-// CORE MODAL OPENER PARSER ENGINE (Processes rich HTML variables safely)
-function openHTMLModal(title, htmlContent) {
-    const modal = document.getElementById('details-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-    if (modal && modalTitle && modalBody) {
-        modalTitle.innerText = title;
-        modalBody.innerHTML = htmlContent;
-        modal.style.setProperty('display', 'flex', 'important');
-        document.body.style.overflow = 'hidden'; // Lock background scrolling
-    }
-}
-document.addEventListener("DOMContentLoaded", () => {
-    // Existing toggle and discovery section listener hooks...
-    document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
-    document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
-    document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
-    document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
-    document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
-    document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
-    document.querySelector('[data-section="fdps"]')?.addEventListener('click', showDevelopmentProgramsModal);
-    document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
-    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
-
-    // ADDED: Direct activation connection for browser PDF generation workflows
-    document.getElementById('btn-download-pdf')?.addEventListener('click', () => {
-        window.print();
-    });
-});
-
 // UNIFIED CONSOLIDATED MODAL LIFECYCLE MANAGEMENT ENGINE
 function openHTMLModal(title, htmlContent) {
     const modal = document.getElementById('details-modal');
@@ -571,20 +556,20 @@ function openHTMLModal(title, htmlContent) {
         modalTitle.innerText = title;
         modalBody.innerHTML = htmlContent;
         
-        // Remove class to display over page seamlessly
+        // Remove structural hidden class and force flex display seamlessly
         modal.classList.remove('hidden');
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; 
+        modal.style.setProperty('display', 'flex', 'important');
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
     }
 }
 
 function closeModal() {
     const modal = document.getElementById('details-modal');
     if (modal) {
-        // Safe reset state flags
+        // Safe reset state visibility flags completely
         modal.classList.add('hidden');
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; 
+        modal.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = ''; // Restore background scrolling
     }
 }
 
@@ -592,13 +577,52 @@ function openModal(title, text) {
     openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
 }
 
-function closeModal() {
-    const modal = document.getElementById('details-modal');
-    if (modal) {
-        modal.style.setProperty('display', 'none', 'important');
-        document.body.style.overflow = ''; // Restore background scrolling
-    }
-}
+// STABILIZED INITIALIZATION INTERACTIVE HANDLER ENGINE
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Top view navigation view toggle selection hooks
+    document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
+    document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
+
+    // 2. Comprehensive loop triggers connecting ALL interactive grid sections
+    document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
+        btn.addEventListener('click', showQualificationsModal);
+    });
+    document.querySelectorAll('[data-section="certifications"]').forEach(btn => {
+        btn.addEventListener('click', showCertificationsModal);
+    });
+    document.querySelectorAll('[data-section="experience"]').forEach(btn => {
+        btn.addEventListener('click', showExperienceModal);
+    });
+    document.querySelectorAll('[data-section="publications"]').forEach(btn => {
+        btn.addEventListener('click', showPublicationsModal);
+    });
+    document.querySelectorAll('[data-section="references"]').forEach(btn => {
+        btn.addEventListener('click', showReferencesModal);
+    });
+    document.querySelectorAll('[data-section="expertise"]').forEach(btn => {
+        btn.addEventListener('click', showExpertiseModal);
+    });
+    document.querySelectorAll('[data-section="skills"]').forEach(btn => {
+        btn.addEventListener('click', showSkillsModal);
+    });
+    document.querySelectorAll('[data-section="conferences"]').forEach(btn => {
+        btn.addEventListener('click', showConferencesModal);
+    });
+    document.querySelectorAll('[data-section="fdps"]').forEach(btn => {
+        btn.addEventListener('click', showDevelopmentProgramsModal);
+    });
+
+    // 3. Bind explicit structural exit close buttons
+    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
+
+    // 4. Ambient backdrop backdrop click safety release overlay setup
+    const modalOverlay = document.getElementById('details-modal');
+    modalOverlay?.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+});
 // FORMATTED CONTENT MAPPING: PROFESSIONAL DEVELOPMENT & TRAINING PAYLOAD
 function showDevelopmentProgramsModal() {
     const programsHTML = `
@@ -738,6 +762,13 @@ function showDevelopmentProgramsModal() {
                     <tbody>
                         <tr>
                             <td>
+                                <div class="pub-title">ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI</div>
+                                <div class="pub-meta"><strong>Organized by:</strong> SVKM's Institute of Technology, Dhule<br><strong>Timeline:</strong> 27th January to 31st January 2025</div>
+                            </td>
+                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <div class="pub-title">MHRD-Sponsored INDO-US International workshop on “IOT and ML Based Microgrid & Energy Management”</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, CBIT, Hyderabad<br><strong>Timeline:</strong> 19th to 23rd February 2024</div>
                             </td>
@@ -745,42 +776,7 @@ function showDevelopmentProgramsModal() {
                         </tr>
                         <tr>
                             <td>
-                                <div class="pub-title">ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> SVKM's Institute of Technology, Dhule<br><strong>Timeline:</strong> 27th January to 31st January 2025</div>
-                            </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-                      <!-- PANEL 4: TECHNICAL WEBINARS & NATIONAL EDUCATION PROGRAMS -->
-            <div id="tab-webinars" class="dev-panel">
-                <div class="program-section-title">Technical Webinars & National Education Programs</div>
-                <table class="modal-data-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 75%; text-align: left;">Session Topic & Host Body</th>
-                            <th style="width: 25%; text-align: center;">Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="pub-title">National Level webinar on “Art of Teaching”</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam<br><strong>Timeline:</strong> 7th July, 2020</div>
-                            </td>
-                            <td style="text-align: center; vertical-align: middle;">
-                                <a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    `;
-    openHTMLModal('Skill Development & Workshops', programsHTML);
-}
+                                <div class="pub-title">42 Hours Professional Training Program on “Python for Data Science”</div>
 
 // INLINE MATRIX NAVIGATION HELPER ENGINE
 function switchDevTab(event, tabId) {
@@ -796,6 +792,7 @@ function switchDevTab(event, tabId) {
     document.getElementById(tabId)?.classList.add('active');
     event.currentTarget.classList.add('active');
 }
+
 // FORMATTED CONTENT MAPPING: PROFESSIONAL & ACADEMIC REFERENCES
 function showReferencesModal() {
     const referencesHTML = `
@@ -862,18 +859,18 @@ function showReferencesModal() {
                 The following mentors and institutional leads are available to provide professional or academic verification of my teaching methodologies, engineering workflows, and research contributions:
             </p>
 
-                <!-- REFERENCE  -->
+            <div class="ref-grid">
+                <!-- REFERENCE 1 -->
                 <div class="ref-card">
                     <div class="ref-name">Dr. S Suryaprakasarao</div>
-                    <div class="ref-title">Former Professor(AMC) , HOD ENT</div>
-                    <div class="ref-org">,  Gayatri Medical college GVPIHC&MT, Visakhapatnam</div>
+                    <div class="ref-title">Former Professor (AMC) & HoD of ENT</div>
+                    <div class="ref-org">Gayatri Medical College (GVPIHC & MT), Visakhapatnam</div>
                     <div class="ref-contact">
-                        <strong>Cell:</strong> <a href="tel:+918688381481" class="ref-phone-link">+91 8688381481</a>
+                        <strong>Cell:</strong> <a href="tel:+918688381481" class="ref-phone-link">+91 86883 81481</a>
                     </div>
                 </div>
 
-            <div class="ref-grid">
-                <!-- REFERENCE 1 -->
+                <!-- REFERENCE 2 -->
                 <div class="ref-card">
                     <div class="ref-name">Mr. K Prasad</div>
                     <div class="ref-title">Senior Lecturer (Retired)</div>
@@ -883,7 +880,7 @@ function showReferencesModal() {
                     </div>
                 </div>
 
-                <!-- REFERENCE 2 -->
+                <!-- REFERENCE 3 -->
                 <div class="ref-card">
                     <div class="ref-name">Mr. K Srikanth</div>
                     <div class="ref-title">Associate Professor</div>
@@ -893,7 +890,7 @@ function showReferencesModal() {
                     </div>
                 </div>
 
-                <!-- REFERENCE 3 -->
+                <!-- REFERENCE 4 -->
                 <div class="ref-card">
                     <div class="ref-name">Dr. Dipak D Bhage</div>
                     <div class="ref-title">Professor</div>
@@ -903,7 +900,7 @@ function showReferencesModal() {
                     </div>
                 </div>
 
-                <!-- REFERENCE 4 -->
+                <!-- REFERENCE 5 -->
                 <div class="ref-card">
                     <div class="ref-name">Mrs. Sangita K Chowdary</div>
                     <div class="ref-title">Professor</div>
@@ -915,7 +912,9 @@ function showReferencesModal() {
             </div>
         </div>
     `;
-     // NEW EXPLICIT MODAL OVERLAY LAYOUTS FOR ACADEMIC CORE TRACKS
+    openHTMLModal('Professional & Academic References', referencesHTML);
+}
+// NEW EXPLICIT MODAL OVERLAY LAYOUTS FOR ACADEMIC CORE TRACKS
 function showExpertiseModal() {
     const expertiseHTML = `
         <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;"> 
@@ -943,7 +942,3 @@ function showSkillsModal() {
         </div>`;
     openHTMLModal('Technical Skills & Toolsets', skillsHTML);
 }
-
-    openHTMLModal('Professional & Academic References', referencesHTML);
-}
-
