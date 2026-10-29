@@ -353,3 +353,36 @@ header h1 {
 .hidden-view {
     display: none !important;
 }
+
+/* Core Overlay Framework Container */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background shadow shade */
+    display: none; /* Hide cleanly by default on initial page rendering */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content Box Card */
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+
+/* Core helper to toggle display attributes explicitly via JavaScript overrides */
+.modal-overlay.hidden {
+    display: none !important;
+}
