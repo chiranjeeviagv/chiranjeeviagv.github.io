@@ -127,7 +127,6 @@
 
         <!-- Dynamic Content Grid Grid Structure -->
         <!-- Main Content Sections with Bottom Navigation Actions -->
-                <!-- Dynamic Content Grid Structure with Correct Function Routing -->
         <section class="career-content-grid">
             
             <!-- Career Objective (Top Block) -->
@@ -135,20 +134,23 @@
                 <h2>Career Objective</h2>
                 <p id="objective-text">Seeking a challenging position in an academic institution to leverage research and teaching skills.</p>
                 <div class="card-actions-row">
-                    <button class="explore-btn nav-btn" onclick="navigateToSection('qualifications')">Next Section ↓</button>
+                    <button class="explore-btn" onclick="navigateToSection('qualifications')">Next Section ↓</button>
                 </div>
             </div>
 
             <!-- Qualifications Card -->
-            <div id="qualifications" class="section-box common-view">
-                <h2>Qualifications</h2>
-                <p>Details about degrees, university, and academic milestones common across roles.</p>
-                <div class="card-actions-row">
-                    <!-- FIXED: Calls your Google Drive data table function directly -->
-                    <button class="explore-btn main-btn" onclick="showQualificationsModal()">Explore More</button>
-                    <button class="explore-btn nav-btn academic-nav" onclick="navigateToSection('publications')">Next Section ↓</button>
-                    <button class="explore-btn nav-btn industry-nav" style="display: none;" onclick="navigateToSection('certifications')">Next Section ↓</button>
-                </div>
+           <!-- Qualifications Card -->
+<div id="qualifications" class="section-box common-view">
+    <h2>Qualifications</h2>
+    <p>Details about degrees, university, and academic milestones common across roles.</p>
+    <div class="card-actions-row">
+        <!-- FIXED: Bound explicitly to your formatted dataset generator function -->
+        <button class="explore-btn main-btn" onclick="showQualificationsModal()">Explore More</button>
+        <button class="explore-btn nav-btn academic-nav" onclick="navigateToSection('publications')">Next Section ↓</button>
+        <button class="explore-btn nav-btn industry-nav" style="display: none;" onclick="navigateToSection('certifications')">Next Section ↓</button>
+    </div>
+</div>
+
             </div>
 
             <!-- Publications Card (Academic Only) -->
@@ -156,44 +158,40 @@
                 <h2>Publications</h2>
                 <p>List of journals, conference papers, and academic research publications.</p>
                 <div class="card-actions-row">
-                    <!-- FIXED: Calls your new Publications listing data modal -->
-                    <button class="explore-btn main-btn" onclick="showPublicationsModal()">Explore More</button>
+                    <button class="explore-btn main-btn" onclick="openModal('Publications', 'Full text links, IEEE formats, and citation indexes will show up here.')">Explore More</button>
                     <button class="explore-btn nav-btn" onclick="navigateToSection('experience')">Next Section ↓</button>
                 </div>
             </div>
 
-<!-- Experience Card (Academic Only) -->
-<div id="experience" class="section-box academic-only">
-    <h2>Experience</h2>
-    <p>Teaching, research assistantships, and institutional responsibilities.</p>
-    <div class="card-actions-row">
-        <!-- FIXED: Correctly calls your newly defined professional timeline modal function -->
-        <button class="explore-btn main-btn" onclick="showExperienceModal()">Explore More</button>
-        <button class="explore-btn nav-btn" onclick="navigateToSection('fdp')">Next Section ↓</button>
-    </div>
-</div>
+            <!-- Experience Card (Academic Only) -->
+            <div id="experience" class="section-box academic-only">
+                <h2>Experience</h2>
+                <p>Teaching, research assistantships, and institutional responsibilities.</p>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Experience', 'Timeline of past roles, university achievements, and courses taught.')">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('fdp')">Next Section ↓</button>
+                </div>
+            </div>
 
             <!-- Skill Development / FDP Card (Academic Only) -->
             <div id="fdp" class="section-box academic-only">
                 <h2>Skill development programs / FDPs / workshops</h2>
                 <p>Details of Faculty Development Programs, workshops attended or organized.</p>
                 <div class="card-actions-row">
-                    <!-- FIXED: Calls your Faculty Development list data modal -->
-                    <button class="explore-btn main-btn" onclick="showFDPModal()">Explore More</button>
+                    <button class="explore-btn main-btn" onclick="openModal('Skill Development', 'Certificates of completion from FDP structures and tech workshops.')">Explore More</button>
                     <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
                 </div>
             </div>
 
-           <!-- Certifications Card (Industry Only) -->
-<div id="certifications" class="section-box industry-only" style="display: none;">
-    <h2>Certifications</h2>
-    <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
-    <div class="card-actions-row">
-        <!-- FIXED: Bound to your new advanced certifications data table function -->
-        <button class="explore-btn main-btn" onclick="showCertificationsModal()">Explore More</button>
-        <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
-    </div>
-</div>
+            <!-- Certifications Card (Industry Only) -->
+            <div id="certifications" class="section-box industry-only" style="display: none;">
+                <h2>Certifications</h2>
+                <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Certifications', 'AWS, Azure, or specialized industry certification pathways.')">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
+                </div>
+            </div>
 
             <!-- References Card -->
             <div id="references" class="section-box common-view">
@@ -206,7 +204,6 @@
             </div>
 
         </section>
-
     </main>
 
     <!-- Modal Component Window -->
