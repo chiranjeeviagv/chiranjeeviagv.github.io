@@ -13,28 +13,49 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
-    // 2. Section modal exploration triggers (FIXED & ALIGNED)
-    document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
-    document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
-    document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
-    document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
-    document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
-    
-    // Core listener triggers connecting your new academic and industry columns
-    document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
-    document.querySelector('[data-section="skills"]')?.addEventListener('click', showSkillsModal);
-    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
-    
-    // Stabilized Lookup for Skill Development button
-    const fdpBtn = document.querySelector('[data-section="fdps"]') || document.getElementById('btn-explore-fdps');
-    if (fdpBtn) {
-        fdpBtn.addEventListener('click', showDevelopmentProgramsModal);
-    }
+    // 2. UNIFIED LOOP ENGINES FOR INTERACTIVE BUTTON CLICKS
+    // This loops through ALL matching data-section buttons so both Qualifications elements function correctly!
+    document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
+        btn.addEventListener('click', showQualificationsModal);
+    });
 
-    // 3. Bind explicit target close buttons
+    document.querySelectorAll('[data-section="certifications"]').forEach(btn => {
+        btn.addEventListener('click', showCertificationsModal);
+    });
+
+    document.querySelectorAll('[data-section="experience"]').forEach(btn => {
+        btn.addEventListener('click', showExperienceModal);
+    });
+
+    document.querySelectorAll('[data-section="publications"]').forEach(btn => {
+        btn.addEventListener('click', showPublicationsModal);
+    });
+
+    document.querySelectorAll('[data-section="references"]').forEach(btn => {
+        btn.addEventListener('click', showReferencesModal);
+    });
+
+    document.querySelectorAll('[data-section="expertise"]').forEach(btn => {
+        btn.addEventListener('click', showExpertiseModal);
+    });
+
+    document.querySelectorAll('[data-section="skills"]').forEach(btn => {
+        btn.addEventListener('click', showSkillsModal);
+    });
+
+    document.querySelectorAll('[data-section="conferences"]').forEach(btn => {
+        btn.addEventListener('click', showConferencesModal);
+    });
+
+    // 3. Stabilized Lookup for Skill Development button
+    document.querySelectorAll('[data-section="fdps"]').forEach(btn => {
+        btn.addEventListener('click', showDevelopmentProgramsModal);
+    });
+
+    // 4. Bind explicit close controls
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
-    // 4. Ambient backdrop background click safety release setup
+    // 5. Ambient backdrop click safety release setup
     const modalOverlay = document.getElementById('details-modal');
     modalOverlay?.addEventListener('click', (event) => {
         if (event.target === modalOverlay) {
