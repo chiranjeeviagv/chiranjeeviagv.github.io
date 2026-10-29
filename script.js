@@ -130,25 +130,25 @@ function showQualificationsModal() {
                         <td><strong>M.Tech.</strong><br><span style="color: #666; font-size: 0.85rem;">High Voltage Engineering (HVE)</span></td>
                         <td>JNTU, Kakinada</td>
                         <td>2012<br><span style="color: #28a745; font-weight: 600;">72.00% (Distinction)</span></td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View M.Tech Certificate ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" class="credential-link">View M.Tech Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>B.Tech.</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering (EEE)</span></td>
                         <td>Chaitanya Engineering College, Visakhapatnam</td>
                         <td>2007<br><span style="color: #28a745; font-weight: 600;">71.63% (Distinction)</span></td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View B.Tech Certificate ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank" class="credential-link">View B.Tech Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Intermediate</strong><br><span style="color: #666; font-size: 0.85rem;">MPC (Maths, Physics, Chemistry)</span></td>
                         <td>Gayatri Junior College, Vizianagaram</td>
                         <td>2003<br><span style="color: #007bff; font-weight: 600;">94.10% (First Class)</span></td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Inter Certificate ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank" class="credential-link">View Inter Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>SSC</strong><br><span style="color: #666; font-size: 0.85rem;">Secondary School Certificate</span></td>
                         <td>ZP High School, Jami, Vizianagaram</td>
                         <td>2001<br><span style="color: #007bff; font-weight: 600;">89.86% (First Class)</span></td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View SSC Certificate ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank" class="credential-link">View SSC Certificate ↗</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -179,22 +179,32 @@ function showCertificationsModal() {
                     <tr>
                         <td><strong>IBM Full Stack JavaScript Developer</strong><br><span style="color: #666; font-size: 0.85rem;">12-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href=" " target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/professional-cert/E06UAT9KFM8S" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>IBM JAVA Developer</strong><br><span style="color: #666; font-size: 0.85rem;">14-Course Specialization</span></td>
+                        <td>IBM</td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/professional-cert/CGMXJ0SN33A5" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Microsoft AI and ML Engineering</strong><br><span style="color: #666; font-size: 0.85rem;">5-Course Specialization</span></td>
                         <td>Microsoft</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Cyber Security</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
+                        <td>Microsoft</td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/professional-cert/SZEO3FT6Q193" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Advanced Computer Architecture</strong></td>
@@ -249,31 +259,31 @@ function showExperienceModal() {
                         <td><strong>Assistant Professor</strong><br><span style="color: #007bff; font-size: 0.85rem;">Electrical Engineering (AI & ML)</span></td>
                         <td>Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra</td>
                         <td>June 2025 – May 2026</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Service Doc ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad</td>
                         <td>Feb 2023 – Jan 2025</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Experience ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" class="credential-link">View Experience ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Malla Reddy Engineering College for Women (Autonomous), Secunderabad</td>
                         <td>July 2022 – Feb 2023</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Service Doc ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Senior Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Aditya College of Engineering, Surampalem, Andhra Pradesh</td>
                         <td>Nov 2019 – July 2021</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Service Doc ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing"_blank" class="credential-link">View Service Doc ↗</a></td>
                     </tr>
                      <tr>
                         <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
                         <td>Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh</td>
                         <td>March 2015 – Nov 2019</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Experience ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing"_blank" class="credential-link">View Experience ↗</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -328,7 +338,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://acadpubl.eu" target="_blank" class="credential-link">View Journal PDF ↗</a>
+                            <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" target="_blank" class="credential-link">View Journal PDF ↗</a>
                         </td>
                     </tr>
                     <tr>
@@ -342,7 +352,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://acadpubl.eu" target="_blank" class="credential-link">View Journal PDF ↗</a>
+                            <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" target="_blank" class="credential-link">View Journal PDF ↗</a>
                         </td>
                     </tr>
                     <tr>
@@ -354,7 +364,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://indjst.org" target="_blank" class="credential-link">View Article Portal ↗</a>
+                            <a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" target="_blank" class="credential-link">View Article Portal ↗</a>
                         </td>
                     </tr>
                     <tr>
@@ -368,7 +378,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://ijraset.com" target="_blank" class="credential-link">View Repository File ↗</a>
+                            <a href="https://www.ijraset.com/fileserve.php?FID=2047" target="_blank" class="credential-link">View Repository File ↗</a>
                         </td>
                     </tr>
                     <tr>
@@ -382,7 +392,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://ijsetr.com" target="_blank" class="credential-link">View Server PDF ↗</a>
+                            <a href="https://ijsetr.com/uploads/463251IJSETR9076-240.pdf" target="_blank" class="credential-link">View Server PDF ↗</a>
                         </td>
                     </tr>
                 </tbody>
