@@ -1,35 +1,150 @@
-
-### 🎨 style.css
-Save this file as `style.css` in the same directory as your HTML file.
-
-```css
-/* Modal Transition Engine */
-.modal {
-    transition: opacity 0.25s ease;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Freezes underlying document scroll context when overlay viewport is active */
-body.modal-active {
-    overflow: hidden;
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
 }
 
-/* Accordion Smooth UI State Indicators */
-.toggle-icon {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+header {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-.accordion-content {
-    transition: all 0.3s ease-in-out;
+header h1 {
+    font-size: 2.5rem;
+    color: #1a1a1a;
 }
 
-/* Timeline Track Accent Elements for Academic View */
-.timeline-dot {
-    position: absolute;
-    left: -31px;
-    top: 0.375rem;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 9999px;
-    background-color: #4f46e5; /* Tailwind indigo-600 */
-    border: 4px solid #ffffff;
+.subtitle {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* View Toggle Buttons styling */
+.view-toggle {
+    display: inline-flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid #007bff;
+    background-color: transparent;
+    color: #007bff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active, .toggle-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Layout Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Top Block Contact & Profile Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.contact-details h3 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.contact-details ul {
+    list-style: none;
+}
+
+.contact-details li {
+    margin-bottom: 8px;
+}
+
+.contact-details a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Placeholder for Profile Picture */
+.profile-placeholder {
+    width: 150px;
+    height: 180px;
+    background-color: #e9ecef;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+/* Center Content Blocks styling */
+.career-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.section-box {
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.section-box h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Class helper to hide elements smoothly */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive adjust */
+@media (max-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-placeholder {
+        width: 120px;
+        height: 140px;
+    }
 }
