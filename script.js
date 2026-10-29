@@ -578,17 +578,15 @@ function openModal(title, text) {
 }
 
 // STABILIZED INITIALIZATION INTERACTIVE HANDLER ENGINE
+// This belongs inside your script.js file
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Top view navigation view toggle selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
-    // 2. Comprehensive loop triggers connecting ALL interactive grid sections
+    // 2. Section modal exploration triggers
     document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
         btn.addEventListener('click', showQualificationsModal);
-    });
-    document.querySelectorAll('[data-section="certifications"]').forEach(btn => {
-        btn.addEventListener('click', showCertificationsModal);
     });
     document.querySelectorAll('[data-section="experience"]').forEach(btn => {
         btn.addEventListener('click', showExperienceModal);
@@ -596,22 +594,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('[data-section="publications"]').forEach(btn => {
         btn.addEventListener('click', showPublicationsModal);
     });
-    document.querySelectorAll('[data-section="references"]').forEach(btn => {
-        btn.addEventListener('click', showReferencesModal);
-    });
-    document.querySelectorAll('[data-section="expertise"]').forEach(btn => {
-        btn.addEventListener('click', showExpertiseModal);
-    });
-    document.querySelectorAll('[data-section="skills"]').forEach(btn => {
-        btn.addEventListener('click', showSkillsModal);
-    });
+
+    // PLACE THE CODE FROM YOUR IMAGE RIGHT HERE:
     document.querySelectorAll('[data-section="conferences"]').forEach(btn => {
         btn.addEventListener('click', showConferencesModal);
     });
-    document.querySelectorAll('[data-section="fdps"]').forEach(btn => {
-        btn.addEventListener('click', showDevelopmentProgramsModal);
-    });
 
+    // Remaining buttons follow below...
+    document.querySelectorAll('[data-section="references"]').forEach(btn => {
+        btn.addEventListener('click', showReferencesModal);
+    });
+});
     // 3. Bind explicit structural exit close buttons
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
