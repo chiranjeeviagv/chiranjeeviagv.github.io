@@ -101,69 +101,71 @@ header h1 {
     margin: 0 auto;
     border-radius: 4px;
 }
-/* Middle aligned 2-Column Grid Layout */
+/* Two-Column Grid spanning the entire content area width */
 .career-content-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    justify-content: center;
-    align-items: start;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 40px;
 }
 
-/* Force first element (Objective) to span across both columns for design balance */
+
+/* Ensures the dynamic Career Objective block sits cleanly on top stretching across both sides */
 .career-content-grid .section-box:first-child {
     grid-column: span 2;
 }
 
-
 .section-box {
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
     background: white;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef1f5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
 }
 
 .section-box h2 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: #444;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+    color: #222;
+    border-bottom: 2px solid #f1f3f5;
+    padding-bottom: 10px;
 }
+
 
 .section-box p {
     color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+    font-size: 0.98rem;
+    margin-bottom: 20px;
     flex-grow: 1;
 }
 
-/* Explore button style inside card */
+/* Explore More actions styling */
 .explore-btn {
     align-self: center;
-    padding: 6px 16px;
-    font-size: 0.85rem;
+    padding: 8px 20px;
+    font-size: 0.9rem;
     color: #007bff;
     background: #e6f2ff;
     border: 1px solid #b3d7ff;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-in-out;
 }
 
 .explore-btn:hover {
     background: #007bff;
     color: white;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
 
-/* Dynamic Interactive Modal / Popup Style */
+/* Overlay Details Modals */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -182,8 +184,8 @@ header h1 {
     padding: 30px;
     border-radius: 8px;
     width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    max-width: 550px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     text-align: center;
 }
 
@@ -193,17 +195,20 @@ header h1 {
 }
 
 .modal-body-content {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #444;
+    text-align: left;
+    line-height: 1.6;
 }
 
 .close-btn {
-    padding: 8px 20px;
+    padding: 8px 24px;
     background: #6c757d;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .close-btn:hover {
@@ -214,10 +219,11 @@ header h1 {
     display: none !important;
 }
 
-/* Responsive single-column grid for mobile screens */
-@media (max-width: 768px) {
+/* Responsive collapse for tablet/mobile screen viewports */
+@media (max-width: 850px) {
     .career-content-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     .career-content-grid .section-box:first-child {
         grid-column: span 1;
