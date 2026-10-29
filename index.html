@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V Chiranjeevi Adari - Interactive Portfolio</title>
+    <title>G V Chiranjeevi Adari - Interactive web page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,6 +36,8 @@
                 <div class="profile-pic.jpg">Profile Image</div>
             </div>
         </section>
+<!-- Centered Two-Column Content Grid -->
+        <section class="career-content-grid">
 
         <!-- Main Dynamic Content Sections -->
         <section class="career-content">
@@ -50,40 +52,57 @@
             <div class="section-box common-view">
                 <h2>Qualifications</h2>
                 <p>Details about degrees, university, and academic milestones common across roles.</p>
+           <button class="explore-btn" onclick="openModal('Qualifications', 'Detailed degree breakdown, GPA metrics, and honors will display here.')">Explore More</button>
+
             </div>
 
             <!-- Publications (Academic only) -->
             <div class="section-box academic-only">
                 <h2>Publications</h2>
                 <p>List of journals, conference papers, and academic research publications.</p>
-            </div>
+             <button class="explore-btn" onclick="openModal('Publications', 'Full text links, IEEE formats, and citation indexes will show up here.')">Explore More</button>
 
+            </div>
             <!-- Experience (Academic only) -->
             <div class="section-box academic-only">
                 <h2>Experience</h2>
                 <p>Teaching, research assistantships, and institutional responsibilities.</p>
+            <button class="explore-btn" onclick="openModal('Experience', 'Timeline of past roles, university achievements, and courses taught.')">Explore More</button>
             </div>
 
             <!-- Skill Development (Academic only) -->
             <div class="section-box academic-only">
                 <h2>Skill development programs / FDPs / workshops</h2>
                 <p>Details of Faculty Development Programs, workshops attended or organized.</p>
+            <button class="explore-btn" onclick="openModal('Skill Development', 'Certificates of completion from FDP structures and tech workshops.')">Explore More</button>
+
             </div>
 
             <!-- Certifications (Industry only) -->
             <div class="section-box industry-only hidden">
                 <h2>Certifications</h2>
                 <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
+           <button class="explore-btn" onclick="openModal('Certifications', 'AWS, Azure, or specialized industry certification pathways.')">Explore More</button>
+
             </div>
 
             <!-- References (Always visible) -->
             <div class="section-box common-view">
                 <h2>References</h2>
                 <p>Available upon request from both academic mentors and industry leads.</p>
+             <button class="explore-btn" onclick="openModal('References', 'Contact details and recommendation metrics for verified leads.')">Explore More</button>
             </div>
 
         </section>
     </main>
+    <!-- Overlay Popup Window (Modal Component) -->
+    <div id="details-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h2 id="modal-title">Section Title</h2>
+            <div id="modal-body" class="modal-body-content">Extended details go here...</div>
+            <button class="close-btn" onclick="closeModal()">Close Window</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
