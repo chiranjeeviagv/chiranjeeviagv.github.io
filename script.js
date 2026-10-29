@@ -1,8 +1,10 @@
+// Pre-defined texts for dynamic Career Objectives
 const objectives = {
     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
     industry: "Result-driven professional seeking a core technical role in the industry to apply practical problem-solving skills, engineering workflows, and system optimization."
 };
 
+// Tracks active view globally
 let currentActiveView = 'academic';
 
 function switchView(viewType) {
@@ -10,7 +12,6 @@ function switchView(viewType) {
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     
-    // 1. Manage Active Toggle Button Selection highlights
     if (viewType === 'academic') {
         btnAcademic.classList.add('active');
         btnIndustry.classList.remove('active');
@@ -19,29 +20,27 @@ function switchView(viewType) {
         btnAcademic.classList.remove('active');
     }
 
-    // 2. Change the text content inside the Career Objective dynamically
     const objectiveTextEl = document.getElementById('objective-text');
     if (objectiveTextEl) {
         objectiveTextEl.innerText = objectives[viewType];
     }
 
-    // 3. Target and toggle display modes to preserve your CSS grid proportions cleanly
     const academicSections = document.querySelectorAll('.academic-only');
     const industrySections = document.querySelectorAll('.industry-only');
 
+    // Update main grid items
     if (viewType === 'academic') {
-        // Clearing display lets it naturally fall back to your native 'style.css' block definitions
-        academicSections.forEach(el => el.style.display = ''); 
-        industrySections.forEach(el => el.style.display = 'none');
+        academicSections.forEach(el => el.style.setProperty('display', 'flex', 'important')); 
+        industrySections.forEach(el => el.style.setProperty('display', 'none', 'important'));
         
-        // Synchronize helper button tracks
+        // Show/Hide relevant navigation button tracks
         document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'inline-block');
         document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'none');
     } else {
-        academicSections.forEach(el => el.style.display = 'none');
-        industrySections.forEach(el => el.style.display = '');
+        academicSections.forEach(el => el.style.setProperty('display', 'none', 'important'));
+        industrySections.forEach(el => el.style.setProperty('display', 'flex', 'important'));
         
-        // Synchronize helper button tracks
+        // Show/Hide relevant navigation button tracks
         document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'inline-block');
     }
@@ -130,7 +129,7 @@ function showCertificationsModal() {
             </p>
             
             <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
-                Coursera Professional Certifications
+                Coursera Professional Certifications (2026 Cohort)
             </h3>
             <table class="modal-data-table" style="margin-bottom: 30px;">
                 <thead>
@@ -144,27 +143,27 @@ function showCertificationsModal() {
                     <tr>
                         <td><strong>IBM Full Stack JavaScript Developer</strong><br><span style="color: #666; font-size: 0.85rem;">12-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Microsoft AI and ML Engineering</strong><br><span style="color: #666; font-size: 0.85rem;">5-Course Specialization</span></td>
                         <td>Microsoft</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM Java Developer</strong><br><span style="color: #666; font-size: 0.85rem;">14-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Google Cybersecurity Professional</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
@@ -206,72 +205,26 @@ function showCertificationsModal() {
                         <td>Oct 2024</td>
                         <td><a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-K55aZx_pkRn/view?usp=sharing" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
                     </tr>
-                     <tr>
+                    <tr>
                         <td><strong>Big Data Computing</strong></td>
                         <td>Oct 2023</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
+                        <td><a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view?usp=sharing" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ethics in Engineering Practice</strong></td>
+                        <td>Oct 2023</td>
+                        <td><span style="color: #888; font-style: italic; font-size: 0.85rem;">Document Available upon request</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Introduction to Smart Grid</strong></td>
+                        <td>Sept 2022</td>
+                        <td><span style="color: #888; font-style: italic; font-size: 0.85rem;">Document Available upon request</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     `;
     openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
-}
-// 2️⃣ MODAL PAYLOAD: PROFESSIONAL EXPERIENCE TIMELINE
-function showExperienceModal() {
-    const experienceHTML = `
-        <div class="modal-credentials-layout">
-            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
-                Review my academic teaching milestones and institutional service records below.
-            </p>
-            
-            <table class="modal-data-table">
-                <thead>
-                    <tr>
-                        <th>Designation & Department</th>
-                        <th>Institution & Location</th>
-                        <th>Tenure Period</th>
-                        <th>Verification Records</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Assistant Professor</strong><br><span style="color: #007bff; font-size: 0.85rem;">Electrical Engineering (AI & ML)</span></td>
-                        <td>Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra</td>
-                        <td>June 2025 – May 2026</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Service Doc ↗</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td>Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad</td>
-                        <td>Feb 2023 – Jan 2025</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Experience ↗</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td>Malla Reddy Engineering College for Women (Autonomous), Secunderabad</td>
-                        <td>July 2022 – Feb 2023</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Service Doc ↗</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Senior Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td>Aditya College of Engineering, Surampalem, Andhra Pradesh</td>
-                        <td>Nov 2019 – July 2021</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Service Doc ↗</a></td>
-                    </tr>
-                     <tr>
-                        <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td>Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh</td>
-                        <td>March 2015 – Nov 2019</td>
-                        <td><a href="https://google.com" target="_blank" class="credential-link">View Experience ↗</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    `;
-    
-    // Core function call to open the modal window safely
-    openHTMLModal('Professional Experience', experienceHTML);
 }
 
 // CORE MODAL OPENER PARSER ENGINE (Processes rich HTML variables safely)
@@ -287,9 +240,9 @@ function openHTMLModal(title, htmlContent) {
     }
 }
 
-// FIXED: Added backticks (``) around the HTML structure so variables render properly
+// Fallback method for plain-text data popup boxes
 function openModal(title, text) {
-    openHTMLModal(title, <p style="color:#333; line-height:1.6; text-align:left;">${text}</p>);
+    openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
 }
 
 function closeModal() {
@@ -305,4 +258,4 @@ window.onclick = function(event) {
     if (event.target === modal) {
         closeModal();
     }
-};
+}
