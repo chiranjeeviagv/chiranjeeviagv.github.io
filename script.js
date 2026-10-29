@@ -684,3 +684,115 @@ function switchDevTab(event, tabId) {
     document.getElementById(tabId)?.classList.add('active');
     event.currentTarget.classList.add('active');
 }
+// FORMATTED CONTENT MAPPING: PROFESSIONAL & ACADEMIC REFERENCES
+function showReferencesModal() {
+    const referencesHTML = `
+        <div class="modal-credentials-layout">
+            <style>
+                .ref-intro {
+                    margin-bottom: 20px; 
+                    color: #555; 
+                    text-align: left; 
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                }
+                .ref-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 16px;
+                    margin-top: 15px;
+                }
+                .ref-card {
+                    background: #f8f9fa;
+                    border-left: 4px solid #007bff;
+                    padding: 15px;
+                    border-radius: 0 6px 6px 0;
+                    text-align: left;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                }
+                .ref-name {
+                    font-size: 1.05rem;
+                    font-weight: 700;
+                    color: #1a1a1a;
+                    margin-bottom: 4px;
+                }
+                .ref-title {
+                    font-size: 0.88rem;
+                    color: #4e73df;
+                    font-weight: 600;
+                    margin-bottom: 2px;
+                }
+                .ref-org {
+                    font-size: 0.85rem;
+                    color: #666;
+                    margin-bottom: 10px;
+                }
+                .ref-contact {
+                    font-size: 0.88rem;
+                    border-top: 1px solid #eaecf0;
+                    padding-top: 8px;
+                    color: #333;
+                }
+                .ref-contact strong {
+                    color: #555;
+                }
+                .ref-phone-link {
+                    color: #007bff;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+                .ref-phone-link:hover {
+                    text-decoration: underline;
+                }
+            </style>
+
+            <p class="ref-intro">
+                The following mentors and institutional leads are available to provide professional or academic verification of my teaching methodologies, engineering workflows, and research contributions:
+            </p>
+
+            <div class="ref-grid">
+                <!-- REFERENCE 1 -->
+                <div class="ref-card">
+                    <div class="ref-name">Mr. K Prasad</div>
+                    <div class="ref-title">Senior Lecturer (Retired)</div>
+                    <div class="ref-org">Government Polytechnic, Vizianagaram</div>
+                    <div class="ref-contact">
+                        <strong>Cell:</strong> <a href="tel:+919912340292" class="ref-phone-link">+91 99123 40292</a>
+                    </div>
+                </div>
+
+                <!-- REFERENCE 2 -->
+                <div class="ref-card">
+                    <div class="ref-name">Mr. K Srikanth</div>
+                    <div class="ref-title">Associate Professor</div>
+                    <div class="ref-org">Gayatri Vidya Parishad (GVP) College of Engineering, Visakhapatnam</div>
+                    <div class="ref-contact">
+                        <strong>Cell:</strong> <a href="tel:+919440897892" class="ref-phone-link">+91 94408 97892</a>
+                    </div>
+                </div>
+
+                <!-- REFERENCE 3 -->
+                <div class="ref-card">
+                    <div class="ref-name">Dr. Dipak D Bhage</div>
+                    <div class="ref-title">Professor</div>
+                    <div class="ref-org">Purnam International University (PCU), Pune</div>
+                    <div class="ref-contact">
+                        <strong>Cell:</strong> <a href="tel:+917083780216" class="ref-phone-link">+91 70837 80216</a>
+                    </div>
+                </div>
+
+                <!-- REFERENCE 4 -->
+                <div class="ref-card">
+                    <div class="ref-name">Mrs. Sangita K Chowdary</div>
+                    <div class="ref-title">Professor</div>
+                    <div class="ref-org">Sandip Institute of Technology & Research Centre (SITRC), Nashik</div>
+                    <div class="ref-contact">
+                        <strong>Cell:</strong> <a href="tel:+919730199702" class="ref-phone-link">+91 97301 99702</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    openHTMLModal('Professional & Academic References', referencesHTML);
+}
+
