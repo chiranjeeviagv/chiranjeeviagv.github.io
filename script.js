@@ -427,25 +427,20 @@ function openHTMLModal(title, htmlContent) {
     }
 }
 document.addEventListener("DOMContentLoaded", () => {
-    // Top view navigation selection hooks
+    // Existing toggle and discovery section listener hooks...
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
-
-    // Section modal exploration card triggers
     document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
     document.querySelector('[data-section="fdps"]')?.addEventListener('click', showDevelopmentProgramsModal);
-    // Bind explicit target buttons to remove modal window layer
+    document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
-    // Ambient backdrop background click safety release setup
-    const modalOverlay = document.getElementById('details-modal');
-    modalOverlay?.addEventListener('click', (event) => {
-        if (event.target === modalOverlay) {
-            closeModal();
-        }
+    // ADDED: Direct activation connection for browser PDF generation workflows
+    document.getElementById('btn-download-pdf')?.addEventListener('click', () => {
+        window.print();
     });
 });
 
