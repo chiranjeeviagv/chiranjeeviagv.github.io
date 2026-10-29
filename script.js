@@ -9,20 +9,28 @@ let currentActiveView = 'academic';
 
 // INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Hook Main Profile Toggle Control Buttons
+    // Top view navigation selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
-    // 2. Bind Interactive Feature Section Card Discovery Triggers
+    // Section modal exploration triggers
     document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
+    
+    // STABILIZED LOOKUP: Checks for data-attribute first, falls back to direct ID lookup
+    const fdpBtn = document.querySelector('[data-section="fdps"]') || document.getElementById('btn-explore-fdps');
+    if (fdpBtn) {
+        fdpBtn.addEventListener('click', showDevelopmentProgramsModal);
+    } else {
+        console.warn("Warning: Skill Development button element could not be found in index.html structural tracking.");
+    }
 
-    // 3. Bind Modal Explicit Close Framework Button
+    // Bind explicit target buttons to remove modal window layer
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
-    // 4. Safe Modal Ambient Overlay Click Closer Setup
+    // Ambient backdrop background click safety release setup
     const modalOverlay = document.getElementById('details-modal');
     modalOverlay?.addEventListener('click', (event) => {
         if (event.target === modalOverlay) {
