@@ -121,6 +121,52 @@ function showQualificationsModal() {
     
     openHTMLModal('Qualifications', qualificationsHTML);
 }
+function showPublicationsModal() {
+    const PublicationsHTML = `
+        <div class="modal-credentials-layout">
+            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
+                Click on the embedded links in the right column to view verified certificate documents hosted on Google Drive.
+            </p>
+            
+            <table class="modal-data-table">
+                <thead>
+                    <tr>
+                        <th>Component  & Stream</th>
+                        <th>title /Institution </th>
+                        <th>Year & Publisher name</th>
+                        <th>Verification Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>M.Tech.</strong><br><span style="color: #666; font-size: 0.85rem;">High Voltage Engineering (HVE)</span></td>
+                        <td>JNTU, Kakinada</td>
+                        <td>2012<br><span style="color: #28a745; font-weight: 600;">72.00% (Distinction)</span></td>
+                        <td><a href="https://google.com" target="_blank" class="credential-link">View M.Tech Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>B.Tech.</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering (EEE)</span></td>
+                        <td>Chaitanya Engineering College, Visakhapatnam</td>
+                        <td>2007<br><span style="color: #28a745; font-weight: 600;">71.63% (Distinction)</span></td>
+                        <td><a href="https://google.com" target="_blank" class="credential-link">View B.Tech Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intermediate</strong><br><span style="color: #666; font-size: 0.85rem;">MPC (Maths, Physics, Chemistry)</span></td>
+                        <td>Gayatri Junior College, Vizianagaram</td>
+                        <td>2003<br><span style="color: #007bff; font-weight: 600;">94.10% (First Class)</span></td>
+                        <td><a href="https://google.com" target="_blank" class="credential-link">View Inter Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SSC</strong><br><span style="color: #666; font-size: 0.85rem;">Secondary School Certificate</span></td>
+                        <td>ZP High School, Jami, Vizianagaram</td>
+                        <td>2001<br><span style="color: #007bff; font-weight: 600;">89.86% (First Class)</span></td>
+                        <td><a href="https://google.com" target="_blank" class="credential-link">View SSC Certificate ↗</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    openHTMLModal('Qualifications', qualificationsHTML);
 // FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
 function showCertificationsModal() {
     const certificationsHTML = `
