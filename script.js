@@ -787,3 +787,29 @@ window.onclick = function(event) {
         closeModal();
     }
 };
+// GLOBAL MODAL LIFECYCLE MANAGEMENT ENGINE
+function openHTMLModal(title, htmlPayload) {
+    const overlay = document.getElementById('custom-modal-overlay');
+    const titleHeader = document.getElementById('modal-title-header');
+    const bodyContent = document.getElementById('modal-body-content');
+
+    if (overlay && titleHeader && bodyContent) {
+        titleHeader.innerText = title;
+        bodyContent.innerHTML = htmlPayload;
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+    }
+}
+
+function closeHTMLModal(event) {
+    // If event is passed, check if user clicked outside the modal window
+    if (event && event.target !== document.getElementById('custom-modal-overlay')) {
+        return;
+    }
+    const overlay = document.getElementById('custom-modal-overlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = ''; // Restore background scrolling
+    }
+}
+
