@@ -7,6 +7,30 @@ const objectives = {
 // Tracks active view globally
 let currentActiveView = 'academic';
 
+// INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Hook Main Profile Toggle Control Buttons
+    document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
+    document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
+
+    // 2. Bind Interactive Feature Section Card Discovery Triggers
+    document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
+    document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
+    document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
+    document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
+
+    // 3. Bind Modal Explicit Close Framework Button
+    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
+
+    // 4. Safe Modal Ambient Overlay Click Closer Setup
+    const modalOverlay = document.getElementById('details-modal');
+    modalOverlay?.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+});
+
 function switchView(viewType) {
     currentActiveView = viewType;
     const btnAcademic = document.getElementById('btn-academic');
@@ -160,31 +184,6 @@ function showCertificationsModal() {
                         <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
-                        <td><strong>IBM Java Developer</strong><br><span style="color: #666; font-size: 0.85rem;">14-Course Specialization</span></td>
-                        <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Google Cybersecurity Professional</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
-                        <td>Google</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
-                NPTEL (IIT) Certifications
-            </h3>
-            <table class="modal-data-table">
-                <thead>
-                    <tr>
-                        <th>Course Module</th>
-                        <th>Timeline</th>
-                        <th>Verification Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr>
                         <td><strong>Advanced Computer Architecture</strong></td>
                         <td>April 2026</td>
                         <td><a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
@@ -271,4 +270,163 @@ function showExperienceModal() {
     // Core function call to open the modal window safely
     openHTMLModal('Professional Experience', experienceHTML);
 }
-VS
+// FORMATTED CONTENT MAPPING: PUBLICATIONS & RESEARCH PAPERS
+function showPublicationsModal() {
+    const publicationsHTML = `
+        <div class="modal-credentials-layout">
+            <style>
+                .publication-section-title {
+                    font-size: 1.15rem;
+                    color: #007bff;
+                    margin: 25px 0 12px 0;
+                    border-bottom: 2px solid #e3e6f0;
+                    padding-bottom: 6px;
+                    text-align: left;
+                    font-weight: 600;
+                }
+                .pub-title { font-weight: 600; color: #1a1a1a; font-size: 0.98rem; line-height: 1.4; text-align: left; }
+                .pub-meta { font-size: 0.86rem; color: #5a5c69; margin-top: 6px; line-height: 1.5; text-align: left; }
+                .pub-meta strong { color: #3a3b45; }
+                .credential-link { font-size: 0.85rem; white-space: nowrap; font-weight: 600; }
+            </style>
+
+            <p style="margin-bottom: 20px; color: #4e73df; text-align: left; font-size: 0.92rem; font-weight: 600;">
+                ℹ️ Click on the index or access links in the right column to review raw source text documents, metadata records, or publisher portals.
+            </p>
+
+            <!-- SECTION 1: INTERNATIONAL JOURNAL PAPERS -->
+            <div class="publication-section-title">📄 Peer-Reviewed International Journal Papers</div>
+            <table class="modal-data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 75%; text-align: left;">Journal Paper & Research Context</th>
+                        <th style="width: 25%; text-align: center;">Document Access</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="pub-title">"Transient stability improvement of Single Machine Infinite Bus (SMIB) system Using Distributed Power Flow Controller (DPFC)"</div>
+                            <div class="pub-meta">
+                                <strong>Author:</strong> G V Chiranjeevi Adari<br>
+                                <strong>Journal:</strong> International Journal of Pure and Applied Mathematics (IJPAM)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 114, No. 8, 2017 (pp. 285-295)<br>
+                                <strong>Identifiers:</strong> ISSN: 1311-8080 (Print) / 1314-3395 (Online)
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="https://acadpubl.eu" target="_blank" class="credential-link">View Journal PDF ↗</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="pub-title">"Application of SVC for Multiobjective Optimization Powerflow Problem Using PSO"</div>
+                            <div class="pub-meta">
+                                <strong>Authors:</strong> P.Ramesh, A.G.V Chiranjeevi and Kottala Padma<br>
+                                <strong>Journal:</strong> International Journal of Pure and Applied Mathematics (IJPAM)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 114, No. 8, 2017 (pp. 23-33)<br>
+                                <strong>Identifiers:</strong> ISSN: 1311-8080 (Print) / 1314-3395 (Online)
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="https://acadpubl.eu" target="_blank" class="credential-link">View Journal PDF ↗</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="pub-title">"Dynamic Stability Improvement of a Smart Grid using Neural Network Based STATCOM"</div>
+                            <div class="pub-meta">
+                                <strong>Author:</strong> G V Chiranjeevi Adari<br>
+                                <strong>Journal:</strong> Indian Journal of Science and Technology (INDJST)
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="https://indjst.org" target="_blank" class="credential-link">View Article Portal ↗</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="pub-title">"A Grid Interfaced Low Frequency Offshore Wind Power"</div>
+                            <div class="pub-meta">
+                                <strong>Author:</strong> AGV Chiranjeevi<br>
+                                <strong>Journal:</strong> International Journal for Research in Applied Science & Engineering Technology (IJRASET)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 3, Issue III, March 2015 (p. 544)<br>
+                                <strong>Identifiers:</strong> ISSN: 2321-9653
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="https://ijraset.com" target="_blank" class="credential-link">View Repository File ↗</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="pub-title">"Simulation Based Analysis for Fixing Optimal Stages for a H-Bridge Cascaded Multi-Level Converters"</div>
+                            <div class="pub-meta">
+                                <strong>Authors:</strong> RASEKHAR VADDI, ADARI G. V. CHIRANJEEVI<br>
+                                <strong>Journal:</strong> International Journal of Scientific Engineering and Technology Research (IJSETR)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 05, Issue 07, March-2016 (pp. 1342-1346)<br>
+                                <strong>Identifiers:</strong> ISSN: 2319-8885
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="https://ijsetr.com" target="_blank" class="credential-link">View Server PDF ↗</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SECTION 2: BOOK CHAPTERS -->
+            <div class="publication-section-title">📖 Indexed Book Chapters & Additional Material</div>
+            <table class="modal-data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 75%; text-align: left;">Chapter Details & Monograph Data</th>
+                        <th style="width: 25%; text-align: center;">Storage Drive Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="pub-title">"Cyber security in smart Grids:-Role of Digital Advanced Devices"</div>
+                            <div class="pub-meta">
+                                <strong>Authors:</strong> Prof. M Ramalinga Raju, Mr. Adari G V Chiranjeevi<br>
+                                <strong>Book:</strong> Cyber security-Issues, Challenges –Solutions-Business | <em>IGI Global Publications</em><br>
+                                <strong>Timeline:</strong> October 2022 | Pages 18-32<br>
+                                <strong>Identifiers:</strong> ISBN-9781668458273 | DOI: 10.4018/978-1-6684-5827-3.ch002
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <a href="https://google.com" target="_blank" class="credential-link">View Drive File ↗</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    openHTMLModal('Publications & Research Portfolios', publicationsHTML);
+}
+
+// CORE MODAL OPENER PARSER ENGINE (Processes rich HTML variables safely)
+function openHTMLModal(title, htmlContent) {
+    const modal = document.getElementById('details-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    if (modal && modalTitle && modalBody) {
+        modalTitle.innerText = title;
+        modalBody.innerHTML = htmlContent;
+        modal.style.setProperty('display', 'flex', 'important');
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+    }
+}
+
+function openModal(title, text) {
+    openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
+}
+
+function closeModal() {
+    const modal = document.getElementById('details-modal');
+    if (modal) {
+        modal.style.setProperty('display', 'none', 'important');
+        document.body.style.overflow = ''; // Restore background scrolling
+    }
+}
