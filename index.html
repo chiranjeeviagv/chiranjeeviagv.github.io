@@ -5,7 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Interactive webpage</title>
     <link rel="stylesheet" href="style.css">
+ <!-- Inline styles to absolutely force the two-column contact section layout -->
+    <style>
+        .info-grid {
+            display: grid !important;
+            grid-template-columns: 3fr 1fr !important; /* Left gets 75%, Right gets 25% */
+            gap: 40px !important;
+            background: white !important;
+            padding: 30px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+            margin-bottom: 40px !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+
+        .contact-details {
+            width: 100% !important;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 15px !important;
+            color: #007bff !important;
+        }
+
+        .contact-details ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .contact-details li {
+            margin-bottom: 10px !important;
+            font-size: 1rem !important;
+        }
+
+        .profile-image-container {
+            display: flex !important;
+            justify-content: flex-end !important; /* Pushes image flush to the right */
+            align-items: center !important;
+            width: 100% !important;
+        }
+
+        .profile-image {
+            width: 160px !important; /* Locked explicit portrait width */
+            height: auto !important;
+            object-fit: cover !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid #eef1f5 !important;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr !important; /* Stacks layout on mobile viewports */
+                text-align: center !important;
+            }
+            .profile-image-container {
+                justify-content: center !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <header>
