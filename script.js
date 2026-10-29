@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
     document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
-    
+        // Add this line inside your document.addEventListener("DOMContentLoaded", () => { ... }) block:
+    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
+
     // ADDED: Direct event listener triggers for your new academic and industry columns
     document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
     document.querySelector('[data-section="skills"]')?.addEventListener('click', showSkillsModal);
