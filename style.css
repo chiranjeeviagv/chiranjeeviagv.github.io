@@ -56,24 +56,23 @@ header h1 {
     margin: 0 auto;
 }
 
-/* FIXED: Changed to display: flex and cleaned up conflicting styles */
+/* Master container layout forced into 2 strict side-by-side columns */
 .info-grid {
-    display: flex;
-    flex-direction: row; /* Forces left-to-right alignment */
-    justify-content: space-between; /* Pushes details to far left, image to far right */
-    align-items: center; /* Centers them vertically against each other */
-    gap: 30px;
+    display: grid !important;
+    grid-template-columns: 3fr 1fr !important; /* Left takes 75% space, right takes 25% */
+    gap: 40px;
     background: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     margin-bottom: 40px;
+    align-items: center; /* Vertically aligns image and text perfectly center */
     width: 100%;
 }
 
-/* Left Column: Contact details space allocation */
+/* Left column styling control */
 .contact-details {
-    flex: 1; /* Automatically takes up all available remaining width on the left */
+    width: 100%;
 }
 
 .contact-details h3 {
@@ -83,44 +82,27 @@ header h1 {
 
 .contact-details ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .contact-details li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    white-space: normal; /* Permits text address lines to wrap neatly inside their column */
 }
 
-.contact-details a {
-    color: #0056b3;
-    text-decoration: none;
-}
-
-.contact-details a:hover {
-    text-decoration: underline;
-}
-
-.profile-placeholder {
-    width: 150px;
-    height: 180px;
-    background-color: #e9ecef;
-    border: 2px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    margin: 0 auto;
-    border-radius: 4px;
-}
-
-/* Styling for your newly added profile picture */
+/* Right column container alignment */
 .profile-image-container {
-    flex-shrink: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Snaps the photograph flush against the right margin */
     align-items: center;
+    width: 100%;
 }
 
+/* Profile image structural specifications */
 .profile-image {
-    width: 160px; /* Locked explicit portrait width */
+    width: 160px; /* Locks your picture at a clean layout proportion */
     height: auto;
     object-fit: cover;
     border-radius: 6px;
@@ -128,6 +110,17 @@ header h1 {
     border: 1px solid #eef1f5;
 }
 
+/* Responsive responsive adaptation for portable display viewports */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr !important; /* Drops to vertical stacking only on mobile layout sizes */
+        gap: 20px;
+        text-align: center;
+    }
+    .profile-image-container {
+        justify-content: center;
+    }
+}
 /* FIXED: Removed the stray extra closing curly bracket that was right here breaking the code beneath */
 
 /* Master grid container spanning 100% width area */
