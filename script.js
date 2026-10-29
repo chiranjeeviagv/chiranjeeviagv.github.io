@@ -428,7 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
-
+    document.querySelector('[data-section="fdps"]')?.addEventListener('click', showDevelopmentProgramsModal);
     // Bind explicit target buttons to remove modal window layer
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
