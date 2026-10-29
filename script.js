@@ -787,6 +787,35 @@ function showReferencesModal() {
             </div>
         </div>
     `;
+     // NEW EXPLICIT MODAL OVERLAY LAYOUTS FOR ACADEMIC CORE TRACKS
+function showExpertiseModal() {
+    const expertiseHTML = `
+        <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;"> 
+            <h4 style="color: #007bff; margin-top: 0;">Core Engineering Curriculum Handled:</h4> 
+            <ul style="color: #333; font-size: 0.95rem; padding-left: 20px;"> 
+                <li>Artificial Intelligence Techniques & Expert Systems</li> 
+                <li>Electro Magnetic Fields / Engineering Electromagnetics</li> 
+                <li>Microprocessors and Microcontrollers & Digital Logic Design</li> 
+                <li>Power System Analysis, Protection & Control Systems</li> 
+                <li>High Voltage Engineering & Non-Conventional Energy Sources</li> 
+            </ul> 
+        </div>`;
+    openHTMLModal('Subject Area Expertise', expertiseHTML);
+}
+
+function showSkillsModal() {
+    const skillsHTML = `
+        <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;"> 
+            <h4 style="color: #007bff; margin-top: 0;">Programming Toolsets & Competencies:</h4> 
+            <ul style="color: #333; font-size: 0.95rem; padding-left: 20px;"> 
+                <li><strong>Advanced Languages:</strong> Python, JavaScript (Full-Stack), MATLAB, Java (Basics)</li> 
+                <li><strong>Specialized Tracks:</strong> AI Web Design, Data Science, Cyber Security Operations</li> 
+                <li><strong>Core Simulation:</strong> Power Electronics Analysis, Grid Transient System Twins</li> 
+            </ul> 
+        </div>`;
+    openHTMLModal('Technical Skills & Toolsets', skillsHTML);
+}
+
     openHTMLModal('Professional & Academic References', referencesHTML);
 }
 
