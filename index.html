@@ -184,16 +184,16 @@
                 </div>
             </div>
 
-            <!-- Certifications Card (Industry Only) -->
-            <div id="certifications" class="section-box industry-only" style="display: none;">
-                <h2>Certifications</h2>
-                <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
-                <div class="card-actions-row">
-                    <!-- FIXED: Standard modal call for Industry view layout box -->
-                    <button class="explore-btn main-btn" onclick="openModal('Certifications', 'AWS, Azure, or specialized industry certification pathways details.')">Explore More</button>
-                    <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
-                </div>
-            </div>
+           <!-- Certifications Card (Industry Only) -->
+<div id="certifications" class="section-box industry-only" style="display: none;">
+    <h2>Certifications</h2>
+    <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
+    <div class="card-actions-row">
+        <!-- FIXED: Bound to your new advanced certifications data table function -->
+        <button class="explore-btn main-btn" onclick="showCertificationsModal()">Explore More</button>
+        <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
+    </div>
+</div>
 
             <!-- References Card -->
             <div id="references" class="section-box common-view">
