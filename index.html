@@ -126,48 +126,77 @@
         </section>
 
         <!-- Dynamic Content Grid Grid Structure -->
+        <!-- Main Content Sections with Bottom Navigation Actions -->
         <section class="career-content-grid">
             
+            <!-- Career Objective (Top Block) -->
             <div class="section-box common-view">
                 <h2>Career Objective</h2>
                 <p id="objective-text">Seeking a challenging position in an academic institution to leverage research and teaching skills.</p>
+                <div class="card-actions-row">
+                    <button class="explore-btn" onclick="navigateToSection('qualifications')">Next Section ↓</button>
+                </div>
             </div>
 
-            <div class="section-box common-view">
+            <!-- Qualifications Card -->
+            <div id="qualifications" class="section-box common-view">
                 <h2>Qualifications</h2>
                 <p>Details about degrees, university, and academic milestones common across roles.</p>
-                <button class="explore-btn" onclick="openModal('Qualifications', 'Detailed degree breakdown, GPA metrics, and honors will display here.')">Explore More</button>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Qualifications', 'Detailed degree breakdown, GPA metrics, and honors will display here.')">Explore More</button>
+                    <button class="explore-btn nav-btn academic-nav" onclick="navigateToSection('publications')">Next Section ↓</button>
+                    <button class="explore-btn nav-btn industry-nav" style="display: none;" onclick="navigateToSection('certifications')">Next Section ↓</button>
+                </div>
             </div>
 
-            <div class="section-box academic-only">
+            <!-- Publications Card (Academic Only) -->
+            <div id="publications" class="section-box academic-only">
                 <h2>Publications</h2>
                 <p>List of journals, conference papers, and academic research publications.</p>
-                <button class="explore-btn" onclick="openModal('Publications', 'Full text links, IEEE formats, and citation indexes will show up here.')">Explore More</button>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Publications', 'Full text links, IEEE formats, and citation indexes will show up here.')">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('experience')">Next Section ↓</button>
+                </div>
             </div>
 
-            <div class="section-box academic-only">
+            <!-- Experience Card (Academic Only) -->
+            <div id="experience" class="section-box academic-only">
                 <h2>Experience</h2>
                 <p>Teaching, research assistantships, and institutional responsibilities.</p>
-                <button class="explore-btn" onclick="openModal('Experience', 'Timeline of past roles, university achievements, and courses taught.')">Explore More</button>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Experience', 'Timeline of past roles, university achievements, and courses taught.')">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('fdp')">Next Section ↓</button>
+                </div>
             </div>
 
-            <div class="section-box academic-only">
+            <!-- Skill Development / FDP Card (Academic Only) -->
+            <div id="fdp" class="section-box academic-only">
                 <h2>Skill development programs / FDPs / workshops</h2>
                 <p>Details of Faculty Development Programs, workshops attended or organized.</p>
-                <button class="explore-btn" onclick="openModal('Skill Development', 'Certificates of completion from FDP structures and tech workshops.')">Explore More</button>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Skill Development', 'Certificates of completion from FDP structures and tech workshops.')">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
+                </div>
             </div>
 
-            <!-- REMOVED THE WRONG HARDCODED HIDDEN CLASS HERE -->
-            <div id="certifications-box" class="section-box industry-only" style="display: none;">
+            <!-- Certifications Card (Industry Only) -->
+            <div id="certifications" class="section-box industry-only" style="display: none;">
                 <h2>Certifications</h2>
                 <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
-                <button class="explore-btn" onclick="openModal('Certifications', 'AWS, Azure, or specialized industry certification pathways.')">Explore More</button>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('Certifications', 'AWS, Azure, or specialized industry certification pathways.')">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
+                </div>
             </div>
 
-            <div class="section-box common-view">
+            <!-- References Card -->
+            <div id="references" class="section-box common-view">
                 <h2>References</h2>
                 <p>Available upon request from both academic mentors and industry leads.</p>
-                <button class="explore-btn" onclick="openModal('References', 'Contact details and recommendation metrics for verified leads.')">Explore More</button>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('References', 'Contact details and recommendation metrics for verified leads.')">Explore More</button>
+                    <button class="explore-btn nav-btn back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top ↑</button>
+                </div>
             </div>
 
         </section>
