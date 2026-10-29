@@ -1,8 +1,7 @@
 // Pre-defined texts for dynamic Career Objectives
 const objectives = {
-    academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
-    industry: "Result-driven professional seeking a core technical role in the industry to apply practical problem-solving skills, engineering workflows, and system optimization."
-};
+     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
+    industry: "An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed."};
 
 // Tracks active view globally
 let currentActiveView = 'academic';
