@@ -139,14 +139,18 @@
             </div>
 
             <!-- Qualifications Card -->
-            <div id="qualifications" class="section-box common-view">
-                <h2>Qualifications</h2>
-                <p>Details about degrees, university, and academic milestones common across roles.</p>
-                <div class="card-actions-row">
-                    <button class="explore-btn main-btn" onclick="openModal('Qualifications', 'Detailed degree breakdown, GPA metrics, and honors will display here.')">Explore More</button>
-                    <button class="explore-btn nav-btn academic-nav" onclick="navigateToSection('publications')">Next Section ↓</button>
-                    <button class="explore-btn nav-btn industry-nav" style="display: none;" onclick="navigateToSection('certifications')">Next Section ↓</button>
-                </div>
+           <!-- Qualifications Card -->
+<div id="qualifications" class="section-box common-view">
+    <h2>Qualifications</h2>
+    <p>Details about degrees, university, and academic milestones common across roles.</p>
+    <div class="card-actions-row">
+        <!-- FIXED: Bound explicitly to your formatted dataset generator function -->
+        <button class="explore-btn main-btn" onclick="showQualificationsModal()">Explore More</button>
+        <button class="explore-btn nav-btn academic-nav" onclick="navigateToSection('publications')">Next Section ↓</button>
+        <button class="explore-btn nav-btn industry-nav" style="display: none;" onclick="navigateToSection('certifications')">Next Section ↓</button>
+    </div>
+</div>
+
             </div>
 
             <!-- Publications Card (Academic Only) -->
