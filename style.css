@@ -57,8 +57,11 @@ header h1 {
 }
 
 .info-grid {
-    display: grid;
+    display: flex;
     grid-template-columns: 2fr 1fr;
+    flex-direction: row; /* Forces left-to-right alignment */
+    justify-content: space-between; /* Pushes details to far left, image to far right */
+    align-items: center; /* Centers them vertically against each other */
     gap: 30px;
     background: white;
     padding: 30px;
@@ -67,7 +70,10 @@ header h1 {
     margin-bottom: 40px;
     align-items: center;
 }
-
+/* Left Column: Contact details space allocation */
+.contact-details {
+    flex: 1; /* Automatically takes up all available remaining width on the left */
+}
 .contact-details h3 {
     margin-bottom: 15px;
     color: #007bff;
@@ -105,6 +111,7 @@ header h1 {
 
 /* Styling for your newly added profile picture */
 .profile-image-container {
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
