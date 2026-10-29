@@ -18,31 +18,43 @@ function switchView(viewType) {
     }
 
     // 2. Change the text content inside the Career Objective dynamically
-    document.getElementById('objective-text').innerText = objectives[viewType];
+    const objectiveTextEl = document.getElementById('objective-text');
+    if (objectiveTextEl) {
+        objectiveTextEl.innerText = objectives[viewType];
+    }
 
-    // 3. Select and filter sections based on view classes
+    // 3. Directly target and filter elements to ensure CSS grid handles recalculation safely
     const academicSections = document.querySelectorAll('.academic-only');
     const industrySections = document.querySelectorAll('.industry-only');
 
     if (viewType === 'academic') {
-        // Show Academic elements, Hide Industry elements
-        academicSections.forEach(el => el.classList.remove('hidden'));
-        industrySections.forEach(el => el.classList.add('hidden'));
+        // Explicitly use block or flex style rules instead of relying on external classes
+        academicSections.forEach(el => el.style.display = 'flex'); 
+        industrySections.forEach(el => el.style.display = 'none');
     } else if (viewType === 'industry') {
-        // Hide Academic elements, Show Industry elements
-        academicSections.forEach(el => el.classList.add('hidden'));
-        industrySections.forEach(el => el.classList.remove('hidden'));
+        academicSections.forEach(el => el.style.display = 'none');
+        industrySections.forEach(el => el.style.display = 'flex');
     }
 }
+
 // Modal Interaction Control
 function openModal(title, text) {
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-body').innerText = text;
-    document.getElementById('details-modal').classList.remove('hidden');
+    const modal = document.getElementById('details-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    
+    if (modal && modalTitle && modalBody) {
+        modalTitle.innerText = title;
+        modalBody.innerText = text;
+        modal.style.display = 'flex'; // Triggers smooth flex layout overlay alignment
+    }
 }
 
 function closeModal() {
-    document.getElementById('details-modal').classList.add('hidden');
+    const modal = document.getElementById('details-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // Close popup if user clicks anywhere outside the main modal window box
@@ -52,4 +64,3 @@ window.onclick = function(event) {
         closeModal();
     }
 }
-
