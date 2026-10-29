@@ -420,4 +420,75 @@ header h1 {
         width: 100%;
     }
 }
+/* Dark semi-transparent background overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Centralized container window box */
+.modal-window-box {
+    background: #ffffff;
+    width: 90%;
+    max-width: 850px;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalSlideUp 0.25s ease-out;
+}
+
+/* Top bar row layout */
+.modal-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e3e6f0;
+    background-color: #ffffff;
+}
+
+.modal-header-row h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/* Close icon button mechanics */
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.modal-close-btn:hover {
+    color: #333;
+}
+
+/* Scrollable container for tables and content */
+.modal-body-scroll {
+    padding: 24px;
+    overflow-y: auto;
+    background-color: #ffffff;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
