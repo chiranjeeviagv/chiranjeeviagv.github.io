@@ -118,7 +118,6 @@ function showQualificationsModal() {
         </div>
     `;
     
-    // Call inner HTML popup display framework
     openHTMLModal('Qualifications', qualificationsHTML);
 }
 
