@@ -9,6 +9,7 @@ let currentActiveView = 'academic';
 // INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
 document.addEventListener("DOMContentLoaded", () => {
     // Top view navigation selection hooks
+        // Top view navigation selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
@@ -17,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
+    document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
+    
+    // ADDED: Direct event listener triggers for your new academic and industry columns
+    document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
+    document.querySelector('[data-section="skills"]')?.addEventListener('click', showSkillsModal);
     
     // STABILIZED LOOKUP: Checks for data-attribute first, falls back to direct ID lookup
     const fdpBtn = document.querySelector('[data-section="fdps"]') || document.getElementById('btn-explore-fdps');
@@ -25,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn("Warning: Skill Development button element could not be found in index.html structural tracking.");
     }
-document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
+
     // Bind explicit target buttons to remove modal window layer
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
