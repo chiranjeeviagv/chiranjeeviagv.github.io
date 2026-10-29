@@ -8,7 +8,10 @@
  <!-- Inline styles to absolutely force the two-column contact section layout -->
     <style>
         .info-grid {
-            display: grid !important;
+            display: flex !important;
+            flex-direction: row !important; /* Locks left-to-right axis layout */
+            justify-content: space-between !important; /* Pushes text left, photo far right */
+            align-items: center !important; /* Perfectly balances elements vertically */
             grid-template-columns: 3fr 1fr !important; /* Left gets 75%, Right gets 25% */
             gap: 40px !important;
             background: white !important;
@@ -16,11 +19,11 @@
             border-radius: 8px !important;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
             margin-bottom: 40px !important;
-            align-items: center !important;
             width: 100% !important;
         }
 
         .contact-details {
+            max-width: 70% !important; /* Restricts the text block width so the image fits next to it */
             width: 100% !important;
         }
 
