@@ -23,21 +23,20 @@ function switchView(viewType) {
         objectiveTextEl.innerText = objectives[viewType];
     }
 
-    // 3. Directly target and filter elements to ensure CSS grid handles recalculation safely
+    // 3. Directly shift display rules so CSS Grid recalculates box sorting perfectly
     const academicSections = document.querySelectorAll('.academic-only');
     const industrySections = document.querySelectorAll('.industry-only');
 
     if (viewType === 'academic') {
-        // Explicitly use block or flex style rules instead of relying on external classes
-        academicSections.forEach(el => el.style.display = 'flex'); 
-        industrySections.forEach(el => el.style.display = 'none');
+        academicSections.forEach(el => el.style.setProperty('display', 'flex', 'important')); 
+        industrySections.forEach(el => el.style.setProperty('display', 'none', 'important'));
     } else if (viewType === 'industry') {
-        academicSections.forEach(el => el.style.display = 'none');
-        industrySections.forEach(el => el.style.display = 'flex');
+        academicSections.forEach(el => el.style.setProperty('display', 'none', 'important'));
+        industrySections.forEach(el => el.style.setProperty('display', 'flex', 'important'));
     }
 }
 
-// Modal Interaction Control
+// Modal Popup Control
 function openModal(title, text) {
     const modal = document.getElementById('details-modal');
     const modalTitle = document.getElementById('modal-title');
@@ -46,14 +45,14 @@ function openModal(title, text) {
     if (modal && modalTitle && modalBody) {
         modalTitle.innerText = title;
         modalBody.innerText = text;
-        modal.style.display = 'flex'; // Triggers smooth flex layout overlay alignment
+        modal.style.setProperty('display', 'flex', 'important');
     }
 }
 
 function closeModal() {
     const modal = document.getElementById('details-modal');
     if (modal) {
-        modal.style.display = 'none';
+        modal.style.setProperty('display', 'none', 'important');
     }
 }
 
