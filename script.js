@@ -49,11 +49,6 @@ function switchView(viewType) {
     }
 }
 
-// RUN ONCE ON PAGE LOAD TO SET INITIAL STATE
-document.addEventListener("DOMContentLoaded", () => {
-    switchView('academic');
-});
-
 // SMART NAVIGATION SCROLL ROUTINE
 function navigateToSection(sectionId) {
     const targetElement = document.getElementById(sectionId);
@@ -71,80 +66,6 @@ function navigateToSection(sectionId) {
                 block: 'center'
             });
             
-            targetElement.style.outline = "2px solid #007bff";
-            setTimeout(() => { targetElement.style.outline = "none"; }, 1500);
-        }, 100);
-    }
-}
-
-
-// Pre-defined texts for dynamic Career Objectives
-const objectives = {
-    academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
-    industry: "Result-driven professional seeking a core technical role in the industry to apply practical problem-solving skills, engineering workflows, and system optimization."
-};
-
-// Tracks active view globally
-let currentActiveView = 'academic';
-
-function switchView(viewType) {
-    currentActiveView = viewType;
-    const btnAcademic = document.getElementById('btn-academic');
-    const btnIndustry = document.getElementById('btn-industry');
-    
-    if (viewType === 'academic') {
-        btnAcademic.classList.add('active');
-        btnIndustry.classList.remove('active');
-    } else {
-        btnIndustry.classList.add('active');
-        btnAcademic.classList.remove('active');
-    }
-
-    const objectiveTextEl = document.getElementById('objective-text');
-    if (objectiveTextEl) {
-        objectiveTextEl.innerText = objectives[viewType];
-    }
-
-    const academicSections = document.querySelectorAll('.academic-only');
-    const industrySections = document.querySelectorAll('.industry-only');
-
-    // Update main grid items
-    if (viewType === 'academic') {
-        academicSections.forEach(el => el.style.setProperty('display', 'flex', 'important')); 
-        industrySections.forEach(el => el.style.setProperty('display', 'none', 'important'));
-        
-        // Show/Hide relevant navigation button tracks
-        document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'inline-block');
-        document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'none');
-    } else {
-        academicSections.forEach(el => el.style.setProperty('display', 'none', 'important'));
-        industrySections.forEach(el => el.style.setProperty('display', 'flex', 'important'));
-        
-        // Show/Hide relevant navigation button tracks
-        document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'inline-block');
-    }
-}
-
-// SMART NAVIGATION SCROLL ROUTINE
-function navigateToSection(sectionId) {
-    const targetElement = document.getElementById(sectionId);
-    
-    if (targetElement) {
-        if (targetElement.classList.contains('academic-only') && currentActiveView !== 'academic') {
-            switchView('academic');
-        } else if (targetElement.classList.contains('industry-only') && currentActiveView !== 'industry') {
-            switchView('industry');
-        }
-        
-        // Perform safe, smooth viewport scrolling adjustment directly to target container card
-        setTimeout(() => {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-            
-            // Subtle flash effect to show user where they landed
             targetElement.style.outline = "2px solid #007bff";
             setTimeout(() => { targetElement.style.outline = "none"; }, 1500);
         }, 100);
@@ -158,7 +79,6 @@ function showQualificationsModal() {
             <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
                 Click on the embedded links in the right column to view verified certificate documents hosted on Google Drive.
             </p>
-            
             <table class="modal-data-table">
                 <thead>
                     <tr>
@@ -197,9 +117,9 @@ function showQualificationsModal() {
             </table>
         </div>
     `;
-    
     openHTMLModal('Qualifications', qualificationsHTML);
 }
+
 // FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
 function showCertificationsModal() {
     const certificationsHTML = `
@@ -207,7 +127,6 @@ function showCertificationsModal() {
             <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
                 Click on the verified links in the right column to review professional badges and academic credentials.
             </p>
-            
             <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
                 Coursera Professional Certifications
             </h3>
@@ -248,11 +167,10 @@ function showCertificationsModal() {
                     <tr>
                         <td><strong>Google Cybersecurity Professional</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
                         <td>Google</td>
-                        <td><a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                 </tbody>
             </table>
-
             <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
                 NPTEL (IIT) Certifications
             </h3>
@@ -265,6 +183,7 @@ function showCertificationsModal() {
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr>
                         <td><strong>Advanced Computer Architecture</strong></td>
                         <td>April 2026</td>
