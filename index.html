@@ -3,51 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G V Chiranjeevi Adari - Interactive CV</title>
+    <title>G V Chiranjeevi Adari - Interactive webpage</title>
     <link rel="stylesheet" href="style.css">
+<!-- Replace your current toggle button code with this: -->
+<div class="view-toggle">
+    <button id="btn-academic" class="toggle-btn active" onclick="switchView('academic')">Academic view</button>
+    <button id="btn-industry" class="toggle-btn" onclick="switchView('industry')">Industry view</button>
+</div>
+    
+    <!-- Direct layout rules targeting modern browser column assignment overrides -->
+       <style>
+        /* Unbreakable container architecture */
+        .info-grid-container {
+            background: white !important;
+            padding: 30px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+            margin-bottom: 40px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .layout-table {
+            width: 100% !important;
+            border-collapse: collapse !important;
+            border: none !important;
+        }
+
+        .left-column {
+            width: 75% !important;
+            vertical-align: top !important;
+            text-align: left !important;
+        }
+
+        .right-column {
+            width: 25% !important;
+            vertical-align: middle !important;
+            text-align: right !important;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 15px !important;
+            color: #007bff !important;
+            font-size: 1.3rem !important;
+        }
+
+        .contact-details ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .contact-details li {
+            margin-bottom: 10px !important;
+            font-size: 1rem !important;
+            color: #333 !important;
+        }
+
+        .profile-image-container {
+            display: inline-block !important;
+        }
+
+        .profile-image {
+            width: 160px !important; 
+            height: auto !important;
+            object-fit: cover !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid #eef1f5 !important;
+        }
+
+        /* Mobile adaptation rule handles layout restructuring safely */
+        @media (max-width: 768px) {
+            .layout-table, .layout-table tr, .left-column, .right-column {
+                display: block !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+            .right-column {
+                margin-top: 25px !important;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
-    <header class="header">
+    <header>
         <h1>G V Chiranjeevi Adari</h1>
         <p class="subtitle">Interactive CV</p>
         
-        <!-- Toggle Buttons -->
-        <div class="toggle-container">
-            <button id="academic-btn" class="toggle-btn active">Academic view</button>
-            <button id="industry-btn" class="toggle-btn">Industry view</button>
+        <div class="view-toggle">
+            <button id="btn-academic" class="toggle-btn active" onclick="switchView('academic')">Academic view</button>
+            <button id="btn-industry" class="toggle-btn" onclick="switchView('industry')">Industry view</button>
         </div>
     </header>
+    <!-- Interactive Navigation bar linking directly to respective sections -->
+   
+    <main class="container">
+        <!-- Top Info Grid -->
+                <!-- Top Info Grid Using Unbreakable Layout Structure -->
+        <section class="info-grid-container">
+            <table class="layout-table">
+                <tr>
+                    <!-- Left Side Column: 75% Width for Text Content -->
+                    <td class="left-column">
+                        <div class="contact-details">
+                            <h3>Contact details</h3>
+                            <ul>
+                                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
+                                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta , Visakhapatnam-530047, india</li>
+                                <li><strong>Mobile Number:</strong> +919949163002</li>
+                                <li><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">linkedin.com</a></li>
+                                <li><strong>Google Scholar profile:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">scholar.google.com</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    
+                    <!-- Right Side Column: 25% Width strictly for Image -->
+                    <td class="right-column">
+                        <div class="profile-image-container">
+                            <img src="profile-pic.jpg" alt="G V Chiranjeevi Adari Profile Picture" class="profile-image">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
 
-    <main class="cv-container">
-        <!-- Contact details (Always Visible or styled as part of the view) -->
-        <section class="card-section">
-            <div class="contact-details">
-                <h3>Contact details</h3>
-                <p><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></p>
-                <p><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta , Visakhapatnam -530047, india</p>
-                <p><strong>Mobile Number:</strong> +919949163002</p>
-                <p><strong>LinkedIn Profile:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></p>
-                <p><strong>Google Scholar profile:</strong> <a href="https://google.com" target="_blank">scholar.google.com</a></p>
+        <!-- Dynamic Content Grid Grid Structure -->
+        <!-- Main Content Sections with Bottom Navigation Actions -->
+                <!-- Dynamic Content Grid Structure with Correct Function Routing -->
+        <section class="career-content-grid">
+            
+            <!-- Career Objective (Top Block) -->
+            <div class="section-box common-view">
+                <h2>Career Objective</h2>
+                <p id="objective-text">Seeking a challenging position in an academic institution to leverage research and teaching skills.</p>
+                <div class="card-actions-row">
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('qualifications')">Next Section ↓</button>
+                </div>
             </div>
-            <div class="profile-photo">
-                <img src="profile.jpg" alt="G V Chiranjeevi Adari">
+
+            <!-- Qualifications Card -->
+            <div id="qualifications" class="section-box common-view">
+                <h2>Qualifications</h2>
+                <p>Details about degrees, university, and academic milestones common across roles.</p>
+                <div class="card-actions-row">
+                    <!-- FIXED: Calls your Google Drive data table function directly -->
+                    <button class="explore-btn main-btn" onclick="showQualificationsModal()">Explore More</button>
+                    <button class="explore-btn nav-btn academic-nav" onclick="navigateToSection('publications')">Next Section ↓</button>
+                    <button class="explore-btn nav-btn industry-nav" style="display: none;" onclick="navigateToSection('certifications')">Next Section ↓</button>
+                </div>
             </div>
+
+            <!-- Publications Card (Academic Only) -->
+            <div id="publications" class="section-box academic-only">
+                <h2>Publications</h2>
+                <p>List of journals, conference papers, and academic research publications.</p>
+                <div class="card-actions-row">
+                    <!-- FIXED: Calls your new Publications listing data modal -->
+                    <button class="explore-btn main-btn" onclick="showPublicationsModal()">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('experience')">Next Section ↓</button>
+                </div>
+            </div>
+
+<!-- Experience Card (Academic Only) -->
+<div id="experience" class="section-box academic-only">
+    <h2>Experience</h2>
+    <p>Teaching, research assistantships, and institutional responsibilities.</p>
+    <div class="card-actions-row">
+        <!-- FIXED: Correctly calls your newly defined professional timeline modal function -->
+        <button class="explore-btn main-btn" onclick="showExperienceModal()">Explore More</button>
+        <button class="explore-btn nav-btn" onclick="navigateToSection('fdp')">Next Section ↓</button>
+    </div>
+</div>
+
+            <!-- Skill Development / FDP Card (Academic Only) -->
+            <div id="fdp" class="section-box academic-only">
+                <h2>Skill development programs / FDPs / workshops</h2>
+                <p>Details of Faculty Development Programs, workshops attended or organized.</p>
+                <div class="card-actions-row">
+                    <!-- FIXED: Calls your Faculty Development list data modal -->
+                    <button class="explore-btn main-btn" onclick="showFDPModal()">Explore More</button>
+                    <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
+                </div>
+            </div>
+
+           <!-- Certifications Card (Industry Only) -->
+<div id="certifications" class="section-box industry-only" style="display: none;">
+    <h2>Certifications</h2>
+    <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
+    <div class="card-actions-row">
+        <!-- FIXED: Bound to your new advanced certifications data table function -->
+        <button class="explore-btn main-btn" onclick="showCertificationsModal()">Explore More</button>
+        <button class="explore-btn nav-btn" onclick="navigateToSection('references')">Next Section ↓</button>
+    </div>
+</div>
+
+            <!-- References Card -->
+            <div id="references" class="section-box common-view">
+                <h2>References</h2>
+                <p>Available upon request from both academic mentors and industry leads.</p>
+                <div class="card-actions-row">
+                    <button class="explore-btn main-btn" onclick="openModal('References', 'Contact details and recommendation metrics for verified leads.')">Explore More</button>
+                    <button class="explore-btn nav-btn back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to Top ↑</button>
+                </div>
+            </div>
+
         </section>
 
-        <!-- Dynamic Content Sections -->
-        <section id="academic-content" class="view-content">
-            <!-- Add academic-specific content here -->
-            <h3>Academic Background</h3>
-            <p>Details about teaching experience, research papers, and institutional achievements...</p>
-        </section>
-
-        <section id="industry-content" class="view-content hidden">
-            <!-- Add industry-specific content here -->
-            <h3>Industry & Practical Experience</h3>
-            <p>Details about consulting work, hardware deployment, or engineering projects...</p>
-        </section>
     </main>
+
+    <!-- Modal Component Window -->
+    <div id="details-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-card">
+            <h2 id="modal-title">Section Title</h2>
+            <div id="modal-body" class="modal-body-content">Extended details go here...</div>
+            <button class="close-btn" onclick="closeModal()">Close Window</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
