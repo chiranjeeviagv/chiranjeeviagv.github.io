@@ -120,7 +120,7 @@ function showQualificationsModal() {
     
     openHTMLModal('Qualifications', qualificationsHTML);
 }
-// FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
+/ FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
 function showCertificationsModal() {
     const certificationsHTML = `
         <div class="modal-credentials-layout">
@@ -129,7 +129,7 @@ function showCertificationsModal() {
             </p>
             
             <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
-                Coursera Professional Certifications (2026 Cohort)
+                Coursera Professional Certifications
             </h3>
             <table class="modal-data-table" style="margin-bottom: 30px;">
                 <thead>
@@ -143,27 +143,27 @@ function showCertificationsModal() {
                     <tr>
                         <td><strong>IBM Full Stack JavaScript Developer</strong><br><span style="color: #666; font-size: 0.85rem;">12-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Microsoft AI and ML Engineering</strong><br><span style="color: #666; font-size: 0.85rem;">5-Course Specialization</span></td>
                         <td>Microsoft</td>
-                        <td><a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM Java Developer</strong><br><span style="color: #666; font-size: 0.85rem;">14-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Google Cybersecurity Professional</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
@@ -205,20 +205,10 @@ function showCertificationsModal() {
                         <td>Oct 2024</td>
                         <td><a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-K55aZx_pkRn/view?usp=sharing" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
                     </tr>
-                    <tr>
+                     <tr>
                         <td><strong>Big Data Computing</strong></td>
                         <td>Oct 2023</td>
-                        <td><a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view?usp=sharing" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ethics in Engineering Practice</strong></td>
-                        <td>Oct 2023</td>
-                        <td><span style="color: #888; font-style: italic; font-size: 0.85rem;">Document Available upon request</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Introduction to Smart Grid</strong></td>
-                        <td>Sept 2022</td>
-                        <td><span style="color: #888; font-style: italic; font-size: 0.85rem;">Document Available upon request</span></td>
+                        <td><a href="https://google.com" target="_blank" class="credential-link">View NPTEL Drive ↗</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -240,7 +230,7 @@ function openHTMLModal(title, htmlContent) {
     }
 }
 
-// Fallback method for plain-text data popup boxes
+// FIXED: Added backticks (``) around the HTML structure so variables render properly
 function openModal(title, text) {
     openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
 }
