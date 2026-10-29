@@ -216,6 +216,61 @@ function showCertificationsModal() {
     `;
     openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
 }
+// FORMATTED CONTENT MAPPING: PROFESSIONAL TEACHING TIMELINE
+function showExperienceModal() {
+    const experienceHTML = `
+        <div class="modal-credentials-layout">
+            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
+                Review my academic teaching milestones and institutional service records below. Use the links in the right column to view verification letters.
+            </p>
+            
+            <table class="modal-data-table">
+                <thead>
+                    <tr>
+                        <th>Designation & Department</th>
+                        <th>Institution & Location</th>
+                        <th>Tenure Period</th>
+                        <th>Verification Records</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Assistant Professor</strong><br><span style="color: #007bff; font-size: 0.85rem;">Electrical Engineering (AI & ML)</span></td>
+                        <td>Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra</td>
+                        <td>June 2025 – May 2026</td>
+                        <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td>Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad</td>
+                        <td>Feb 2023 – Jan 2025</td>
+                        <td><a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" class="credential-link">View Experience ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td>Malla Reddy Engineering College for Women (Autonomous), Secunderabad</td>
+                        <td>July 2022 – Feb 2023</td>
+                        <td><a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Senior Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td>Aditya College of Engineering, Surampalem, Andhra Pradesh</td>
+                        <td>Nov 2019 – July 2021</td>
+                        <td><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" class="credential-link">View Service Doc ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td>Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh</td>
+                        <td>March 2015 – Nov 2019</td>
+                        <td><a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" target="_blank" class="credential-link">View Experience ↗</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    
+    openHTMLModal('Professional Experience', experienceHTML);
+}
 
 // CORE MODAL OPENER PARSER ENGINE (Processes rich HTML variables safely)
 function openHTMLModal(title, htmlContent) {
