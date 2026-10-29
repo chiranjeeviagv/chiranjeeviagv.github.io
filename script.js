@@ -120,7 +120,7 @@ function showQualificationsModal() {
     
     openHTMLModal('Qualifications', qualificationsHTML);
 }
-/ FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
+// FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
 function showCertificationsModal() {
     const certificationsHTML = `
         <div class="modal-credentials-layout">
@@ -288,7 +288,7 @@ function openHTMLModal(title, htmlContent) {
 
 // FIXED: Added backticks (``) around the HTML structure so variables render properly
 function openModal(title, text) {
-    openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
+    openHTMLModal(title, <p style="color:#333; line-height:1.6; text-align:left;">${text}</p>);
 }
 
 function closeModal() {
@@ -304,4 +304,4 @@ window.onclick = function(event) {
     if (event.target === modal) {
         closeModal();
     }
-}
+};
