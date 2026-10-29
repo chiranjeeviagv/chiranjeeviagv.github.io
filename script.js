@@ -418,6 +418,55 @@ function openHTMLModal(title, htmlContent) {
         document.body.style.overflow = 'hidden'; // Lock background scrolling
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    // Top view navigation selection hooks
+    document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
+    document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
+
+    // Section modal exploration card triggers
+    document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
+    document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
+    document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
+    document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
+
+    // Bind explicit target buttons to remove modal window layer
+    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
+
+    // Ambient backdrop background click safety release setup
+    const modalOverlay = document.getElementById('details-modal');
+    modalOverlay?.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+});
+
+// UNIFIED CONSOLIDATED MODAL LIFECYCLE MANAGEMENT ENGINE
+function openHTMLModal(title, htmlContent) {
+    const modal = document.getElementById('details-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    
+    if (modal && modalTitle && modalBody) {
+        modalTitle.innerText = title;
+        modalBody.innerHTML = htmlContent;
+        
+        // Remove class to display over page seamlessly
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('details-modal');
+    if (modal) {
+        // Safe reset state flags
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; 
+    }
+}
 
 function openModal(title, text) {
     openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
