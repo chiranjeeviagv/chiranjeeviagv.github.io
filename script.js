@@ -289,7 +289,9 @@ function openHTMLModal(title, htmlContent) {
 
 // FIXED: Added backticks (``) around the HTML structure so variables render properly
 function openModal(title, text) {
-    openHTMLModal(title, <p style="color:#333; line-height:1.6; text-align:left;">${text}</p>);
+   function openModal(title, text) {
+    openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
+}
 }
 
 function closeModal() {
