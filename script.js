@@ -34,3 +34,4 @@ function switchView(viewType) {
         industrySections.forEach(el => el.classList.remove('hidden'));
     }
 }
+
