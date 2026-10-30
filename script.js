@@ -1,3 +1,30 @@
+// Paste this code on the absolute first line of your script.js file
+window.showSkillsModal = function() {
+    const skillsHTML = `
+        <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;"> 
+            <h4 style="color: #007bff; margin-top: 0; margin-bottom: 8px;">Programming Skills:</h4> 
+            <ul style="color: #333; font-size: 0.95rem; padding-left: 20px; margin-bottom: 20px;"> 
+                <li>Advanced Python programming</li>
+                <li>Matlab Programming</li>
+                <li>JavaScript programming</li>
+                <li>Python programming</li>
+                <li>Java programming (basics)</li>
+                <li>Web development</li>
+                <li>AI development</li>
+                <li>Full stack development</li>
+            </ul> 
+            <h4 style="color: #007bff; margin-top: 15px; margin-bottom: 8px;">Specialized Engineering Toolsets & Competencies:</h4> 
+            <ul style="color: #333; font-size: 0.95rem; padding-left: 20px;"> 
+                <li><strong>Languages Summary:</strong> Python, JavaScript (Full-Stack), MATLAB, Java (Basics)</li> 
+                <li><strong>Specialized Tracks:</strong> AI Web Design, Data Science, Cyber Security Operations</li> 
+                <li><strong>Core Simulation:</strong> Power Electronics Analysis, Grid Transient System Twins</li> 
+            </ul> 
+        </div>`;
+    
+    // Explicit inline layout runner engine target shortcut
+    openHTMLModal('Technical Skills & Toolsets', skillsHTML);
+};
+
 // Pre-defined texts for dynamic Career Objectives
 const objectives = {
      academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
