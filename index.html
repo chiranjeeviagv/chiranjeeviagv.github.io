@@ -115,12 +115,76 @@
     </section>
 
 
+<!-- ==========================================================================
+           TWO COLUMN GRID WRAPPER (This fixes the layout from your screenshot)
+           ========================================================================== -->
+<div class="cv-grid-container">
+
+    <!-- ==========================================
+       ACADEMIC VIEW ONLY BLOCKS 
+       ========================================== -->
+
+    <!-- 1. Qualifications (Academic) -->
+    <section id="qualifications" class="academic-only">
+        <h2>Qualifications</h2>
+        <p>Details about degrees, university, and academic milestones common across roles.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="qualifications">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 2. Publications (Academic) -->
+    <section id="publications" class="academic-only">
+        <h2>Publications</h2>
+        <p>List of journals, conference papers, and academic research publications.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="publications">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 3. Conferences Attended (Academic Only) -->
+    <section id="conferences" class="academic-only">
+        <h2>Conferences Attended</h2>
+        <p>National and International conferences attended, featuring research presentations on Digital Twin Technologies, Transient Stability Control, and Cyber Security in Smart Grids.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="conferences" id="btn-explore-conferences">Explore More</button>
+        </div>
+    </section>
+    
+    <!-- 4. Experience (Academic) -->
+    <section id="experience" class="academic-only">
+        <h2>Experience</h2>
+        <p>Teaching, research assistantships, and institutional responsibilities.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="experience">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 5. Skill Development / FDPs (Academic) -->
+    <section id="fdps" class="academic-only">
+        <h2>Skill Development Programs / FDPs / Workshops</h2>
+        <p>Details of Faculty Development Programs, workshops attended or organized.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="fdps">Explore More</button>
+        </div>
+    </section>
+
+    <!-- 6. Subject Area Expertise (Academic) -->
+    <section id="subject-expertise" class="academic-only">
+        <h2>Subject Area Expertise</h2>
+        <p>Advanced domain expertise fields including High Voltage Engineering, Power Systems, AI, Machine Learning, and transient stability control systems.</p>
+        <div class="action-buttons">
+            <button class="explore-btn" data-section="expertise">Explore More</button>
+        </div>
+    </section>
+
+
     <!-- ==========================================
        INDUSTRY VIEW ONLY BLOCKS 
        ========================================== -->
 
-    <!-- 1. Qualifications (Industry - FIXED ID & LOWERCASE CLASS) -->
-    <section id="industry-qualifications" class="industry-only">
+    <!-- 1. Qualifications (Industry) -->
+    <section id="industry-qualifications" class="industry-only" style="display: none;">
         <h2>Qualifications</h2>
         <p>Details about degrees, university, and academic milestones common across roles.</p>
         <div class="action-buttons">
@@ -129,7 +193,7 @@
     </section>
 
     <!-- 2. Certifications (Industry) -->
-    <section id="certifications" class="industry-only">
+    <section id="certifications" class="industry-only" style="display: none;">
         <h2>Certifications</h2>
         <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
         <div class="action-buttons">
@@ -138,7 +202,7 @@
     </section>
 
     <!-- 3. Skills (Industry) -->
-    <section id="skills" class="industry-only">
+    <section id="skills" class="industry-only" style="display: none;">
         <h2>Skills</h2>
         <p>Core industry competencies: Full-Stack JavaScript engineering, Cloud Computing infrastructure, Big Data operations, Cyber Security systems optimization, and Python scripting workflows.</p>
         <div class="action-buttons">
@@ -146,8 +210,13 @@
         </div>
     </section>
 
-    <!-- 4. References (Industry) -->
-    <section id="references" class="industry-only">
+
+    <!-- ==========================================
+       SHARED GLOBAL BLOCKS (Visible in BOTH views)
+       ========================================== -->
+
+    <!-- 4. References (SHARED - FIXED to be visible in all profiles) -->
+    <section id="global-references" class="shared-card-full">
         <h2>References</h2>
         <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
         <div class="action-buttons">
@@ -157,16 +226,18 @@
 
 </div>
 
-<!-- Dynamic Modal Overlay Framework Box -->
+<!-- FIXED: CLEANED MODAL ELEMENTS WITH NO ACCIDENTAL LEADING SPACES -->
 <div id="details-modal" class="modal-overlay hidden">
-    <div class="modal-content">
-        <h2 id="modal-title">Section Title</h2>
-        <div id="modal-body"></div>
-        <button id="close-modal-btn" class="close-btn">Close Window</button>
+    <div class="modal-content" style="background: #fff; padding: 25px; border-radius: 8px; max-width: 650px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative;">
+        <h2 id="modal-title" style="margin-top: 0; color: #007bff; border-bottom: 2px solid #e3e6f0; padding-bottom: 10px;">Section Title</h2>
+        <div id="modal-body" style="margin: 20px 0;"></div>
+        <button id="close-modal-btn" class="close-btn" style="background: #dc3545; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 600;">Close Window</button>
     </div>
 </div>
 
+    <!-- CONSOLIDATED LOGIC ENGINES SCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>
+
         
