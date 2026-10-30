@@ -437,24 +437,36 @@ function openHTMLModal(title, htmlContent) {
         document.body.style.overflow = 'hidden'; // Lock background scrolling
     }
 }
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Existing toggle and discovery section listener hooks...
+    // Existing toggle selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
-    document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
+
+    // FIX 1: Use querySelectorAll so both the Academic and Industry Qualifications buttons work!
+    document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
+        btn.addEventListener('click', showQualificationsModal);
+    });
+
+    // Section modal exploration triggers
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
     document.querySelector('[data-section="fdps"]')?.addEventListener('click', showDevelopmentProgramsModal);
     document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
+    
+    // FIX 2: Added missing triggers for your Conferences and Subject Area Expertise sections
+    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
+    document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
+
+    // Close button trigger
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
-    // ADDED: Direct activation connection for browser PDF generation workflows
+    // Direct activation connection for browser PDF generation workflows
     document.getElementById('btn-download-pdf')?.addEventListener('click', () => {
         window.print();
     });
 });
-
 // UNIFIED CONSOLIDATED MODAL LIFECYCLE MANAGEMENT ENGINE
 function openHTMLModal(title, htmlContent) {
     const modal = document.getElementById('details-modal');
