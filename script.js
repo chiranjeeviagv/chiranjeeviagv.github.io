@@ -73,70 +73,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const strengthsBtn = document.querySelector('.explore-btn[data-section="academic-strengths"]');
     
     if (strengthsList && strengthsBtn) {
-        // 1. Force the list to hide on the initial welcome screen load
-        strengthsList.classList.add('hidden');
+        // 1. Force the list to hide on initial load by default
+        strengthsList.style.setProperty('display', 'none', 'important');
         
         // 2. Setup the click toggle logic
         strengthsBtn.addEventListener('click', () => {
-            const isHidden = strengthsList.classList.toggle('hidden');
-            strengthsBtn.textContent = isHidden ? 'Explore More' : 'Show Less';
+            if (strengthsList.style.display === 'none') {
+                // Expand: Show the list using block layout inside the card
+                strengthsList.style.setProperty('display', 'block', 'important');
+                strengthsBtn.textContent = 'Show Less';
+            } else {
+                // Collapse: Hide the list again
+                strengthsList.style.setProperty('display', 'none', 'important');
+                strengthsBtn.textContent = 'Explore More';
+            }
         });
     }
-
-    // Bind explicit target buttons to remove modal window layer
-    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
-
-    // Ambient backdrop background click safety release setup
-    const modalOverlay = document.getElementById('details-modal');
-    modalOverlay?.addEventListener('click', (event) => {
-        if (event.target === modalOverlay) {
-            closeModal();
-        }
-    });
-});
-
-function switchView(viewType) {
-    currentActiveView = viewType;
-    const btnAcademic = document.getElementById('btn-academic');
-    const btnIndustry = document.getElementById('btn-industry');
-    
-    // Safety check in case elements aren't loaded yet
-    if (!btnAcademic || !btnIndustry) return;
-
-    if (viewType === 'academic') {
-        btnAcademic.classList.add('active');
-        btnIndustry.classList.remove('active');
-    } else {
-        btnIndustry.classList.add('active');
-        btnAcademic.classList.remove('active');
-    }
-
-    const objectiveTextEl = document.getElementById('objective-text');
-    if (objectiveTextEl) {
-        objectiveTextEl.innerText = objectives[viewType];
-    }
-
-    const academicSections = document.querySelectorAll('.academic-only');
-    const industrySections = document.querySelectorAll('.industry-only');
-
-    // Update main grid items
-    if (viewType === 'academic') {
-        academicSections.forEach(el => el.style.setProperty('display', 'flex', 'important')); 
-        industrySections.forEach(el => el.style.setProperty('display', 'none', 'important'));
-        
-        // Show/Hide relevant navigation button tracks
-        document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'inline-block');
-        document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'none');
-    } else {
-        academicSections.forEach(el => el.style.setProperty('display', 'none', 'important'));
-        industrySections.forEach(el => el.style.setProperty('display', 'flex', 'important'));
-        
-        // Show/Hide relevant navigation button tracks
-        document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'inline-block');
-    }
-}
-
 // SMART NAVIGATION SCROLL ROUTINE
 function navigateToSection(sectionId) {
     const targetElement = document.getElementById(sectionId);
