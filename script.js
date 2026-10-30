@@ -590,7 +590,8 @@ function showDevelopmentProgramsModal() {
             </div>
         </div>
     `;
-    openHTMLModal('Skill Development & Workshops', programsHTML);
+   // Correct: The first argument is a readable text title, the second is your HTML variable
+openHTMLModal('Faculty Up-Skilling & FDP Records', fdpHTML);
 }
 
 function showExpertiseModal() {
