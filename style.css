@@ -122,6 +122,36 @@ header h1 {
     }
 }
 /* FIXED: Removed the stray extra closing curly bracket that was right here breaking the code beneath */
+/* 1. Limit the maximum width of the whole page so it looks clean on large screens */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 2. Turn the sections area into a structured 2-column grid layout */
+.cv-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
+    gap: 24px;                             /* Space between your CV cards */
+    margin-top: 30px;
+}
+
+/* Styles to clean up card presentation */
+.academic-only, .industry-only {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* 3. Handle mobile screens: switch back to a single column automatically */
+@media (max-width: 768px) {
+    .cv-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
 
 /* Master grid container spanning 100% width area */
 .career-content-grid {
