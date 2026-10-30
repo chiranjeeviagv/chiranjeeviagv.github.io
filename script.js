@@ -451,6 +451,7 @@ function showPublicationsModal() {
     `;
     openHTMLModal('Research Publications', publicationsHTML);
 }
+function showDevelopmentProgramsModal()
        <!-- PANEL 1: TEACHING METHODOLOGIES & OBE -->
             <div id="tab-pedagogy" class="dev-panel active">
                 <div class="program-section-title">Teaching Methodologies and Outcome Based Education</div>
