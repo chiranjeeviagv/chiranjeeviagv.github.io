@@ -142,6 +142,11 @@ header h1 {
     grid-column: auto !important;
 }
 
+/* Forces career objective box to stretch across the top of the grid layout */
+#objective, #objective-section {
+    grid-column: span 3 !important;
+}
+
 /* ==========================================================================
    5. INTERACTIVE COMPONENT BUTTONS & CORE MODALS
    ========================================================================== */
@@ -174,60 +179,38 @@ header h1 {
 }
 
 /* ==========================================================================
-   UNIFIED DYNAMIC MODAL PORTAL CODES (Appended to style.css)
+   6. UNIFIED DYNAMIC MODAL PORTAL CODES
    ========================================================================== */
 
-/* 1. Dark Backdrop Mask Layer - Fixed globally over your layout viewports */
+/* Dark Backdrop Mask Layer - Fixed globally over layout viewports */
 .modal-overlay {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    
-    /* Crucial: Creates a solid, translucent dark shield covering everything behind it */
-    background: rgba(0, 0, 0, 0.75) !important; 
-    
-    /* Forces the popup card content box to sit exactly in the middle of the screen */
-    display: flex !important; 
+    background: rgba(0, 0, 0, 0.75) !important; /* Semi-transparent dark background shield */
+    display: flex !important; /* Uses flex rules to perfectly center popups */
     justify-content: center !important;
     align-items: center !important;
-    
-    /* CRITICAL LAYER VALUE: Completely decouples the box from your grid card tracks */
-    z-index: 999999 !important; 
+    z-index: 999999 !important; /* Forces the box above all sections and headers */
     transition: opacity 0.2s ease-in-out;
 }
 
-/* 2. Lifecycle Core Manager: Invisible and unclickable when hidden */
-.modal-overlay.hidden {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* 3. The Solid White Credentials Popup Document Window Card */
+/* Solid White Credentials Popup Window Card */
 .modal-content, .modal-card {
-    /* FIXED: Explicitly force an absolute solid white backdrop structure */
     background: #ffffff !important; 
     color: #333333 !important;
-    
     padding: 30px !important;
     border-radius: 8px !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
-    
-    /* Proportional width constraints for desktop and mobile screen displays */
     width: 90% !important;
     max-width: 750px !important;
     max-height: 85vh !important;
-    
-    /* Adds clean vertical scrolling bar lanes if tables or lists get too long */
-    overflow-y: auto !important; 
+    overflow-y: auto !important; /* Inside scroll bar activation if data is long */
     position: relative !important;
-    
-    /* Sits securely inside the backdrop stacking layer plane */
     z-index: 1000000 !important; 
-    text-align: left !important; /* Aligns data tables left for standard reading */
+    text-align: left !important; /* Text left-align for data tables reading alignment */
     animation: modalScaleUp 0.25s ease-out;
 }
 
@@ -251,7 +234,7 @@ header h1 {
 
 /* Exit / Close Window Layout Trigger Button Control */
 #close-modal-btn, .close-btn {
-    background-color: #dc3545 !important; /* Standout standard red error/close block color */
+    background-color: #dc3545 !important; /* Clear red cancel block color */
     color: #ffffff !important;
     border: none !important;
     padding: 10px 22px !important;
@@ -268,18 +251,37 @@ header h1 {
     background-color: #bd2130 !important;
 }
 
-/* 4. Elegant Entry Animation Track */
+/* Dynamic Data Tables Formatting Inside Popups */
+.modal-data-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 15px !important;
+}
+.modal-data-table th, .modal-data-table td {
+    border: 1px solid #eaecf0 !important;
+    padding: 12px !important;
+}
+.modal-data-table th {
+    background-color: #f8f9fa !important;
+    color: #4e73df !important;
+}
+
+/* Elegant Entry Animation Track */
 @keyframes modalScaleUp {
     from { transform: scale(0.94); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
 /* ==========================================================================
-   6. RESPONSIVE MEDIA VIEWPORT BREAKPOINTS
+   7. RESPONSIVE MEDIA VIEWPORT BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
     .cv-grid-container,
     .career-content-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* Scales to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr) !important; /* Scales down to 2 columns on tablets */
+    }
+    #objective, #objective-section {
+        grid-column: span 2 !important;
     }
 }
 
@@ -296,14 +298,25 @@ header h1 {
 
     .cv-grid-container,
     .career-content-grid {
-        grid-template-columns: 1fr !important; /* Scales to 1 column on mobile phones */
+        grid-template-columns: 1fr !important; /* Rolls down into a single column on phones */
+    }
+    #objective, #objective-section {
+        grid-column: span 1 !important;
     }
 }
+
 /* ==========================================================================
-   7. MODAL UTILITY STATE FIXES
+   8. MODAL UTILITY STATE MANAGER (FIXED INTERACTIVE TOGGLES)
    ========================================================================== */
-.modal-overlay.hidden,
-.hidden {
+/* Isolated correctly to prevent display none overrides from breaking open states */
+.modal-overlay.hidden {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
+.academic-only.hidden-view,
+.industry-only.hidden-view {
+    display: none !important;
+}
