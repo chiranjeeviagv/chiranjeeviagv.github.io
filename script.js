@@ -451,97 +451,111 @@ function showPublicationsModal() {
     `;
     openHTMLModal('Research Publications', publicationsHTML);
 }
-function showDevelopmentProgramsModal()
-       <!-- PANEL 1: TEACHING METHODOLOGIES & OBE -->
-            <div id="tab-pedagogy" class="dev-panel active">
-                <div class="program-section-title">Teaching Methodologies and Outcome Based Education</div>
-                <table class="modal-data-table">
+// FORMATTED CONTENT MAPPING: SKILL DEVELOPMENT & FACULTY DEVELOPMENT PROGRAMS (FDP)
+function showDevelopmentProgramsModal() {
+    const fdpHTML = `
+        <div class="modal-credentials-layout">
+            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
+                Review the split category panels documenting institutional upgrades, certifications, and structural skill operations below.
+            </p>
+
+            <!-- PANEL 1: TEACHING METHODOLOGIES & OBE -->
+            <div id="tab-pedagogy" class="dev-panel active" style="margin-bottom: 25px;">
+                <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
                     <thead>
-                        <tr><th style="width: 75%;">Program Details</th><th style="width: 25%;">Link</th></tr>
+                        <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                            <th style="width: 75%; text-align: left; padding: 10px;">Program Details</th>
+                            <th style="width: 25%; text-align: center; padding: 10px;">Link</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="pub-title">Two-day FDP on OBE Focused curriculum design</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> IQAC cell, Sandip university, Nashik<br><strong>Timeline:</strong> 8-9 November 2026</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">Two-day FDP on OBE Focused curriculum design</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Organized by:</strong> IQAC cell, Sandip university, Nashik<br><strong>Timeline:</strong> 8-9 November 2026</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="pub-title">OBE workshop held at VIIT</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> KLETU<br><strong>Timeline:</strong> 04-05-2018 to 06-05-2018</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">OBE workshop held at VIIT</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Organized by:</strong> KLETU<br><strong>Timeline:</strong> 04-05-2018 to 06-05-2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1j1mjO6aEZ12zLIIF9gApTPkbtt-4llrG/view?usp=drive_link" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com/file/d/1j1mjO6aEZ12zLIIF9gApTPkbtt-4llrG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="pub-title">One day national workshop on MOOCs and E-learning in higher Education</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> Guru Angad dev Teaching Learning centre of MHRD, SGTB khalsa college, University of Delhi<br><strong>Timeline:</strong> 18-08-2018</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">One day national workshop on MOOCs and E-learning in higher Education</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Organized by:</strong> Guru Angad dev Teaching Learning centre of MHRD, SGTB khalsa college, University of Delhi<br><strong>Timeline:</strong> 18-08-2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="pub-title">Three day workshop on counselling system and guidance</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> Medhas I – Train, Hyderabad<br><strong>Timeline:</strong> 4th to 6th December 2018</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">Three day workshop on counselling system and guidance</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Organized by:</strong> Medhas I – Train, Hyderabad<br><strong>Timeline:</strong> 4th to 6th December 2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <!-- PANEL 2: POWER SYSTEMS & SMART GRIDS -->
-            <div id="tab-grids" class="dev-panel">
-                <div class="program-section-title">Power Systems, Electronics & Smart Grids</div>
-                <table class="modal-data-table">
+            <div id="tab-grids" class="dev-panel" style="margin-bottom: 25px;">
+                <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
                     <thead>
-                        <tr><th style="width: 75%;">Program Details</th><th style="width: 25%;">Link</th></tr>
+                        <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                            <th style="width: 75%; text-align: left; padding: 10px;">Program Details</th>
+                            <th style="width: 25%; text-align: center; padding: 10px;">Link</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="pub-title">40hr online faculty development programme on Advanced Intelligence and ICT application to power system protection</div>
-                                <div class="pub-meta"><strong>Sponsored by:</strong> MOEIT, GoI | <strong>Organized by:</strong> E&ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam<br><strong>Timeline:</strong> 18-27 july 2022</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">40hr online faculty development programme on Advanced Intelligence and ICT application to power system protection</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Sponsored by:</strong> MOEIT, GoI | <strong>Organized by:</strong> E&ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam<br><strong>Timeline:</strong> 18-27 july 2022</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1FTGlrQ25wpVZZLvw3atKn8U_JKMY3986/view?usp=sharing" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com/file/d/1FTGlrQ25wpVZZLvw3atKn8U_JKMY3986/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="pub-title">Five-day online Workshop on 'Integration of renewable energy & EV to microgrid: Prospects and challenges'</div>
-                                <div class="pub-meta"><strong>Under Aegis of:</strong> SPARC | <strong>Organized by:</strong> Department of Electrical and Electronics Engineering, NIT Tiruchirappalli in collaboration with The Hong Kong Polytechnic University<br><strong>Timeline:</strong> 21-02-2022 to 25-02-2022</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">Five-day online Workshop on 'Integration of renewable energy & EV to microgrid: Prospects and challenges'</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Under Aegis of:</strong> SPARC | <strong>Organized by:</strong> Department of Electrical and Electronics Engineering, NIT Tiruchirappalli in collaboration with The Hong Kong Polytechnic University<br><strong>Timeline:</strong> 21-02-2022 to 25-02-2022</div>
                             </td>
-                            <td style="text-align: center;"><a href="" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="pub-title">One week FDP on “Hands on training on Power Electronics and Power systems using Advanced Analytical tools”</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> Andhra university college of Engineering autonomous<br><strong>Timeline:</strong> Feb 5, 2018 to Feb 9, 2018</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">One week FDP on “Hands on training on Power Electronics and Power systems using Advanced Analytical tools”</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Organized by:</strong> Andhra university college of Engineering autonomous<br><strong>Timeline:</strong> Feb 5, 2018 to Feb 9, 2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1QLDfoRqr1J7r0DYoPU5jUQhx8RIzJnLd/view?usp=sharing" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com/file/d/1QLDfoRqr1J7r0DYoPU5jUQhx8RIzJnLd/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <!-- PANEL 3: EMERGING TRENDS, AI & DATA SCIENCE ANALYTICS -->
-            <div id="tab-ai-tech" class="dev-panel">
-                <div class="program-section-title">Emerging Trends, AI & Data Science Analytics</div>
-                <table class="modal-data-table">
+            <div id="tab-ai-tech" class="dev-panel" style="margin-bottom: 25px;">
+                <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
                     <thead>
-                        <tr><th style="width: 75%;">Program Details</th><th style="width: 25%;">Link</th></tr>
+                        <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                            <th style="width: 75%; text-align: left; padding: 10px;">Program Details</th>
+                            <th style="width: 25%; text-align: center; padding: 10px;">Link</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="pub-title">MHRD-Sponsored INDO-US International workshop on “IOT and ML Based Microgrid & Energy Management”</div>
-                                <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, CBIT, Hyderabad<br><strong>Timeline:</strong> 19th to 23rd February 2024</div>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">MHRD-Sponsored INDO-US International workshop on “IOT and ML Based Microgrid & Energy Management”</div>
+                                <div class="pub-meta" style="font-size: 0.85rem; color: #555; margin-top: 4px;"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, CBIT, Hyderabad<br><strong>Timeline:</strong> 19th to 23rd February 2024</div>
                             </td>
-                            <td style="text-align: center;"><a href="" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center; padding: 10px; vertical-align: middle;"><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="credential-link">Verify ↗</a></td>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr style="border-bottom: 1px solid #edf2f7;">
+                            <td style="padding: 10px;">
+                                <div class="pub-title" style="font-weight: 600;">ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI</div>
                                 <div class="pub-title">ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> SVKM's Institute of Technology, Dhule<br><strong>Timeline:</strong> 27th January to 31st January 2025</div>
                             </td>
