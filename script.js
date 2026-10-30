@@ -522,6 +522,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.print();
     });
 });
+
 // UNIFIED CONSOLIDATED MODAL LIFECYCLE MANAGEMENT ENGINE
 function openHTMLModal(title, htmlContent) {
     const modal = document.getElementById('details-modal');
@@ -534,31 +535,25 @@ function openHTMLModal(title, htmlContent) {
         
         // Remove class to display over page seamlessly
         modal.classList.remove('hidden');
-        modal.style.display = 'flex';
+        modal.style.setProperty('display', 'flex', 'important');
         document.body.style.overflow = 'hidden'; 
     }
 }
 
+// FIX: Combined duplicate implementations into one single, safe, unified modal closer function
 function closeModal() {
     const modal = document.getElementById('details-modal');
+    const modalBody = document.getElementById('modal-body');
     if (modal) {
-        // Safe reset state flags
         modal.classList.add('hidden');
-        modal.style.display = 'none';
-        document.body.style.overflow = ''; 
+        modal.style.setProperty('display', 'none', 'important');
+        if (modalBody) modalBody.innerHTML = ''; // Safely wipe old cached HTML content strings
+        document.body.style.overflow = ''; // Restore normal page viewport scrolling background layer
     }
 }
 
 function openModal(title, text) {
     openHTMLModal(title, `<p style="color:#333; line-height:1.6; text-align:left;">${text}</p>`);
-}
-
-function closeModal() {
-    const modal = document.getElementById('details-modal');
-    if (modal) {
-        modal.style.setProperty('display', 'none', 'important');
-        document.body.style.overflow = ''; // Restore background scrolling
-    }
 }
 // FORMATTED CONTENT MAPPING: PROFESSIONAL DEVELOPMENT & TRAINING PAYLOAD
 function showDevelopmentProgramsModal() {
