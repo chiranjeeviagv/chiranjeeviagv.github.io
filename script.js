@@ -824,3 +824,42 @@ function showSkillsModal() {
 
     openHTMLModal('Professional & Academic References', referencesHTML);
 }
+// Wait for DOM to finish loading
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('details-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    // Attach click listeners to all explore buttons
+    document.querySelectorAll('.explore-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const sectionKey = e.target.getAttribute('data-section');
+            
+            if (sectionKey === 'conferences') {
+                // Set the Modal Heading
+                modalTitle.textContent = 'Conferences Attended Details';
+                
+                // Fetch the inner contents from our hidden data div
+                const hiddenData = document.getElementById('data-conferences');
+                if (hiddenData) {
+                    modalBody.innerHTML = hiddenData.innerHTML;
+                }
+                
+                // Show the modal view layer
+                modal.classList.remove('hidden');
+            }
+            
+            // ... (Your other section conditionals like 'publications', 'skills' can go here)
+        });
+    });
+
+    // Close modal function logic
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modalBody.innerHTML = ''; // Clear contents upon exit
+        });
+    }
+});
+
