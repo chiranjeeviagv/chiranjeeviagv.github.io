@@ -274,8 +274,8 @@
         </div>
     </section>
 
-    <section id="skills" class="industry-only">
-        <h2>Skills</h2>
+<section id="skills" class="industry-only">
+    <h2>Skills</h2>
     <p>Core industry competencies: Full-Stack JavaScript engineering, Cloud Computing infrastructure, Big Data operations, Cyber Security systems optimization, and Python scripting workflows.</p>
     
     <!-- Hidden data repository processed by the JavaScript engine -->
@@ -292,6 +292,13 @@
             <li>Full Stack Development</li>
         </ul>
     </div>
+
+    <!-- UPDATE THIS DIV BELOW TO FORWARD THE CLICK INLINE -->
+    <div class="action-buttons">
+        <!-- FIXED: Explicit onclick parameter hooks directly into your showSkillsModal function -->
+        <button class="explore-btn" data-section="skills" onclick="showSkillsModal()">Explore More</button>
+    </div>
+</section>
 
     <div class="action-buttons">
         <button class="explore-btn" data-section="skills">Explore More</button>
