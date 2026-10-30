@@ -145,15 +145,32 @@ function showQualificationsModal() {
                     <tr><th>Qualification Matrix</th><th>Institution / Board</th><th>Performance Marks</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>M.Tech (High Voltage Engineering)</strong></td><td>JNTU Kakinada</td><td>72.00% (Distinction)</td></tr>
-                    <tr><td><strong>B.Tech (Electrical & Electronics)</strong></td><td>Chaitanya Engineering College</td><td>71.63% (Distinction)</td></tr>
-                    <tr><td><strong>Intermediate (MPC Core Tracks)</strong></td><td>Gayatri Junior College</td><td>94.10% (First Class)</td></tr>
-                    <tr><td><strong>SSC Standard Certification</strong></td><td>ZP High School, Jami</td><td>89.86% (First Class)</td></tr>
+                    <tr>
+                        <td><strong>M.Tech (High Voltage Engineering)</strong></td>
+                        <td>JNTU Kakinada</td>
+                        <td>72.00% (Distinction) <a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>B.Tech (Electrical & Electronics)</strong></td>
+                        <td>Chaitanya Engineering College</td>
+                        <td>71.63% (Distinction) <a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intermediate (MPC Core Tracks)</strong></td>
+                        <td>Gayatri Junior College</td>
+                        <td>94.10% (First Class) <a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SSC Standard Certification</strong></td>
+                        <td>ZP High School, Jami</td>
+                        <td>89.86% (First Class) <a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>`;
     openHTMLModal('Qualifications Records', qualificationsHTML);
 }
+
 
 function showCertificationsModal() {
     const certificationsHTML = `
