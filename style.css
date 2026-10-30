@@ -1,58 +1,68 @@
-
-#### Complete Repaired `styles.css`
-```css
 /* ==========================================================================
-   1. GLOBAL RESET & BASE RULES
+   1. GLOBAL RESET & BASE LAYOUT RULES
    ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
-    padding: 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
 }
 
 /* ==========================================================================
-   2. HEADER & TOGGLE BUTTON ARCHITECTURE
+   2. HEADER & TOGGLE BUTTON CONTROLS
    ========================================================================== */
-header {
+.main-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: 40px;
+    padding: 30px 20px 20px 20px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-header h1 {
-    font-size: 2.5rem;
+.main-header h1 {
+    font-size: 2.2rem;
     color: #1a1a1a;
+    margin-bottom: 5px;
 }
 
-.subtitle {
+.subtitle-text {
     font-style: italic;
     color: #666;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.view-toggle {
-    display: inline-flex;
+.view-toggle-container {
+    display: flex;
     gap: 15px;
     margin-top: 10px;
 }
 
 .toggle-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 10px 24px;
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     border: 2px solid #007bff;
     background-color: transparent;
     color: #007bff;
     border-radius: 25px;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .toggle-btn.active, .toggle-btn:hover {
@@ -60,305 +70,271 @@ header h1 {
     color: white;
 }
 
-/* ==========================================================================
-   3. PROFILE HERO BLOCK LAYOUT (FLEX / GRID CONTROLS)
-   ========================================================================== */
-.page-container, .container {
-    max-width: 1200px; 
-    margin: 0 auto;
-    padding: 0 20px;
+.download-link-wrapper {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    text-decoration: none;
 }
 
-.info-grid {
-    display: grid !important;
-    grid-template-columns: 3fr 1fr !important;
-    gap: 40px;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
-    align-items: center;
-    width: 100%;
-}
-
-.contact-details {
-    width: 100%;
-}
-
-.contact-details h3 {
-    margin-bottom: 15px;
-    color: #007bff;
-}
-
-.contact-details ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.contact-details li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    white-space: normal;
-}
-
-.profile-image-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-}
-
-.profile-image {
-    width: 160px;
-    height: auto;
-    object-fit: cover;
+.download-pdf-btn {
+    background: #f8f9fa;
+    border: 1px solid #dcdfe6;
+    padding: 8px 16px;
+    font-weight: 600;
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid #eef1f5;
+    cursor: pointer;
+    color: #606266;
+    transition: all 0.2s ease;
+}
+
+.download-pdf-btn:hover {
+    background: #edd;
+    background-color: #f5222d;
+    color: white;
+    border-color: #f5222d;
 }
 
 /* ==========================================================================
-   4. THREE-COLUMN DASHBOARD LAYOUT ENGINE (FIXED OVERRIDES)
+   3. PROFILE HERO BLOCK LAYOUT
    ========================================================================== */
-.cv-grid-container, 
-.career-content-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 24px !important;
-    margin-top: 30px !important;
-    width: 100% !important;
+.profile-hero-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 24px;
+    margin-bottom: 24px;
+    margin-top: 20px;
 }
 
-.cv-grid-container > section, 
-.section-box {
+.hero-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 24px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    min-height: 220px;
-    grid-column: auto !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
-/* Forces career objective box to stretch across the top of the grid layout */
-#objective, #objective-section {
-    grid-column: span 3 !important;
+#objective {
+    flex: 1.2;
 }
 
-/* FIX 5: Cleaned up Flex vs Grid conflicts on structural container states */
-.academic-only {
-    display: block;
+#contact-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-.industry-only {
-    display: none;
+.bio-details {
+    flex: 1;
 }
 
-#academic-strengths {
-    padding: 20px;
+.bio-details h3 {
+    color: #007bff;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
 }
 
-/* FIX 6: Cleaned invalid CSS comment format */
-.strengths-list {
+.bio-details ul {
     list-style: none;
     padding-left: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
 }
 
-.strengths-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    text-align: left;
+.bio-details li {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
 }
 
-.strengths-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #2ecc71;
-    font-weight: bold;
+.bio-details a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.strengths-toggle-btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.2s ease-in-out;
+.bio-details a:hover {
+    text-decoration: underline;
 }
 
-.strengths-toggle-btn:hover {
-    background-color: #2980b9;
+.bio-img-container {
+    flex-shrink: 0;
+}
+
+.profile-avatar-fallback {
+    width: 130px;
+    height: 140px;
+    background: #eaecf0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #718096;
+    border: 1px solid #cbd5e1;
 }
 
 /* ==========================================================================
-   5. INTERACTIVE COMPONENT BUTTONS & CORE MODALS
+   4. TWO COLUMN DASHBOARD GRID SYSTEM
    ========================================================================== */
-.action-buttons, .card-actions-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: auto;
-    width: 100%;
+.cv-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 24px;
 }
 
-.explore-btn {
-    align-self: center;
-    padding: 8px 20px !important;
-    font-size: 0.88rem !important;
+.cv-grid-container > section {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease;
+}
+
+.cv-grid-container h2 {
+    color: #1a1a1a;
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+    border-left: 4px solid #007bff;
+    padding-left: 10px;
+}
+
+.cv-grid-container p {
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+
+.action-buttons {
+    margin-top: 20px;
+}
+
+.explore-btn, .strengths-toggle-btn {
+    padding: 8px 18px;
+    font-size: 0.88rem;
     color: #007bff;
     background: #e6f2ff;
     border: 1px solid #b3d7ff;
-    border-radius: 6px !important;
-    cursor: pointer !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease-in-out !important;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
 }
 
-.explore-btn:hover {
+.explore-btn:hover, .strengths-toggle-btn:hover {
     background: #007bff;
     color: white;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.strengths-list {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+.strengths-list li {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #2d3748;
 }
 
 /* ==========================================================================
-   6. UNIFIED DYNAMIC MODAL PORTAL CODES
+   5. UNIFIED POPUP MODAL ARCHITECTURE
    ========================================================================== */
 .modal-overlay {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background: rgba(0, 0, 0, 0.75) !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    z-index: 999999 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
 }
 
-.modal-content, .modal-card {
-    background: #ffffff !important; 
-    color: #333333 !important;
-    padding: 30px !important;
-    border-radius: 8px !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
-    width: 90% !important;
-    max-width: 750px !important;
-    max-height: 85vh !important;
-    overflow-y: auto !important;
-    position: relative !important;
-    z-index: 1000000 !important; 
-    text-align: left !important;
-    animation: modalScaleUp 0.25s ease-out;
+.modal-content {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 650px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
-#modal-title, .modal-card h2 {
-    margin-top: 0 !important;
-    margin-bottom: 15px !important;
-    color: #007bff !important;
-    font-size: 1.45rem !important;
-    font-weight: 700 !important;
-    border-bottom: 2px solid #e3e6f0 !important;
-    padding-bottom: 10px !important;
+.modal-content h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
 }
 
-#modal-body, .modal-body-content {
-    margin: 15px 0 25px 0 !important;
-    line-height: 1.6 !important;
-    color: #333333 !important;
+#close-modal-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
-#close-modal-btn, .close-btn {
-    background-color: #dc3545 !important;
-    color: #ffffff !important;
-    border: none !important;
-    padding: 10px 22px !important;
-    font-size: 0.92rem !important;
-    font-weight: 600 !important;
-    border-radius: 4px !important;
-    cursor: pointer !important;
-    display: inline-block !important;
-    margin-top: 10px !important;
-    transition: background-color 0.2s ease;
-}
-
-#close-modal-btn:hover, .close-btn:hover {
-    background-color: #bd2130 !important;
+#close-modal-btn:hover {
+    background-color: #bd2130;
 }
 
 .modal-data-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin-top: 15px !important;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
 }
+
 .modal-data-table th, .modal-data-table td {
-    border: 1px solid #eaecf0 !important;
-    padding: 12px !important;
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    text-align: left;
 }
+
 .modal-data-table th {
-    background-color: #f8f9fa !important;
-    color: #4e73df !important;
-}
-
-@keyframes modalScaleUp {
-    from { transform: scale(0.94); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    background-color: #f8f9fa;
+    color: #007bff;
 }
 
 /* ==========================================================================
-   7. RESPONSIVE MEDIA VIEWPORT BREAKPOINTS
+   6. STATE MANIPULATION CLASSES (CRITICAL VISIBILITY MATRIX)
    ========================================================================== */
-@media (max-width: 1024px) {
-    .cv-grid-container,
-    .career-content-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-    #objective, #objective-section {
-        grid-column: span 2 !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .info-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .profile-image-container {
-        justify-content: center;
-    }
-
-    .cv-grid-container,
-    .career-content-grid {
-        grid-template-columns: 1fr !important;
-    }
-    #objective, #objective-section {
-        grid-column: span 1 !important;
-    }
-}
-
-/* ==========================================================================
-   8. MODAL UTILITY STATE MANAGER (FIXED INTERACTIVE TOGGLES)
-   ========================================================================== */
-.modal-overlay.hidden {
+.hidden-view {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-.academic-only.hidden-view,
-.industry-only.hidden-view {
-    display: none !important;
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .profile-hero-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .download-link-wrapper {
+        position: static;
+        margin-top: 15px;
+    }
+    #contact-info {
+        flex-direction: column;
+    }
+    .profile-avatar-fallback {
+        width: 100%;
+        height: 100px;
+    }
 }
