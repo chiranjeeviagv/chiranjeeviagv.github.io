@@ -1,129 +1,100 @@
 // ==========================================
-// 1. DATA AND VIEW PORTFOLIO VARIABLES
+// 1. DATA AND OBJECTIVE TEMPLATE STORAGE
 // ==========================================
 const objectives = {
     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
     industry: "An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed."
 };
 
-let currentActiveView = 'academic';
-
 // ==========================================
 // 2. CENTRAL MATRIX SWITCHING ENGINE
 // ==========================================
 function switchView(viewMode) {
-    currentActiveView = viewMode;
-    
-    const academicElements = document.querySelectorAll('.academic-only');
-    const industryElements = document.querySelectorAll('.industry-only');
-    const objText = document.getElementById('objective-text');
-    
-    const btnAcademic = document.getElementById('btn-academic');
-    const btnIndustry = document.getElementById('btn-industry');
+    var academicElements = document.querySelectorAll('.academic-only');
+    var industryElements = document.querySelectorAll('.industry-only');
+    var objText = document.getElementById('objective-text');
+    var btnAcademic = document.getElementById('btn-academic');
+    var btnIndustry = document.getElementById('btn-industry');
 
     if (viewMode === 'academic') {
-        academicElements.forEach(el => el.classList.remove('hidden-view'));
-        industryElements.forEach(el => el.classList.add('hidden-view'));
-        
+        academicElements.forEach(function(el) { el.style.display = 'block'; });
+        industryElements.forEach(function(el) { el.style.display = 'none'; });
         if (objText) objText.textContent = objectives.academic;
-        btnAcademic?.classList.add('active');
-        btnIndustry?.classList.remove('active');
+        if (btnAcademic) btnAcademic.className = 'toggle-btn active';
+        if (btnIndustry) btnIndustry.className = 'toggle-btn';
     } else {
-        academicElements.forEach(el => el.classList.add('hidden-view'));
-        industryElements.forEach(el => el.classList.remove('hidden-view'));
-        
+        academicElements.forEach(function(el) { el.style.display = 'none'; });
+        industryElements.forEach(function(el) { el.style.display = 'block'; });
         if (objText) objText.textContent = objectives.industry;
-        btnIndustry?.classList.add('active');
-        btnAcademic?.classList.remove('active');
+        if (btnIndustry) btnIndustry.className = 'toggle-btn active';
+        if (btnAcademic) btnAcademic.className = 'toggle-btn';
     }
 }
 
 // ==========================================
-// 3. EVENT ROUTING REGISTRATION RUNNER
+// 3. SECURE DOM EVENT BINDING LAYER
 // ==========================================
-document.addEventListener('DOMContentLoaded', () => {
-    // Bind View Toggles
-    const btnAcademic = document.getElementById('btn-academic');
-    const btnIndustry = document.getElementById('btn-industry');
+document.addEventListener('DOMContentLoaded', function() {
+    var btnAcademic = document.getElementById('btn-academic');
+    var btnIndustry = document.getElementById('btn-industry');
+    var closeBtn = document.getElementById('close-modal-btn');
 
-    if (btnAcademic) btnAcademic.addEventListener('click', () => switchView('academic'));
-    if (btnIndustry) btnIndustry.addEventListener('click', () => switchView('industry'));
+    if (btnAcademic) btnAcademic.onclick = function() { switchView('academic'); };
+    if (btnIndustry) btnIndustry.onclick = function() { switchView('industry'); };
+    if (closeBtn) closeBtn.onclick = closeModal;
 
-    // Bind Close Button for Modals
-    const closeBtn = document.getElementById('close-modal-btn');
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-    // Dynamic Delegate Binding for Exploration Buttons
-    document.querySelectorAll('.explore-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const targetSection = e.target.getAttribute('data-section');
+    // Direct binding matrix loop for action selectors
+    var allExploreBtns = document.querySelectorAll('.explore-btn');
+    allExploreBtns.forEach(function(button) {
+        button.onclick = function(e) {
+            var targetSection = e.target.getAttribute('data-section');
             if (targetSection) {
                 handleExploreClick(targetSection);
             }
-        });
+        };
     });
-    
-    // Initialize default view state
+
+    // Default initialization
     switchView('academic');
 });
 
 // ==========================================
-// 4. MODAL ROUTER DISPATCH MATRIX
+// 4. ROUTER SWITCH ROUTINE
 // ==========================================
 function handleExploreClick(sectionKey) {
-    switch (sectionKey) {
-        case 'qualifications': 
-            showQualificationsModal(); 
-            break;
-        case 'certifications': 
-            showCertificationsModal(); 
-            break;
-        case 'experience': 
-            showExperienceModal(); 
-            break;
-        case 'publications': 
-            showPublicationsModal(); 
-            break;
-        case 'fdps': 
-            showDevelopmentProgramsModal(); 
-            break;
-        case 'references': 
-            showReferencesModal();
-            break;
-        case 'expertise': 
-            showExpertiseModal();
-            break;
-        case 'skills': 
-            showSkillsModal();
-            break;
-        case 'conferences': 
-            showConferencesModal();
-            break;
-        default: 
-            console.warn(`Unregistered explore section target key: ${sectionKey}`);
-    }
+    if (sectionKey === 'qualifications') showQualificationsModal();
+    else if (sectionKey === 'certifications') showCertificationsModal();
+    else if (sectionKey === 'experience') showExperienceModal();
+    else if (sectionKey === 'publications') showPublicationsModal();
+    else if (sectionKey === 'fdps') showDevelopmentProgramsModal();
+    else if (sectionKey === 'references') showReferencesModal();
+    else if (sectionKey === 'expertise') showExpertiseModal();
+    else if (sectionKey === 'skills') showSkillsModal();
+    else if (sectionKey === 'conferences') showConferencesModal();
 }
 
 // ==========================================
-// 5. WINDOW FRAME CONTAINER CONTROLLERS
+// 5. WINDOW FRAME DYNAMICS
 // ==========================================
 function openHTMLModal(title, htmlContent) {
-    const modal = document.getElementById('details-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
+    var modal = document.getElementById('details-modal');
+    var modalTitle = document.getElementById('modal-title');
+    var modalBody = document.getElementById('modal-body');
     
     if (modal && modalTitle && modalBody) {
         modalTitle.innerText = title;
         modalBody.innerHTML = htmlContent;
+        modal.style.display = 'block';
         modal.classList.remove('hidden-view');
         document.body.style.overflow = 'hidden'; 
     }
 }
 
 function closeModal() {
-    const modal = document.getElementById('details-modal');
-    const modalBody = document.getElementById('modal-body');
+    var modal = document.getElementById('details-modal');
+    var modalBody = document.getElementById('modal-body');
     if (modal) {
+        modal.style.display = 'none';
         modal.classList.add('hidden-view');
         if (modalBody) modalBody.innerHTML = '';
         document.body.style.overflow = '';
@@ -131,223 +102,99 @@ function closeModal() {
 }
 
 // ==========================================
-// 6. RICH TEXT MODAL POPUP DATA RECORDS
+// 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
 // ==========================================
 function showQualificationsModal() {
-    const qualificationsHTML = `
-        <div class="modal-credentials-layout">
-            <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #e2e8f0;">
-                        <th style="padding: 10px; text-align: left;">Qualification Matrix</th>
-                        <th style="padding: 10px; text-align: left;">Institution / Board</th>
-                        <th style="padding: 10px; text-align: left;">Performance Marks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px;"><strong>M.Tech (High Voltage Engineering)</strong></td>
-                        <td style="padding: 12px;">JNTU Kakinada</td>
-                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
-                            <span>72.00% (Distinction)</span>
-                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline; font-weight: 600; font-size: 0.9em;">[Verify]</a>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px;"><strong>B.Tech (Electrical & Electronics)</strong></td>
-                        <td style="padding: 12px;">Chaitanya Engineering College</td>
-                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
-                            <span>71.63% (Distinction)</span>
-                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline; font-weight: 600; font-size: 0.9em;">[Verify]</a>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px;"><strong>Intermediate (MPC Core Tracks)</strong></td>
-                        <td style="padding: 12px;">Gayatri Junior College</td>
-                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
-                            <span>94.10% (First Class)</span>
-                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline; font-weight: 600; font-size: 0.9em;">[Verify]</a>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px;"><strong>SSC Standard Certification</strong></td>
-                        <td style="padding: 12px;">ZP High School, Jami</td>
-                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
-                            <span>89.86% (First Class)</span>
-                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline; font-weight: 600; font-size: 0.9em;">[Verify]</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>`;
-    openHTMLModal('Qualifications Records', qualificationsHTML);
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<p><strong>M.Tech (High Voltage Engineering)</strong> - JNTU Kakinada (72.00% Distinction)</p>' +
+        '<p><strong>B.Tech (Electrical & Electronics)</strong> - Chaitanya Engineering College (71.63% Distinction)</p>' +
+        '<p><strong>Intermediate (MPC)</strong> - Gayatri Junior College (94.10%)</p>' +
+        '<p><strong>SSC Certification</strong> - ZP High School, Jami (89.86%)</p>' +
+        '</div>';
+    openHTMLModal('Qualifications Records', html);
 }
 
 function showCertificationsModal() {
-    const certificationsHTML = `
-        <div class="modal-credentials-layout">
-            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
-                Click on the verified links in the right column to review professional badges and academic credentials.
-            </p>
-            <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
-                Coursera Professional Certifications
-            </h3>
-            <table class="modal-data-table" style="margin-bottom: 30px; width: 100%; border-collapse: collapse;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
-                        <th style="text-align: left; padding: 10px;">Specialization Program</th>
-                        <th style="text-align: left; padding: 10px;">Issuing Organization</th>
-                        <th style="text-align: left; padding: 10px;">Verification Link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>IBM Full Stack JavaScript Developer</strong><br><span style="color: #666; font-size: 0.85rem;">12-Course Specialization</span></td>
-                        <td style="padding: 10px;">IBM</td>
-                        <td style="padding: 10px;"><a href="https://coursera.org" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View Certificate ↗</a></td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
-                        <td style="padding: 10px;">IBM</td>
-                        <td style="padding: 10px;"><a href="https://coursera.org" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View Certificate ↗</a></td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
-                        <td style="padding: 10px;">IBM</td>
-                        <td style="padding: 10px;"><a href="https://coursera.org" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View Certificate ↗</a></td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>Microsoft AI and ML Engineering</strong><br><span style="color: #666; font-size: 0.85rem;">5-Course Specialization</span></td>
-                        <td style="padding: 10px;">Microsoft</td>
-                        <td style="padding: 10px;"><a href="https://coursera.org" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View Certificate ↗</a></td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>Google Cyber Security</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
-                        <td style="padding: 10px;">Google</td>
-                        <td style="padding: 10px;"><a href="https://coursera.org" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View Certificate ↗</a></td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>Advanced Computer Architecture</strong></td>
-                        <td style="padding: 10px;">April 2026</td>
-                        <td style="padding: 10px;"><a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View NPTEL Drive ↗</a></td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 10px;"><strong>Advanced Computer Networks</strong></td>
-                        <td style="padding: 10px;">April 2025</td>
-                        <td style="padding: 10px;"><a href="https://google.com" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">View NPTEL Drive ↗</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    `;
-    openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
-}
-function showExperienceModal() {
-    const experienceHTML = `
-        <div class="modal-credentials-layout">
-            <table class="modal-data-table" style="width: 100%; border-collapse: collapse; font-family: system-ui, -apple-system, sans-serif;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
-                        <th style="padding: 12px; text-align: left; color: #4a5568; font-weight: 600;">Designation & Department</th>
-                        <th style="padding: 12px; text-align: left; color: #4a5568; font-weight: 600;">Institution & Location</th>
-                        <th style="padding: 12px; text-align: left; color: #4a5568; font-weight: 600;">Tenure Period</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px; vertical-align: top;"><strong>Assistant Professor</strong><br><span style="color: #007bff; font-size: 0.85rem;">Electrical Engineering (AI & ML)</span></td>
-                        <td style="padding: 12px; vertical-align: top; color: #2d3748;">Sandip Institute of Technology and Research Centre, Nashik</td>
-                        <td style="padding: 12px; vertical-align: top; color: #4a5568; white-space: nowrap;">June 2025 – May 2026</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px; vertical-align: top;"><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td style="padding: 12px; vertical-align: top; color: #2d3748;">Guru Nanak Institute of Technology (Autonomous), Hyderabad</td>
-                        <td style="padding: 12px; vertical-align: top; color: #4a5568; white-space: nowrap;">Feb 2023 – Jan 2025</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px; vertical-align: top;"><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td style="padding: 12px; vertical-align: top; color: #2d3748;">Malla Reddy Engineering College for Women, Secunderabad</td>
-                        <td style="padding: 12px; vertical-align: top; color: #4a5568; white-space: nowrap;">July 2022 – Feb 2023</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px; vertical-align: top;"><strong>Senior Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td style="padding: 12px; vertical-align: top; color: #2d3748;">Aditya College of Engineering, Surampalem</td>
-                        <td style="padding: 12px; vertical-align: top; color: #4a5568; white-space: nowrap;">Nov 2019 – July 2021</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 12px; vertical-align: top;"><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
-                        <td style="padding: 12px; vertical-align: top; color: #2d3748;">Vignan’s Institute of Information Technology, Visakhapatnam</td>
-                        <td style="padding: 12px; vertical-align: top; color: #4a5568; white-space: nowrap;">March 2015 – Nov 2019</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    `;
-    openHTMLModal('Professional Experience', experienceHTML);
-}
-function showPublicationsModal() {
-    const publicationsHTML = `
-        <div class="modal-credentials-layout" style="font-family: system-ui, -apple-system, sans-serif; text-align: left;">
-            <h3 style="color: #007bff; font-size: 1.15rem; margin-top: 10px; margin-bottom: 15px; border-left: 3px solid #007bff; padding-left: 8px;">
-                📄 Peer-Reviewed International Journal Papers
-            </h3>
-            <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
-                <thead>
-                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
-                        <th style="padding: 12px; text-align: left; color: #4a5568; font-weight: 600;">Research Article Context & Citation Log</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 14px 12px; line-height: 1.5;">
-                            <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 4px;">
-                                "Transient stability improvement of Single Machine Infinite Bus (SMIB) system Using Distributed Power Flow Controller (DPFC)"
-                            </div>
-                            <div style="font-size: 0.85rem; color: #5a5c69;">
-                                <strong>Journal:</strong> International Journal of Pure and Applied Mathematics (IJPAM) | Vol. 114, No. 8, 2017
-                            </div>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 14px 12px; line-height: 1.5;">
-                            <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 4px;">
-                                "Application of SVC for Multiobjective Optimization Powerflow Problem Using PSO"
-                            </div>
-                            <div style="font-size: 0.85rem; color: #5a5c69;">
-                                <strong>Journal:</strong> International Journal of Pure and Applied Mathematics (IJPAM) | Vol. 114, No. 8, 2017
-                            </div>
-                        </td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #edf2f7;">
-                        <td style="padding: 14px 12px; line-height: 1.5;">
-                            <div style="font-weight: 600; color: #1a1a1a; margin-bottom: 4px;">
-                                "Dynamic Stability Improvement of a Smart Grid using Neural Network Based STATCOM"
-                            </div>
-                            <div style="font-size: 0.85rem; color: #5a5c69;">
-                                <strong>Journal:</strong> Indian Journal of Science and Technology (INDJST) | 2016
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    `;
-    openHTMLModal('Research Publications', publicationsHTML);
-}
-function showReferencesModal() {
-const referencesHTML = <div class="modal-credentials-layout"> <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;"> <div style="background: #f8f9fa; border-left: 4px solid #007bff; padding: 15px; border-radius: 4px;"> <div style="font-weight:700;">Mr. K Prasad</div> <div style="font-size:0.85rem; color:#666;">Government Polytechnic, Vizianagaram</div> <div style="margin-top:8px; font-size:0.9rem;"><strong>Cell:</strong> <a href="tel:+919912340292">+91 99123 40292</a></div> </div> <div style="background: #f8f9fa; border-left: 4px solid #007bff; padding: 15px; border-radius: 4px;"> <div style="font-weight:700;">Mrs. Sangita K Chowdary</div> <div style="font-size:0.85rem; color:#666;">SITRC, Nashik</div> <div style="margin-top:8px; font-size:0.9rem;"><strong>Cell:</strong> <a href="tel:+919730199702">+91 97301 99702</a></div> </div> </div> </div>;
-openHTMLModal('Verified Professional References', referencesHTML);
-}
-function showExpertiseModal() {
-const expertiseHTML =  <div class="modal-credentials-layout" style="text-align: left; line-height: 1.6;">  <ul style="padding-left:20px;"> <li><strong>Artificial Intelligence Techniques:</strong> Computational applications and neural networks in power grids.</li> <li><strong>Engineering Electromagnetics:</strong> Field formulation maps and complex equipment matrices.</li> <li><strong>Power System Analysis:</strong> Load flows, transient stability controls, and fault protection algorithms.</li> </ul> </div>;
-openHTMLModal('Subject Area Expertise', expertiseHTML);
-}
-function showSkillsModal() {
-const skillsHTML =  <div class="modal-credentials-layout" style="text-align: left;">  <h4 style="color:#007bff;">Languages & Frameworks</h4> <p>Python (Advanced), MATLAB (Simulink Modeling), JavaScript Full-Stack (Node.js/React), AI Application Development.</p> </div>;
-openHTMLModal('Technical Skills & Toolsets', skillsHTML);
-}
-function showConferencesModal() {
-const hiddenData = document.getElementById('data-conferences');
-openHTMLModal('Conferences Attended Presentation Details', hiddenData ? hiddenData.innerHTML : 'Conference proceedings record sheet currently vacant.');
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<h4>Coursera Specialization Modules:</h4>' +
+        '<ul>' +
+        '<li>IBM Full Stack JavaScript Developer (12 Courses)</li>' +
+        '<li>IBM JavaScript Backend Developer (13 Courses)</li>' +
+        '<li>IBM AI Developer (10 Courses)</li>' +
+        '<li>Microsoft AI and ML Engineering (5 Courses)</li>' +
+        '<li>Google Cyber Security Specialist Track (9 Courses)</li>' +
+        '</ul>' +
+        '<h4>NPTEL Postings:</h4>' +
+        '<ul>' +
+        '<li>Advanced Computer Architecture (April 2026)</li>' +
+        '<li>Advanced Computer Networks (April 2025)</li>' +
+        '</ul>' +
+        '</div>';
+    openHTMLModal('Advanced Certifications & Up-Skilling', html);
 }
 
+function showExperienceModal() {
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<p><strong>Assistant Professor (AI/ML Dept)</strong><br>Sandip Institute of Technology and Research Centre, Nashik (June 2025 – May 2026)</p><hr>' +
+        '<p><strong>Assistant Professor (EEE Dept)</strong><br>Guru Nanak Institute of Technology (Autonomous), Hyderabad (Feb 2023 – Jan 2025)</p><hr>' +
+        '<p><strong>Assistant Professor (EEE Dept)</strong><br>Malla Reddy Engineering College for Women, Secunderabad (July 2022 – Feb 2023)</p><hr>' +
+        '<p><strong>Senior Assistant Professor</strong><br>Aditya College of Engineering, Surampalem (Nov 2019 – July 2021)</p><hr>' +
+        '<p><strong>Assistant Professor (EEE Dept)</strong><br>Vignan’s Institute of Information Technology, Visakhapatnam (March 2015 – Nov 2019)</p>' +
+        '</div>';
+    openHTMLModal('Professional Experience', html);
+}
+
+function showPublicationsModal() {
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<h4>📄 Peer-Reviewed International Journal Papers</h4>' +
+        '<ol>' +
+        '<li>"Transient stability improvement of SMIB system Using DPFC" - IJPAM, 2017</li>' +
+        '<li>"Application of SVC for Multiobjective Optimization Powerflow Problem Using PSO" - IJPAM, 2017</li>' +
+        '<li>"Dynamic Stability Improvement of a Smart Grid using Neural Network Based STATCOM" - INDJST, 2016</li>' +
+        '</ol>' +
+        '</div>';
+    openHTMLModal('Research Publications', html);
+}
+
+function showDevelopmentProgramsModal() {
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<ul>' +
+        '<li>Two-day FDP on OBE Focused Curriculum Design - Sandip University (2026)</li>' +
+        '<li>OBE System Workshop Framework - VIIT / KLETU (2018)</li>' +
+        '<li>National Workshop on MOOCs and E-Learning - Delhi University (2018)</li>' +
+        '</ul>' +
+        '</div>';
+    openHTMLModal('Faculty Up-Skilling & FDP Records', html);
+}
+
+function showReferencesModal() {
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<p><strong>Mr. K Prasad</strong> (Govt Polytechnic, Vizianagaram) - Cell: +91 9912340292</p>' +
+        '<p><strong>Mrs. Sangita K Chowdary</strong> (SITRC, Nashik) - Cell: +91 9730199702</p>' +
+        '</div>';
+    openHTMLModal('Verified Professional References', html);
+}
+
+function showExpertiseModal() {
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<ul>' +
+        '<li>Artificial Intelligence Techniques & Neural Networks</li>' +
+        '<li>Engineering Electromagnetics & Field Analysis</li>' +
+        '<li>Power System Analysis, Protection & Control Engines</li>' +
+        '<li>High Voltage Engineering & Distributed Microgrids</li>' +
+        '</ul>' +
+        '</div>';
+    openHTMLModal('Subject Area Expertise', html);
+}
+
+function showSkillsModal() {
+    var html = '<div style="padding:10px; text-align:left;">' +
+        '<p><strong>Core Languages:</strong> Python (Advanced), MATLAB (Simulink Twin Engineering), JavaScript (Full-Stack Engine Stack), Core Java Basics.</p>' +
+        '<p><strong>Domain Tools:</strong> FACTS Controllers Optimization, Smart Grid Architecture Twins, Cybersecurity Infrastructure Auditing.</p>' +
+        '</div>';
+    openHTMLModal('Technical Skills & Toolsets', html);
+}
+
+function showConferencesModal() {
+    openHTMLModal('Conferences Attended Presentation Details', '<p style="padding:10px;">Proceedings mapping index verification registry currently running setup.</p>');
+}
