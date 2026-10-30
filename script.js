@@ -33,6 +33,38 @@ const objectives = {
 // Tracks active view globally
 let currentActiveView = 'academic';
 
+// ==========================================
+// PASTE THE NEW CODE DIRECTLY BELOW this LINE
+// ==========================================
+function switchView(viewMode) {
+    currentActiveView = viewMode;
+    
+    const academicElements = document.querySelectorAll('.academic-only');
+    const industryElements = document.querySelectorAll('.industry-only');
+    const objText = document.getElementById('objective-text');
+    
+    const btnAcademic = document.getElementById('btn-academic');
+    const btnIndustry = document.getElementById('btn-industry');
+
+    if (viewMode === 'academic') {
+        academicElements.forEach(el => el.classList.remove('hidden-view'));
+        industryElements.forEach(el => el.classList.add('hidden-view'));
+        
+        if (objText) objText.textContent = objectives.academic;
+        btnAcademic?.classList.add('active');
+        btnIndustry?.classList.remove('active');
+    } else {
+        academicElements.forEach(el => el.classList.add('hidden-view'));
+        industryElements.forEach(el => el.classList.remove('hidden-view'));
+        
+        if (objText) objText.textContent = objectives.industry;
+        btnIndustry?.classList.add('active');
+        btnAcademic?.classList.remove('active');
+    }
+}
+// ==========================================
+// THE REST OF YOUR FILE (DOMContentLoaded, modals, etc.) STAYS THE SAME BELOW
+// ==========================================
 // INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
 document.addEventListener("DOMContentLoaded", () => {
     // Top view navigation selection hooks
