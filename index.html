@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Professional CV</title>
-    <!-- Add these style rules directly or copy them into your style.css file -->
+    <!-- Keep your existing styles and add/update these specific rules -->
     <style>
+        .main-header {
+            position: relative; /* Acts as the anchor point for the absolute download link */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .view-toggle-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        /* Positions the download link wrapper absolutely inside the header container */
+        .download-link-wrapper {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+        }
+
         .profile-hero-row {
             display: flex;
             justify-content: space-between;
@@ -35,15 +59,19 @@
         }
 
         .profile-avatar {
-            width: 200px; /* Adjust width to fit your layout */
+            width: 200px;
             height: auto;
             border-radius: 4px;
         }
         
-        /* Fallback for smaller screens to keep it responsive */
         @media (max-width: 768px) {
             .profile-hero-row, #contact-info {
                 flex-direction: column;
+            }
+            /* Optional: stack the download button normally on small mobile screens */
+            .download-link-wrapper {
+                position: static;
+                margin-top: 15px;
             }
         }
     </style>
@@ -54,14 +82,17 @@
     <!-- Header Section with Controls -->
     <header class="main-header">
         <h1>G V Chiranjeevi Adari</h1>
+        
+        <!-- View Toggle Center Container -->
         <div class="view-toggle-container">
             <button id="btn-academic" class="toggle-btn active">Academic View</button>
             <button id="btn-industry" class="toggle-btn">Industry View</button>
-            <!-- Wrap the button inside an anchor link pointing directly to your file -->
-            <a href="G_V_Chiranjeevi_Adari_CV.pdf" download="G_V_Chiranjeevi_Adari_CV.pdf" style="text-decoration: none;">
-                <button id="btn-download-pdf" class="download-pdf-btn">📥 Download PDF CV</button>
-            </a>
         </div>
+
+        <!-- Positioned to the Top Right Corner -->
+        <a href="G_V_Chiranjeevi_Adari_CV.pdf" download="G_V_Chiranjeevi_Adari_CV.pdf" class="download-link-wrapper">
+            <button id="btn-download-pdf" class="download-pdf-btn">📥 Download PDF CV</button>
+        </a>
     </header>
 
     <!-- Main Content Container -->
@@ -91,16 +122,12 @@
             </section>
         </div>
 
-        <!-- ==========================================================================
-           TWO COLUMN GRID WRAPPER (This fixes the layout from your screenshot)
-           ========================================================================== -->
+        <!-- Two Column Grid Wrapper -->
         <div class="cv-grid-container">
 
             <!-- ==========================================
                ACADEMIC VIEW ONLY BLOCKS 
                ========================================== -->
-
-            <!-- 1. Qualifications (Academic) -->
             <section id="qualifications-academic" class="academic-only">
                 <h2>Qualifications</h2>
                 <p>Details about degrees, university, and academic milestones common across roles.</p>
@@ -109,7 +136,6 @@
                 </div>
             </section>
 
-            <!-- 2. Publications (Academic) -->
             <section id="publications" class="academic-only">
                 <h2>Publications</h2>
                 <p>List of journals, conference papers, and academic research publications.</p>
@@ -118,7 +144,6 @@
                 </div>
             </section>
 
-            <!-- 3. Experience (Academic) -->
             <section id="experience" class="academic-only">
                 <h2>Experience</h2>
                 <p>Teaching, research assistantships, and institutional responsibilities.</p>
@@ -127,7 +152,6 @@
                 </div>
             </section>
 
-            <!-- 4. Skill Development / FDPs (Academic) -->
             <section id="fdps" class="academic-only">
                 <h2>Skill Development Programs / FDPs / Workshops</h2>
                 <p>Details of Faculty Development Programs, workshops attended or organized.</p>
@@ -136,7 +160,6 @@
                 </div>
             </section>
 
-            <!-- 5. Subject Area Expertise (Academic) -->
             <section id="subject-expertise" class="academic-only">
                 <h2>Subject Area Expertise</h2>
                 <p>Advanced domain expertise fields including High Voltage Engineering, Power Systems, AI, Machine Learning, and transient stability control systems.</p>
@@ -145,12 +168,9 @@
                 </div>
             </section>
 
-
             <!-- ==========================================
                INDUSTRY VIEW ONLY BLOCKS 
                ========================================== -->
-
-            <!-- 1. Qualifications (Industry) - Changed duplicate ID to maintain unique values -->
             <section id="qualifications-industry" class="industry-only">
                 <h2>Qualifications</h2>
                 <p>Details about degrees, university, and academic milestones common across roles.</p>
@@ -159,7 +179,6 @@
                 </div>
             </section>
 
-            <!-- 2. Certifications (Industry) -->
             <section id="certifications" class="industry-only">
                 <h2>Certifications</h2>
                 <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
@@ -168,7 +187,6 @@
                 </div>
             </section>
 
-            <!-- 3. Skills (Industry) -->
             <section id="skills" class="industry-only">
                 <h2>Skills</h2>
                 <p>Core industry competencies: Full-Stack JavaScript engineering, Cloud Computing infrastructure, Big Data operations, Cyber Security systems optimization, and Python scripting workflows.</p>
@@ -177,7 +195,6 @@
                 </div>
             </section>
 
-            <!-- 4. References (Industry) -->
             <section id="references" class="industry-only">
                 <h2>References</h2>
                 <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
