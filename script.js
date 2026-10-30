@@ -66,6 +66,23 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Warning: Skill Development button element could not be found in index.html structural tracking.");
     }
 
+    // ==========================================
+    // ADDED: Academic Strengths Section Toggle
+    // ==========================================
+    const strengthsList = document.querySelector('.strengths-list');
+    const strengthsBtn = document.querySelector('.explore-btn[data-section="academic-strengths"]');
+    
+    if (strengthsList && strengthsBtn) {
+        // 1. Force the list to hide on the initial welcome screen load
+        strengthsList.classList.add('hidden');
+        
+        // 2. Setup the click toggle logic
+        strengthsBtn.addEventListener('click', () => {
+            const isHidden = strengthsList.classList.toggle('hidden');
+            strengthsBtn.textContent = isHidden ? 'Explore More' : 'Show Less';
+        });
+    }
+
     // Bind explicit target buttons to remove modal window layer
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
@@ -77,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
 function switchView(viewType) {
     currentActiveView = viewType;
     const btnAcademic = document.getElementById('btn-academic');
