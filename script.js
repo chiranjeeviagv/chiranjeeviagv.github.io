@@ -9,18 +9,25 @@ let currentActiveView = 'academic';
 // INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
 document.addEventListener("DOMContentLoaded", () => {
     // Top view navigation selection hooks
-        // Top view navigation selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
+    // FIX: Using querySelectorAll to bind event listeners to ALL buttons with matching data-sections
+    // This ensures both Academic and Industry "Qualifications" buttons trigger correctly.
+    document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
+        btn.addEventListener('click', showQualificationsModal);
+    });
+
     // Section modal exploration triggers
-    document.querySelector('[data-section="qualifications"]')?.addEventListener('click', showQualificationsModal);
     document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
     document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
     document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
     
-    // ADDED: Direct event listener triggers for your new academic and industry columns
+    // ADDED: Direct event listener trigger for your new Conferences section modal
+    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
+    
+    // Direct event listener triggers for your academic and industry columns
     document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
     document.querySelector('[data-section="skills"]')?.addEventListener('click', showSkillsModal);
     
@@ -43,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
 function switchView(viewType) {
     currentActiveView = viewType;
     const btnAcademic = document.getElementById('btn-academic');
