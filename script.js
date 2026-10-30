@@ -687,6 +687,12 @@ function showDevelopmentProgramsModal() {
     `;
     openHTMLModal('Skill Development & Workshops', programsHTML);
 }
+function showConferencesModal() {
+    const hiddenData = document.getElementById('data-conferences');
+    if (hiddenData) {
+        openHTMLModal('Conferences Attended Details', hiddenData.innerHTML);
+    }
+}
 
 // INLINE MATRIX NAVIGATION HELPER ENGINE
 function switchDevTab(event, tabId) {
