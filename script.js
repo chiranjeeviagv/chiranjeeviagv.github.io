@@ -433,8 +433,19 @@ function openHTMLModal(title, htmlContent) {
     if (modal && modalTitle && modalBody) {
         modalTitle.innerText = title;
         modalBody.innerHTML = htmlContent;
-        modal.style.setProperty('display', 'flex', 'important');
-        document.body.style.overflow = 'hidden'; 
+        modal.style.display = 'flex'; /* Opens popup container layout */
+        document.body.style.overflow = 'hidden'; /* Lock background scrolling */
+    }
+}
+
+// CORRECTED CLOSE MODAL ENGINE
+function closeModal() {
+    const modal = document.getElementById('details-modal');
+    const modalBody = document.getElementById('modal-body');
+    if (modal) {
+        modal.style.display = 'none'; /* COMPLETELY HIDES THE POPUP */
+        if (modalBody) modalBody.innerHTML = ''; /* Clears old data safely */
+        document.body.style.overflow = 'auto'; /* Restores normal scrolling */
     }
 }
 
