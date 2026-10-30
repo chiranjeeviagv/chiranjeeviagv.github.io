@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE RULES
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,6 +15,9 @@ body {
     padding: 20px;
 }
 
+/* ==========================================================================
+   2. HEADER & TOGGLE BUTTON ARCHITECTURE
+   ========================================================================== */
 header {
     text-align: center;
     margin-bottom: 40px;
@@ -51,26 +57,28 @@ header h1 {
     color: white;
 }
 
-.container {
+/* ==========================================================================
+   3. PROFILE HERO BLOCK LAYOUT (FLEX / GRID CONTROLS)
+   ========================================================================== */
+.page-container, .container {
     max-width: 1200px; 
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Master container layout forced into 2 strict side-by-side columns */
 .info-grid {
     display: grid !important;
-    grid-template-columns: 3fr 1fr !important; /* Left takes 75% space, right takes 25% */
+    grid-template-columns: 3fr 1fr !important;
     gap: 40px;
     background: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     margin-bottom: 40px;
-    align-items: center; /* Vertically aligns image and text perfectly center */
+    align-items: center;
     width: 100%;
 }
 
-/* Left column styling control */
 .contact-details {
     width: 100%;
 }
@@ -89,20 +97,18 @@ header h1 {
 .contact-details li {
     margin-bottom: 10px;
     font-size: 1rem;
-    white-space: normal; /* Permits text address lines to wrap neatly inside their column */
+    white-space: normal;
 }
 
-/* Right column container alignment */
 .profile-image-container {
     display: flex;
-    justify-content: flex-end; /* Snaps the photograph flush against the right margin */
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
 }
 
-/* Profile image structural specifications */
 .profile-image {
-    width: 160px; /* Locks your picture at a clean layout proportion */
+    width: 160px;
     height: auto;
     object-fit: cover;
     border-radius: 6px;
@@ -110,105 +116,84 @@ header h1 {
     border: 1px solid #eef1f5;
 }
 
-/* Responsive responsive adaptation for portable display viewports */
-@media (max-width: 768px) {
-    .info-grid {
-        grid-template-columns: 1fr !important; /* Drops to vertical stacking only on mobile layout sizes */
-        gap: 20px;
-        text-align: center;
-    }
-    .profile-image-container {
-        justify-content: center;
-    }
-}
-/* FIXED: Removed the stray extra closing curly bracket that was right here breaking the code beneath */
-/* 1. Limit the maximum width of the whole page so it looks clean on large screens */
-.page-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* 2. Turn the sections area into a structured 2-column grid layout */
+/* ==========================================================================
+   4. THREE-COLUMN DASHBOARD LAYOUT ENGINE
+   ========================================================================== */
 .cv-grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Creates two equal-width columns */
-    gap: 24px;                             /* Space between your CV cards */
+    grid-template-columns: repeat(3, 1fr); /* Forces three columns grid */
+    gap: 24px;
     margin-top: 30px;
+    width: 100%;
 }
 
-/* Styles to clean up card presentation */
-.academic-only, .industry-only {
+/* Standardized Card presentation layout container */
+.academic-only, .industry-only, .section-box {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* 3. Handle mobile screens: switch back to a single column automatically */
-@media (max-width: 768px) {
-    .cv-grid-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Master grid container spanning 100% width area */
-.career-content-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    width: 100%;
-    margin-bottom: 40px;
-}
-
-/* Forces career objective box to stretch beautifully across the grid width top area */
-.career-content-grid .section-box:first-child {
-    grid-column: span 2;
-}
-
-.section-box {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
+    padding: 24px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    border: 1px solid #eef1f5;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px;
+    min-height: 220px; /* Aligns row button alignments cleanly */
 }
 
-.section-box h2 {
-    font-size: 1.35rem;
-    margin-bottom: 15px;
+/* Base typography elements inside dashboard cards */
+.cv-grid-container h2, .section-box h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
     color: #222;
     border-bottom: 2px solid #f1f3f5;
     padding-bottom: 10px;
 }
 
-.section-box p {
+.cv-grid-container p, .section-box p {
     color: #666;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     margin-bottom: 20px;
     flex-grow: 1;
 }
 
+.cv-grid-container ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.cv-grid-container li {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* ==========================================================================
+   5. INTERACTIVE COMPONENT BUTTONS & CORE MODALS
+   ========================================================================== */
+.action-buttons, .card-actions-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    width: 100%;
+}
+
 .explore-btn {
     align-self: center;
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    padding: 8px 20px !important;
+    font-size: 0.88rem !important;
     color: #007bff;
     background: #e6f2ff;
     border: 1px solid #b3d7ff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s ease-in-out;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease-in-out !important;
 }
 
-.explore-btn:hover {
+.explore-btn:hover, .explore-btn.main-btn:hover {
     background: #007bff;
     color: white;
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
@@ -263,156 +248,27 @@ header h1 {
     background: #5a6268;
 }
 
-@media (max-width: 850px) {
-    .career-content-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+/* ==========================================================================
+   6. RESPONSIVE MEDIA VIEWPORT MEDIA BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .cv-grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Scales to 2 columns on tablets */
     }
-    .career-content-grid .section-box:first-child {
-        grid-column: span 1;
-    }
-    .info-grid {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-/* Sticky Navigation bar panel container styling */
-.sticky-nav {
-    position: sticky;
-    top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 12px 20px;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    max-width: 900px;
-    margin: 0 auto 35px auto;
-    z-index: 900;
-    backdrop-filter: blur(5px); /* Clean glassmorphism effect */
-    border: 1px solid #f1f3f5;
-}
-
-/* Individual navigation buttons */
-.nav-link-btn {
-    padding: 6px 14px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #495057;
-    background: transparent;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.nav-link-btn:hover {
-    background: #e6f2ff;
-    color: #007bff;
 }
 
 @media (max-width: 768px) {
-    .sticky-nav {
-        flex-wrap: wrap; /* Wraps cleanly on narrow smartphone viewports */
-        border-radius: 12px;
-        top: 5px;
+    .info-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        text-align: center;
     }
-    .nav-link-btn {
-        font-size: 0.8rem;
-        padding: 4px 10px;
+    
+    .profile-image-container {
+        justify-content: center;
     }
-}
 
-/* Container separating actions horizontally inside your cards */
-.card-actions-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 15px;
-    width: 100%;
-}
-
-/* Base formatting overrides ensuring interactive elements scale uniformly */
-.explore-btn {
-    padding: 8px 18px !important;
-    font-size: 0.88rem !important;
-    border-radius: 6px !important;
-    cursor: pointer !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease-in-out !important;
-}
-
-/* Main action button highlights */
-.explore-btn.main-btn {
-    color: #007bff;
-    background: #e6f2ff;
-    border: 1px solid #b3d7ff;
-}
-
-.explore-btn.main-btn:hover {
-    background: #007bff;
-    color: white;
-}
-
-/* Secondary directional navigation arrows styling */
-.explore-btn.nav-btn {
-    color: #6c757d;
-    background: #f8f9fa;
-    border: 1px solid #dee2e6;
-}
-
-.explore-btn.nav-btn:hover {
-    background: #495057;
-    color: white;
-    border-color: #495057;
-}
-
-/* Top button special configuration tint */
-.explore-btn.back-to-top {
-    color: #28a745;
-    background: #e8f5e9;
-    border: 1px solid #c8e6c9;
-}
-.explore-btn.back-to-top:hover {
-    background: #28a745;
-    color: white;
-}
-/* Utility helper class to handle hard view toggles */
-.hidden-view {
-    display: none !important;
-}
-
-/* Core Overlay Framework Container */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark background shadow shade */
-    display: none; /* Hide cleanly by default on initial page rendering */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-/* Modal Content Box Card */
-.modal-content {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    max-width: 800px;
-    width: 90%;
-    max-height: 85vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    position: relative;
-}
-
-/* Core helper to toggle display attributes explicitly via JavaScript overrides */
-.modal-overlay.hidden {
-    display: none !important;
+    .cv-grid-container {
+        grid-template-columns: 1fr; /* Scales to 1 column on mobile phones */
+    }
 }
