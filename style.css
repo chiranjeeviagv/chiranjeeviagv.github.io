@@ -165,20 +165,24 @@ header h1 {
     flex-direction: column;
     justify-content: space-between;
 }
+
 #academic-strengths {
     padding: 20px;
 }
 
-.strengths-list {
-    list-style: none; /* Removes default bullets */
-    padding-left: 0;
+/* Hide items that exceed the initial limit */
+.strengths-list li.hidden {
+    display: none;
 }
 
+/* Optional: Smooth fade-in effect when revealed */
 .strengths-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    line-height: 1.5;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Generates a clean green checkmark before each item */
