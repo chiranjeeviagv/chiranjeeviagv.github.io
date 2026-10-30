@@ -139,34 +139,7 @@ header h1 {
     flex-direction: column;
     justify-content: space-between;
     min-height: 220px;
-    grid-column: auto !important; /* FIX: Prevents career objective from spanning full width */
-}
-
-/* ==========================================================================
-   6. RESPONSIVE MEDIA VIEWPORT MEDIA BREAKPOINTS
-   ========================================================================== */
-@media (max-width: 1024px) {
-    .cv-grid-container,
-    .career-content-grid {
-        grid-template-columns: repeat(2, 1fr) !important; /* Scales to 2 columns on tablets */
-    }
-}
-
-@media (max-width: 768px) {
-    .info-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .profile-image-container {
-        justify-content: center;
-    }
-
-    .cv-grid-container,
-    .career-content-grid {
-        grid-template-columns: 1fr !important; /* Scales to 1 column on mobile phones */
-    }
+    grid-column: auto !important;
 }
 
 /* ==========================================================================
@@ -250,11 +223,12 @@ header h1 {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE MEDIA VIEWPORT MEDIA BREAKPOINTS
+   6. RESPONSIVE MEDIA VIEWPORT BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
-    .cv-grid-container {
-        grid-template-columns: repeat(2, 1fr); /* Scales to 2 columns on tablets */
+    .cv-grid-container,
+    .career-content-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* Scales to 2 columns on tablets */
     }
 }
 
@@ -269,7 +243,8 @@ header h1 {
         justify-content: center;
     }
 
-    .cv-grid-container {
-        grid-template-columns: 1fr; /* Scales to 1 column on mobile phones */
+    .cv-grid-container,
+    .career-content-grid {
+        grid-template-columns: 1fr !important; /* Scales to 1 column on mobile phones */
     }
 }
