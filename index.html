@@ -4,122 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Professional CV</title>
-    <style>
-        /* Base page layout container wrapper rules */
-        .page-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-
-        .main-header {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .view-toggle-container {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .download-link-wrapper {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            text-decoration: none;
-        }
-
-        /* Profile Block Alignment Layout */
-        .profile-hero-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        #objective {
-            flex: 1.2; /* Gives slightly more horizontal room to objective */
-        }
-
-        #contact-info {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .bio-details {
-            flex: 1;
-        }
-
-        .bio-img-container {
-            flex-shrink: 0;
-        }
-
-        .profile-avatar {
-            width: 150px;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        /* ==========================================================================
-           TWO COLUMN GRID SYSTEM (The fix for your layout cards)
-           ========================================================================== --> */
-        .cv-grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .academic-only, .industry-only, .hero-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Clean up presentation lists inside sections */
-        ul {
-            padding-left: 20px;
-            margin: 5px 0;
-        }
-
-        li {
-            margin-bottom: 6px;
-        }
-
-        .action-buttons {
-            margin-top: 15px;
-        }
-        
-        /* Responsive View Switch Breakpoints */
-        @media (max-width: 768px) {
-            .profile-hero-row, #contact-info {
-                flex-direction: column;
-            }
-            .cv-grid-container {
-                grid-template-columns: 1fr;
-            }
-            .download-link-wrapper {
-                position: static;
-                margin-top: 15px;
-            }
-        }
-    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -127,6 +11,7 @@
     <!-- Header Section with Controls -->
     <header class="main-header">
         <h1>G V Chiranjeevi Adari</h1>
+        <p class="subtitle-text">Electrical Engineer & Software Professional</p>
         
         <div class="view-toggle-container">
             <button id="btn-academic" class="toggle-btn active">Academic View</button>
@@ -153,229 +38,130 @@
                     <h3>Contact Details</h3>
                     <ul>
                         <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
-                        <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+                        <li><strong>Address:</strong> H No 4-243 4th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
                         <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">linkedin.com</a></li>
-                        <li><strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">google.com</a></li>
-                        <li><strong>JNTUH Registration ID</strong> 3059-191113-150648</li>
-                        <li><strong>UNIPUNE ID</strong> 52092500466</li>
-                        <li><strong>Scopus Author ID</strong>58316331900</li>
-                        <li><strong>ORCID ID </strong>0000-0002-7895-407X</li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/" target="_blank">linkedin.com</a></li>
+                        <li><strong>Scholar:</strong> <a href="https://scholar.google.com/" target="_blank">google.com</a></li>
+                        <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+                        <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+                        <li><strong>Scopus Author ID:</strong> 58316331900</li>
+                        <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
                     </ul>
                 </div>
                 <div class="bio-img-container">
-                    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-avatar">
+                    <div class="profile-avatar-fallback">Photo Node</div>
                 </div>
             </section>
         </div>
 
-        <!-- TWO COLUMN GRID WRAPPER -->
-<div class="cv-grid-container">
+     <!-- TWO COLUMN GRID WRAPPER -->
+        <div class="cv-grid-container">
 
-    <!-- ==========================================
-       ACADEMIC VIEW ONLY BLOCKS 
-       ========================================== -->
-    <section id="qualifications-academic" class="academic-only">
-        <h2>Qualifications</h2>
-        <p>Details about degrees, university, and academic milestones common across roles.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="qualifications">Explore More</button>
-        </div>
-    </section>
+            <!-- ==========================================
+               SHARED UNIVERSAL BLOCKS 
+               ========================================== -->
+            <section id="qualifications-shared" class="hero-card">
+                <h2>Qualifications</h2>
+                <p>Details about degrees, university, and academic milestones common across roles.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="qualifications">Explore More</button>
+                </div>
+            </section>
 
-    <section id="publications" class="academic-only">
-        <h2>Publications</h2>
-        <p>List of journals, conference papers, and academic research publications.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="publications">Explore More</button>
-        </div>
-    </section>
+            <section id="references-shared" class="hero-card">
+                <h2>References</h2>
+                <p>Verified contact nodes from professional academic mentors and industry leads.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="references">Explore More</button>
+                </div>
+            </section>
 
-    <!-- Conferences Attended Card with Handoff Data Container -->
-    <section id="conferences" class="academic-only">
-        <h2>Conferences Attended</h2>
-        <p>List of papers presented at national and international engineering conferences.</p>
-        
-        <!-- Hidden data repository processed by JS engine -->
-        <div id="data-conferences" style="display: none;">
-            <ul>
-                <li>Presented a paper on <strong>“System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0”</strong> in <em>“5th International E-conference on Mechanical and Material Science Engineering: Innovation and Research (ICMMSE:IR)”</em> organized by the Department of Mechanical Engineering, Sandip Institute of Technology & Research Centre, Nashik, Maharashtra during 27th and 28th of February 2026.</li>
-                <li>Presented a paper on <strong>“Transient Stability Improvement of SMIB using DPFC”</strong> at a two-day national conference on <em>“Recent Trends in Electrical and Electronics Engineering (RTEEE)”</em> held at Vignan's Institute of Information Technology on 14th and 15th of April 2017.</li>
-                <li>Presented a paper titled <strong>“Cyber Security in Smart Grids - Role of Digital Advanced Devices”</strong> at a Two-Day National Conference on the theme <em>"Green and Resilient Energy Systems" (GVCON-2K22)</em>, conducted by the Electrical & Electronics Engineering Department, Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam during 21st to 22nd October, 2022.</li>
-            </ul>
-        </div>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="conferences">Explore More</button>
-        </div>
-    </section>
+            <!-- ==========================================
+               ACADEMIC VIEW ONLY BLOCKS 
+               ========================================== -->
+            <section id="publications" class="academic-only">
+                <h2>Publications</h2>
+                <p>List of journals, conference papers, and academic research publications.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="publications">Explore More</button>
+                </div>
+            </section>
 
-    <section id="experience" class="academic-only">
-        <h2>Experience</h2>
-        <p>Teaching, research assistantships, and institutional responsibilities.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="experience">Explore More</button>
-        </div>
-    </section>
-  <section id="academic-strengths" class="academic-only">
-    <h2>Academic Strengths</h2>
-    <p>Having served across different regions, I am fully equipped with the teaching skills necessary to cater to diverse types of learners.</p>
-    
-    <ul class="strengths-list hidden">
-        <li>Possess good written and verbal communication skills.</li>
-        <li>Ability to generate effective teaching by making use of various methodologies.</li>
-        <li>Possess 9 years of professional experience (post-M.Tech) in teaching Electrical and Electronics subjects.</li>
-        <li>Possess good time management and organizational skills.</li>
-        <li>Proven track record of guiding and motivating students.</li>
-        <li>Exposure to the Higher Education system in different regions.</li>
-        <li>Ability to carry out tasks with minimal supervision with a positive attitude.</li>
-        <li>Strong knowledge of Outcome-Based Education (OBE) and the teaching-learning process.</li>
-        <li>Handled Department Examination branch and related activities.</li>
-        <li>Handled department accreditation-related file preparation work.</li>
-        <li>Sincere, punctual, and highly dependable.</li>
-        <li>Good grasping power and professional confidence.</li>
-        <li>Strong problem analysis skills.</li>
-    </ul>
+            <section id="experience-timeline" class="academic-only">
+                <h2>Experience Timeline</h2>
+                <p>Academic teaching milestones, engineering lectureships, and university service records.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="experience">Explore More</button>
+                </div>
+            </section>
 
-    <div class="action-buttons">
-        <!-- RENAME CLASS HERE TO BYPASS THE MODAL ENGINE -->
-        <button class="strengths-toggle-btn" data-section="academic-strengths">Explore More</button>
+            <section id="subject-expertise" class="academic-only">
+                <h2>Subject Expertise</h2>
+                <p>Advanced domain curriculum fields handled including High Voltage Engineering and Control Systems.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="expertise">Explore More</button>
+                </div>
+            </section>
+
+            <section id="conferences" class="academic-only">
+                <h2>Conferences Attended</h2>
+                <p>List of papers presented at national and international engineering conferences.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="conferences">Explore More</button>
+                </div>
+            </section>
+
+            <section id="academic-strengths" class="academic-only">
+                <h2>Academic Strengths</h2>
+                <div class="action-buttons" style="margin-bottom: 10px;">
+                    <button class="strengths-toggle-btn">Explore More</button>
+                </div>
+                <ul class="strengths-list">
+                    <li>9 years of post-M.Tech professional engineering teaching experience.</li>
+                    <li>Strong knowledge of Outcome-Based Education (OBE) parameters.</li>
+                    <li>Handled department accreditation file preparation tasks.</li>
+                </ul>
+            </section>
+
+            <!-- ==========================================
+               INDUSTRY VIEW ONLY BLOCKS 
+               ========================================== -->
+            <section id="technical-skills" class="industry-only">
+                <h2>Technical Skills</h2>
+                <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="skills">Explore More</button>
+                </div>
+            </section>
+
+            <section id="skill-development" class="industry-only">
+                <h2>Skill Development (FDPs)</h2>
+                <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
+                <div class="action-buttons">
+                    <button class="explore-btn" data-section="fdps">Explore More</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- DYNAMIC POPUP MODAL ARCHITECTURE -->
+    <div id="details-modal" class="modal-overlay hidden-view">
+        <div class="modal-content">
+            <h2 id="modal-title">Modal Title</h2>
+            <div id="modal-body">Modal Body Content</div>
+            <button id="close-modal-btn">Close Window</button>
+        </div>
     </div>
-</section>
-  <section id="fdps" class="academic-only">
-        <h2>Skill Development Programs / FDPs / Workshops</h2>
-        <p>Details of Faculty Development Programs, workshops attended or organized.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="fdps">Explore More</button>
-        </div>
-    </section>
 
-<section id="subject-expertise" class="academic-only">
-    <h2>Subject Area Expertise</h2>
-    <p>Advanced domain expertise fields including High Voltage Engineering, Power Systems, AI, Machine Learning, and transient stability control systems.</p>
-    
-    <!-- Hidden data structure repository -->
-    <div id="data-expertise" style="display: none;">
-        <h3>Courses Handled</h3>
-        <ul style="margin-top: 10px; padding-left: 20px;">
-            <li>Artificial Intelligence Techniques</li>
-            <li>AI Based Web Design</li>
-            <li>Introduction to Expert Systems</li>
-            <li>Software Testing Certification</li>
-            <li>Advanced Python Programming</li>
-            <li>Discrete Mathematics and Logic</li>
-            <li>Electro Magnetic Fields</li>
-            <li>Microprocessors and Microcontrollers</li>
-            <li>Digital Logic Design</li>
-            <li>Electrical Technology</li>
-            <li>Non-Conventional Sources of Energy</li>
-            <li>High Voltage Engineering</li>
-            <li>Digital Controllers</li>
-            <li>Basic Electrical and Electronics Engineering</li>
-            <li>Control Systems</li>
-            <li>Power System Protection</li>
-            <li>Power System Analysis</li>
+    <!-- HIDDEN DATA REPOSITORIES -->
+    <div id="data-conferences" style="display: none;">
+        <ul style="padding-left: 20px; text-align: left; line-height: 1.8;">
+            <li>Presented a paper on <strong>“System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0”</strong> at SITRC, Nashik (Feb 2026).</li>
+            <li>Presented a paper on <strong>“Transient Stability Improvement of SMIB using DPFC”</strong> at Vignan's Institute of Information Technology (April 2017).</li>
+            <li>Presented a paper titled <strong>“Cyber Security in Smart Grids - Role of Digital Advanced Devices”</strong> at a Two-Day National Conference (Oct 2022).</li>
         </ul>
     </div>
 
-    <div class="action-buttons">
-        <!-- FIX: Changed data-section value to "expertise" to match your JS router exactly -->
-        <button class="explore-btn" data-section="expertise">Explore More</button>
-    </div>
-</section>
-
-    <!-- ==========================================
-       INDUSTRY VIEW ONLY BLOCKS 
-       ========================================== -->
-    <section id="qualifications-industry" class="industry-only">
-        <h2>Qualifications</h2>
-        <p>Details about degrees, university, and academic milestones common across industry roles.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="qualifications">Explore More</button>
-        </div>
-    </section>
-
-    <section id="certifications" class="industry-only">
-        <h2>Certifications</h2>
-        <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="certifications">Explore More</button>
-        </div>
-    </section>
-
-<section id="skills" class="industry-only">
-    <h2>Skills</h2>
-    <p>Core industry competencies: Full-Stack JavaScript engineering, Cloud Computing infrastructure, Big Data operations, Cyber Security systems optimization, and Python scripting workflows.</p>
-    
-    <!-- Hidden data repository processed by the JavaScript engine -->
-    <div id="data-skills" style="display: none;">
-        <h3>Programming Skills Portfolio</h3>
-        <ul style="margin-top: 15px; padding-left: 20px; line-height: 1.6;">
-            <li>Advanced Python Programming</li>
-            <li>Matlab Programming</li>
-            <li>JavaScript Programming</li>
-            <li>Python Programming</li>
-            <li>Java Programming (Basics)</li>
-            <li>Web Development</li>
-            <li>AI Development</li>
-            <li>Full Stack Development</li>
-        </ul>
-    </div>
-
-    <!-- UPDATE THIS DIV BELOW TO FORWARD THE CLICK INLINE -->
-    <div class="action-buttons">
-        <!-- FIXED: Explicit onclick parameter hooks directly into your showSkillsModal function -->
-        <button class="explore-btn" data-section="skills" onclick="showSkillsModal()">Explore More</button>
-    </div>
-</section>
-
-        <!-- 4. References (Industry View Card Container) -->
-        <section id="references" class="industry-only">
-            <h2>References</h2>
-            <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
-            <div class="action-buttons">
-                <button class="explore-btn" data-section="references">Explore More</button>
-            </div>
-        </section>
-
-    </div> <!-- This closes your cv-grid-container grid -->
-</main> <!-- This closes your main page-container wrapper -->
-
-<!-- Dynamic Modal Overlay Framework Box -->
-<div id="details-modal" class="modal-overlay">
-    <div class="modal-card">
-        <h2 id="modal-title">Section Title</h2>
-        <div id="modal-body" class="modal-body-content"></div>
-        <button id="close-modal-btn" class="close-btn">Close Window</button>
-    </div>
-</div>
-<!-- JavaScript Functionality for the Dynamic Switch -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const academicBtn = document.getElementById('btn-academic');
-            const industryBtn = document.getElementById('btn-industry');
-            
-            const academicCards = document.querySelectorAll('.academic-only');
-            const industryCards = document.querySelectorAll('.industry-only');
-
-            // Switch to Academic View
-            academicBtn.addEventListener('click', () => {
-                academicBtn.classList.add('active');
-                industryBtn.classList.remove('active');
-
-                academicCards.forEach(card => card.classList.remove('hidden'));
-                industryCards.forEach(card => card.classList.add('hidden'));
-            });
-
-            // Switch to Industry View
-            industryBtn.addEventListener('click', () => {
-                industryBtn.classList.add('active');
-                academicBtn.classList.remove('active');
-
-                industryCards.forEach(card => card.classList.remove('hidden'));
-                academicCards.forEach(card => card.classList.add('hidden'));
-            });
-        });
-    </script>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
