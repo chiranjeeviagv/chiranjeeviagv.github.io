@@ -6,15 +6,63 @@ const objectives = {
 // Tracks active view globally
 let currentActiveView = 'academic';
 
+// STATIC TEXT CONTENT DICTIONARIES FOR THE VIEWS
+const objectives = {
+    academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
+    industry: "Seeking a dynamic technical role in the industry to leverage software development, modern technical infrastructure, and system engineering capabilities."
+};
+
+// STATIC HTML DATA DICTIONARIES FOR THE MODAL POPUPS
+const modalContentData = {
+    qualifications: `
+        <h3>Academic Credentials & Milestones</h3>
+        <ul>
+            <li><strong>Ph.D. / Doctor of Philosophy</strong> (Ongoing/Details)</li>
+            <li><strong>M.Tech / Master of Technology</strong> - Electrical & Electronics Engineering Track</li>
+            <li><strong>B.Tech / Bachelor of Technology</strong> - Fundamental Engineering Core Curriculum</li>
+        </ul>
+    `,
+    publications: `
+        <h3>Academic & Research Publications</h3>
+        <p>Comprehensive list of peer-reviewed journal papers, IEEE conference records, and domain publications addressing core technical tracks.</p>
+    `,
+    conferences: `
+        <h3>Conferences & Symposiums Attended</h3>
+        <p>National and International technical presentations focusing heavily on Digital Twin Systems, Transient Stability Tracking Control, and Cyber Security layers within modern Smart Grids.</p>
+    `,
+    experience: `
+        <h3>Professional Work Experience</h3>
+        <p>Comprehensive baseline tracking teaching history, research assistantships, institutional portfolios, and departmental leadership footprints.</p>
+    `,
+    fdps: `
+        <h3>Faculty Development Programs & Workshops</h3>
+        <p>Chronological index of dedicated FDPs completed, instructional workshops organized, and advanced pedagogy training modules successfully logged.</p>
+    `,
+    expertise: `
+        <h3>Subject Matter & Domain Expertise</h3>
+        <p>Deep specialization records across High Voltage Engineering systems, Power System Analysis, Applied Artificial Intelligence models, and Machine Learning runtime frameworks.</p>
+    `,
+    certifications: `
+        <h3>Professional Vendor Certifications</h3>
+        <p>Technical credentials portfolio covering modern cloud platforms, enterprise infrastructure components, and specialized software badging tracks.</p>
+    `,
+    skills: `
+        <h3>Technical Skills Core Vector</h3>
+        <p>Core development stack highlights: Modern JavaScript (Full-Stack environment frameworks), Cloud infrastructure configuration pipelines, Python scripting engine automation, and Big Data setups.</p>
+    `,
+    references: `
+        <h3>Professional & Academic Endorsements</h3>
+        <p>Verified structural references from industry engineering managers and senior academic guides are fully prepared and available immediately upon valid institutional request.</p>
+    `
+};
+
 // INTERACTIVE BUTTON SWITCH & INITIALIZATION ENGINE
-// UNIFIED INTERACTIVE SWITCH & INITIALIZATION ENGINE
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Top view navigation selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
     // 2. UNIFIED LOOP ENGINES FOR INTERACTIVE BUTTON CLICKS
-    // This loops through ALL matching data-section buttons so both Qualifications elements function correctly!
     document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
         btn.addEventListener('click', showQualificationsModal);
     });
@@ -64,12 +112,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// CORE ACTION: OPEN AND POPULATE DYNAMIC MODAL ENGINE
+function openModalEngine(sectionKey, fallBackTitle) {
+    const modalElement = document.getElementById("details-modal");
+    const titleElement = document.getElementById("modal-title");
+    const bodyElement = document.getElementById("modal-body");
+
+    if (!modalElement || !titleElement || !bodyElement) return;
+
+    // Apply titles and descriptive payload markup
+    titleElement.innerText = fallBackTitle;
+    bodyElement.innerHTML = modalContentData[sectionKey] || `<p>Detailed structural files regarding ${fallBackTitle} are loading soon...</p>`;
+    
+    // Reveal by stripping out the hidden classification rule
+    modalElement.classList.remove("hidden");
+}
+
+// CLOSE MODAL ENGINE FUNCTION
+function closeModal() {
+    const modalElement = document.getElementById("details-modal");
+    if (modalElement) {
+        modalElement.classList.add("hidden");
+    }
+}
+
+// MISSING MODAL TRIGGER FUNCTIONS ADDED BELOW
+function showQualificationsModal() { openModalEngine('qualifications', 'Qualifications'); }
+function showCertificationsModal() { openModalEngine('certifications', 'Certifications'); }
+function showExperienceModal() { openModalEngine('experience', 'Experience'); }
+function showPublicationsModal() { openModalEngine('publications', 'Publications'); }
+function showReferencesModal() { openModalEngine('references', 'References'); }
+function showExpertiseModal() { openModalEngine('expertise', 'Subject Area Expertise'); }
+function showSkillsModal() { openModalEngine('skills', 'Skills'); }
+function showConferencesModal() { openModalEngine('conferences', 'Conferences Attended'); }
+function showDevelopmentProgramsModal() { openModalEngine('fdps', 'Skill Development / FDPs'); }
+
+// VIEW CONTROLLER ENGINE
 function switchView(viewType) {
     currentActiveView = viewType;
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     
-    // Safety check in case elements aren't loaded yet
     if (!btnAcademic || !btnIndustry) return;
 
     if (viewType === 'academic') {
@@ -88,19 +171,16 @@ function switchView(viewType) {
     const academicSections = document.querySelectorAll('.academic-only');
     const industrySections = document.querySelectorAll('.industry-only');
 
-    // Update main grid items
     if (viewType === 'academic') {
         academicSections.forEach(el => el.style.setProperty('display', 'flex', 'important')); 
         industrySections.forEach(el => el.style.setProperty('display', 'none', 'important'));
         
-        // Show/Hide relevant navigation button tracks
         document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'inline-block');
         document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'none');
     } else {
         academicSections.forEach(el => el.style.setProperty('display', 'none', 'important'));
         industrySections.forEach(el => el.style.setProperty('display', 'flex', 'important'));
         
-        // Show/Hide relevant navigation button tracks
         document.querySelectorAll('.academic-nav').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.industry-nav').forEach(el => el.style.display = 'inline-block');
     }
