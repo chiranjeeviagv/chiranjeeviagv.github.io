@@ -65,19 +65,18 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Warning: Skill Development button element could not be found.");
     }
 
-    // =======================================================
-    // FIX: Academic Strengths Section Inline Toggle (No Modal)
+        // =======================================================
+    // FIX: Academic Strengths Section Inline Toggle (Isolated)
     // =======================================================
     const strengthsList = document.querySelector('.strengths-list');
-    const strengthsBtn = document.querySelector('.explore-btn[data-section="academic-strengths"]');
+    const strengthsBtn = document.querySelector('.strengths-toggle-btn[data-section="academic-strengths"]');
     
     if (strengthsList && strengthsBtn) {
-        // Force the list to hide on the initial welcome screen layout load
+        // Enforce fallback inline display properties instantly
         strengthsList.style.setProperty('display', 'none', 'important');
         
-        // Setup direct on-page toggle logic
         strengthsBtn.addEventListener('click', (event) => {
-            // STOP the button click from bubbling up or triggering any background modal code
+            // Hard cut isolating click from background global modal triggers
             event.stopPropagation();
             event.preventDefault();
 
