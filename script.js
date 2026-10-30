@@ -703,10 +703,7 @@ function showReferencesModal() {
             </div>
         </div>
     `;
-    openHTMLModal('Verified Professional References', referencesHTML);
-}
-
-// NEW EXPLICIT MODAL OVERLAY LAYOUTS FOR ACADEMIC CORE TRACKS
+    openHTMLModal('Verified Professional References', referencesHTML);// NEW EXPLICIT MODAL OVERLAY LAYOUTS FOR ACADEMIC CORE TRACKS
 function showExpertiseModal() {
     const expertiseHTML = `
         <div class="modal-credentials-layout" style="text-align: left; line-height: 1.6; font-family: system-ui, -apple-system, sans-serif;"> 
