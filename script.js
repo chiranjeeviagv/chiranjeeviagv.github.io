@@ -316,17 +316,140 @@ function showExperienceModal() {
     openHTMLModal('Professional Experience', experienceHTML);
 }
 
+// FORMATTED CONTENT MAPPING: PUBLICATIONS & RESEARCH PAPERS
 function showPublicationsModal() {
     const publicationsHTML = `
-        <div class="modal-credentials-layout" style="text-align:left; line-height:1.7;">
-            <h4 style="color:#007bff; margin-bottom:8px;">Peer-Reviewed International Journal Papers:</h4>
-            <p style="margin-bottom:6px;">• <strong>"Transient stability improvement of Single Machine Infinite Bus (SMIB) system Using Distributed Power Flow Controller (DPFC)"</strong> - <em>International Journal of Pure and Applied Mathematics (IJPAM)</em>, 2017.</p>
-            <p style="margin-bottom:6px;">• <strong>"Application of SVC for Multiobjective Optimization Powerflow Problem Using PSO"</strong> - <em>IJPAM</em>, 2017.</p>
-            <p style="margin-bottom:6px;">• <strong>"Dynamic Stability Improvement of a Smart Grid using Neural Network Based STATCOM"</strong> - <em>Indian Journal of Science and Technology (INDJST)</em>.</p>
-            <h4 style="color:#007bff; margin-top:15px; margin-bottom:8px;">Indexed Scientific Monographs & Book Chapters:</h4>
-            <p style="margin-bottom:6px;">• <strong>"Cyber security in smart Grids: Role of Digital Advanced Devices"</strong> - Published by <em>IGI Global Publications</em> (2023 Architecture Track).</p>
-        </div>`;
-    openHTMLModal('Publications Portfolio & Journal Index', publicationsHTML);
+        <div class="modal-credentials-layout">
+            <style>
+                .publication-section-title {
+                    font-size: 1.15rem;
+                    color: #007bff;
+                    margin: 25px 0 12px 0;
+                    border-bottom: 2px solid #e3e6f0;
+                    padding-bottom: 6px;
+                    text-align: left;
+                    font-weight: 600;
+                }
+                .pub-title { font-weight: 600; color: #1a1a1a; font-size: 0.98rem; line-height: 1.4; text-align: left; }
+                .pub-meta { font-size: 0.86rem; color: #5a5c69; margin-top: 6px; line-height: 1.5; text-align: left; }
+                .pub-meta strong { color: #3a3b45; }
+                .credential-link { font-size: 0.85rem; white-space: nowrap; font-weight: 600; }
+            </style>
+
+            <p style="margin-bottom: 20px; color: #4e73df; text-align: left; font-size: 0.92rem; font-weight: 600;">
+                ℹ️ Click on the index or access links in the right column to review raw source text documents, metadata records, or publisher portals.
+            </p>
+
+            <!-- SECTION 1: INTERNATIONAL JOURNAL PAPERS -->
+            <div class="publication-section-title">📄 Peer-Reviewed International Journal Papers</div>
+            <table class="modal-data-table" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                        <th style="width: 75%; text-align: left; padding: 12px;">Journal Paper & Research Context</th>
+                        <th style="width: 25%; text-align: center; padding: 12px;">Document Access</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;">
+                            <div class="pub-title">"Transient stability improvement of Single Machine Infinite Bus (SMIB) system Using Distributed Power Flow Controller (DPFC)"</div>
+                            <div class="pub-meta">
+                                <strong>Author:</strong> G V Chiranjeevi Adari<br>
+                                <strong>Journal:</strong> International Journal of Pure and Applied Mathematics (IJPAM)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 114, No. 8, 2017 (pp. 285-295)<br>
+                                <strong>Identifiers:</strong> ISSN: 1311-8080 (Print) / 1314-3395 (Online)
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle; padding: 12px;">
+                            <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline;">View Journal PDF ↗</a>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;">
+                            <div class="pub-title">"Application of SVC for Multiobjective Optimization Powerflow Problem Using PSO"</div>
+                            <div class="pub-meta">
+                                <strong>Authors:</strong> P.Ramesh, A.G.V Chiranjeevi and Kottala Padma<br>
+                                <strong>Journal:</strong> International Journal of Pure and Applied Mathematics (IJPAM)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 114, No. 8, 2017 (pp. 23-33)<br>
+                                <strong>Identifiers:</strong> ISSN: 1311-8080 (Print) / 1314-3395 (Online)
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle; padding: 12px;">
+                            <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline;">View Journal PDF ↗</a>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;">
+                            <div class="pub-title">"Dynamic Stability Improvement of a Smart Grid using Neural Network Based STATCOM"</div>
+                            <div class="pub-meta">
+                                <strong>Author:</strong> G V Chiranjeevi Adari<br>
+                                <strong>Journal:</strong> Indian Journal of Science and Technology (INDJST)
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle; padding: 12px;">
+                            <a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline;">View Article Portal ↗</a>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;">
+                            <div class="pub-title">"A Grid Interfaced Low Frequency Offshore Wind Power"</div>
+                            <div class="pub-meta">
+                                <strong>Author:</strong> AGV Chiranjeevi<br>
+                                <strong>Journal:</strong> International Journal for Research in Applied Science & Engineering Technology (IJRASET)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 3, Issue III, March 2015 (p. 544)<br>
+                                <strong>Identifiers:</strong> ISSN: 2321-9653
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle; padding: 12px;">
+                            <a href="https://www.ijraset.com/fileserve.php?FID=2047" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline;">View Repository File ↗</a>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;">
+                            <div class="pub-title">"Simulation Based Analysis for Fixing Optimal Stages for a H-Bridge Cascaded Multi-Level Converters"</div>
+                            <div class="pub-meta">
+                                <strong>Authors:</strong> RAJASEKHAR VADDI, ADARI G. V. CHIRANJEEVI<br>
+                                <strong>Journal:</strong> International Journal of Scientific Engineering and Technology Research (IJSETR)<br>
+                                <strong>Volume & Timeline:</strong> Vol. 05, Issue 07, March-2016 (pp. 1342-1346)<br>
+                                <strong>Identifiers:</strong> ISSN: 2319-8885
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle; padding: 12px;">
+                            <a href="https://ijsetr.com/uploads/463251IJSETR9076-240.pdf" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline;">View Server PDF ↗</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- SECTION 2: BOOK CHAPTERS -->
+            <div class="publication-section-title">📖 Indexed Book Chapters & Additional Material</div>
+            <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                        <th style="width: 75%; text-align: left; padding: 12px;">Chapter Details & Monograph Data</th>
+                        <th style="width: 25%; text-align: center; padding: 12px;">Storage Drive Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;">
+                            <div class="pub-title">"Cyber security in smart Grids:-Role of Digital Advanced Devices"</div>
+                            <div class="pub-meta">
+                                <strong>Authors:</strong> Prof. M Ramalinga Raju, Mr. Adari G V Chiranjeevi<br>
+                                <strong>Book:</strong> Cyber security-Issues, Challenges –Solutions-Business | <em>IGI Global Publications</em><br>
+                                <strong>Timeline:</strong> October 2022 | Pages 18-32<br>
+                                <strong>Identifiers:</strong> ISBN-9781668458273 | DOI: 10.4018/978-1-6684-5827-3.ch002
+                            </div>
+                        </td>
+                        <td style="text-align: center; vertical-align: middle; padding: 12px;">
+                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline;">View Digital Drive ↗</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    openHTMLModal('Research Publications', publicationsHTML);
 }
 
 function showExpertiseModal() {
