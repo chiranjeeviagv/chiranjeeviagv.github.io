@@ -259,23 +259,61 @@ function showCertificationsModal() {
     openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
 }
 
+// 2️⃣ MODAL PAYLOAD: PROFESSIONAL EXPERIENCE TIMELINE
 function showExperienceModal() {
     const experienceHTML = `
         <div class="modal-credentials-layout">
-            <table class="modal-data-table">
+            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
+                Review my academic teaching milestones and institutional service records below.
+            </p>
+            
+            <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
                 <thead>
-                    <tr><th>Designation Track Role</th><th>Institution / University</th><th>Service Tenure Duration</th></tr>
+                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                        <th style="padding: 12px; text-align: left;">Designation & Department</th>
+                        <th style="padding: 12px; text-align: left;">Institution & Location</th>
+                        <th style="padding: 12px; text-align: left;">Tenure Period</th>
+                        <th style="padding: 12px; text-align: left;">Verification Records</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Assistant Professor (AI & ML)</strong></td><td>SITRC (Sandip University), Nashik</td><td>June 2025 – May 2026</td></tr>
-                    <tr><td><strong>Assistant Professor (EEE Core)</strong></td><td>Guru Nanak Institute (Autonomous), Hyd</td><td>Feb 2023 – Jan 2025</td></tr>
-                    <tr><td><strong>Assistant Professor (EEE Core)</strong></td><td>Malla Reddy Eng College for Women</td><td>July 2022 – Feb 2023</td></tr>
-                    <tr><td><strong>Senior Assistant Professor (EEE)</strong></td><td>Aditya College of Engineering</td><td>Nov 2019 – July 2021</td></tr>
-                    <tr><td><strong>Assistant Professor (EEE Department)</strong></td><td>Vignan’s VIIT (Autonomous), Vizag</td><td>March 2015 – Nov 2019</td></tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>Assistant Professor</strong><br><span style="color: #007bff; font-size: 0.85rem;">Electrical Engineering (AI & ML)</span></td>
+                        <td style="padding: 12px;">Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra</td>
+                        <td style="padding: 12px;">June 2025 – May 2026</td>
+                        <td style="padding: 12px;"><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline; font-weight: 600;">View Service Doc ↗</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td style="padding: 12px;">Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad</td>
+                        <td style="padding: 12px;">Feb 2023 – Jan 2025</td>
+                        <td style="padding: 12px;"><a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline; font-weight: 600;">View Experience ↗</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td style="padding: 12px;">Malla Reddy Engineering College for Women (Autonomous), Secunderabad</td>
+                        <td style="padding: 12px;">July 2022 – Feb 2023</td>
+                        <td style="padding: 12px;"><a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline; font-weight: 600;">View Service Doc ↗</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>Senior Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td style="padding: 12px;">Aditya College of Engineering, Surampalem, Andhra Pradesh</td>
+                        <td style="padding: 12px;">Nov 2019 – July 2021</td>
+                        <td style="padding: 12px;"><a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline; font-weight: 600;">View Service Doc ↗</a></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>Assistant Professor</strong><br><span style="color: #666; font-size: 0.85rem;">Electrical & Electronics Engineering</span></td>
+                        <td style="padding: 12px;">Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh</td>
+                        <td style="padding: 12px;">March 2015 – Nov 2019</td>
+                        <td style="padding: 12px;"><a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link" style="color: #0066cc; text-decoration: underline; font-weight: 600;">View Experience ↗</a></td>
+                    </tr>
                 </tbody>
             </table>
-        </div>`;
-    openHTMLModal('Professional Academic Tenure History', experienceHTML);
+        </div>
+    `;
+    
+    // Core function call to open the modal window safely
+    openHTMLModal('Professional Experience', experienceHTML);
 }
 
 function showPublicationsModal() {
