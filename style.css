@@ -661,3 +661,69 @@ header h1 {
 .modal-overlay.hidden {
     display: none !important;
 }
+/* ==========================================================================
+   MODAL INTERACTIVE OVERLAY SYSTEM (Add this to the bottom of style.css)
+   ========================================================================== */
+
+/* 1. The dark background overlay covering the entire browser window viewport */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65) !important; /* Dims the background portfolio page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999 !important; /* FORCES it to sit on top of all other cards and grids */
+    transition: opacity 0.25s ease-in-out;
+}
+
+/* 2. CRITICAL RULE: Keeps it hidden until JavaScript strips this class away */
+.modal-overlay.hidden {
+    display: none !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 3. The credentials white popup card window layout box */
+.modal-content {
+    background: #ffffff !important;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto; /* Adds custom scroll bar inside the card if tables are long */
+    position: relative;
+    animation: modalPopUp 0.3s ease-out;
+}
+
+/* 4. Credentials dynamic data table spacing resets */
+.modal-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.modal-data-table th, 
+.modal-data-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eaecf0;
+}
+
+.modal-data-table th {
+    background-color: #f8f9fa;
+    color: #4e73df;
+    font-weight: 600;
+}
+
+/* 5. Smooth animation entrance effect */
+@keyframes modalPopUp {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
