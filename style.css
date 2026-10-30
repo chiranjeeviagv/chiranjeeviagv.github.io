@@ -199,6 +199,26 @@ header h1 {
     color: #2ecc71;
     font-weight: bold;
 }
+/* Mirror your exact explore-btn profile variables */
+.strengths-toggle-btn {
+    background-color: #3498db; /* Blue matching your theme */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s ease-in-out;
+}
+
+.strengths-toggle-btn:hover {
+    background-color: #2980b9; /* Slightly darker blue accent highlight */
+}
+
+/* Ensure the wrapper collapses completely and cleans standard spacing */
+.strengths-list.hidden {
+    display: none !important;
+}
 
 /* ==========================================================================
    5. INTERACTIVE COMPONENT BUTTONS & CORE MODALS
