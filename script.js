@@ -39,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
-    // FIX: Using querySelectorAll to bind event listeners to ALL buttons with matching data-sections
-    // This ensures both Academic and Industry "Qualifications" buttons trigger correctly.
+    // Fix: Using querySelectorAll to bind event listeners to ALL buttons with matching data-sections
     document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
         btn.addEventListener('click', showQualificationsModal);
     });
@@ -51,67 +50,58 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
     document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
     
-    // ADDED: Direct event listener trigger for your new Conferences section modal
+    // Direct event listener trigger for your new Conferences section modal
     document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
     
     // Direct event listener triggers for your academic and industry columns
     document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
     document.querySelector('[data-section="skills"]')?.addEventListener('click', showSkillsModal);
     
-    // STABILIZED LOOKUP: Checks for data-attribute first, falls back to direct ID lookup
+    // Stabilized lookup for FDPs button
     const fdpBtn = document.querySelector('[data-section="fdps"]') || document.getElementById('btn-explore-fdps');
     if (fdpBtn) {
         fdpBtn.addEventListener('click', showDevelopmentProgramsModal);
     } else {
-        console.warn("Warning: Skill Development button element could not be found in index.html structural tracking.");
+        console.warn("Warning: Skill Development button element could not be found.");
     }
 
-    // ==========================================
-    // ADDED: Academic Strengths Section Toggle
-    // ==========================================
+    // =======================================================
+    // FIX: Academic Strengths Section Inline Toggle (No Modal)
+    // =======================================================
     const strengthsList = document.querySelector('.strengths-list');
     const strengthsBtn = document.querySelector('.explore-btn[data-section="academic-strengths"]');
     
     if (strengthsList && strengthsBtn) {
-        // 1. Force the list to hide on initial load by default
+        // Force the list to hide on the initial welcome screen layout load
         strengthsList.style.setProperty('display', 'none', 'important');
         
-        // 2. Setup the click toggle logic
-        strengthsBtn.addEventListener('click', () => {
+        // Setup direct on-page toggle logic
+        strengthsBtn.addEventListener('click', (event) => {
+            // STOP the button click from bubbling up or triggering any background modal code
+            event.stopPropagation();
+            event.preventDefault();
+
             if (strengthsList.style.display === 'none') {
-                // Expand: Show the list using block layout inside the card
                 strengthsList.style.setProperty('display', 'block', 'important');
                 strengthsBtn.textContent = 'Show Less';
             } else {
-                // Collapse: Hide the list again
                 strengthsList.style.setProperty('display', 'none', 'important');
                 strengthsBtn.textContent = 'Explore More';
             }
         });
     }
-// SMART NAVIGATION SCROLL ROUTINE
-function navigateToSection(sectionId) {
-    const targetElement = document.getElementById(sectionId);
-    
-    if (targetElement) {
-        if (targetElement.classList.contains('academic-only') && currentActiveView !== 'academic') {
-            switchView('academic');
-        } else if (targetElement.classList.contains('industry-only') && currentActiveView !== 'industry') {
-            switchView('industry');
-        }
-        
-        setTimeout(() => {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-            
-            targetElement.style.outline = "2px solid #007bff";
-            setTimeout(() => { targetElement.style.outline = "none"; }, 1500);
-        }, 100);
-    }
-}
 
+    // Bind explicit target buttons to remove modal window layer
+    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
+
+    // Ambient backdrop background click safety release setup
+    const modalOverlay = document.getElementById('details-modal');
+    modalOverlay?.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+});
 // FORMATTED CONTENT MAPPING: QUALIFICATIONS CONTENT PAYLOAD
 function showQualificationsModal() {
     const qualificationsHTML = `
