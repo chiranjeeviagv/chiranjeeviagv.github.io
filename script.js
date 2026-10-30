@@ -913,6 +913,14 @@ function showSkillsModal() {
     openHTMLModal('Technical Skills & Toolsets', skillsHTML);
 }
 
+// FIX: This is the correct, repaired References function block with balanced curly brackets
+function showReferencesModal() {
+    const referencesHTML = `
+        <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;">
+            <p style="color: #333; font-size: 0.95rem;">Verified contact nodes from both academic mentors and industry leads are available upon request.</p>
+        </div>`;
+    openHTMLModal('Professional & Academic References', referencesHTML);
+}
 
     openHTMLModal('Professional & Academic References', referencesHTML);
 }
