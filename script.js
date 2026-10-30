@@ -434,32 +434,67 @@ function openHTMLModal(title, htmlContent) {
         modalTitle.innerText = title;
         modalBody.innerHTML = htmlContent;
         modal.style.setProperty('display', 'flex', 'important');
-        document.body.style.overflow = 'hidden'; // Lock background scrolling
+        document.body.style.overflow = 'hidden'; 
+    }
+}
+
+// Binds actions dynamically to all modal windows
+function handleExploreClick(sectionKey) {
+    switch (sectionKey) {
+        case 'qualifications':
+            showQualificationsModal();
+            break;
+        case 'certifications':
+            showCertificationsModal();
+            break;
+        case 'experience':
+            showExperienceModal();
+            break;
+        case 'publications':
+            showPublicationsModal();
+            break;
+        case 'fdps':
+            showDevelopmentProgramsModal();
+            break;
+        case 'references':
+            showReferencesModal();
+            break;
+        case 'expertise':
+            showExpertiseModal();
+            break;
+        case 'skills':
+            showSkillsModal();
+            break;
+        case 'conferences':
+            // Direct injection handler for the newly targeted conference block
+            const hiddenData = document.getElementById('data-conferences');
+            if (hiddenData) {
+                openHTMLModal('Conferences Attended Details', hiddenData.innerHTML);
+            }
+            break;
+        default:
+            console.warn(`No explicit modal function found for section data path: ${sectionKey}`);
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Existing toggle selection hooks
+    // Top view navigation selection hooks
     document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
     document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
 
-    // FIX 1: Use querySelectorAll so both the Academic and Industry Qualifications buttons work!
-    document.querySelectorAll('[data-section="qualifications"]').forEach(btn => {
-        btn.addEventListener('click', showQualificationsModal);
+    /* 
+      FIX: This block loops through all button triggers on the dashboard grid. 
+      It fixes the duplicate qualifications bug and makes sure your new conference 
+      explore button functions correctly.
+    */
+    document.querySelectorAll('.explore-btn').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            const sectionKey = event.currentTarget.getAttribute('data-section');
+            handleExploreClick(sectionKey);
+        });
     });
 
-    // Section modal exploration triggers
-    document.querySelector('[data-section="certifications"]')?.addEventListener('click', showCertificationsModal);
-    document.querySelector('[data-section="experience"]')?.addEventListener('click', showExperienceModal);
-    document.querySelector('[data-section="publications"]')?.addEventListener('click', showPublicationsModal);
-    document.querySelector('[data-section="fdps"]')?.addEventListener('click', showDevelopmentProgramsModal);
-    document.querySelector('[data-section="references"]')?.addEventListener('click', showReferencesModal);
-    
-    // FIX 2: Added missing triggers for your Conferences and Subject Area Expertise sections
-    document.querySelector('[data-section="conferences"]')?.addEventListener('click', showConferencesModal);
-    document.querySelector('[data-section="expertise"]')?.addEventListener('click', showExpertiseModal);
-
-    // Close button trigger
+    // Close button trigger integration hook
     document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
 
     // Direct activation connection for browser PDF generation workflows
