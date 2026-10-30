@@ -300,30 +300,27 @@
     </div>
 </section>
 
-    <div class="action-buttons">
-        <button class="explore-btn" data-section="skills">Explore More</button>
+        <!-- 4. References (Industry View Card Container) -->
+        <section id="references" class="industry-only">
+            <h2>References</h2>
+            <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
+            <div class="action-buttons">
+                <button class="explore-btn" data-section="references">Explore More</button>
+            </div>
+        </section>
+
+    </div> <!-- This closes your cv-grid-container grid -->
+</main> <!-- This closes your main page-container wrapper -->
+
+<!-- Dynamic Modal Overlay Framework Box -->
+<div id="details-modal" class="modal-overlay">
+    <div class="modal-card">
+        <h2 id="modal-title">Section Title</h2>
+        <div id="modal-body" class="modal-body-content"></div>
+        <button id="close-modal-btn" class="close-btn">Close Window</button>
     </div>
-</section>
-
-    <section id="references" class="industry-only">
-        <h2>References</h2>
-        <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="references">Explore More</button>
-        </div>
-    </section>
-
 </div>
-    </main>
-    <!-- Dynamic Modal Overlay Framework Box -->
-    <div id="details-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <h2 id="modal-title">Section Title</h2>
-            <div id="modal-body"></div>
-            <button id="close-modal-btn" class="close-btn">Close Window</button>
-        </div>
-    </div>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
