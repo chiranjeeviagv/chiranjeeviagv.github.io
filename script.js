@@ -891,15 +891,28 @@ function showExpertiseModal() {
 function showSkillsModal() {
     const skillsHTML = `
         <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;"> 
-            <h4 style="color: #007bff; margin-top: 0;">Programming Toolsets & Competencies:</h4> 
+            <h4 style="color: #007bff; margin-top: 0; margin-bottom: 8px;">Programming Skills:</h4> 
+            <ul style="color: #333; font-size: 0.95rem; padding-left: 20px; margin-bottom: 20px;"> 
+                <li>Advanced Python programming</li>
+                <li>Matlab Programming</li>
+                <li>JavaScript programming</li>
+                <li>Python programming</li>
+                <li>Java programming (basics)</li>
+                <li>Web development</li>
+                <li>AI development</li>
+                <li>Full stack development</li>
+            </ul> 
+
+            <h4 style="color: #007bff; margin-top: 15px; margin-bottom: 8px;">Specialized Engineering Toolsets & Competencies:</h4> 
             <ul style="color: #333; font-size: 0.95rem; padding-left: 20px;"> 
-                <li><strong>Advanced Languages:</strong> Python, JavaScript (Full-Stack), MATLAB, Java (Basics)</li> 
+                <li><strong>Languages Summary:</strong> Python, JavaScript (Full-Stack), MATLAB, Java (Basics)</li> 
                 <li><strong>Specialized Tracks:</strong> AI Web Design, Data Science, Cyber Security Operations</li> 
                 <li><strong>Core Simulation:</strong> Power Electronics Analysis, Grid Transient System Twins</li> 
             </ul> 
         </div>`;
     openHTMLModal('Technical Skills & Toolsets', skillsHTML);
 }
+
 
     openHTMLModal('Professional & Academic References', referencesHTML);
 }
