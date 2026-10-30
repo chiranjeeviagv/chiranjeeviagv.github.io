@@ -41,7 +41,33 @@ function switchView(viewMode) {
 // ==========================================
 // 3. EVENT ROUTING REGISTRATION RUNNER
 // ==========================================
+// 3. EVENT ROUTING REGISTRATION RUNNER
 // ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Bind Academic / Industry View Toggles
+    const btnAcademic = document.getElementById('btn-academic');
+    const btnIndustry = document.getElementById('btn-industry');
+
+    if (btnAcademic) btnAcademic.addEventListener('click', () => switchView('academic'));
+    if (btnIndustry) btnIndustry.addEventListener('click', () => switchView('industry'));
+
+    // Bind Close Button for Modal Framework
+    const closeBtn = document.getElementById('close-modal-btn');
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // Dynamic Delegate Binding for Grid Cards Explore Buttons
+    document.querySelectorAll('.explore-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const targetSection = e.target.getAttribute('data-section');
+            if (targetSection) {
+                handleExploreClick(targetSection);
+            }
+        });
+    });
+    
+    // Initialize default state
+    switchView('academic');
+});
 // 4. MODAL ROUTER DISPATCH MATRIX
 // ==========================================
 function handleExploreClick(sectionKey) {
@@ -452,7 +478,7 @@ function showPublicationsModal() {
     openHTMLModal('Research Publications', publicationsHTML);
 }
 // FORMATTED CONTENT MAPPING: SKILL DEVELOPMENT & FACULTY DEVELOPMENT PROGRAMS (FDP)
-function showDevelopmentProgramsModal() {
+modal {
     const fdpHTML = `
         <div class="modal-credentials-layout">
             <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
@@ -595,115 +621,57 @@ openHTMLModal('Faculty Up-Skilling & FDP Records', fdpHTML);
 }
 
 // FORMATTED CONTENT MAPPING: PROFESSIONAL & ACADEMIC REFERENCES
+// ==========================================
+// 7. COMPLEMENTARY ACADEMIC MODULES
+// ==========================================
+
 function showReferencesModal() {
     const referencesHTML = `
         <div class="modal-credentials-layout">
             <style>
-                .ref-intro {
-                    margin-bottom: 20px; 
-                    color: #555; 
-                    text-align: left; 
-                    font-size: 0.95rem;
-                    line-height: 1.5;
-                }
-                .ref-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 16px;
-                    margin-top: 15px;
-                }
-                .ref-card {
-                    background: #f8f9fa;
-                    border-left: 4px solid #007bff;
-                    padding: 15px;
-                    border-radius: 0 6px 6px 0;
-                    text-align: left;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-                }
-                .ref-name {
-                    font-size: 1.05rem;
-                    font-weight: 700;
-                    color: #1a1a1a;
-                    margin-bottom: 4px;
-                }
-                .ref-title {
-                    font-size: 0.88rem;
-                    color: #4e73df;
-                    font-weight: 600;
-                    margin-bottom: 2px;
-                }
-                .ref-org {
-                    font-size: 0.85rem;
-                    color: #666;
-                    margin-bottom: 10px;
-                }
-                .ref-contact {
-                    font-size: 0.88rem;
-                    border-top: 1px solid #eaecf0;
-                    padding-top: 8px;
-                    color: #333;
-                }
-                .ref-contact strong {
-                    color: #555;
-                }
-                .ref-phone-link {
-                    color: #007bff;
-                    text-decoration: none;
-                    font-weight: 600;
-                }
-                .ref-phone-link:hover {
-                    text-decoration: underline;
-                }
+                .ref-intro { margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem; line-height: 1.5; }
+                .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 15px; }
+                .ref-card { background: #f8f9fa; border-left: 4px solid #007bff; padding: 15px; border-radius: 0 6px 6px 0; text-align: left; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+                .ref-name { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+                .ref-title { font-size: 0.88rem; color: #4e73df; font-weight: 600; margin-bottom: 2px; }
+                .ref-org { font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+                .ref-contact { font-size: 0.88rem; border-top: 1px solid #eaecf0; padding-top: 8px; color: #333; }
+                .ref-contact strong { color: #555; }
+                .ref-phone-link { color: #007bff; text-decoration: none; font-weight: 600; }
             </style>
-
             <p class="ref-intro">
-                The following mentors and institutional leads are available to provide professional or academic verification of my teaching methodologies, engineering workflows, and research contributions:
+                The following mentors and institutional leads are available to provide professional or academic verification:
             </p>
-
             <div class="ref-grid">
-                <!-- REFERENCE 1 -->
                 <div class="ref-card">
                     <div class="ref-name">Mr. K Prasad</div>
                     <div class="ref-title">Senior Lecturer (Retired)</div>
                     <div class="ref-org">Government Polytechnic, Vizianagaram</div>
-                    <div class="ref-contact">
-                        <strong>Cell:</strong> <a href="tel:+919912340292" class="ref-phone-link">+91 99123 40292</a>
-                    </div>
+                    <div class="ref-contact"><strong>Cell:</strong> <a href="tel:+919912340292" class="ref-phone-link">+91 99123 40292</a></div>
                 </div>
-
-                <!-- REFERENCE 2 -->
                 <div class="ref-card">
                     <div class="ref-name">Mr. K Srikanth</div>
                     <div class="ref-title">Associate Professor</div>
                     <div class="ref-org">Gayatri Vidya Parishad (GVP) College of Engineering, Visakhapatnam</div>
-                    <div class="ref-contact">
-                        <strong>Cell:</strong> <a href="tel:+919440897892" class="ref-phone-link">+91 94408 97892</a>
-                    </div>
+                    <div class="ref-contact"><strong>Cell:</strong> <a href="tel:+919440897892" class="ref-phone-link">+91 94408 97892</a></div>
                 </div>
-
-                <!-- REFERENCE 3 -->
                 <div class="ref-card">
                     <div class="ref-name">Dr. Dipak D Bhage</div>
                     <div class="ref-title">Professor</div>
                     <div class="ref-org">Purnam International University (PCU), Pune</div>
-                    <div class="ref-contact">
-                        <strong>Cell:</strong> <a href="tel:+917083780216" class="ref-phone-link">+91 70837 80216</a>
-                    </div>
+                    <div class="ref-contact"><strong>Cell:</strong> <a href="tel:+917083780216" class="ref-phone-link">+91 70837 80216</a></div>
                 </div>
-
-                <!-- REFERENCE 4 -->
                 <div class="ref-card">
                     <div class="ref-name">Mrs. Sangita K Chowdary</div>
                     <div class="ref-title">Professor</div>
                     <div class="ref-org">Sandip Institute of Technology & Research Centre (SITRC), Nashik</div>
-                    <div class="ref-contact">
-                        <strong>Cell:</strong> <a href="tel:+919730199702" class="ref-phone-link">+91 97301 99702</a>
-                    </div>
+                    <div class="ref-contact"><strong>Cell:</strong> <a href="tel:+919730199702" class="ref-phone-link">+91 97301 99702</a></div>
                 </div>
             </div>
         </div>
     `;
-    openHTMLModal('Verified Professional References', referencesHTML);// NEW EXPLICIT MODAL OVERLAY LAYOUTS FOR ACADEMIC CORE TRACKS
+    openHTMLModal('Verified Professional References', referencesHTML);
+}
 function showExpertiseModal() {
     const expertiseHTML = `
         <div class="modal-credentials-layout" style="text-align: left; line-height: 1.6; font-family: system-ui, -apple-system, sans-serif;"> 
@@ -784,10 +752,6 @@ function showSkillsModal() {
     openHTMLModal('Technical Skills & Toolsets', skillsHTML);
 }
 
-function showDevelopmentProgramsModal() {
-    const hiddenData = document.getElementById('data-conferences');
-    openHTMLModal('Skill Development Programs & Workshops Logs', hiddenData ? hiddenData.innerHTML : '<p>Workshops analytics dataset record empty.</p>');
-}
 
 function showConferencesModal() {
     const hiddenData = document.getElementById('data-conferences');
