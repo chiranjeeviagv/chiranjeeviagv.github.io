@@ -38,8 +38,8 @@
                         <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
                         <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
                         <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">linkedin.com</a></li>
-                        <li><strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">google.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
+                        <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
                     </ul>
                 </div>
                 <div class="bio-img-container">
@@ -75,16 +75,7 @@
         </div>
     </section>
 
-    <!-- 3. Conferences Attended (Academic Only) -->
-    <section id="conferences" class="academic-only">
-        <h2>Conferences Attended</h2>
-        <p>National and International conferences attended, featuring research presentations on Digital Twin Technologies, Transient Stability Control, and Cyber Security in Smart Grids.</p>
-        <div class="action-buttons">
-            <button class="explore-btn" data-section="conferences">Explore More</button>
-        </div>
-    </section>
-
-    <!-- 4. Experience (Academic) -->
+    <!-- 3. Experience (Academic) -->
     <section id="experience" class="academic-only">
         <h2>Experience</h2>
         <p>Teaching, research assistantships, and institutional responsibilities.</p>
@@ -93,7 +84,7 @@
         </div>
     </section>
 
-    <!-- 5. Skill Development / FDPs (Academic) -->
+    <!-- 4. Skill Development / FDPs (Academic) -->
     <section id="fdps" class="academic-only">
         <h2>Skill Development Programs / FDPs / Workshops</h2>
         <p>Details of Faculty Development Programs, workshops attended or organized.</p>
@@ -102,11 +93,12 @@
         </div>
     </section>
 
-    <!-- 6. Subject Area Expertise (Academic) -->
+    <!-- 5. Subject Area Expertise (Academic) -->
     <section id="subject-expertise" class="academic-only">
         <h2>Subject Area Expertise</h2>
         <p>Advanced domain expertise fields including High Voltage Engineering, Power Systems, AI, Machine Learning, and transient stability control systems.</p>
         <div class="action-buttons">
+            <!-- Ensure you build a modal payload function for this button if you expand it later -->
             <button class="explore-btn" data-section="expertise">Explore More</button>
         </div>
     </section>
@@ -115,17 +107,15 @@
     <!-- ==========================================
        INDUSTRY VIEW ONLY BLOCKS 
        ========================================== -->
-
-    <!-- 1. Qualifications (Industry - FIXED ID & LOWERCASE CLASS) -->
-    <section id="industry-qualifications" class="industry-only">
+<!-- 1. Qualifications (Academic) -->
+    <section id="qualifications" class="Industry-only">
         <h2>Qualifications</h2>
         <p>Details about degrees, university, and academic milestones common across roles.</p>
         <div class="action-buttons">
             <button class="explore-btn" data-section="qualifications">Explore More</button>
         </div>
     </section>
-
-    <!-- 2. Certifications (Industry) -->
+    <!-- 1. Certifications (Industry) -->
     <section id="certifications" class="industry-only">
         <h2>Certifications</h2>
         <p>Professional vendor certifications, cloud computing badges, technical credentials.</p>
@@ -134,7 +124,7 @@
         </div>
     </section>
 
-    <!-- 3. Skills (Industry) -->
+    <!-- 2. Skills (Industry) -->
     <section id="skills" class="industry-only">
         <h2>Skills</h2>
         <p>Core industry competencies: Full-Stack JavaScript engineering, Cloud Computing infrastructure, Big Data operations, Cyber Security systems optimization, and Python scripting workflows.</p>
@@ -143,7 +133,7 @@
         </div>
     </section>
 
-    <!-- 4. References (Industry) -->
+    <!-- 3. References (Industry) -->
     <section id="references" class="industry-only">
         <h2>References</h2>
         <p>Verified contact nodes from both academic mentors and industry leads available upon request.</p>
@@ -153,15 +143,14 @@
     </section>
 
 </div>
-
-<!-- Dynamic Modal Overlay Framework Box -->
-<div id="details-modal" class="modal-overlay hidden">
-    <div class="modal-content">
-        <h2 id="modal-title">Section Title</h2>
-        <div id="modal-body"></div>
-        <button id="close-modal-btn" class="close-btn">Close Window</button>
+    <!-- Dynamic Modal Overlay Framework Box -->
+    <div id="details-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Section Title</h2>
+            <div id="modal-body"></div>
+            <button id="close-modal-btn" class="close-btn">Close Window</button>
+        </div>
     </div>
-</div>
 
     <script src="script.js"></script>
 </body>
