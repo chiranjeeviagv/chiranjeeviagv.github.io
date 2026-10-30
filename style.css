@@ -129,8 +129,9 @@ header h1 {
 }
 
 /* 
-   FIX: Target direct child elements of the grid for general styling.
-   This styles the borders and padding WITHOUT breaking the hide/show visibility logic.
+   FIX: Style the borders and padding. 
+   Notice we removed 'flex-direction' and 'justify-content' from here, 
+   allowing JavaScript to handle them smoothly without conflicts.
 */
 .cv-grid-container > section, 
 .section-box {
@@ -139,8 +140,6 @@ header h1 {
     border-radius: 8px;
     padding: 24px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    flex-direction: column;
-    justify-content: space-between;
     min-height: 220px;
     grid-column: auto !important;
 }
@@ -152,15 +151,21 @@ header h1 {
 
 /* 
    INITIAL LOAD ENGINE STATES: 
-   Sets clean boundaries when the page first loads up in the browser window.
+   REMOVED the "!important" tags from here. This allows your switchView() JavaScript 
+   to cleanly hide and show sections when the toggle buttons are clicked!
 */
 .academic-only {
-    display: flex !important; /* Visible by default on load */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .industry-only {
-    display: none !important; /* Hidden by default on load */
+    display: none; 
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 /* ==========================================================================
    5. INTERACTIVE COMPONENT BUTTONS & CORE MODALS
    ========================================================================== */
@@ -191,7 +196,6 @@ header h1 {
     color: white;
     box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
 }
-
 /* ==========================================================================
    6. UNIFIED DYNAMIC MODAL PORTAL CODES
    ========================================================================== */
