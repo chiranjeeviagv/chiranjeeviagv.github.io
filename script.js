@@ -289,6 +289,15 @@ function showExperienceModal() {
     // Core function call to open the modal window safely
     openHTMLModal('Professional Experience', experienceHTML);
 }
+function showExpertiseModal() {
+    const dataContainer = document.getElementById('data-expertise');
+    if (dataContainer) {
+        openHTMLModal('Subject Area Expertise & Courses Handled', dataContainer.innerHTML);
+    } else {
+        openHTMLModal('Subject Area Expertise', '<p>Advanced domain expertise fields and control systems metrics loading...</p>');
+    }
+}
+
 // FORMATTED CONTENT MAPPING: PUBLICATIONS & RESEARCH PAPERS
 function showPublicationsModal() {
     const publicationsHTML = `
