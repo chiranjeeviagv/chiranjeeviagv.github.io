@@ -348,7 +348,34 @@
         <button id="close-modal-btn" class="close-btn">Close Window</button>
     </div>
 </div>
+<!-- JavaScript Functionality for the Dynamic Switch -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const academicBtn = document.getElementById('btn-academic');
+            const industryBtn = document.getElementById('btn-industry');
+            
+            const academicCards = document.querySelectorAll('.academic-only');
+            const industryCards = document.querySelectorAll('.industry-only');
 
+            // Switch to Academic View
+            academicBtn.addEventListener('click', () => {
+                academicBtn.classList.add('active');
+                industryBtn.classList.remove('active');
+
+                academicCards.forEach(card => card.classList.remove('hidden'));
+                industryCards.forEach(card => card.classList.add('hidden'));
+            });
+
+            // Switch to Industry View
+            industryBtn.addEventListener('click', () => {
+                industryBtn.classList.add('active');
+                academicBtn.classList.remove('active');
+
+                industryCards.forEach(card => card.classList.remove('hidden'));
+                academicCards.forEach(card => card.classList.add('hidden'));
+            });
+        });
+    </script>
 <script src="script.js"></script>
 </body>
 </html>
