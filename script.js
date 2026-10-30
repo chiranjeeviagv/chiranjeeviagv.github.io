@@ -6,11 +6,6 @@ const objectives = {
 // Tracks active view globally
 let currentActiveView = 'academic';
 
-// STATIC TEXT CONTENT DICTIONARIES FOR THE VIEWS
-const objectives = {
-    academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
-    industry: "Seeking a dynamic technical role in the industry to leverage software development, modern technical infrastructure, and system engineering capabilities."
-};
 
 // STATIC HTML DATA DICTIONARIES FOR THE MODAL POPUPS
 const modalContentData = {
