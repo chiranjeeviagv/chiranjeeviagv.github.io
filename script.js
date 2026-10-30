@@ -22,20 +22,16 @@ function switchView(viewMode) {
     const btnIndustry = document.getElementById('btn-industry');
 
     if (viewMode === 'academic') {
-        // Toggle view classes
         academicElements.forEach(el => el.classList.remove('hidden-view'));
         industryElements.forEach(el => el.classList.add('hidden-view'));
         
-        // Update header interactive classes
         if (objText) objText.textContent = objectives.academic;
         btnAcademic?.classList.add('active');
         btnIndustry?.classList.remove('active');
     } else {
-        // Toggle view classes
         academicElements.forEach(el => el.classList.add('hidden-view'));
         industryElements.forEach(el => el.classList.remove('hidden-view'));
         
-        // Update header interactive classes
         if (objText) objText.textContent = objectives.industry;
         btnIndustry?.classList.add('active');
         btnAcademic?.classList.remove('active');
@@ -123,7 +119,6 @@ function openHTMLModal(title, htmlContent) {
     }
 }
 
-// Unified frame teardown logic clearing memory artifacts
 function closeModal() {
     const modal = document.getElementById('details-modal');
     const modalBody = document.getElementById('modal-body');
@@ -140,30 +135,46 @@ function closeModal() {
 function showQualificationsModal() {
     const qualificationsHTML = `
         <div class="modal-credentials-layout">
-            <table class="modal-data-table">
+            <table class="modal-data-table" style="width: 100%; border-collapse: collapse;">
                 <thead>
-                    <tr><th>Qualification Matrix</th><th>Institution / Board</th><th>Performance Marks</th></tr>
+                    <tr style="border-bottom: 2px solid #e2e8f0;">
+                        <th style="padding: 10px; text-align: left;">Qualification Matrix</th>
+                        <th style="padding: 10px; text-align: left;">Institution / Board</th>
+                        <th style="padding: 10px; text-align: left;">Performance Marks</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>M.Tech (High Voltage Engineering)</strong></td>
-                        <td>JNTU Kakinada</td>
-                        <td>72.00% (Distinction) <a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>M.Tech (High Voltage Engineering)</strong></td>
+                        <td style="padding: 12px;">JNTU Kakinada</td>
+                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
+                            <span>72.00% (Distinction)</span>
+                            <a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: #0066cc !important; text-decoration: underline !important; font-weight: 600; font-size: 0.9em;">[Verify]</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td><strong>B.Tech (Electrical & Electronics)</strong></td>
-                        <td>Chaitanya Engineering College</td>
-                        <td>71.63% (Distinction) <a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>B.Tech (Electrical & Electronics)</strong></td>
+                        <td style="padding: 12px;">Chaitanya Engineering College</td>
+                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
+                            <span>71.63% (Distinction)</span>
+                            <a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: #0066cc !important; text-decoration: underline !important; font-weight: 600; font-size: 0.9em;">[Verify]</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td><strong>Intermediate (MPC Core Tracks)</strong></td>
-                        <td>Gayatri Junior College</td>
-                        <td>94.10% (First Class) <a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>Intermediate (MPC Core Tracks)</strong></td>
+                        <td style="padding: 12px;">Gayatri Junior College</td>
+                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
+                            <span>94.10% (First Class)</span>
+                            <a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: #0066cc !important; text-decoration: underline !important; font-weight: 600; font-size: 0.9em;">[Verify]</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td><strong>SSC Standard Certification</strong></td>
-                        <td>ZP High School, Jami</td>
-                        <td>89.86% (First Class) <a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-left: 8px; font-size: 0.85em; text-decoration: underline;">[Verify]</a></td>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px;"><strong>SSC Standard Certification</strong></td>
+                        <td style="padding: 12px;">ZP High School, Jami</td>
+                        <td style="padding: 12px; display: flex; align-items: center; gap: 8px; justify-content: space-between;">
+                            <span>89.86% (First Class)</span>
+                            <a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: #0066cc !important; text-decoration: underline !important; font-weight: 600; font-size: 0.9em;">[Verify]</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
