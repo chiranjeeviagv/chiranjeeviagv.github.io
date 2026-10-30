@@ -248,3 +248,11 @@ header h1 {
         grid-template-columns: 1fr !important; /* Scales to 1 column on mobile phones */
     }
 }
+/* ==========================================================================
+   7. MODAL UTILITY STATE FIXES
+   ========================================================================== */
+.modal-overlay.hidden,
+.hidden {
+    display: none !important;
+}
+
