@@ -41,65 +41,65 @@ function switchView(viewMode) {
 // ==========================================
 // 3. EVENT ROUTING REGISTRATION RUNNER
 // ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-    // Primary Header Tab Toggle Triggers
-    document.getElementById('btn-academic')?.addEventListener('click', () => switchView('academic'));
-    document.getElementById('btn-industry')?.addEventListener('click', () => switchView('industry'));
-
-    // Dynamic Action Grid Button Triggers
-    document.querySelectorAll('.explore-btn').forEach(btn => {
-        btn.addEventListener('click', (event) => {
-            const sectionKey = event.currentTarget.getAttribute('data-section');
-            handleExploreClick(sectionKey);
-        });
-    });
-
-    // Academic Strengths Custom Card Inline Toggle
-    const strengthsList = document.querySelector('.strengths-list');
-    const strengthsBtn = document.querySelector('.strengths-toggle-btn');
-    
-    if (strengthsList && strengthsBtn) {
-        strengthsList.style.setProperty('display', 'none', 'important');
-        
-        strengthsBtn.addEventListener('click', (event) => {
-            event.stopPropagation();
-            if (strengthsList.style.display === 'none') {
-                strengthsList.style.setProperty('display', 'block', 'important');
-                strengthsBtn.textContent = 'Show Less';
-            } else {
-                strengthsList.style.setProperty('display', 'none', 'important');
-                strengthsBtn.textContent = 'Explore More';
-            }
-        });
-    }
-
-    // Modal Display Interaction Buttons
-    document.getElementById('close-modal-btn')?.addEventListener('click', closeModal);
-    
-    const modalOverlay = document.getElementById('details-modal');
-    modalOverlay?.addEventListener('click', (event) => {
-        if (event.target === modalOverlay) closeModal();
-    });
-
-    // Enforce initial application load states instantly
-    switchView('academic');
-});
-
 // ==========================================
 // 4. MODAL ROUTER DISPATCH MATRIX
 // ==========================================
 function handleExploreClick(sectionKey) {
+    // Force active evaluation of structural JavaScript table data templates
     switch (sectionKey) {
-        case 'qualifications': showQualificationsModal(); break;
-        case 'certifications': showCertificationsModal(); break;
-        case 'experience': showExperienceModal(); break;
-        case 'publications': showPublicationsModal(); break;
-        case 'fdps': showDevelopmentProgramsModal(); break;
-        case 'references': showReferencesModal(); break;
-        case 'expertise': showExpertiseModal(); break;
-        case 'skills': showSkillsModal(); break;
-        case 'conferences': showConferencesModal(); break;
-        default: console.warn(`Unregistered explore section target key parsed: ${sectionKey}`);
+        case 'qualifications': 
+            showQualificationsModal(); 
+            break;
+            
+        case 'certifications': 
+            showCertificationsModal(); 
+            break;
+            
+        case 'experience': 
+            showExperienceModal(); 
+            break;
+            
+        case 'publications': 
+            showPublicationsModal(); 
+            break;
+            
+        case 'fdps': 
+            showDevelopmentProgramsModal(); 
+            break;
+
+        // If you are loading these next four from hidden HTML data tags, we force them safely here:
+        case 'references': 
+        case 'expertise': 
+        case 'skills': 
+        case 'conferences': 
+            loadHiddenHTMLData(sectionKey);
+            break;
+            
+        default: 
+            console.warn(`Unregistered explore section target key parsed: ${sectionKey}`);
+    }
+}
+
+// Helper routine ensuring fallback text blocks render smoothly if no function is mapped
+function loadHiddenHTMLData(sectionKey) {
+    const modal = document.getElementById('details-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    
+    const titleGlossary = {
+        'references': 'Professional Reference Verification',
+        'expertise': 'Subject Matter Expertise Matrix',
+        'skills': 'Technical Stack Matrix',
+        'conferences': 'Conferences Attended Details'
+    };
+    
+    const targetDiv = document.getElementById(`data-${sectionKey}`);
+    if (modal && modalBody && targetDiv) {
+        if (modalTitle) modalTitle.innerText = titleGlossary[sectionKey] || 'Information Logs';
+        modalBody.innerHTML = targetDiv.innerHTML;
+        modal.classList.remove('hidden-view');
+        modal.classList.remove('hidden'); // Forces both CSS hidden variant states out
+        document.body.style.overflow = 'hidden';
     }
 }
 
