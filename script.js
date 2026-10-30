@@ -182,22 +182,27 @@ function showCertificationsModal() {
                     <tr>
                         <td><strong>IBM Full Stack JavaScript Developer</strong><br><span style="color: #666; font-size: 0.85rem;">12-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243"_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
                         <td>IBM</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S"_blank" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Microsoft AI and ML Engineering</strong><br><span style="color: #666; font-size: 0.85rem;">5-Course Specialization</span></td>
                         <td>Microsoft</td>
-                        <td><a href="https://coursera.org" target="_blank" class="credential-link">View Certificate ↗</a></td>
+                        <td><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Cyber Security</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
+                        <td>Microsoft</td>
+                        <td><a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" class="credential-link">View Certificate ↗</a></td>
                     </tr>
                     <tr>
                         <td><strong>Advanced Computer Architecture</strong></td>
