@@ -415,7 +415,7 @@ function showPublicationsModal() {
                             </div>
                         </td>
                         <td style="text-align: center; vertical-align: middle;">
-                            <a href="https://google.com" target="_blank" class="credential-link">View Drive File ↗</a>
+                            <a href="https://www.igi-global.com/gateway/chapter/313856" target="_blank" class="credential-link">View Drive File ↗</a>
                         </td>
                     </tr>
                 </tbody>
@@ -622,14 +622,14 @@ function showDevelopmentProgramsModal() {
                                 <div class="pub-title">OBE workshop held at VIIT</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> KLETU<br><strong>Timeline:</strong> 04-05-2018 to 06-05-2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1j1mjO6aEZ12zLIIF9gApTPkbtt-4llrG/view?usp=drive_link" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="pub-title">One day national workshop on MOOCs and E-learning in higher Education</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> Guru Angad dev Teaching Learning centre of MHRD, SGTB khalsa college, University of Delhi<br><strong>Timeline:</strong> 18-08-2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -655,21 +655,21 @@ function showDevelopmentProgramsModal() {
                                 <div class="pub-title">40hr online faculty development programme on Advanced Intelligence and ICT application to power system protection</div>
                                 <div class="pub-meta"><strong>Sponsored by:</strong> MOEIT, GoI | <strong>Organized by:</strong> E&ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam<br><strong>Timeline:</strong> 18-27 july 2022</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1FTGlrQ25wpVZZLvw3atKn8U_JKMY3986/view?usp=sharing" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="pub-title">Five-day online Workshop on 'Integration of renewable energy & EV to microgrid: Prospects and challenges'</div>
                                 <div class="pub-meta"><strong>Under Aegis of:</strong> SPARC | <strong>Organized by:</strong> Department of Electrical and Electronics Engineering, NIT Tiruchirappalli in collaboration with The Hong Kong Polytechnic University<br><strong>Timeline:</strong> 21-02-2022 to 25-02-2022</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="pub-title">One week FDP on “Hands on training on Power Electronics and Power systems using Advanced Analytical tools”</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> Andhra university college of Engineering autonomous<br><strong>Timeline:</strong> Feb 5, 2018 to Feb 9, 2018</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1QLDfoRqr1J7r0DYoPU5jUQhx8RIzJnLd/view?usp=sharing" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -688,14 +688,14 @@ function showDevelopmentProgramsModal() {
                                 <div class="pub-title">MHRD-Sponsored INDO-US International workshop on “IOT and ML Based Microgrid & Energy Management”</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, CBIT, Hyderabad<br><strong>Timeline:</strong> 19th to 23rd February 2024</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="pub-title">ISTE Approved one week online FDP on Emerging Trends and Applications of Generative AI</div>
                                 <div class="pub-meta"><strong>Organized by:</strong> SVKM's Institute of Technology, Dhule<br><strong>Timeline:</strong> 27th January to 31st January 2025</div>
                             </td>
-                            <td style="text-align: center;"><a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a></td>
+                            <td style="text-align: center;"><a href="https://drive.google.com/file/d/1YmlsoiGiwx245yxXpe0G3w-MsKJdOcJn/view?usp=drive_link" target="_blank" class="credential-link">Verify ↗</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -718,7 +718,7 @@ function showDevelopmentProgramsModal() {
                                 <div class="pub-meta"><strong>Organized by:</strong> Department of Electrical and Electronics Engineering, Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam<br><strong>Timeline:</strong> 7th July, 2020</div>
                             </td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <a href="https://google.com" target="_blank" class="credential-link">Verify ↗</a>
+                                <a href="https://drive.google.com/file/d/1Olbu0hbd9Kp0e5ymnBCzDeUQDl2RVfIT/view?usp=drive_link" target="_blank" class="credential-link">Verify ↗</a>
                             </td>
                         </tr>
                     </tbody>
