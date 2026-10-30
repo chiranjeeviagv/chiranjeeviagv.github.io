@@ -170,19 +170,27 @@ header h1 {
     padding: 20px;
 }
 
-/* Hide items that exceed the initial limit */
-.strengths-list li.hidden {
-    display: none;
+/* FIX: Target the entire list wrapper instead of the list items */
+.strengths-list.hidden {
+    display: none !important;
 }
 
 /* Optional: Smooth fade-in effect when revealed */
-.strengths-list li {
-    animation: fadeIn 0.3s ease-in-out;
+.strengths-list {
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+.strengths-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    list-style: none; /* Keeps standard bullets from doubling up with your checkmarks */
 }
 
 /* Generates a clean green checkmark before each item */
@@ -193,7 +201,6 @@ header h1 {
     color: #2ecc71; /* Green color, match this to your theme */
     font-weight: bold;
 }
-
 /* ==========================================================================
    5. INTERACTIVE COMPONENT BUTTONS & CORE MODALS
    ========================================================================== */
