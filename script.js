@@ -611,21 +611,45 @@ function showExpertiseModal() {
 
 function showSkillsModal() {
     const skillsHTML = `
-        <div class="modal-credentials-layout" style="text-align: left; line-height: 1.8;">  
-            <h4 style="color: #007bff; margin-top: 0; margin-bottom: 8px;">Software Development Portfolio Core:</h4>  
-            <ul style="padding-left:20px; margin-bottom:15px;">  
-                <li>Advanced Full-Stack Javascript Framework Engine Structures</li> 
-                <li>Advanced Python Scripting Analytics and AI System Models Layouts</li> 
-                <li>Matlab Numerical Simulation Twins & Grid Systems Twin Designs</li> 
-                <li>Java object-oriented systems coding core baseline basics</li> 
-            </ul>  
-            <h4 style="color: #007bff; margin-bottom: 8px;">Specialized Engineering Toolsets Competencies:</h4>  
-            <ul style="padding-left:20px;">  
-                <li><strong>Specialized Tracks:</strong> AI Web Design Frameworks, Data Science Models, Cyber Security Operations</li>  
-                <li><strong>Core Simulation Platforms:</strong> Power Electronics Analysis, Grid Transient System Architecture Twins</li>  
-            </ul>  
+        <div class="modal-credentials-layout" style="text-align: left; line-height: 1.6; font-family: system-ui, -apple-system, sans-serif;"> 
+            
+            <!-- SECTION 1: PROGRAMMING CAPABILITIES -->
+            <h4 style="color: #007bff; margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; border-left: 3px solid #007bff; padding-left: 8px;">
+                Programming Languages & Software Frameworks
+            </h4> 
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px;">
+                <span style="background: #ebf8ff; color: #2b6cb0; padding: 6px 12px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; border: 1px solid #bee3f8;">Python (Advanced)</span>
+                <span style="background: #ebf8ff; color: #2b6cb0; padding: 6px 12px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; border: 1px solid #bee3f8;">MATLAB Programming</span>
+                <span style="background: #ebf8ff; color: #2b6cb0; padding: 6px 12px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; border: 1px solid #bee3f8;">JavaScript Full-Stack</span>
+                <span style="background: #ebf8ff; color: #2b6cb0; padding: 6px 12px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; border: 1px solid #bee3f8;">AI Application Development</span>
+                <span style="background: #ebf8ff; color: #2b6cb0; padding: 6px 12px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; border: 1px solid #bee3f8;">Web Development</span>
+                <span style="background: #ebf8ff; color: #2b6cb0; padding: 6px 12px; border-radius: 20px; font-size: 0.88rem; font-weight: 600; border: 1px solid #bee3f8;">Java Core (Basics)</span>
+            </div>
+
+            <!-- SECTION 2: SPECIALIZED COMPETENCIES -->
+            <h4 style="color: #007bff; margin-top: 15px; margin-bottom: 12px; font-size: 1.1rem; border-left: 3px solid #007bff; padding-left: 8px;">
+                Specialized Engineering Toolsets & Competencies
+            </h4> 
+            <table class="modal-data-table" style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #e2e8f0; background: #f7fafc;">
+                        <th style="padding: 10px; text-align: left; width: 30%; font-size: 0.9rem; color: #4a5568;">Domain Matrix</th>
+                        <th style="padding: 10px; text-align: left; width: 70%; font-size: 0.9rem; color: #4a5568;">Technical Competency Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px; vertical-align: top;"><strong>Specialized Tracks</strong></td>
+                        <td style="padding: 12px; color: #2d3748;">Artificial Intelligence Web Design, Engineering Data Science Analytics, & Enterprise Cybersecurity Operations.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #edf2f7;">
+                        <td style="padding: 12px; vertical-align: top;"><strong>Core Simulation</strong></td>
+                        <td style="padding: 12px; color: #2d3748;">Power Electronics Transient Analysis, FACTS Controller System Modeling, and Microgrid Smart Grid Simulation Twins (MATLAB/Simulink).</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>`;
-    openHTMLModal('Technical Skillsets & Core Toolsets Portfolio', skillsHTML);
+    openHTMLModal('Technical Skills & Toolsets', skillsHTML);
 }
 
 function showDevelopmentProgramsModal() {
