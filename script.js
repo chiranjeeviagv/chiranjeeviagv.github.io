@@ -183,26 +183,80 @@ function showQualificationsModal() {
 }
 
 
+// FORMATTED CONTENT MAPPING: ADVANCED CERTIFICATIONS (COURSERA & NPTEL)
 function showCertificationsModal() {
     const certificationsHTML = `
-        <div class="modal-credentials-layout" style="text-align:left; line-height:1.8;">
-            <h4 style="color:#007bff; margin-bottom:8px;">Coursera Certified Track Portfolios:</h4>
-            <ul style="padding-left:20px; margin-bottom:15px;">
-                <li>IBM Full Stack JavaScript Developer (12-Course Professional Specialization)</li>
-                <li>IBM JavaScript Backend Developer Specialization (13-Course Specialization)</li>
-                <li>IBM AI Developer Specialization Badge (10-Course Specialization)</li>
-                <li>Microsoft AI and ML Engineering Professional Specialization Suite (5 Courses)</li>
-                <li>Google Cyber Security Operations Professional Credential</li>
-            </ul>
-            <h4 style="color:#007bff; margin-bottom:8px;">NPTEL Advanced Systems Accreditations:</h4>
-            <ul style="padding-left:20px;">
-                <li>Advanced Computer Architecture Engineering Core Track (April 2026)</li>
-                <li>Advanced Computer Networks Systems Architecture Track (April 2025)</li>
-                <li>Cloud Computing Frameworks and Operations Portfolio (Oct 2024)</li>
-                <li>Big Data Distributed Architecture Analytics (Oct 2023)</li>
-            </ul>
-        </div>`;
-    openHTMLModal('Advanced Certifications & Up-Skilling Logs', certificationsHTML);
+        <div class="modal-credentials-layout">
+            <p style="margin-bottom: 20px; color: #555; text-align: left; font-size: 0.95rem;">
+                Click on the verified links in the right column to review professional badges and academic credentials.
+            </p>
+            <h3 style="text-align: left; color: #007bff; margin: 20px 0 10px 0; font-size: 1.15rem; border-left: 3px solid #007bff; padding-left: 8px;">
+                Coursera Professional Certifications
+            </h3>
+            <table class="modal-data-table" style="margin-bottom: 30px; width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; padding: 8px;">Specialization Program</th>
+                        <th style="text-align: left; padding: 8px;">Issuing Organization</th>
+                        <th style="text-align: left; padding: 8px;">Verification Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px;"><strong>IBM Full Stack JavaScript Developer</strong><br><span style="color: #666; font-size: 0.85rem;">12-Course Specialization</span></td>
+                        <td style="padding: 10px;">IBM</td>
+                        <td style="padding: 10px;"><a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" rel="noopener noreferrer" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>IBM JavaScript Backend Developer</strong><br><span style="color: #666; font-size: 0.85rem;">13-Course Specialization</span></td>
+                        <td style="padding: 10px;">IBM</td>
+                        <td style="padding: 10px;"><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" rel="noopener noreferrer" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>IBM AI Developer</strong><br><span style="color: #666; font-size: 0.85rem;">10-Course Specialization</span></td>
+                        <td style="padding: 10px;">IBM</td>
+                        <td style="padding: 10px;"><a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" rel="noopener noreferrer" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Microsoft AI and ML Engineering</strong><br><span style="color: #666; font-size: 0.85rem;">5-Course Specialization</span></td>
+                        <td style="padding: 10px;">Microsoft</td>
+                        <td style="padding: 10px;"><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" rel="noopener noreferrer" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Google Cyber Security</strong><br><span style="color: #666; font-size: 0.85rem;">9-Course Specialization</span></td>
+                        <td style="padding: 10px;">Google</td>
+                        <td style="padding: 10px;"><a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" rel="noopener noreferrer" class="credential-link">View Certificate ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Advanced Computer Architecture</strong></td>
+                        <td style="padding: 10px;">April 2026</td>
+                        <td style="padding: 10px;"><a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link">View NPTEL Drive ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Advanced Computer Networks</strong></td>
+                        <td style="padding: 10px;">April 2025</td>
+                        <td style="padding: 10px;"><a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link">View NPTEL Drive ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Practical Cyber Security for Practitioners</strong></td>
+                        <td style="padding: 10px;">Oct 2024</td>
+                        <td style="padding: 10px;"><a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link">View NPTEL Drive ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Cloud Computing</strong></td>
+                        <td style="padding: 10px;">Oct 2024</td>
+                        <td style="padding: 10px;"><a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-K55aZx_pkRn/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="credential-link">View NPTEL Drive ↗</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Big Data Computing</strong></td>
+                        <td style="padding: 10px;">Oct 2023</td>
+                        <td style="padding: 10px;"><a href="https://google.com" target="_blank" rel="noopener noreferrer" class="credential-link">View NPTEL Drive ↗</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    `;
+    openHTMLModal('Advanced Certifications & Up-Skilling', certificationsHTML);
 }
 
 function showExperienceModal() {
