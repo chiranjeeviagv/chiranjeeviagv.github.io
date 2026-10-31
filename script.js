@@ -100,6 +100,37 @@ function closeModal() {
         document.body.style.overflow = '';
     }
 }
+// Assuming a variable or function tracks the active view state ('academic' or 'industry')
+function showReferencesModal(currentView) {
+    var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
+    
+    if (currentView === 'academic') {
+        html += '<h4>🎓 Academic & Research References</h4>' +
+            '<ul>' +
+            '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College<br>Cell: +91 8688381481</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
+            '</ul>';
+    } else {
+        html += '<h4>💼 Industry & Corporate References</h4>' +
+            '<ul>' +
+            '<li><strong>Yasmin Jal Mistry</strong> (Director)<br>Durand Forms Pvt. Limited<br>Cell: +91 9167231673</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Mrs. Sangita K Chowdary</strong><br>SITRC, Nashik<br>Cell: +91 9730199702</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>' +
+            '</ul>' +
+            
+            '<h4>🏠 Personal & Character References</h4>' +
+            '<ul>' +
+            '<li><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Md. Faheen Ul Haq</strong><br>Hyderabad (Family Friend)<br>Cell: +91 9849022155</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Gulbarg Singh Bassi</strong> (Retired Teacher)<br>GSC<br>Cell: +1 6787941794</li>' +
+            '</ul>';
+    }
+    
+    html += '</div>';
+    openHTMLModal('Verified Professional References', html);
+}
 
 // ==========================================
 // 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
