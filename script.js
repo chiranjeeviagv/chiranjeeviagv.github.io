@@ -122,8 +122,6 @@ function showQualificationsModal() {
   openHTMLModal("Qualifications Records", html);
 }
 
-}
-
 function showCertificationsModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<h4>Coursera Specialization Modules:</h4>' +
