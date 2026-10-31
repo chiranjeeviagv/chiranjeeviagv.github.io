@@ -255,15 +255,55 @@ function showPublicationsModal() {
 }
 
 function showDevelopmentProgramsModal() {
-    var html = '<div style="padding:10px; text-align:left;">' +
+    var html = '<div style="padding:10px; text-align:left; max-height:500px; overflow-y:auto;">' +
+        '<h4>🎓 Teaching Methodologies & Outcome-Based Education (OBE)</h4>' +
         '<ul>' +
-        '<li>Two-day FDP on OBE Focused Curriculum Design - Sandip University (2026)</li>' +
-        '<li>OBE System Workshop Framework - VIIT / KLETU (2018)</li>' +
-        '<li>National Workshop on MOOCs and E-Learning - Delhi University (2018)</li>' +
+        '<li>Two-day FDP on OBE Focused Curriculum Design – IQAC, Sandip University, Nashik (8-9 Nov 2026)</li>' +
+        '<li>OBE Workshop – VIIT by KLETU (4-6 May 2018)</li>' +
+        '<li>National Workshop on MOOCs and E-Learning in Higher Education – Guru Angad Dev TLC of MHRD, SGTB Khalsa College, University of Delhi (18 Aug 2018)</li>' +
+        '<li>Three-day Workshop on Counselling System and Guidance – Medhas I-Train, Hyderabad (4-6 Dec 2018)</li>' +
+        '</ul>' +
+
+        '<h4>💻 Electronics, AI, Data Science & Internet of Things (IoT)</h4>' +
+        '<ul>' +
+        '<li>One-Week FDP on Emerging Trends and Applications of Generative AI – ISTE Approved, SVKM’s Institute of Technology, Dhule (27-31 Jan 2025)</li>' +
+        '<li>15 Days Online FDP on Open Business Tools for AI and Business Applications – 6th Q Research (H), India (18 Aug – 3 Sep 2025)</li>' +
+        '<li>MHRD-Sponsored INDO-US International Workshop on IoT and ML Based Microgrid & Energy Management – Dept. of EEE, Chaitanya Bharathi Institute of Technology, Hyderabad (19-23 Feb 2024)</li>' +
+        '<li>8-Week FDP on Big Data Computing – IIT Patna through NPTEL-AICTE (Aug–Oct 2023)</li>' +
+        '<li>42 Hours Training Program on Python for Data Science – ExcelR (16 May – 3 Jun 2022)</li>' +
+        '<li>40 Hours Training Program on Artificial Intelligence – ExcelR under EDL Initiative (28 Mar – 25 Apr 2022)</li>' +
+        '<li>One-Week Short-Term Training Programme on Pattern Recognition Theory and Applications – NITTTR Kolkata via ICT Mode (21-25 Mar 2022)</li>' +
+        '<li>Online FDP on Data Sciences Applied to Industries – Directorate of Faculty Development, JNTU Kakinada (17-21 Aug 2020)</li>' +
+        '<li>FDP on IoT – APSSDC (13-25 Jul 2020)</li>' +
+        '<li>3-Day FDP on Machine Learning – APSSDC at VIIT (13-15 Sep 2020)</li>' +
+        '<li>One-Week FDP on Hands-on Training on Power Electronics and Power Systems Using Advanced Analytical Tools – Andhra University College of Engineering Autonomous (5-9 Feb 2018)</li>' +
+        '</ul>' +
+
+        '<h4>⚡ Power Systems, Smart Grids & Renewable Energy</h4>' +
+        '<ul>' +
+        '<li>40-Hour Online FDP on Advanced Intelligence and ICT Application to Power System Protection – Sponsored by Ministry of Electronics and IT (MeitY), organized by E&ICT Academy, NIT Warangal and GVPCE(A), Visakhapatnam (18-27 Jul 2022)</li>' +
+        '<li>Five-day Online Workshop on Integration of Renewable Energy & EV to Microgrid: Prospects and Challenges – Under SPARC, Dept. of EEE, NIT Tiruchirappalli & The Hong Kong Polytechnic University (21-25 Feb 2022)</li>' +
+        '<li>Two-day Workshop on Integration of Renewable Energy Sources to Micro Grids – Sponsored by DST-SERB (18-19 Aug 2017)</li>' +
+        '<li>Two-day Workshop on Smart Grids and Renewable Energy – CPRI, Bangalore (26-27 Nov 2015)</li>' +
+        '<li>One-day Workshop on Renewable Energy Sources - As Alternatives in Power Sector – Gayatri Vidya Parishad College of Engineering, Visakhapatnam (11 Feb 2012)</li>' +
+        '</ul>' +
+
+        '<h4>🏫 Institutional Development, Webinars & Core FDPs</h4>' +
+        '<ul>' +
+        '<li>One-Week Faculty Development Program – Chameli Devi Institute of Professional Studies, Indore (6-11 Jul 2026)</li>' +
+        '<li>One-Week Online FDP on Exploring the Significance of Indian Knowledge Systems in the Context of NEP 2020 – Chaitanya Bharathi Institute of Technology, Hyderabad (5-10 Feb 2024)</li>' +
+        '<li>8-Week FDP on Ethics in Engineering Practice – IIT Kharagpur through NPTEL-AICTE (Aug–Oct 2023)</li>' +
+        '<li>Short-Term Course on Soft Computing Using Sci-Lab – Educational Television Centre, Raghu Engineering College, Visakhapatnam (21-25 Jul 2014)</li>' +
+        '<li>TCS iON Faculty Engagement Session on Global Best Practices in Education (2 Apr 2026)</li>' +
+        '<li>International Webinar on Impact of AI and ML in Computer – SRM TRP Engineering college (28 Mar 2022)</li>' +
+        '<li>National Level Webinar on Art of Teaching – Dept. of EEE, Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam (7 Jul 2020)</li>' +
+        '<li>Webinar on Cryptography Encryption Techniques – Dept. of Computer Science and Applications, SRM Arts and Science College (16 Jul 2020)</li>' +
+        '<li>Webinar on NAAC News Release – Led by Shri Pralhad Joshi, Hon’ble Minister of Parliamentary Affairs, Coal and Mines (16 Jul 2020)</li>' +
         '</ul>' +
         '</div>';
     openHTMLModal('Faculty Up-Skilling & FDP Records', html);
 }
+
 
 function showReferencesModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
