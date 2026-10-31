@@ -212,15 +212,46 @@ function showExperienceModal() {
 
 
 function showPublicationsModal() {
-    var html = '<div style="padding:10px; text-align:left;">' +
-        '<h4>📄 Peer-Reviewed International Journal Papers</h4>' +
+    var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
+        '<h4>🔒 Published Patents</h4>' +
         '<ol>' +
-        '<li>"Transient stability improvement of SMIB system Using DPFC" - IJPAM, 2017</li>' +
-        '<li>"Application of SVC for Multiobjective Optimization Powerflow Problem Using PSO" - IJPAM, 2017</li>' +
-        '<li>"Dynamic Stability Improvement of a Smart Grid using Neural Network Based STATCOM" - INDJST, 2016</li>' +
+        '<li><strong>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics</strong><br>' +
+        'Field: Bio-Medical Engineering | Pub. Number: 11/2024(INA)</li>' +
+        '<li><strong>Power Quality Analysis Using IoT</strong><br>' +
+        'Field: Power Systems / Automation | App. Number: 202441060301 | Aug 2024</li>' +
+        '</ol>' +
+
+        '<h4>📚 Forthcoming Books</h4>' +
+        '<ul>' +
+        '<li><strong>Logical Introduction to Digital Electronics</strong><br>' +
+        'Accepted for publication by <em>BPB Publications</em> (Final editing phases for 2026 launch).</li>' +
+        '</ul>' +
+
+        '<h4>📄 Peer-Reviewed Book Chapters & Journal Papers</h4>' +
+        '<ol>' +
+        '<li>"Dynamic stability improvement of a smart grid using neural network based STATCOM" - <em>Indian Journal of Science and Technology</em> ' +
+        '[<a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" target="_blank" style="color:#0066cc; text-decoration:underline;">View Article</a>]</li>' +
+        
+        '<li>"Transient Stability Improvement of SMIB using DPFC" - <em>IJPAM (2017)</em> ' +
+        '[<a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" target="_blank" style="color:#0066cc; text-decoration:underline;">View PDF</a>]</li>' +
+        
+        '<li>"Application of SVC for Multi Objective Power problem with PSO" - <em>IJPAM (2017)</em> ' +
+        '[<a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" target="_blank" style="color:#0066cc; text-decoration:underline;">View PDF</a>]</li>' +
+        
+        '<li>"A grid interfaced low frequency wind power" - <em>IJRASET (2015)</em> ' +
+        '[<a href="https://www.ijraset.com/fileserve.php?FID=2047" target="_blank" style="color:#0066cc; text-decoration:underline;">View PDF</a>]</li>' +
+        
+        '<li>"Fuzzy based Unified Control and Power Management Scheme for PV Battery based Hybrid Micro Grids for both Grid Connected and Islanded Modes" - <em>IJAEMA</em> ' +
+        '[<a href="https://drive.google.com/file/d/1Bhgmof-yxlzp3ZRNAsk2lemdSm7Xe6oA/view" target="_blank" style="color:#0066cc; text-decoration:underline;">View Document</a>]</li>' +
+        
+        '<li>"Simulation based Analysis for fixing Optimal stages for a H-Bridge cascaded Multi Level Converters" - <em>IJSETR (2016)</em> ' +
+        '[<a href="https://ijsetr.com/uploads/463251IJSETR9076-240.pdf" target="_blank" style="color:#0066cc; text-decoration:underline;">View PDF</a>]</li>' +
+        
+        '<li><strong>Book Chapter:</strong> "Cyber security in smart Grids: Role of Digital Advanced Devices" - <em>Cyber security-Issues, Challenges–Solutions-Business, IGI Global Publications (Oct 2022)</em> ' +
+        '[<a href="https://doi.org/10.4018/978-1-6684-5827-3.ch002" target="_blank" style="color:#0066cc; text-decoration:underline;">CrossRef DOI</a>]</li>' +
         '</ol>' +
         '</div>';
-    openHTMLModal('Research Publications', html);
+    openHTMLModal('Research Publications & Intellectual Property', html);
 }
 
 function showDevelopmentProgramsModal() {
