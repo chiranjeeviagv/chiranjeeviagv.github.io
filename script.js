@@ -314,15 +314,40 @@ function showReferencesModal() {
 }
 
 function showExpertiseModal() {
-    var html = '<div style="padding:10px; text-align:left;">' +
-        '<ul>' +
-        '<li>Artificial Intelligence Techniques & Neural Networks</li>' +
-        '<li>Engineering Electromagnetics & Field Analysis</li>' +
-        '<li>Power System Analysis, Protection & Control Engines</li>' +
-        '<li>High Voltage Engineering & Distributed Microgrids</li>' +
+    var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
+        '<h4>🎯 Areas of Interest</h4>' +
+        '<ul style="margin-bottom:15px;">' +
+        '<li>Artificial Intelligence & Machine Learning</li>' +
+        '<li>Cyber Security</li>' +
+        '<li>Electromagnetics</li>' +
+        '<li>Microcontrollers & Digital Logic Design</li>' +
+        '<li>Non-Conventional Sources of Energy</li>' +
+        '</ul>' +
+
+        '<h4>📖 Courses Handled</h4>' +
+        '<ul style="column-count: 2; column-gap: 20px; list-style-position: inside; padding-left: 0;">' +
+        '<li style="break-inside: avoid;">Artificial Intelligence Techniques</li>' +
+        '<li style="break-inside: avoid;">AI Based Web Design</li>' +
+        '<li style="break-inside: avoid;">Introduction to Expert Systems</li>' +
+        '<li style="break-inside: avoid;">Advanced Python Programming</li>' +
+        '<li style="break-inside: avoid;">Discrete Mathematics and Logic</li>' +
+        '<li style="break-inside: avoid;">Software Testing Certification</li>' +
+        '<li style="break-inside: avoid;">Electro Magnetic Fields</li>' +
+        '<li style="break-inside: avoid;">Microprocessors and Microcontrollers</li>' +
+        '<li style="break-inside: avoid;">Digital Logic Design</li>' +
+        '<li style="break-inside: avoid;">Digital Controllers</li>' +
+        '<li style="break-inside: avoid;">Control Systems</li>' +
+        '<li style="break-inside: avoid;">Power System Analysis</li>' +
+        '<li style="break-inside: avoid;">Power System Protection</li>' +
+        '<li style="break-inside: avoid;">High Voltage Engineering</li>' +
+        '<li style="break-inside: avoid;">Non-Conventional Sources of Energy</li>' +
+        '<li style="break-inside: avoid;">Electrical Technology</li>' +
+        '<li style="break-inside: avoid;">Basic Electrical and Electronics Engineering</li>' +
         '</ul>' +
         '</div>';
     openHTMLModal('Subject Area Expertise', html);
+}
+
 }
 
 function showSkillsModal() {
