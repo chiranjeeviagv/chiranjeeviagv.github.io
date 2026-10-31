@@ -105,13 +105,23 @@ function closeModal() {
 // 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
 // ==========================================
 function showQualificationsModal() {
-    var html = '<div style="padding:10px; text-align:left;">' +
-        '<p><strong>M.Tech (High Voltage Engineering)</strong> - JNTU Kakinada (72.00% Distinction)</p>' +
-        '<p><strong>B.Tech (Electrical & Electronics)</strong> - Chaitanya Engineering College (71.63% Distinction)</p>' +
-        '<p><strong>Intermediate (MPC)</strong> - Gayatri Junior College (94.10%)</p>' +
-        '<p><strong>SSC Certification</strong> - ZP High School, Jami (89.86%)</p>' +
-        '</div>';
-    openHTMLModal('Qualifications Records', html);
+  var html = '<div style="padding: 10px; text-align: left;">' +
+             '<p><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction) ' +
+             '[<a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
+             
+             '<p><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction) ' +
+             '[<a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
+             
+             '<p><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10% ' +
+             '[<a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
+             
+             '<p><strong>SSC Certification:</strong> ZP High School, Jami - 89.86% ' +
+             '[<a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
+             '</div>';
+
+  openHTMLModal("Qualifications Records", html);
+}
+
 }
 
 function showCertificationsModal() {
