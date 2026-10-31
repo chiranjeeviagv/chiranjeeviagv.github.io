@@ -371,8 +371,6 @@ function showExpertiseModal() {
     openHTMLModal('Subject Area Expertise', html);
 }
 
-}
-
 function showSkillsModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<p><strong>Core Languages:</strong> Python (Advanced), MATLAB (Simulink Twin Engineering), JavaScript (Full-Stack Engine Stack), Core Java Basics.</p>' +
