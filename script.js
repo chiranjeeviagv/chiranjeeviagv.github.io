@@ -127,7 +127,7 @@ function showCertificationsModal() {
         '<h4>Coursera Specialization Modules:</h4>' +
         '<ul>' +
         '<li>IBM Full Stack JavaScript Developer (12 Courses) ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
+        '[<a href=https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
         '[<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
         
         '<li>IBM JavaScript Backend Developer (13 Courses) ' +
@@ -135,13 +135,14 @@ function showCertificationsModal() {
         '[<a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
         
         '<li>IBM AI Developer (10 Courses) ' +
-        '[<a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
+        '[<a href="https://www.coursera.org/account/accomplishments/professional-cert/E06UAT9KFM8S"_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
         '[<a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
         
         '<li>Microsoft AI and ML Engineering (5 Courses) ' +
-        '[<a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
+        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
         '[<a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-K55aZx_pkRn/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
-        
+        '<li> IBM Java Developer (14 courses) '+
+        '[<a href="https://www.coursera.org/account/accomplishments/professional-cert/CGMXJ0SN33A5" target-"_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
         '<li>Google Cyber Security Specialist Track (9 Courses) ' +
         '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
         '[<a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
