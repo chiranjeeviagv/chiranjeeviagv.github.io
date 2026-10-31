@@ -173,14 +173,43 @@ function showCertificationsModal() {
 }
 function showExperienceModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
-        '<p><strong>Assistant Professor (AI/ML Dept)</strong><br>Sandip Institute of Technology and Research Centre, Nashik (June 2025 – May 2026)</p><hr>' +
-        '<p><strong>Assistant Professor (EEE Dept)</strong><br>Guru Nanak Institute of Technology (Autonomous), Hyderabad (Feb 2023 – Jan 2025)</p><hr>' +
-        '<p><strong>Assistant Professor (EEE Dept)</strong><br>Malla Reddy Engineering College for Women, Secunderabad (July 2022 – Feb 2023)</p><hr>' +
-        '<p><strong>Senior Assistant Professor</strong><br>Aditya College of Engineering, Surampalem (Nov 2019 – July 2021)</p><hr>' +
-        '<p><strong>Assistant Professor (EEE Dept)</strong><br>Vignan’s Institute of Information Technology, Visakhapatnam (March 2015 – Nov 2019)</p>' +
+        '<p><strong>Assistant Professor – Department of Electrical Engineering (AI & ML)</strong><br>' +
+        'Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra<br>' +
+        '<em>June 2025 – May 2026</em><br>' +
+        '<span style="font-size:13px; color:#444;">• Delivered specialized courses bridging heavy electrical engineering with computational intelligence, including Artificial Intelligence Techniques and AI-Based Web Design.</span><br>' +
+        '[<a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
+        
+        '<p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
+        'Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad<br>' +
+        '<em>February 2023 – January 2025</em><br>' +
+        '<span style="font-size:13px; color:#444;">• Taught core undergraduate engineering subjects and guided graduation project groups.<br>' +
+        '• Managed automated tools for continuous student assessments, grading workflows, and classroom operations.</span><br>' +
+        '[<a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
+        
+        '<p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
+        'Malla Reddy Engineering College for Women (Autonomous), Secunderabad<br>' +
+        '<em>July 2022 – February 2023</em><br>' +
+        '<span style="font-size:13px; color:#444;">• Led academic instruction, micro-mentoring programs, and structured laboratory assessments.<br>' +
+        '• Contributed actively to internal department committees preparing for structural university audits.</span><br>' +
+        '[<a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
+        
+        '<p><strong>Senior Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
+        'Aditya College of Engineering, Surampalem, Andhra Pradesh<br>' +
+        '<em>November 2019 – July 2021</em><br>' +
+        '<span style="font-size:13px; color:#444;">• Provided senior-level instructional delivery for advanced PG and UG courses.<br>' +
+        '• Structured curriculum changes to better incorporate simulation tools like MATLAB within lab protocols.</span><br>' +
+        '[<a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
+        
+        '<p><strong>Assistant Professor – Department of EEE</strong><br>' +
+        'Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh<br>' +
+        '<em>March 2015 – November 2019</em><br>' +
+        '<span style="font-size:13px; color:#444;">• Administered core academic workloads alongside critical operational responsibilities, serving as the NBA coordinator and department Time-Table planner.<br>' +
+        '• Spearheaded institutional accreditation data compilation (NBA & NAAC files).</span><br>' +
+        '[<a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p>' +
         '</div>';
     openHTMLModal('Professional Experience', html);
 }
+
 
 function showPublicationsModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
