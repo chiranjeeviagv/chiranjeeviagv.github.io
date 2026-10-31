@@ -100,7 +100,9 @@ function closeModal() {
         document.body.style.overflow = '';
     }
 }
-// Assuming a variable or function tracks the active view state ('academic' or 'industry')
+// ==========================================
+// 6. DYNAMIC CONTEXTUAL REFERENCE ENGINE
+// ==========================================
 function showReferencesModal(currentView) {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
     
@@ -109,7 +111,7 @@ function showReferencesModal(currentView) {
             '<ul>' +
             '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892</li><hr style="border-top: 1px solid #eee;">' +
             '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216</li><hr style="border-top: 1px solid #eee;">' +
-            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College<br>Cell: +91 8688381481</li><hr style="border-top: 1px solid #eee;">' +
+            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481</li><hr style="border-top: 1px solid #eee;">' +
             '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
             '</ul>';
     } else {
@@ -131,6 +133,7 @@ function showReferencesModal(currentView) {
     html += '</div>';
     openHTMLModal('Verified Professional References', html);
 }
+
 
 // ==========================================
 // 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
