@@ -177,7 +177,7 @@ function showExperienceModal() {
         'Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra<br>' +
         '<em>June 2025 – May 2026</em><br>' +
         '<span style="font-size:13px; color:#444;">• Delivered specialized courses bridging heavy electrical engineering with computational intelligence, including Artificial Intelligence Techniques and AI-Based Web Design.</span><br>' +
-        '[<a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
+        '[<a href="https://drive.google.com/file/d/1vkAjZmeYQHPg-yer47apZZG9evd2Ubp2/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
         
         '<p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
         'Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad<br>' +
