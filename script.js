@@ -334,5 +334,24 @@ function showSkillsModal() {
 }
 
 function showConferencesModal() {
-    openHTMLModal('Conferences Attended Presentation Details', '<p style="padding:10px;">Proceedings mapping index verification registry currently running setup.</p>');
+    var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
+        '<h4>📋 International & National Conference Presentations</h4>' +
+        '<ul>' +
+        '<li><strong>"System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0"</strong><br>' +
+        'Presented at the <em>5th International E-Conference on Mechanical and Material Science Engineering: Innovation and Research (ICMMSE:IR)</em>, ' +
+        'organized by the Department of Mechanical Engineering, Sandip Institute of Technology & Research Centre, Nashik, Maharashtra ' +
+        '(27th – 28th February 2026).</li><hr style="border-top: 1px solid #eee;">' +
+        
+        '<li><strong>"Cyber Security in smart grids- Role of Digital Advanced devices"</strong><br>' +
+        'Presented at the <em>Two-Day National Conference on Green and Resilient Energy Systems (GVCON-2K22)</em>, ' +
+        'conducted by the Electrical & Electronics Engineering Department, Gayatri Vidya Parishad College of Engineering (Autonomous), Visakhapatnam ' +
+        '(21st – 22nd October 2022).</li><hr style="border-top: 1px solid #eee;">' +
+        
+        '<li><strong>"Transient Stability Improvement of SMIB using DPFC"</strong><br>' +
+        'Presented at the <em>Two-Day National Conference on Recent Trends in Electrical and Electronics Engineering (RTEEE)</em>, ' +
+        'held at Vignan’s Institute of Information Technology, Visakhapatnam ' +
+        '(14th – 15th April 2017).</li>' +
+        '</ul>' +
+        '</div>';
+    openHTMLModal('Conferences Attended Presentation Details', html);
 }
