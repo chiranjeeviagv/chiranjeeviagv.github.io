@@ -126,39 +126,51 @@ function showCertificationsModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<h4>Coursera Specialization Modules:</h4>' +
         '<ul>' +
-        '<li>IBM Full Stack JavaScript Developer (12 Courses) ' +
-        '[<a href=https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
-        '[<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
+        '<li>IBM Full Stack JavaScript Developer (12 Courses) - Sep 2026 ' +
+        '[<a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
         
-        '<li>IBM JavaScript Backend Developer (13 Courses) ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
-        '[<a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
+        '<li>Microsoft AI and ML Engineering (5 Courses) - Jul 2026 ' +
+        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
         
-        '<li>IBM AI Developer (10 Courses) ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/professional-cert/E06UAT9KFM8S"_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
-        '[<a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
+        '<li>IBM AI Developer (10 Courses) - Jun 2026 ' +
+        '[<a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
         
-        '<li>Microsoft AI and ML Engineering (5 Courses) ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
-        '[<a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-K55aZx_pkRn/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
-        '<li> IBM Java Developer (14 courses) '+
-        '[<a href="https://www.coursera.org/account/accomplishments/professional-cert/CGMXJ0SN33A5" target-"_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
-        '<li>Google Cyber Security Specialist Track (9 Courses) ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>] ' +
-        '[<a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view?usp=sharing" target="_blank" style="color:#666; text-decoration:underline; font-size:12px;">Mirror</a>]</li>' +
+        '<li>IBM Java Developer (14 Courses) - Jul 2026 ' +
+        '[<a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>IBM JavaScript Backend Developer (13 Courses) - Aug 2026 ' +
+        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>Google Cyber Security Specialist Track (9 Courses) - Jul 2026 ' +
+        '[<a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
         '</ul>' +
         
-        '<h4>NPTEL Postings:</h4>' +
+        '<h4>NPTEL Certifications:</h4>' +
         '<ul>' +
-        '<li>Advanced Computer Architecture (April 2026) ' +
-        '[<a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        '<li>Advanced Computer Networks (April 2025) ' +
+        '<li>Advanced Computer Architecture - Apr 2026 ' +
+        '[<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>Advanced Computer Networks - Apr 2025 ' +
+        '[<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>Practical Cyber Security for Cyber Security Practitioners - Jul-Oct 2024 ' +
+        '[<a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>Cloud Computing - Jul-Oct 2024 ' +
+        '[<a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>Big Data Computing (8-Week Course) - Oct 2023 ' +
+        '[<a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
+        
+        '<li>Ethics in Engineering Practice (8-Week Course) - Oct 2023 ' +
         '[<a href="#" target="_blank" style="color:#999; text-decoration:line-through; pointer-events:none;">Link Pending</a>]</li>' +
+        
+        '<li>Introduction to Smart Grid (8-Week Course) - Jul-Sep 2022 ' +
+        '[<a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
         '</ul>' +
         '</div>';
     openHTMLModal('Advanced Certifications & Up-Skilling', html);
 }
-
 function showExperienceModal() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<p><strong>Assistant Professor (AI/ML Dept)</strong><br>Sandip Institute of Technology and Research Centre, Nashik (June 2025 – May 2026)</p><hr>' +
