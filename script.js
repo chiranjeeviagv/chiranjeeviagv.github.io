@@ -140,7 +140,7 @@ function showReferencesModal(currentView) {
     }
     
     html += '</div>';
-    openHTMLModal('Verified Professional References', html);
+    openHTMLModal('references-shared', html);
 }
 
 
