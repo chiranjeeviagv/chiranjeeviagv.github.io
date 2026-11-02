@@ -117,6 +117,7 @@ function handleExploreClick(sectionKey) {
     else if (sectionKey === 'skills') showSkillsModal();
     else if (sectionKey === 'conferences') showConferencesModal();
     else if (sectionKey === 'references') showReferencesModal(currentView);
+    else if (sectionKey === 'languages') showLanguagesModal();
     else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
         acedemicStrengthsModal();
     }
@@ -197,6 +198,69 @@ function showReferencesModal(currentView) {
     openHTMLModal('references-shared', html);
 }
 
+function showLanguagesModal() {
+    var htmlContent = `
+        <div class="modal-languages-container" style="padding: 10px 0;">
+            <p style="margin-bottom: 20px; color: #555; font-size: 15px; line-height: 1.5;">
+                Proficiency levels in regional, national, and international languages for technical development, professional instruction, and global research publication.
+            </p>
+            
+            <div class="modal-lang-grid" style="display: flex; flex-direction: column; gap: 15px;">
+                
+                <!-- English Card -->
+                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; color: #007bff; font-size: 18px;">English</h4>
+                        <span style="background: #007bff; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Professional</span>
+                    </div>
+                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Primary medium for research publications, international engineering courses, and global codebase architecture documentation.</p>
+                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Technical Writing • Academic Lecturing • Client Communication</div>
+                </div>
+
+                <!-- Telugu Card -->
+                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; color: #28a745; font-size: 18px;">Telugu</h4>
+                        <span style="background: #28a745; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Native / Bilingual</span>
+                    </div>
+                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Native language proficiency. Exceptional utility for local community coordination, regional student mentorship, and regional institutional administration.</p>
+                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Fluent Vernacular Delivery • Institutional Governance • Mentorship</div>
+                </div>
+
+                <!-- Hindi Card -->
+                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Hindi</h4>
+                        <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
+                    </div>
+                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
+                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Professional Interaction • National Collaboration • Multi-lingual Team Operations</div>
+                </div>
+                <!-- Punjabi -->
+                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Hindi</h4>
+                        <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
+                    </div>
+                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
+                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Can read and write</div>
+                </div>
+                <!-- Marathi Card -->
+                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Hindi</h4>
+                        <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
+                    </div>
+                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
+                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> can understand and speak</div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Calls your existing system engine to display content safely inside the #details-modal container
+    openHTMLModal("Languages Known & Proficiency", htmlContent);
+}
 
 // ==========================================
 // 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
