@@ -365,33 +365,32 @@ function showReferencesModal(currentView) {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
     
     if (currentView === 'academic') {
-        // Displays ONLY the Academic & Research mentors
-        html += '<h4 style="color:#007bff; margin-bottom:12px;">🎓 Academic & Research References</h4>' +
-            '<ul style="line-height: 1.6; padding-left: 20px;">' +
-            '<li style="margin-bottom: 12px;"><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
+        html += '<h4>🎓 Academic & Research References</h4>' +
+            '<ul style="list-style:none; padding-left:0;">' +
+            '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Mrs. Sangita K Chowdary</strong><br>SITRC, Nashik<br>Cell: +91 9730199702<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
             '</ul>';
     } else {
-        // Displays ONLY the Industrial, Corporate, and Personal character contacts
-        html += '<h4 style="color:#007bff; margin-bottom:12px;">💼 Industry & Corporate References</h4>' +
-            '<ul style="line-height: 1.6; padding-left: 20px; margin-bottom: 20px;">' +
-            '<li style="margin-bottom: 12px;"><strong>Yasmin Jal Mistry</strong> (Director)<br>Durand Forms Pvt. Limited<br>Cell: +91 9167231673</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Mrs. Sangita K Chowdary</strong><br>SITRC, Nashik<br>Cell: +91 9730199702</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>' +
+        html += '<h4>💼 Industry & Corporate References</h4>' +
+            '<ul style="list-style:none; padding-left:0;">' +
+            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Yasmin Jal Mistry</strong> (Director)<br>Durand Forms Pvt. Limited<br>Cell: +91 9167231673<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Md. Faheem Ul Haq</strong><br>Family Friend, Family Friend<br>Cell: +91 9849022155</li>' +
             '</ul>' +
-            
-            '<h4 style="color:#007bff; margin-top:20px; margin-bottom:12px;">🏠 Personal & Character References</h4>' +
-            '<ul style="line-height: 1.6; padding-left: 20px;">' +
-            '<li style="margin-bottom: 12px;"><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Md. Faheen Ul Haq</strong><br>Hyderabad (Family Friend)<br>Cell: +91 9849022155</li><hr style="border-top: 1px solid #eee;">' +
-            '<li style="margin-bottom: 12px;"><strong>Gulbarg Singh Bassi</strong> (Retired Teacher)<br>GSC<br>Cell: +1 6787941794</li>' +
+            '<h4>🏠 Personal & Character References</h4>' +
+            '<ul style="list-style:none; padding-left:0;">' +
+            '<li><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Md. Faheem Ul Haq</strong><br>Hyderabad (Family Friend)<br>Cell: +91 9849022155</li>' +
             '</ul>';
     }
-    
+
     html += '</div>';
-    openHTMLModal('Verified Professional References', html);
+    
+    // Note: You will need to return the 'html' variable or insert it into your modal container here.
+    return html; 
 }
 function showExpertiseModal() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
