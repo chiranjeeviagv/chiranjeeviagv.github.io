@@ -387,10 +387,10 @@ function showReferencesModal(currentView) {
             '</ul>';
     }
 
-    html += '</div>';
+    openHTMLModal('academic References', html);
     
     // Note: You will need to return the 'html' variable or insert it into your modal container here.
-    return html; 
+ 
 }
 function showExpertiseModal() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
