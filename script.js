@@ -183,7 +183,7 @@ function showReferencesModal(currentView) {
         html += '<h4>💼 Industry & Corporate References</h4>' +
             '<ul>' +
             '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481</li><hr style="border-top: 1px solid #eee;">' +
-            <li><strong>Md. Faheem Ul haq></strong>Family Friend, Family Friend<br>Cell: +91 9849022155</li>' +
+            '<li><strong>Md. Faheem Ul haq</strong> (Family Friend)<br>Cell: +91 9849022155</li>' +
             '</ul>' +
             '<h4>🏠 Personal & Character References</h4>' +
             '<ul>' +
