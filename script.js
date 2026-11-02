@@ -34,6 +34,27 @@ function switchView(viewMode) {
 // ==========================================
 // 3. SECURE DOM EVENT BINDING LAYER
 // ==========================================
+// 1. Global View Management Functions
+function handleExploreClick(sectionId) {
+    if (sectionId === 'contact-info') {
+        var contactSection = document.getElementById('contact-info');
+        if (contactSection) {
+            contactSection.style.display = 'flex'; 
+        }
+    } else {
+        // Your existing routing code for other sections
+    }
+}
+
+function closeModal() {
+    var contactSection = document.getElementById('contact-info');
+    if (contactSection) {
+        contactSection.style.display = 'none';
+    }
+    // Your existing code to clear out or hide overlay screens
+}
+
+// 2. DOM Initialization Events
 document.addEventListener('DOMContentLoaded', function() {
     var btnAcademic = document.getElementById('btn-academic');
     var btnIndustry = document.getElementById('btn-industry');
