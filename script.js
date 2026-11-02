@@ -379,10 +379,11 @@ function showReferencesModal(currentView) {
             '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
             '<li><strong>Md. Faheem Ul Haq</strong><br>Family Friend, Family Friend<br>Cell: +91 9849022155</li>' +
             '</ul>' +
+            '<li><strong>Prof. M Ramalinga Raju,Professor, Electrical and Electronics engineering, </strong><br>Former Vice Chancellor, JNTUK kakinada, <br>Cell: +91 9603619104</li>' +
             '<h4>🏠 Personal & Character References</h4>' +
             '<ul style="list-style:none; padding-left:0;">' +
             '<li><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Md. Faheem Ul Haq</strong><br>Hyderabad (Family Friend)<br>Cell: +91 9849022155</li>' +
+            '<li><strong>T Mohanrao</strong><br>Teacher,ZP High School, Family Friend<br>Cell: +91 9490207027</li>' +
             '</ul>';
     }
 
