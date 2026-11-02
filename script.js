@@ -176,7 +176,6 @@ function showReferencesModal(currentView) {
             '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892</li><hr style="border-top: 1px solid #eee;">' +
             '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216</li><hr style="border-top: 1px solid #eee;">' +
             '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>' +
-            '<li><strong>Mrs. Sangita K Chowdary</strong><br>SITRC, Nashik<br>Cell: +91 9730199702</li><hr style="border-top: 1px solid #eee;">' +
             '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
             '</ul>';
     } else {
