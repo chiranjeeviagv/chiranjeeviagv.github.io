@@ -239,7 +239,7 @@ function showLanguagesModal() {
                 <!-- Punjabi -->
                 <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Hindi</h4>
+                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Punjabi-Gurmukhi</h4>
                         <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
                     </div>
                     <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
@@ -248,7 +248,7 @@ function showLanguagesModal() {
                 <!-- Marathi Card -->
                 <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Hindi</h4>
+                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Marathi</h4>
                         <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
                     </div>
                     <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
