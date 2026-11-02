@@ -177,6 +177,7 @@ function showReferencesModal(currentView) {
             '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216</li><hr style="border-top: 1px solid #eee;">' +
             '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>' +
             '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
+            '<li><strong>Professor A NagaJyothi</strong><br>Vignan's Institute of information Technology, Gajuwaka<br>Cell: +91 9398121200</li>' +
             '</ul>';
     } else {
         html += '<h4>💼 Industry & Corporate References</h4>' +
