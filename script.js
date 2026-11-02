@@ -486,9 +486,9 @@ function showReferencesModal(currentView) {
             '<ul style="list-style:none; padding-left:0;">' +
             '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
             '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Mrs. Sangita K Chowdary</strong><br>SITRC, Nashik<br>Cell: +91 9730199702<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+             '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>' +
             '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
+            '<li><strong>Professor A NagaJyothi</strong><br>Vignans Institute of information Technology, Gajuwaka<br>Cell: +91 9398121200</li>' +
             '</ul>';
     } else {
         html += '<h4>💼 Industry & Corporate References</h4>' +
