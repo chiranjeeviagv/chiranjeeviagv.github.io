@@ -65,10 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (closeBtn) closeBtn.onclick = closeModal;
 
     // Direct binding matrix loop for action selectors
+       // Change e.target to e.currentTarget inside your loop:
     var allExploreBtns = document.querySelectorAll('.explore-btn');
     allExploreBtns.forEach(function(button) {
         button.onclick = function(e) {
-            var targetSection = e.target.getAttribute('data-section');
+            var targetSection = e.currentTarget.getAttribute('data-section');
             if (targetSection) {
                 handleExploreClick(targetSection);
             }
@@ -82,8 +83,28 @@ document.addEventListener('DOMContentLoaded', function() {
 // ==========================================
 // 4. ROUTER SWITCH ROUTINE
 // ==========================================
+// ==========================================
+// 4. ROUTER SWITCH ROUTINE
+// ==========================================
 function handleExploreClick(sectionKey) {
-    // Dynamically query active toggle button class to get the current view state
+    // 1. Add your Contact Info visibility toggle here
+    if (sectionKey === 'contact-info') {
+        var contactSection = document.getElementById('contact-info');
+        var btn = document.querySelector('.explore-btn[data-section="contact-info"]');
+        if (contactSection) {
+            var currentDisplay = window.getComputedStyle(contactSection).display;
+            if (currentDisplay === 'none') {
+                contactSection.style.display = 'flex';
+                if (btn) btn.textContent = 'Hide Contact Info';
+            } else {
+                contactSection.style.display = 'none';
+                if (btn) btn.textContent = 'View Contact Info';
+            }
+        }
+        return; // Stop execution here so it doesn't try to process routing below
+    }
+
+    // 2. Your existing routing paths
     var btnAcademic = document.getElementById('btn-academic');
     var currentView = (btnAcademic && btnAcademic.classList.contains('active')) ? 'academic' : 'industry';
 
@@ -98,7 +119,7 @@ function handleExploreClick(sectionKey) {
     else if (sectionKey === 'references') showReferencesModal(currentView);
     else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
         acedemicStrengthsModal();
-    } // <-- Fixed: Added the missing closing curly brace here
+    }
 }
 
 
@@ -120,7 +141,19 @@ function openHTMLModal(title, htmlContent) {
     }
 }
 
+// ==========================================
+// 5. WINDOW FRAME DYNAMICS
+// ==========================================
 function closeModal() {
+    // 1. Reset your contact section state if visible
+    var contactSection = document.getElementById('contact-info');
+    var contactBtn = document.querySelector('.explore-btn[data-section="contact-info"]');
+    if (contactSection) {
+        contactSection.style.display = 'none';
+        if (contactBtn) contactBtn.textContent = 'View Contact Info';
+    }
+
+    // 2. Your existing frame dynamics code
     var modal = document.getElementById('details-modal');
     var modalBody = document.getElementById('modal-body');
     if (modal) {
