@@ -377,7 +377,6 @@ function showReferencesModal(currentView) {
         html += '<h4>💼 Industry & Corporate References</h4>' +
             '<ul style="list-style:none; padding-left:0;">' +
             '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Yasmin Jal Mistry</strong> (Director)<br>Durand Forms Pvt. Limited<br>Cell: +91 9167231673<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
             '<li><strong>Md. Faheem Ul Haq</strong><br>Family Friend, Family Friend<br>Cell: +91 9849022155</li>' +
             '</ul>' +
             '<h4>🏠 Personal & Character References</h4>' +
