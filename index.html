@@ -4,213 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Professional CV</title>
-    <link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:,">
-
+    <style>
+        :root {
+            --primary: #007bff;
+            --primary-hover: #0056b3;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f0f2f5; color: var(--dark); padding: 20px; line-height: 1.5; }
+        main { max-width: 1100px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .header-section { text-align: center; margin-bottom: 30px; }
+        .header-section h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 5px; }
+        .header-section p { font-style: italic; color: #718096; }
+        .toggle-container { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+        .toggle-btn { padding: 10px 24px; font-size: 1rem; font-weight: 600; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 6px; cursor: pointer; transition: all 0.3s ease; }
+        .toggle-btn.active, .toggle-btn:hover { background: var(--primary); color: white; }
+        .cv-grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .hero-card { background: var(--light); border: 1px solid var(--border); padding: 20px; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; }
+        .hero-card h2 { font-size: 1.3rem; margin-bottom: 10px; border-left: 4px solid var(--primary); padding-left: 10px; }
+        .hero-card p { font-size: 0.95rem; color: #4a5568; margin-bottom: 15px; flex-grow: 1; }
+        .explore-btn { padding: 8px 16px; background: white; border: 1px solid var(--primary); color: var(--primary); font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.2s; width: fit-content; }
+        .explore-btn:hover { background: var(--primary); color: white; }
+        .academic-only, .industry-only { display: none; }
+        
+        /* Modal System Setup */
+        .modal-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-content-wrapper { background: white; padding: 25px; border-radius: 8px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .modal-close-trigger { position: absolute; top: 15px; right: 15px; background: #e2e8f0; border: none; font-size: 1.2rem; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-weight: bold; }
+        .modal-content-wrapper h3 { margin-bottom: 15px; color: var(--dark); border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+        .modal-content-wrapper ul { padding-left: 20px; }
+        .modal-content-wrapper li { margin-bottom: 10px; }
+    </style>
 </head>
 <body>
 
-    <!-- Header Section with Controls -->
-    <header class="main-header">
-        <h1>G V Chiranjeevi Adari</h1>
-        <p class="subtitle-text">Electrical Engineer & Software Professional</p>
-        
-        <div class="view-toggle-container">
-            <button id="btn-academic" class="toggle-btn active">Academic View</button>
-            <button id="btn-industry" class="toggle-btn">Industry View</button>
+    <main>
+        <div class="header-section">
+            <h1>G V Chiranjeevi Adari</h1>
+            <p>Electrical Engineer & Software Professional</p>
+            
+            <div class="toggle-container">
+                <button id="btn-academic" class="toggle-btn active" onclick="window.switchView('academic')">Academic View</button>
+                <button id="btn-industry" class="toggle-btn" onclick="window.switchView('industry')">Industry View</button>
+            </div>
         </div>
 
-        <a href="G_V_Chiranjeevi_Adari_CV.pdf" download="G_V_Chiranjeevi_Adari_CV.pdf" class="download-link-wrapper">
-            <button id="btn-download-pdf" class="download-pdf-btn">📥 Download PDF CV</button>
-        </a>
-    </header>
+        <!-- Career Objective Block -->
+        <section style="margin-bottom: 30px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
+            <h2>Career Objective</h2>
+            <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
+        </section>
 
-    <!-- Main Content Container -->
-    <main class="page-container">
-        
-        <!-- Top Profile Row -->
-        <div class="profile-hero-row">
-            <section id="objective" class="hero-card">
-                <h2>Career Objective</h2>
-                <p id="objective-text">Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.</p>
-            </section>
+        <!-- Secure Contact Container -->
+        <section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
+            <div id="secure-contact-container" style="display: none; width: 100%;"></div>
+            <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
+                <h3>🔒 Locked Contact Credentials</h3>
+                <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
+                <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
+                    Sign In with Google
+                </button>
+            </div>
+        </section>
 
-            <!-- Unified Action Trigger Button -->
-            <button class="explore-btn" data-section="contact-info">View Contact Info</button>
-
-<!-- Secure Contact Section Wrapper -->
-<!-- STEP A: Replace your contact-info card layout with this fixed structure -->
-<section id="contact-info" class="hero-card bio-card">
-    <!-- Secure container that holds your actual contact details post-auth -->
-    <div id="secure-contact-container" style="display: none; width: 100%; display: flex; flex-wrap: wrap; gap: 20px;"></div>
-    
-    <!-- Unified Authentication Gatehouse. Added direct onclick handler -->
-    <div id="auth-gate" class="bio-details" style="width: 100%; text-align: center; padding: 20px 0;">
-        <h3>🔒 Locked Content</h3>
-        <p style="margin-bottom: 15px;">Please authenticate to unlock contact information and verification credentials.</p>
-        <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-            Sign In with Google
-        </button>
-    </div>
-</section>
-        </div>
-    </main>
-</body>
-        <!-- TWO COLUMN GRID WRAPPER -->
+        <!-- Dynamic Information Grid Matrix -->
         <div class="cv-grid-container">
-
-            <!-- SHARED UNIVERSAL BLOCKS -->
-            <section id="qualifications-shared" class="hero-card">
+            <section class="hero-card">
                 <h2>Qualifications</h2>
                 <p>Details about degrees, university, and academic milestones common across roles.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="qualifications">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showQualificationsModal()">Explore More</button>
             </section>
 
-            <section id="references-shared" class="hero-card">
+            <section class="hero-card">
                 <h2>References</h2>
                 <p>Verified contact nodes from professional academic mentors and industry leads.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="references">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
             </section>
 
-            <!-- ACADEMIC VIEW ONLY BLOCKS -->
-            <section id="publications" class="academic-only">
+            <section class="hero-card academic-only">
                 <h2>Publications</h2>
                 <p>List of journals, conference papers, and academic research publications.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="publications">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
             </section>
 
-            <section id="experience-timeline" class="academic-only">
+            <section class="hero-card academic-only">
                 <h2>Experience Timeline</h2>
                 <p>Academic teaching milestones, engineering lectureships, and university service records.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="experience">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
             </section>
 
-            <section id="subject-expertise" class="academic-only">
+            <section class="hero-card academic-only">
                 <h2>Subject Expertise</h2>
                 <p>Advanced domain curriculum fields handled including High Voltage Engineering and Control Systems.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="expertise">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showExpertiseModal()">Explore More</button>
             </section>
 
-            <section id="conferences" class="academic-only">
+            <section class="hero-card academic-only">
                 <h2>Conferences Attended</h2>
                 <p>List of papers presented at national and international engineering conferences.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="conferences">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
             </section>
 
-         <section id="academic-strengths" class="academic-only">
-    <h2>Academic Strengths & Professional Traits</h2>
-    <p>Details regarding academic leadership, outcome-based pedagogy, and core competencies.</p>
-    <div class="action-buttons">
-        <button class="explore-btn" data-section="strengths">Explore More</button>
-    </div>
-</section>
+            <section class="hero-card academic-only">
+                <h2>Academic Strengths & Traits</h2>
+                <p>Details regarding academic leadership, outcome-based pedagogy, and core competencies.</p>
+                <button class="explore-btn" onclick="window.showAcademicStrengthsModal()">Explore More</button>
+            </section>
 
-            <section id="skill-development" class="academic-only">
+            <section class="hero-card">
+                <h2>Certifications & Badges</h2>
+                <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
+                <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
+            </section>
+
+            <section class="hero-card">
                 <h2>Skill Development (FDPs)</h2>
                 <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="fdps">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
             </section>
 
-            <!-- INDUSTRY VIEW ONLY BLOCKS -->
-            <section id="technical-skills" class="industry-only">
+            <section class="hero-card">
                 <h2>Technical Skills</h2>
                 <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="skills">Explore More</button>
-                </div>
+                <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
             </section>
 
-           <!-- Certifications Section -->
-<section id="certifications" class="industry-only hero-card">
-    <h2>Certifications & Badges</h2>
-    <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
-    <div class="action-buttons">
-        <!-- Modified to pass through our global security handler before exploration -->
-        <button class="explore-btn" onclick="handleSecureSection('certifications')">Explore More</button>
-    </div>
-</section>
-
-<!-- Secure Certifications Container (Hidden beneath the main card layout) -->
-<div id="secure-certifications-container" style="display: none;" class="hero-card">
-    <!-- Authenticated content injected here asynchronously -->
-</div>            <section id="languages-known" class="hero-card">
-               <h2>Languages Known</h2>
-               <p>Proficiency in languages for global academic research and corporate team management.</p>
-               <div class="action-buttons">
-            <button class="explore-btn" data-section="languages">Explore More</button>
-    </div>
-</section>
-
+            <section class="hero-card">
+                <h2>Languages Known</h2>
+                <p>Proficiency in languages for global academic research and corporate team management.</p>
+                <button class="explore-btn" onclick="window.showLanguagesModal()">Explore More</button>
+            </section>
         </div>
     </main>
 
-    <!-- DYNAMIC POPUP MODAL ARCHITECTURE -->
-    <div id="details-modal" class="modal-overlay hidden-view" style="display: none;">
-        <div class="modal-content">
-            <h2 id="modal-title">Modal Title</h2>
+    <!-- Global Application Modal Window -->
+    <div id="details-modal" class="modal-view">
+        <div class="modal-content-wrapper">
+            <button class="modal-close-trigger" onclick="window.closeModal()">×</button>
+            <h3 id="modal-title">Modal Title</h3>
             <div id="modal-body">Modal Body Content</div>
-            <button id="close-modal-btn">Close Window</button>
         </div>
     </div>
 
-    <!-- HIDDEN BACKUP FALLBACK DATA REGISTRIES -->
-    <div id="data-conferences" style="display: none;">
-        <h4>National & International Conferences</h4>
-        <ul>
-            <li>Presented paper on Distributed Power Flow Controllers at ICPCIT.</li>
-            <li>Attended Emerging Trends in Renewable Energy Grid Integrations.</li>
-        </ul>
-    </div>
-    <section id="feedback-section" class="hero-card style="margin-top: 24px;">
-    <h2>Send Feedback & Inquiries</h2>
-    <p style="color: #666; margin-bottom: 15px;">Have a question or want to collaborate? Drop a message below.</p>
-    
-    <!-- Replace 'your_formspree_id' with the endpoint ID you get for free from formspree.io -->
-    <form action="https://formspree.io" method="POST" class="feedback-form">
-        <div class="form-group">
-            <label for="user-name">Your Name:</label>
-            <input type="text" id="user-name" name="name" required placeholder="John Doe">
-        </div>
-        
-        <div class="form-group">
-            <label for="user-email">Your Email Address:</label>
-            <input type="email" id="user-email" name="_replyto" required placeholder="john@example.com">
-        </div>
-        
-        <div class="form-group">
-            <label for="user-message">Message / Feedback:</label>
-            <textarea id="user-message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
-        </div>
-        
-        <button type="submit" class="explore-btn" style="border: none; width: 100%; margin-top: 10px;">Submit Feedback</button>
-    </form>
-</section>
-
-    <div style="text-align: center; margin: 30px auto 10px auto;">
-        <p class="visitor-counter" style="font-size: 0.95rem; font-weight: 600; color: #4a5568;">
-            💼 Profile Views: <span id="visit-count" style="color: #007bff; font-weight: 700;">Loading...</span>
-        </p>
-    </div>
-
-    <!-- Main Application Scripts -->
-    <!-- Appending ?v=1.1 forces all web browsers to pull a brand new live version -->
-<script type="module" src="script.js?v=1.1"></script>
-
-
-
+    <!-- Appended Cache-Busting Parameters to Guarantee Fresh Fetch Lifecycle Updates -->
+    <script type="module" src="script.js?v=2.4"></script>
 </body>
 </html>
