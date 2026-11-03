@@ -1,5 +1,5 @@
 // ========================================================
-// 1. FIREBASE INITIALIZATION SYSTEM (FIXED PATHS & DOMAIN)
+// 1. FIREBASE INITIALIZATION SYSTEM (WITH FULL RESOLVED URLS)
 // ========================================================
 import { initializeApp } from "https://gstatic.com";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
@@ -7,7 +7,7 @@ import { getFirestore, doc, getDoc } from "https://gstatic.com";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDoToJAX5BEthnTPayPZNTaYnccHvnbGU",
-    authDomain: "://firebaseapp.com",
+    authDomain: "interactive-cv-6f58a.firebaseapp.com",
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
@@ -19,69 +19,67 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // ========================================================
-// 2. BIND AUTHENTICATION ROUTINES DIRECTLY TO THE GLOBAL WINDOW
+// 2. BIND AUTHENTICATION ROUTINES TO THE GLOBAL WINDOW SCOPE
 // ========================================================
 window.loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => { 
-            console.log("Authenticated successfully as user:", result.user.email);
+            console.log("Logged in successfully:", result.user.email);
             alert("Authenticated successfully! References and credentials unlocked.");
         })
         .catch((error) => { 
-            console.error("Sign-in breakdown:", error);
-            alert("Login failed: Make sure popups are allowed in your browser. " + error.message); 
+            console.error("Login Error:", error);
+            alert("Login failed: " + error.message); 
         });
 };
 
 window.logoutUser = () => { 
     signOut(auth)
         .then(() => alert("Logged out securely."))
-        .catch((error) => console.error("Sign-out failure:", error));
+        .catch((error) => console.error("Logout Error:", error));
 };
 
-// Aliases to handle different event naming hooks across index.html
+// Aliases to catch fallback method calls across your elements
 window.handleSignIn = window.loginWithGoogle;
 window.handleSignOut = window.logoutUser;
 
 // ========================================================
-// 3. CORE AUTHENTICATION LIFECYCLE MONITOR
+// 3. CORE AUTHENTICATION LIFECYCLE MONITOR & SECURE DATA
 // ========================================================
+const securedContactHTML = `
+    <div class="bio-details" style="width: 100%; padding: 15px; background: #e8f0fe; border-radius: 6px;">
+        <h3 style="margin-top:0; color:#1a73e8;">📞 Verified Contact Details</h3>
+        <ul style="list-style: none; padding: 0; line-height: 1.8; color:#333;">
+            <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
+            <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+            <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
+            <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+            <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+            <li><strong>Scopus Author ID:</strong> 58316331900</li>
+            <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+        </ul>
+        <button onclick="window.logoutUser()" class="explore-btn" style="margin-top:15px; padding:6px 14px; cursor:pointer; background:#f44336; color:#fff; border:none; border-radius:4px; font-weight:600;">Sign Out</button>
+    </div>
+`;
+
 onAuthStateChanged(auth, (user) => {
     const authGate = document.getElementById('auth-gate');
-    const secureContact = document.getElementById('secure-contact-container');
-    const loginBtn = document.getElementById('google-login-btn'); 
+    const contactContent = document.getElementById('secure-contact-container');
     
     if (user) {
         if (authGate) authGate.style.display = 'none';
-        if (secureContact) {
-            secureContact.style.display = 'flex';
-            secureContact.innerHTML = `
-                <div class="bio-details" style="width: 100%; padding: 15px; background: #e8f0fe; border-radius: 6px;">
-                    <h3 style="margin-top:0; color:#1a73e8;">📞 Verified Contact Details</h3>
-                    <ul style="list-style: none; padding: 0; line-height: 1.8; color:#333;">
-                        <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
-                        <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-                        <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
-                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
-                        <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-                        <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-                        <li><strong>Scopus Author ID:</strong> 58316331900</li>
-                        <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
-                    </ul>
-                    <button onclick="window.logoutUser()" class="explore-btn" style="margin-top:15px; padding:6px 14px; cursor:pointer; background:#f44336; color:#fff; border:none; border-radius:4px; font-weight:600;">Sign Out</button>
-                </div>
-            `;
+        if (contactContent) {
+            contactContent.innerHTML = securedContactHTML;
+            contactContent.style.display = 'flex';
         }
     } else {
-        if (secureContact) {
-            secureContact.style.display = 'none';
-            secureContact.innerHTML = '';
+        if (contactContent) {
+            contactContent.style.display = 'none';
+            contactContent.innerHTML = '';
         }
         if (authGate) authGate.style.display = 'block';
-        if (loginBtn) {
-            loginBtn.innerText = "Sign In with Google";
-        }
     }
 });
 
@@ -94,7 +92,7 @@ const objectives = {
 };
 
 // ==========================================
-// 5. CENTRAL MATRIX VIEW ENGINE
+// 5. CENTRAL MATRIX VIEW SWITCHING ENGINE
 // ==========================================
 window.switchView = function(viewMode) {
     var academicElements = document.querySelectorAll('.academic-only');
@@ -202,7 +200,6 @@ window.handleExploreClick = function(sectionKey) {
 // ==========================================
 // 8. WINDOW FRAME DYNAMICS
 // ==========================================
-
 window.openHTMLModal = function(title, htmlContent) {
     var modal = document.getElementById('details-modal');
     var modalTitle = document.getElementById('modal-title');
