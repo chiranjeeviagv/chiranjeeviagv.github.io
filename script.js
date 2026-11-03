@@ -510,10 +510,9 @@ Because you are loading your layout scripts with plain formatting, **put this bl
     import { initializeApp } from "https://gstatic.com";
     import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
-    // Standardized secure project key assignments
     const firebaseConfig = {
         apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
-        authDomain: "interactive-cv-6f58a.firebaseapp.com",
+        authDomain: "://firebaseapp.com",
         projectId: "interactive-cv-6f58a",
         storageBucket: "interactive-cv-6f58a.firebasestorage.app",
         messagingSenderId: "904714357999",
@@ -569,4 +568,3 @@ Because you are loading your layout scripts with plain formatting, **put this bl
         }
     });
 </script>
-</scrip
