@@ -502,8 +502,6 @@ fetch('https://countapi.xyz')
         const countEl = document.getElementById('visit-count');
         if (countEl) countEl.innerText = "1,240+"; 
     });
-### 4. Separate Script for Firebase Base Module Integration
-Because you are loading your layout scripts with plain formatting, **put this block by itself at the bottom of your `index.html` file right before `</body>`**. This uses the absolute explicit CDN addresses to prevent browser compiler breaks:
 
 ```html<!-- Explicitly separated Firebase authentication runtime context -->
 <script type="module">
