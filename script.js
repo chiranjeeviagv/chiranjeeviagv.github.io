@@ -392,7 +392,7 @@ window.showDevelopmentProgramsModal=function() {
     openHTMLModal('Faculty Up-Skilling & FDP Records', html);
 }
 
-window.showReferencesModal(currentView)=function() {
+window.showReferencesModal=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
     
     if (currentView === 'academic') {
