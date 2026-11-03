@@ -34,117 +34,6 @@ function switchView(viewMode) {
 // ==========================================
 // 3. SECURE DOM EVENT BINDING LAYER
 // ==========================================
-// 1. Global View Management Functions
-function handleExploreClick(sectionId) {
-    if (sectionId === 'contact-info') {
-        var contactSection = document.getElementById('contact-info');
-        if (contactSection) {
-            contactSection.style.display = 'flex'; 
-        }
-    } else {
-        // Your existing routing code for other sections
-    }
-}
-
-function closeModal() {
-    var contactSection = document.getElementById('contact-info');
-    if (contactSection) {
-        contactSection.style.display = 'none';
-    }
-    // Your existing code to clear out or hide overlay screens
-}
-
-// 2. DOM Initialization Events
-document.addEventListener('DOMContentLoaded', function() {
-    var btnAcademic = document.getElementById('btn-academic');
-    var btnIndustry = document.getElementById('btn-industry');
-    var closeBtn = document.getElementById('close-modal-btn');
-
-    if (btnAcademic) btnAcademic.onclick = function() { switchView('academic'); };
-    if (btnIndustry) btnIndustry.onclick = function() { switchView('industry'); };
-    if (closeBtn) closeBtn.onclick = closeModal;
-
-    // Direct binding matrix loop for action selectors
-       // Change e.target to e.currentTarget inside your loop:
-    var allExploreBtns = document.querySelectorAll('.explore-btn');
-    allExploreBtns.forEach(function(button) {
-        button.onclick = function(e) {
-            var targetSection = e.currentTarget.getAttribute('data-section');
-            if (targetSection) {
-                handleExploreClick(targetSection);
-            }
-        };
-    });
-
-    // Default initialization
-    switchView('academic');
-});
-
-// ==========================================
-// 4. ROUTER SWITCH ROUTINE
-// ==========================================
-// ==========================================
-// 4. ROUTER SWITCH ROUTINE
-// ==========================================
-function handleExploreClick(sectionKey) {
-    // 1. Add your Contact Info visibility toggle here
-    if (sectionKey === 'contact-info') {
-        var contactSection = document.getElementById('contact-info');
-        var btn = document.querySelector('.explore-btn[data-section="contact-info"]');
-        if (contactSection) {
-            var currentDisplay = window.getComputedStyle(contactSection).display;
-            if (currentDisplay === 'none') {
-                contactSection.style.display = 'flex';
-                if (btn) btn.textContent = 'Hide Contact Info';
-            } else {
-                contactSection.style.display = 'none';
-                if (btn) btn.textContent = 'View Contact Info';
-            }
-        }
-        return; // Stop execution here so it doesn't try to process routing below
-    }
-
-    // 2. Your existing routing paths
-    var btnAcademic = document.getElementById('btn-academic');
-    var currentView = (btnAcademic && btnAcademic.classList.contains('active')) ? 'academic' : 'industry';
-
-    if (sectionKey === 'qualifications') showQualificationsModal();
-    else if (sectionKey === 'certifications') showCertificationsModal();
-    else if (sectionKey === 'experience') showExperienceModal();
-    else if (sectionKey === 'publications') showPublicationsModal();
-    else if (sectionKey === 'fdps') showDevelopmentProgramsModal();
-    else if (sectionKey === 'expertise') showExpertiseModal();
-    else if (sectionKey === 'skills') showSkillsModal();
-    else if (sectionKey === 'conferences') showConferencesModal();
-    else if (sectionKey === 'references') showReferencesModal(currentView);
-    else if (sectionKey === 'languages') showLanguagesModal();
-    else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
-        acedemicStrengthsModal();
-    }
-}
-
-
-
-// ==========================================
-// 5. WINDOW FRAME DYNAMICS
-// ==========================================
-function openHTMLModal(title, htmlContent) {
-    var modal = document.getElementById('details-modal');
-    var modalTitle = document.getElementById('modal-title');
-    var modalBody = document.getElementById('modal-body');
-    
-    if (modal && modalTitle && modalBody) {
-        modalTitle.innerText = title;
-        modalBody.innerHTML = htmlContent;
-        modal.style.display = 'block';
-        modal.classList.remove('hidden-view');
-        document.body.style.overflow = 'hidden'; 
-    }
-}
-
-// ==========================================
-// 5. WINDOW FRAME DYNAMICS
-// ==========================================
 function closeModal() {
     // 1. Reset your contact section state if visible
     var contactSection = document.getElementById('contact-info');
@@ -164,108 +53,115 @@ function closeModal() {
         document.body.style.overflow = '';
     }
 }
-<script type="module">
-    import { initializeApp } from "https://gstatic.com";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
-        authDomain: "://firebaseapp.com",
-        projectId: "interactive-cv-6f58a",
-        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
-        messagingSenderId: "904714357999",
-        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
-    };
+// DOM Initialization Events
+document.addEventListener('DOMContentLoaded', function() {
+    var btnAcademic = document.getElementById('btn-academic');
+    var btnIndustry = document.getElementById('btn-industry');
+    var closeBtn = document.getElementById('close-modal-btn');
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    if (btnAcademic) btnAcademic.onclick = function() { switchView('academic'); };
+    if (btnIndustry) btnIndustry.onclick = function() { switchView('industry'); };
+    if (closeBtn) closeBtn.onclick = closeModal;
 
-    const securedContactHTML = `
-        <div class="bio-details" style="width: 100%;">
-            <h3>Contact Details</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
-                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
-                <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
-                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-                <li><strong>Scopus Author ID:</strong> 58316331900</li>
-                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
-            </ul>
-            <button onclick="logoutUser()" style="margin-top:15px; padding:8px 16px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px; font-weight:bold;">Sign Out</button>
-        </div>
-    `;
-
-    // Global binding ensures the HTML button can execute the logic instantly
-    window.loginWithGoogle = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                console.log("Logged in successfully:", result.user.email);
-            })
-            .catch((error) => {
-                console.error("Auth Error:", error);
-                alert("Login Error: " + error.message);
-            });
-    };
-
-    window.logoutUser = () => {
-        signOut(auth);
-    };
-
-    onAuthStateChanged(auth, (user) => {
-        const authGate = document.getElementById('auth-gate');
-        const contactContent = document.getElementById('secure-contact-container');
-        
-        if (user) {
-            if (authGate) authGate.style.display = 'none';
-            if (contactContent) {
-                contactContent.innerHTML = securedContactHTML;
-                contactContent.style.display = 'block';
+    var allExploreBtns = document.querySelectorAll('.explore-btn');
+    allExploreBtns.forEach(function(button) {
+        button.onclick = function(e) {
+            var targetSection = e.currentTarget.getAttribute('data-section');
+            if (targetSection) {
+                handleExploreClick(targetSection);
             }
-        } else {
-            if (contactContent) {
-                contactContent.style.display = 'none';
-                contactContent.innerHTML = '';
-            }
-            if (authGate) authGate.style.display = 'block';
-        }
+        };
     });
-</script>
+
+    // Default initialization
+    switchView('academic');
+});
+
+// ==========================================
+// 4. ROUTER SWITCH ROUTINE
+// ==========================================
+function handleExploreClick(sectionKey) {
+    if (sectionKey === 'contact-info') {
+        var contactSection = document.getElementById('contact-info');
+        var btn = document.querySelector('.explore-btn[data-section="contact-info"]');
+        if (contactSection) {
+            var currentDisplay = window.getComputedStyle(contactSection).display;
+            if (currentDisplay === 'none') {
+                contactSection.style.display = 'flex';
+                if (btn) btn.textContent = 'Hide Contact Info';
+            } else {
+                contactSection.style.display = 'none';
+                if (btn) btn.textContent = 'View Contact Info';
+            }
+        }
+        return; 
+    }
+
+    var btnAcademic = document.getElementById('btn-academic');
+    var currentView = (btnAcademic && btnAcademic.classList.contains('active')) ? 'academic' : 'industry';
+
+    if (sectionKey === 'qualifications') showQualificationsModal();
+    else if (sectionKey === 'certifications') showCertificationsModal();
+    else if (sectionKey === 'experience') showExperienceModal();
+    else if (sectionKey === 'publications') showPublicationsModal();
+    else if (sectionKey === 'fdps') showDevelopmentProgramsModal();
+    else if (sectionKey === 'expertise') showExpertiseModal();
+    else if (sectionKey === 'skills') showSkillsModal();
+    else if (sectionKey === 'conferences') showConferencesModal();
+    else if (sectionKey === 'references') showReferencesModal(currentView);
+    else if (sectionKey === 'languages') showLanguagesModal();
+    else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
+        acedemicStrengthsModal();
+    }
+}
+
+// ==========================================
+// 5. WINDOW FRAME DYNAMICS
+// ==========================================
+function openHTMLModal(title, htmlContent) {
+    var modal = document.getElementById('details-modal');
+    var modalTitle = document.getElementById('modal-title');
+    var modalBody = document.getElementById('modal-body');
+    
+    if (modal && modalTitle && modalBody) {
+        modalTitle.innerText = title;
+        modalBody.innerHTML = htmlContent;
+        modal.style.display = 'block';
+        modal.classList.remove('hidden-view');
+        document.body.style.overflow = 'hidden'; 
+    }
+}
 
 // ==========================================
 // 6. DYNAMIC CONTEXTUAL REFERENCE ENGINE
 // ==========================================
 function showReferencesModal(currentView) {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
-    
     if (currentView === 'academic') {
         html += '<h4>🎓 Academic & Research References</h4>' +
-            '<ul>' +
-            '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892</li><hr style="border-top: 1px solid #eee;">' +
-            '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216</li><hr style="border-top: 1px solid #eee;">' +
-            '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>' +
-            '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>' +
+            '<ul style="list-style:none; padding-left:0;">' +
+            '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
             '<li><strong>Professor A NagaJyothi</strong><br>Vignans Institute of information Technology, Gajuwaka<br>Cell: +91 9398121200</li>' +
             '</ul>';
     } else {
         html += '<h4>💼 Industry & Corporate References</h4>' +
-            '<ul>' +
-            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481</li><hr style="border-top: 1px solid #eee;">' +
-            '<li><strong>Md. Faheem Ul haq</strong> (Family Friend)<br>Cell: +91 9849022155</li>' +
+            '<ul style="list-style:none; padding-left:0;">' +
+            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Md. Faheem Ul Haq</strong><br>Family Friend, Family Friend<br>Cell: +91 9849022155<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>Prof. M Ramalinga Raju</strong> (Professor, Electrical Engineering)<br>Former Vice Chancellor, JNTUK Kakinada<br>Cell: +91 9603619104</li>' +
             '</ul>' +
             '<h4>🏠 Personal & Character References</h4>' +
-            '<ul>' +
-            '<li><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045</li><hr style="border-top: 1px solid #eee;">' +
-            '<li><strong>Md. Faheen Ul Haq</strong><br>Hyderabad (Family Friend)<br>Cell: +91 9849022155</li><hr style="border-top: 1px solid #eee;">' +
-            '<li><strong>Gulbarg Singh Bassi</strong> (Retired Teacher)<br>GSC<br>Cell: +1 6787941794</li>' +
+            '<ul style="list-style:none; padding-left:0;">' +
+            '<li><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
+            '<li><strong>T Mohanrao</strong><br>Teacher, ZP High School (Family Friend)<br>Cell: +91 9490207027</li>' +
             '</ul>';
     }
-    
     html += '</div>';
-    openHTMLModal('references-shared', html);
+    openHTMLModal('References Shared', html);
 }
 
 function showLanguagesModal() {
@@ -274,64 +170,18 @@ function showLanguagesModal() {
             <p style="margin-bottom: 20px; color: #555; font-size: 15px; line-height: 1.5;">
                 Proficiency levels in regional, national, and international languages for technical development, professional instruction, and global research publication.
             </p>
-            
             <div class="modal-lang-grid" style="display: flex; flex-direction: column; gap: 15px;">
-                
-                <!-- English Card -->
-                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                <div style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                         <h4 style="margin: 0; color: #007bff; font-size: 18px;">English</h4>
                         <span style="background: #007bff; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Professional</span>
                     </div>
                     <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Primary medium for research publications, international engineering courses, and global codebase architecture documentation.</p>
-                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Technical Writing • Academic Lecturing • Client Communication</div>
-                </div>
-
-                <!-- Telugu Card -->
-                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #28a745; font-size: 18px;">Telugu</h4>
-                        <span style="background: #28a745; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Native / Bilingual</span>
-                    </div>
-                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Native language proficiency. Exceptional utility for local community coordination, regional student mentorship, and regional institutional administration.</p>
-                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Fluent Vernacular Delivery • Institutional Governance • Mentorship</div>
-                </div>
-
-                <!-- Hindi Card -->
-                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Hindi</h4>
-                        <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
-                    </div>
-                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
-                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Professional Interaction • National Collaboration • Multi-lingual Team Operations</div>
-                </div>
-                <!-- Punjabi -->
-                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Punjabi-Gurmukhi</h4>
-                        <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
-                    </div>
-                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
-                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> Can read and write</div>
-                </div>
-                <!-- Marathi Card -->
-                <div class="modal-lang-card" style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #17a2b8; font-size: 18px;">Marathi</h4>
-                        <span style="background: #17a2b8; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Working Proficiency</span>
-                    </div>
-                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Professional operational capability for cross-regional collaboration within national Indian institutes and corporate technical teams.</p>
-                    <div style="font-size: 13px; color: #444;"><strong>Capabilities:</strong> can understand and speak</div>
                 </div>
             </div>
-        </div>
-    `;
-    
-    // Calls your existing system engine to display content safely inside the #details-modal container
+        </div>`;
     openHTMLModal("Languages Known & Proficiency", htmlContent);
 }
-
 // ==========================================
 // 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
 // ==========================================
