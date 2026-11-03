@@ -22,8 +22,79 @@ const db = getFirestore();
 window.handleSignIn = handleSignIn;
 window.handleSignOut = handleSignOut;
 window.loginWithGoogle = handleSignIn; // Safety backup alias
+// ========================================================
+// BIND EXECUTION ROUTINES DIRECTLY TO THE GLOBAL WINDOW OBJECT
+// ========================================================
+window.loginWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then((result) => { 
+            console.log("Authenticated successfully as user:", result.user.email);
+            alert("Authenticated successfully! References and credentials unlocked.");
+        })
+        .catch((error) => { 
+            console.error("Sign-in breakdown:", error);
+            alert("Login failed: Make sure popups are allowed in your browser. " + error.message); 
+        });
+};
 
-// Dynamic UI login state listener mapped to your exact HTML elements
+window.logoutUser = () => { 
+    signOut(auth)
+        .then(() => {
+            alert("Logged out securely.");
+        })
+        .catch((error) => {
+            console.error("Sign-out failure:", error);
+        });
+};
+
+// Backwards compatibility aliases to ensure no internal buttons break
+window.handleSignIn = window.loginWithGoogle;
+window.handleSignOut = window.logoutUser;
+
+// ========================================================
+// CORE AUTHENTICATION LIFECYCLE MONITOR
+// ========================================================
+onAuthStateChanged(auth, (user) => {
+    const authGate = document.getElementById('auth-gate');
+    const secureContact = document.getElementById('secure-contact-container');
+    const loginBtn = document.getElementById('google-login-btn'); 
+    
+    if (user) {
+        // Authenticated State: Shut the lock boundary, render secure details
+        if (authGate) authGate.style.display = 'none';
+        if (secureContact) {
+            secureContact.style.display = 'flex';
+            secureContact.innerHTML = `
+                <div class="bio-details" style="width: 100%; padding: 15px; background: #e8f0fe; border-radius: 6px;">
+                    <h3 style="margin-top:0; color:#1a73e8;">📞 Verified Contact Details</h3>
+                    <ul style="list-style: none; padding: 0; line-height: 1.8; color:#333;">
+                        <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
+                        <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+                        <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
+                        <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+                        <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+                        <li><strong>Scopus Author ID:</strong> 58316331900</li>
+                        <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+                    </ul>
+                    <button onclick="window.logoutUser()" class="explore-btn" style="margin-top:15px; padding:6px 14px; cursor:pointer; background:#f44336; color:#fff; border:none; border-radius:4px; font-weight:600;">Sign Out</button>
+                </div>
+            `;
+        }
+    } else {
+        // Unauthenticated State: Clear secure fields, restore placeholder gate
+        if (secureContact) {
+            secureContact.style.display = 'none';
+            secureContact.innerHTML = '';
+        }
+        if (authGate) authGate.style.display = 'block';
+        if (loginBtn) {
+            loginBtn.innerText = "Sign In with Google";
+        }
+    }
+});
+
 onAuthStateChanged(auth, (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
