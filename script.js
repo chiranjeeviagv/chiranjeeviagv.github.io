@@ -107,10 +107,9 @@ window.handleExploreClick = function(sectionKey) {
     else if (sectionKey === 'skills') showSkillsModal();
     else if (sectionKey === 'conferences') showConferencesModal();
     else if (sectionKey === 'references') showReferencesModal(currentView);
-    else if (sectionKey === 'languages') showLanguagesModal();
+  else if (sectionKey === 'languages') showLanguagesModal();
     else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
-        acedemicStrengthsModal();
-    }
+        showacedemicStrengthsModal();    }
 }
 
 // ==========================================
