@@ -4,12 +4,12 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signO
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDoToJAX5BEthnTPayPZNTaYnccHvnbGU",
+    apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
     authDomain: "interactive-cv-6f58a.firebaseapp.com", 
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
-    appId: "1:904714357999:web:a23ef727d0af3b44451f3a"
+    appId: "1:904714357999:web:a23ef727d0af3b44451f1a"
 };
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
