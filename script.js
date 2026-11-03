@@ -478,7 +478,13 @@ window.showExpertiseModal = function() {
                 <div style="background: #f8f9fa; padding: 6px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem;">High Voltage Engineering</div>
                 <div style="background: #f8f9fa; padding: 6px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem;">Non-Conventional Sources of Energy</div>
                 <div style="background: #f8f9fa; padding: 6px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem;">Electrical Technology</div>Basic Electrical & Electronics;
-window.openHTMLModal('Subject Area Expertise', html);
+               <div style="background: #f8f9fa; padding: 6px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem;">Basic Electrical and Electronics Engineering</div>
+            </div>
+        </div>
+    `; // This closes the multi-line text template string
+    window.openHTMLModal('Subject Area Expertise', html);
+}; // This closes the window.showExpertiseModal function block safely
+
 };
 window.showExpertiseModal = function() {
     var html = `
