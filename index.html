@@ -207,23 +207,24 @@
     </div>
     <script src="script.js"></script>
 <!-- Load modern Firebase SDK Core Modules via global CDN -->
+<!-- Explicitly separated Firebase authentication runtime context -->
 <script type="module">
+    // Fully resolved paths pointing directly to the compiled JS scripts
     import { initializeApp } from "https://gstatic.com";
     import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
-    // 1. Replace these config objects with your actual web project metrics from Firebase Console
     const firebaseConfig = {
-        apiKey: "AIzaSyYourActualAPIKeyHere_XyZ",
+        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
         authDomain: "://firebaseapp.com",
-        projectId: "your-portfolio-app",
-        storageBucket: "://appspot.com",
-        messagingSenderId: "1234567890",
-        appId: "1:1234567890:web:abcdef123456"
+        projectId: "interactive-cv-6f58a",
+        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
+        messagingSenderId: "904714357999",
+        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
     };
 
-    // Initialize application instance
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    // ... rest of your authentication script remains the same
     const provider = new GoogleAuthProvider();
 
     // Cache secure identity payloads locally inside localized constants
