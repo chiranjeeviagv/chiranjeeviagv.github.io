@@ -145,6 +145,22 @@ window.deleteRecruiterMessage = async function(id) {
         }
     }
 };
+// Add this view-switching engine right before Section 6
+window.switchView = function(viewType) {
+    activeMatrixView = viewType;
+    console.log("Switched active matrix view to:", viewType);
+    
+    const academicSection = document.getElementById('academic-view-section'); // Change to your actual element ID
+    const industrySection = document.getElementById('industry-view-section'); // Change to your actual element ID
+
+    if (viewType === 'academic') {
+        if (academicSection) academicSection.style.display = 'block';
+        if (industrySection) industrySection.style.display = 'none';
+    } else if (viewType === 'industry') {
+        if (academicSection) academicSection.style.display = 'none';
+        if (industrySection) industrySection.style.display = 'block';
+    }
+};
 
 // Handle client messaging form inputs organically
 document.addEventListener('DOMContentLoaded', () => {
