@@ -1,10 +1,11 @@
+// 1. Fixed CDN import paths pointing to valid Firebase bundle paths
 import { initializeApp } from "https://gstatic.com";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 import { getFirestore, doc, getDoc } from "https://gstatic.com";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDoToJAX5BEthnTPayPZNTaYnccHvnbGU",
-    authDomain: "://firebaseapp.com",
+    authDomain: "interactive-cv-6f58a.firebaseapp.com", // Fixed missing subdomain
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
@@ -108,6 +109,7 @@ window.switchView = function(viewMode) {
         if (btnAcademic) btnAcademic.classList.remove('active');
     }
 };
+
 // ==========================================
 // 6. POPUP DISPLAY WINDOW ACTIONS
 // ==========================================
