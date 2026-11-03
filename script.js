@@ -18,7 +18,6 @@ const db = getFirestore(app);
 // Global view state tracking parameter
 let activeMatrixView = 'academic';
 
-/ ========================================================
 // 2. MOUNT SECURE EXECUTION HOOKS ONTO THE GLOBAL WINDOW LAYER
 // ========================================================
 window.loginWithGoogle = () => {
