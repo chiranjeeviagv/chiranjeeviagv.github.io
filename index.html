@@ -200,187 +200,77 @@
     </form>
 </section>
 
-<div style="text-align: center; margin: 30px auto 10px auto;">
+    <div style="text-align: center; margin: 30px auto 10px auto;">
         <p class="visitor-counter" style="font-size: 0.95rem; font-weight: 600; color: #4a5568;">
             💼 Profile Views: <span id="visit-count" style="color: #007bff; font-weight: 700;">Loading...</span>
         </p>
     </div>
+
+    <!-- Main Application Scripts -->
     <script type="module" src="script.js"></script>
-<!-- Load modern Firebase SDK Core Modules via global CDN -->
-<!-- Explicitly separated Firebase authentication runtime context -->
-<script type="module">
-    // Fully resolved paths pointing directly to the compiled JS scripts
-    import { initializeApp } from "https://gstatic.com";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
-        authDomain: "://firebaseapp.com",
-        projectId: "interactive-cv-6f58a",
-        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
-        messagingSenderId: "904714357999",
-        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
-    };
+    <!-- Load modern Firebase SDK Core Modules via global CDN -->
+    <script type="module">
+        import { initializeApp } from "https://gstatic.com";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    // ... rest of your authentication script remains the same
-    const provider = new GoogleAuthProvider();
+        const firebaseConfig = {
+            apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
+            authDomain: "://firebaseapp.com",
+            projectId: "interactive-cv-6f58a",
+            storageBucket: "interactive-cv-6f58a.firebasestorage.app",
+            messagingSenderId: "904714357999",
+            appId: "1:904714357999:web:a23ef727d0af3b44451f3a"
+        };
 
-    // Cache secure identity payloads locally inside localized constants
-    const securedContactHTML = `
-        <div class="bio-details">
-            <h3>Contact Details</h3>
-            <ul>
-                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
-                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">linkedin.com</a></li>
-                <li><strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">google.com</a></li>
-                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-                <li><strong>Scopus Author ID:</strong> 58316331900</li>
-                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
-            </ul>
-            <button id="logout-btn" style="margin-top:15px; padding:6px 12px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px;">Sign Out</button>
-        </div>
-        <div class="bio-img-container">
-            <img src="profile-pic.jpeg" alt="Profile Picture" class="profile-avatar">
-        </div>
-    `;
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider();
 
-    const securedCertificationsHTML = `
-        <h3>Verified Credentials Dashboard</h3>
-        <ul style="padding-left: 20px; margin-top: 10px;">
-            <li><strong>IBM Full-Stack JavaScript Developer Specialization</strong> (Coursera - 2026)</li>
-            <li><strong>Microsoft AI/ML Engineering Professional Certification</strong> (Coursera - 2026)</li>
-            <li><strong>Google Cybersecurity Professional Certificate</strong> (Coursera - 2026)</li>
-            <li><strong>Advanced Computer Networks & Architecture Modules</strong> (NPTEL - 2025)</li>
-        </ul>
-    `;
+        const securedContactHTML = `
+            <div class="bio-details" style="width: 100%;">
+                <h3>Contact Details</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
+                    <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+                    <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
+                    <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
+                    <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+                    <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+                    <li><strong>Scopus Author ID:</strong> 58316331900</li>
+                    <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+                </ul>
+                <button onclick="window.logoutUser()" style="margin-top:15px; padding:8px 16px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px; font-weight:bold;">Sign Out</button>
+            </div>
+        `;
 
-    // Bind execution routines to login interfaces
-    document.getElementById('google-login-btn').addEventListener('click', () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                console.log("Authenticated successfully as user:", result.user.email);
-            })
-            .catch((error) => {
-                alert("Authentication failed: " + error.message);
-            });
-    });
+        window.loginWithGoogle = () => {
+            signInWithPopup(auth, provider)
+                .then((result) => { console.log("Logged in:", result.user.email); })
+                .catch((error) => { alert("Login Error: " + error.message); });
+        };
 
-    // Handle Route/View Protection Verification Steps Interactively
-    window.handleSecureSection = function(sectionId) {
-        const user = auth.currentUser;
-        if (!user) {
-            // Force focus visually upwards directly onto the auth portal window
-            document.getElementById('contact-info').style.display = 'flex';
-            document.getElementById('auth-gate').scrollIntoView({ behavior: 'smooth' });
-            alert("Please sign in through the Google Authentication gate inside the Contact block first to explore additional credential nodes.");
-            return;
-        }
-        
-        if (sectionId === 'certifications') {
-            const certTarget = document.getElementById('secure-certifications-container');
-            certTarget.innerHTML = securedCertificationsHTML;
-            certTarget.style.display = 'block';
-            certTarget.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+        window.logoutUser = () => { signOut(auth); };
 
-    // Watch for Authorization lifecycle state transformations seamlessly
-    onAuthStateChanged(auth, (user) => {
-        const authGate = document.getElementById('auth-gate');
-        const contactContent = document.getElementById('secure-contact-container');
-        
-        if (user) {
-            // Drop gate layout rules instantly
-            authGate.style.display = 'none';
+        onAuthStateChanged(auth, (user) => {
+            const authGate = document.getElementById('auth-gate');
+            const contactContent = document.getElementById('secure-contact-container');
             
-            // Build data views out of variable payload elements
-            contactContent.innerHTML = securedContactHTML;
-            contactContent.style.display = 'flex';
-            
-            // Re-bind dynamic logout trigger button context post-render
-            document.getElementById('logout-btn').addEventListener('click', () => {
-                signOut(auth);
-            });
-        } else {
-            // Re-apply core global validation gate standards
-            contactContent.style.display = 'none';
-            contactContent.innerHTML = '';
-            document.getElementById('secure-certifications-container').style.display = 'none';
-            document.getElementById('secure-certifications-container').innerHTML = '';
-            authGate.style.display = 'block';
-        }
-    });
-</script>
-<!-- Load modern Firebase SDK Core Modules via global CDN -->
-<!-- Explicitly separated Firebase authentication runtime context -->
-<script type="module">
-    import { initializeApp } from "https://gstatic.com";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
-        authDomain: "://firebaseapp.com",
-        projectId: "interactive-cv-6f58a",
-        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
-        messagingSenderId: "904714357999",
-        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-
-    const securedContactHTML = `
-        <div class="bio-details" style="width: 100%;">
-            <h3>Contact Details</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
-                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
-                <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
-                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-                <li><strong>Scopus Author ID:</strong> 58316331900</li>
-                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
-            </ul>
-            <button onclick="window.logoutUser()" style="margin-top:15px; padding:8px 16px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px; font-weight:bold;">Sign Out</button>
-        </div>
-    `;
-
-    window.loginWithGoogle = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => { console.log("Logged in:", result.user.email); })
-            .catch((error) => { alert("Login Error: " + error.message); });
-    };
-
-    window.logoutUser = () => { signOut(auth); };
-
-    onAuthStateChanged(auth, (user) => {
-        const authGate = document.getElementById('auth-gate');
-        const contactContent = document.getElementById('secure-contact-container');
-        
-        if (user) {
-            if (authGate) authGate.style.display = 'none';
-            if (contactContent) {
-                contactContent.innerHTML = securedContactHTML;
-                contactContent.style.display = 'block';
+            if (user) {
+                if (authGate) authGate.style.display = 'none';
+                if (contactContent) {
+                    contactContent.innerHTML = securedContactHTML;
+                    contactContent.style.display = 'flex';
+                }
+            } else {
+                if (contactContent) {
+                    contactContent.style.display = 'none';
+                    contactContent.innerHTML = '';
+                }
+                if (authGate) authGate.style.display = 'block';
             }
-        } else {
-            if (contactContent) {
-                contactContent.style.display = 'none';
-                contactContent.innerHTML = '';
-            }
-            if (authGate) authGate.style.display = 'block';
-        }
-    });
-</script>
+        });
+    </script>
 </body>
-    <p class="visitor-counter">💼 Profile Views: <span id="visit-count">Loading...</span></p>
-
 </html>
