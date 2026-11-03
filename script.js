@@ -622,6 +622,8 @@ window.showConferencesModal = function() {
     `;
     window.openHTMLModal('Conferences Attended Presentation Details', html);
 };
+window.handleReferencesTrigger = function() { alert("References window section placeholder."); };
+window.showLanguagesModal = function() { alert("Languages information view placeholder."); };
 
 // ==========================================
 // 6. DOM EVENT LISTENERS SETUP
