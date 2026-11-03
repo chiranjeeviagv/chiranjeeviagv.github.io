@@ -38,26 +38,20 @@
             <!-- Unified Action Trigger Button -->
             <button class="explore-btn" data-section="contact-info">View Contact Info</button>
 
-            <!-- Contact Section (Hidden by default, targets the script loop perfectly) -->
-            <section id="contact-info" class="hero-card bio-card" style="display: none;">
-                <div class="bio-details">
-                    <h3>Contact Details</h3>
-                    <ul>
-                        <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
-                        <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-                        <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">linkedin.com</a></li>
-                        <li><strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">google.com</a></li>
-                        <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-                        <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-                        <li><strong>Scopus Author ID:</strong> 58316331900</li>
-                        <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
-                    </ul>
-                </div>
-                <div class="bio-img-container">
-                    <img src="profile-pic.jpeg" alt="Profile Picture" class="profile-avatar">
-                </div>
-            </section>
+<!-- Secure Contact Section Wrapper -->
+<section id="contact-info" class="hero-card bio-card" style="display: none;">
+    <!-- This container will stay empty until a successful authentication event occurs -->
+    <div id="secure-contact-container" style="display: none; width: 100%; display: flex; flex-wrap: wrap; gap: 20px;"></div>
+    
+    <!-- Unified Authentication Gatehouse Placement -->
+    <div id="auth-gate" class="bio-details" style="width: 100%; text-align: center; padding: 20px 0;">
+        <h3>🔒 Locked Content</h3>
+        <p style="margin-bottom: 15px; color: var(--text-muted, #666);">Please authenticate to unlock contact information and verification credentials.</p>
+        <button id="google-login-btn" class="explore-btn" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+            Sign In with Google
+        </button>
+    </div>
+</section>
         </div>
     </main>
 </body>
@@ -139,14 +133,20 @@
                 </div>
             </section>
 
-            <section id="certifications" class="industry-only hero-card">
-                <h2>Certifications & Badges</h2>
-                <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
-                <div class="action-buttons">
-                    <button class="explore-btn" data-section="certifications">Explore More</button>
-                </div>
-            </section>
-            <section id="languages-known" class="hero-card">
+           <!-- Certifications Section -->
+<section id="certifications" class="industry-only hero-card">
+    <h2>Certifications & Badges</h2>
+    <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
+    <div class="action-buttons">
+        <!-- Modified to pass through our global security handler before exploration -->
+        <button class="explore-btn" onclick="handleSecureSection('certifications')">Explore More</button>
+    </div>
+</section>
+
+<!-- Secure Certifications Container (Hidden beneath the main card layout) -->
+<div id="secure-certifications-container" style="display: none;" class="hero-card">
+    <!-- Authenticated content injected here asynchronously -->
+</div>            <section id="languages-known" class="hero-card">
                <h2>Languages Known</h2>
                <p>Proficiency in languages for global academic research and corporate team management.</p>
                <div class="action-buttons">
@@ -205,6 +205,116 @@
         </p>
     </div>
     <script src="script.js"></script>
+<!-- Load modern Firebase SDK Core Modules via global CDN -->
+<script type="module">
+    import { initializeApp } from "https://gstatic.com";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+
+    // 1. Replace these config objects with your actual web project metrics from Firebase Console
+    const firebaseConfig = {
+        apiKey: "AIzaSyYourActualAPIKeyHere_XyZ",
+        authDomain: "://firebaseapp.com",
+        projectId: "your-portfolio-app",
+        storageBucket: "://appspot.com",
+        messagingSenderId: "1234567890",
+        appId: "1:1234567890:web:abcdef123456"
+    };
+
+    // Initialize application instance
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    // Cache secure identity payloads locally inside localized constants
+    const securedContactHTML = `
+        <div class="bio-details">
+            <h3>Contact Details</h3>
+            <ul>
+                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
+                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank">linkedin.com</a></li>
+                <li><strong>Scholar:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank">google.com</a></li>
+                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+                <li><strong>Scopus Author ID:</strong> 58316331900</li>
+                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+            </ul>
+            <button id="logout-btn" style="margin-top:15px; padding:6px 12px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px;">Sign Out</button>
+        </div>
+        <div class="bio-img-container">
+            <img src="profile-pic.jpeg" alt="Profile Picture" class="profile-avatar">
+        </div>
+    `;
+
+    const securedCertificationsHTML = `
+        <h3>Verified Credentials Dashboard</h3>
+        <ul style="padding-left: 20px; margin-top: 10px;">
+            <li><strong>IBM Full-Stack JavaScript Developer Specialization</strong> (Coursera - 2026)</li>
+            <li><strong>Microsoft AI/ML Engineering Professional Certification</strong> (Coursera - 2026)</li>
+            <li><strong>Google Cybersecurity Professional Certificate</strong> (Coursera - 2026)</li>
+            <li><strong>Advanced Computer Networks & Architecture Modules</strong> (NPTEL - 2025)</li>
+        </ul>
+    `;
+
+    // Bind execution routines to login interfaces
+    document.getElementById('google-login-btn').addEventListener('click', () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log("Authenticated successfully as user:", result.user.email);
+            })
+            .catch((error) => {
+                alert("Authentication failed: " + error.message);
+            });
+    });
+
+    // Handle Route/View Protection Verification Steps Interactively
+    window.handleSecureSection = function(sectionId) {
+        const user = auth.currentUser;
+        if (!user) {
+            // Force focus visually upwards directly onto the auth portal window
+            document.getElementById('contact-info').style.display = 'flex';
+            document.getElementById('auth-gate').scrollIntoView({ behavior: 'smooth' });
+            alert("Please sign in through the Google Authentication gate inside the Contact block first to explore additional credential nodes.");
+            return;
+        }
+        
+        if (sectionId === 'certifications') {
+            const certTarget = document.getElementById('secure-certifications-container');
+            certTarget.innerHTML = securedCertificationsHTML;
+            certTarget.style.display = 'block';
+            certTarget.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Watch for Authorization lifecycle state transformations seamlessly
+    onAuthStateChanged(auth, (user) => {
+        const authGate = document.getElementById('auth-gate');
+        const contactContent = document.getElementById('secure-contact-container');
+        
+        if (user) {
+            // Drop gate layout rules instantly
+            authGate.style.display = 'none';
+            
+            // Build data views out of variable payload elements
+            contactContent.innerHTML = securedContactHTML;
+            contactContent.style.display = 'flex';
+            
+            // Re-bind dynamic logout trigger button context post-render
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                signOut(auth);
+            });
+        } else {
+            // Re-apply core global validation gate standards
+            contactContent.style.display = 'none';
+            contactContent.innerHTML = '';
+            document.getElementById('secure-certifications-container').style.display = 'none';
+            document.getElementById('secure-certifications-container').innerHTML = '';
+            authGate.style.display = 'block';
+        }
+    });
+</script>
+
 </body>
     <p class="visitor-counter">💼 Profile Views: <span id="visit-count">Loading...</span></p>
 
