@@ -1,7 +1,13 @@
+import { initializeApp } from "https://gstatic.com";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+// Added 'collection', 'addDoc', 'query', 'getDocs', 'orderBy', and 'deleteDoc'
+import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
+
 // 1. Corrected complete module bundle paths pointing to the exact .js files
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+// Added 'collection', 'addDoc', 'query', 'getDocs', 'orderBy', and 'deleteDoc'
+import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
@@ -40,27 +46,31 @@ window.logoutUser = () => {
 // ========================================================
 // 3. SECURE PROFILE VISUAL CONTENT TARGETS
 // ========================================================
+// ========================================================
+// 3. SECURE PROFILE VISUAL CONTENT TARGETS (UPDATED WITH INBOX)
+// ========================================================
 const securedContactHTML = `
-    <div class="bio-details" style="width: 100%; padding: 5px 0;">
+    <div class="bio-details" style="width: 100%; padding: 5px 0; font-family: sans-serif;">
         <h3 style="color:#007bff; margin-bottom:15px;">📞 Authenticated Personal Profile</h3>
-        <ul style="list-style: none; padding: 0; line-height: 2;">
+        <ul style="list-style: none; padding: 0; line-height: 2; margin-bottom: 25px;">
             <li><strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
-            <li><strong>Mobile Number:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
+            <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
             <li><strong>Mailing Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-            <li><strong>LinkedIn Network:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:underline;">Open Profile Matrix</a></li>
-            <li><strong>Google Scholar Link:</strong> <a href="https://google.com" target="_blank" style="color:#007bff; text-decoration:underline;">View Research Citations</a></li>
-            <li><strong>JNTUH Registration Handle:</strong> 3059-191113-150648</li>
-            <li><strong>UNIPUNE Identity Key:</strong> 52092500466</li>
-            <li><strong>Scopus Author Node ID:</strong> 58316331900</li>
-            <li><strong>ORCID Research ID:</strong> 0000-0002-7895-407X</li>
         </ul>
-        <button onclick="window.logoutUser()" class="explore-btn" style="margin-top:20px; background:#dc3545; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-weight:600;">Sign Out Account</button>
+        
+        <h3 style="color:#28a745; margin-bottom:15px; border-top: 1px solid #eee; padding-top: 15px;">📥 Recruiter Messages Inbox</h3>
+        <div id="inbox-messages-container" style="max-height: 300px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 20px;">
+            <p style="color: #666; font-style: italic;">Loading messages stream...</p>
+        </div>
+
+        <button onclick="window.logoutUser()" class="explore-btn" style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-weight:600;">Sign Out Account</button>
     </div>
 `;
+
 // ========================================================
-// 4. AUTH STATE SUBSCRIPTION PROVIDER ENGINE
+// 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO FETCH INBOX)
 // ========================================================
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
     
@@ -69,6 +79,9 @@ onAuthStateChanged(auth, (user) => {
         if (secureContact) {
             secureContact.innerHTML = securedContactHTML;
             secureContact.style.display = 'block';
+            
+            // Automatically fetch your private messages upon successful login
+            window.loadRecruiterMessages();
         }
     } else {
         if (secureContact) {
@@ -78,120 +91,105 @@ onAuthStateChanged(auth, (user) => {
         if (authGate) authGate.style.display = 'block';
     }
 });
-// ==========================================
-// 5. VIEW TOGGLE SUBSYSTEM CONTROLLER
-// ==========================================
-const objectives = {
-    academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
-    industry: "An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed."
-};
-
-window.switchView = function(viewMode) {
-    activeMatrixView = viewMode;
-    const academicElements = document.querySelectorAll('.academic-only');
-    const industryElements = document.querySelectorAll('.industry-only');
-    const objText = document.getElementById('objective-text');
-    const btnAcademic = document.getElementById('btn-academic');
-    const btnIndustry = document.getElementById('btn-industry');
-
-    if (viewMode === 'academic') {
-        academicElements.forEach(el => el.style.display = 'flex');
-        industryElements.forEach(el => el.style.display = 'none');
-        if (objText) objText.textContent = objectives.academic;
-        if (btnAcademic) btnAcademic.classList.add('active');
-        if (btnIndustry) btnIndustry.classList.remove('active');
-    } else {
-        academicElements.forEach(el => el.style.display = 'none');
-        industryElements.forEach(el => el.style.display = 'flex');
-        if (objText) objText.textContent = objectives.industry;
-        if (btnIndustry) btnIndustry.classList.add('active');
-        if (btnAcademic) btnAcademic.classList.remove('active');
-    }
-};
 
 // ==========================================
-// 6. POPUP DISPLAY WINDOW ACTIONS
+// 9. RECRUITER FORM PIPELINE & INBOX ENGINE
 // ==========================================
-window.openHTMLModal = function(title, htmlContent) {
-    const modal = document.getElementById('details-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalBody = document.getElementById('modal-body');
-    
-    if (modal && modalTitle && modalBody) {
-        modalTitle.innerText = title;
-        modalBody.innerHTML = htmlContent;
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; 
-    }
-};
 
-window.closeModal = function() {
-    const modal = document.getElementById('details-modal');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-};
-// ========================================================
-// 7. FIREBASE FIRESTORE DATA CONNECTOR ROUTER (UNIFIED SOURCE)
-// ========================================================
-window.handleReferencesTrigger = () => {
-    window.showReferencesModal(activeMatrixView);
-};
+// Global action to load messages into the admin dashboard pane
+window.loadRecruiterMessages = async function() {
+    const container = document.getElementById('inbox-messages-container');
+    if (!container) return;
 
-window.showReferencesModal = async function(currentView) {
-    // 1. Guard Clause: Block unauthenticated users
-    if (!auth.currentUser) {
-        window.openHTMLModal("Access Restricted", `
-            <div style="padding:10px; text-align:center;">
-                <p style="margin-bottom:15px; color:#dc3545; font-weight:600; font-size:1.1rem;">🔒 Credentials Sealed</p>
-                <p style="margin-bottom:20px; color:#666; font-size:0.95rem;">You must sign in with Google using the main button under 'Locked Contact Credentials' to unlock references.</p>
-            </div>
-        `);
-        return;
-    }
+    try {
+        const q = query(collection(db, "messages"), orderBy("timestamp", "desc"));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+            container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
+            return;
+        }
 
-    // 2. Initialize the HTML string template container
-    let html = `<div style="padding: 10px; line-height: 1.6; font-family: sans-serif;">`;
-
-    // 3. Segmented view logic architecture
-    if (currentView === 'academic') {
-        html += `
-            <h3 style="color:#007bff; border-bottom: 2px solid #007bff; padding-bottom: 5px; margin-bottom: 15px;">🎓 Academic & Research References</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>
-                <li style="margin-bottom: 15px;"><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>
-                <li style="margin-bottom: 15px;"><strong>Professor A NagaJyothi</strong><br>Vignans Institute of Information Technology, Gajuwaka<br>Cell: +91 9398121200</li>
-            </ul>
-        `;
-    } else {
-        html += `
-            <h3 style="color:#28a745; border-bottom: 2px solid #28a745; padding-bottom: 5px; margin-bottom: 15px;">💼 Industry & Corporate References</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481</li>
-                <li style="margin-bottom: 15px;"><strong>Md. Faheem Ul Haq</strong><br>Family Friend<br>Cell: +91 9849022155</li>
-                <li style="margin-bottom: 15px;"><strong>Prof. M Ramalinga Raju</strong> (Professor, Electrical & Electronics Engineering)<br>Former Vice Chancellor, JNTUK Kakinada<br>Cell: +91 9603619104</li>
-            </ul>
+        let inboxHTML = '';
+        querySnapshot.forEach((messageDoc) => {
+            const data = messageDoc.data();
+            const date = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'N/A';
             
-            <h3 style="color:#17a2b8; border-bottom: 2px solid #17a2b8; padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px;">🏠 Personal & Character References</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;"><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045</li>
-                <li style="margin-bottom: 15px;"><strong>T Mohanrao</strong><br>Teacher, ZP High School, Family Friend<br>Cell: +91 9490207027</li>
-            </ul>
-        `;
+            inboxHTML += `
+                <div id="msg-card-${messageDoc.id}" style="background: white; padding: 12px; border-radius: 4px; border: 1px solid #eee; margin-bottom: 10px; position: relative;">
+                    <span style="font-size: 0.8rem; color: #999; float: right;">${date}</span>
+                    <strong style="color: #333; display: block; font-size: 0.95rem;">${data.name}</strong>
+                    <a href="mailto:${data.email}" style="font-size: 0.85rem; color: #007bff; text-decoration: none;">${data.email}</a>
+                    <p style="margin: 8px 0 0 0; color: #555; font-size: 0.9rem; white-space: pre-wrap;">${data.message}</p>
+                    <button onclick="window.deleteRecruiterMessage('${messageDoc.id}')" style="margin-top: 8px; background: transparent; color: #dc3545; border: none; padding: 0; cursor: pointer; font-size: 0.8rem; font-weight: bold;">🗑️ Delete Message</button>
+                </div>
+            `;
+        });
+        container.innerHTML = inboxHTML;
+    } catch (error) {
+        console.error("Error reading mailbox:", error);
+        container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Error fetching database node: Permission Denied.</p>`;
     }
-
-    html += `</div>`;
-
-    // 4. Fire openHTMLModal directly using the generated templates
-    if (typeof window.openHTMLModal === 'function') {
-        window.openHTMLModal("References Directory", html);
-    } else {
-        console.error("window.openHTMLModal is not defined. Ensure your Modal system component is loaded.");
-    }
-    
-    return html;
 };
+
+// Global action to delete messages
+window.deleteRecruiterMessage = async function(id) {
+    if (confirm("Are you sure you want to permanently delete this recruiter message?")) {
+        try {
+            await deleteDoc(doc(db, "messages", id));
+            const card = document.getElementById(`msg-card-${id}`);
+            if (card) card.remove();
+            
+            // Show empty placeholder text if all cards are cleared out
+            const container = document.getElementById('inbox-messages-container');
+            if (container && container.children.length === 0) {
+                container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
+            }
+        } catch (error) {
+            alert("Could not remove record: " + error.message);
+        }
+    }
+};
+
+// Handle client messaging form inputs organically
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('recruiter-name').value;
+            const email = document.getElementById('recruiter-email').value;
+            const message = document.getElementById('recruiter-msg').value;
+
+            statusDiv.style.display = 'block';
+            statusDiv.style.color = '#333';
+            statusDiv.textContent = "Sending message securely...";
+
+            try {
+                // Safely write document payload node straight into Firestore rules block
+                await addDoc(collection(db, "messages"), {
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: new Date() // Server rules will extract tracking benchmarks
+                });
+
+                statusDiv.style.color = '#28a745';
+                statusDiv.textContent = "✓ Message sent successfully! Thank you.";
+                contactForm.reset();
+            } catch (error) {
+                console.error("Submission blocked:", error);
+                statusDiv.style.color = '#dc3545';
+                statusDiv.textContent = "⚠️ Failed to transmit data packet. Try again later.";
+            }
+        });
+    }
+});
+
+
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
