@@ -276,6 +276,7 @@ window.showExpertiseModal = function() {
     `;
     window.openHTMLModal('Subject Area Expertise', html);
 };
+
 window.showExperienceModal = function() {
     let html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto; text-align: left;">
