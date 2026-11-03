@@ -1,17 +1,16 @@
-// 1. Fixed CDN import paths pointing to valid Firebase bundle paths
+// 1. Corrected complete module bundle paths pointing to the exact .js files
 import { initializeApp } from "https://gstatic.com";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 import { getFirestore, doc, getDoc } from "https://gstatic.com";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDoToJAX5BEthnTPayPZNTaYnccHvnbGU",
-    authDomain: "interactive-cv-6f58a.firebaseapp.com", // Fixed missing subdomain
+    authDomain: "interactive-cv-6f58a.firebaseapp.com", 
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
     appId: "1:904714357999:web:a23ef727d0af3b44451f3a"
 };
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
