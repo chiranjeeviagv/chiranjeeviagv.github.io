@@ -246,66 +246,44 @@ window.showCertificationsModal = function() {
     window.openHTMLModal('Advanced Certifications & Up-Skilling', html);
 };
 
-window.showExperienceModal = function() {
-    let html = `
+window.showExpertiseModal = function() {
+    var html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto;">
-            
-            <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <h4 style="margin: 0 0 5px 0; color: #333;">Assistant Professor – Department of Electrical Engineering (AI & ML)</h4>
-                <p style="margin: 0 0 5px 0; font-style: italic; color: #666;">Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra</p>
-                <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #007bff; font-weight: bold;">June 2025 – May 2026</p>
-                <ul style="padding-left: 20px; margin-bottom: 10px;">
-                    <li>Delivered specialized courses bridging heavy electrical engineering with computational intelligence, including Artificial Intelligence Techniques and AI-Based Web Design.</li>
-                </ul>
-                <a href="#" style="color:#007bff; text-decoration:none; font-size:0.9rem; font-weight:600;">[Verify Experience]</a>
-            </div>
+            <!-- Section 1: Areas of Interest -->
+            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Areas of Interest</h4>
+            <ul style="padding-left: 20px; margin-bottom: 25px;">
+                <li style="margin-bottom: 6px;">Artificial Intelligence & Machine Learning</li>
+                <li style="margin-bottom: 6px;">Cyber Security</li>
+                <li style="margin-bottom: 6px;">Electromagnetics</li>
+                <li style="margin-bottom: 6px;">Microcontrollers & Digital Logic Design</li>
+                <li style="margin-bottom: 6px;">Non-Conventional Sources of Energy</li>
+            </ul>
 
-            <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <h4 style="margin: 0 0 5px 0; color: #333;">Assistant Professor – Department of Electrical & Electronics Engineering</h4>
-                <p style="margin: 0 0 5px 0; font-style: italic; color: #666;">Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad</p>
-                <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #007bff; font-weight: bold;">February 2023 – January 2025</p>
-                <ul style="padding-left: 20px; margin-bottom: 10px;">
-                    <li>Taught core undergraduate engineering subjects and guided graduation project groups.</li>
-                    <li>Managed automated tools for continuous student assessments, grading workflows, and classroom operations.</li>
-                </ul>
-                <a href="#" style="color:#007bff; text-decoration:none; font-size:0.9rem; font-weight:600;">[Verify Experience]</a>
+            <!-- Section 2: Courses Handled Grid -->
+            <h4 style="color: #6f42c1; margin-bottom: 12px; border-bottom: 2px solid #6f42c1; padding-bottom: 4px;">📖 Courses Handled</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; padding-left: 5px;">
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Artificial Intelligence Techniques</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">AI Based Web Design</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Introduction to Expert Systems</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Advanced Python Programming</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Discrete Mathematics and Logic</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Software Testing Certification</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electro Magnetic Fields</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Microprocessors and Microcontrollers</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Digital Logic Design</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Digital Controllers</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Control Systems</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Power System Analysis</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Power System Protection</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">High Voltage Engineering</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Non-Conventional Sources of Energy</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electrical Technology</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Basic Electrical and Electronics Engineering</div>
             </div>
-
-            <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <h4 style="margin: 0 0 5px 0; color: #333;">Assistant Professor – Department of Electrical & Electronics Engineering</h4>
-                <p style="margin: 0 0 5px 0; font-style: italic; color: #666;">Malla Reddy Engineering College for Women (Autonomous), Secunderabad</p>
-                <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #007bff; font-weight: bold;">July 2022 – February 2023</p>
-                <ul style="padding-left: 20px; margin-bottom: 10px;">
-                    <li>Led academic instruction, micro-mentoring programs, and structured laboratory assessments.</li>
-                    <li>Contributed actively to internal department committees preparing for structural university audits.</li>
-                </ul>
-                <a href="#" style="color:#007bff; text-decoration:none; font-size:0.9rem; font-weight:600;">[Verify Experience]</a>
-            </div>
-
-            <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <h4 style="margin: 0 0 5px 0; color: #333;">Senior Assistant Professor – Department of Electrical & Electronics Engineering</h4>
-                <p style="margin: 0 0 5px 0; font-style: italic; color: #666;">Aditya College of Engineering, Surampalem, Andhra Pradesh</p>
-                <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #007bff; font-weight: bold;">November 2019 – July 2021</p>
-                <ul style="padding-left: 20px; margin-bottom: 10px;">
-                    <li>Provided senior-level instructional delivery for advanced PG and UG courses.</li>
-                    <li>Structured curriculum changes to better incorporate simulation tools like MATLAB within lab protocols.</li>
-                </ul>
-                <a href="#" style="color:#007bff; text-decoration:none; font-size:0.9rem; font-weight:600;">[Verify Experience]</a>
-            </div>
-
-            <div style="margin-bottom: 10px;">
-                <h4 style="margin: 0 0 5px 0; color: #333;">Assistant Professor – Department of EEE</h4>
-                <p style="margin: 0 0 5px 0; font-style: italic; color: #666;">Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh</p>
-                <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #007bff; font-weight: bold;">March 2015 – November 2019</p>
-                <ul style="padding-left: 20px; margin-bottom: 10px;">
-                    <li>Administered core academic workloads alongside critical operational responsibilities, serving as the NBA coordinator and department Time-Table planner.</li>
-                    <li>Spearheaded institutional accreditation data compilation (NBA & NAAC files).</li>
-                </ul>
-                <a href="#" style="color:#007bff; text-decoration:none; font-size:0.9rem; font-weight:600;">[Verify Experience]</a>
-            </div>
-
         </div>
     `;
+    window.openHTMLModal('Subject Area Expertise', html);
+};
     window.openHTMLModal('Professional Experience', html);
 };
 window.showPublicationsModal = function() {
