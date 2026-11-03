@@ -1,8 +1,3 @@
-import { initializeApp } from "https://gstatic.com";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
-// Added 'collection', 'addDoc', 'query', 'getDocs', 'orderBy', and 'deleteDoc'
-import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
-
 // 1. Corrected complete module bundle paths pointing to the exact .js files
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
