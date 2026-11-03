@@ -1,6 +1,62 @@
+                // ==========================================
+// 1. FIREBASE INITIALIZATION SYSTEM
 // ==========================================
-/// ==========================================
-// 1. DATA AND OBJECTIVE TEMPLATE STORAGE
+import { initializeApp } from "https://gstatic.com";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+import { getFirestore, doc, getDoc } from "https://gstatic.com";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDoToJAX5BEthnTPayPZNTaYnccHvnbGU",
+    authDomain: "://firebaseapp.com",
+    projectId: "interactive-cv-6f58a",
+    storageBucket: "interactive-cv-6f58a.firebasestorage.app",
+    messagingSenderId: "904714357999",
+    appId: "1:904714357999:web:a23ef727d0af3b44451f3a"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getFirestore();
+
+// Attach critical functions directly to window so legacy HTML buttons can click them
+window.handleSignIn = handleSignIn;
+window.handleSignOut = handleSignOut;
+
+// Track authentication states globally
+onAuthStateChanged(auth, (user) => {
+    const lockedBanner = document.getElementById('locked-banner');
+    const authBtn = document.getElementById('auth-action-btn'); 
+    
+    if (user) {
+        if (lockedBanner) lockedBanner.style.display = 'none';
+        if (authBtn) {
+            authBtn.innerText = "Sign Out";
+            authBtn.onclick = handleSignOut;
+        }
+    } else {
+        if (lockedBanner) lockedBanner.style.display = 'block';
+        if (authBtn) {
+            authBtn.innerText = "Sign In with Google";
+            authBtn.onclick = handleSignIn;
+        }
+    }
+});
+
+function handleSignIn() {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+        .then(() => alert("Authenticated successfully! Credentials unlocked."))
+        .catch((err) => console.error("Sign-in breakdown:", err));
+}
+
+function handleSignOut() {
+    signOut(auth)
+        .then(() => alert("Logged out securely."))
+        .catch((err) => console.error("Sign-out failure:", err));
+}
+
+// ==========================================
+// 2. DATA AND OBJECTIVE TEMPLATE STORAGE
 // ==========================================
 const objectives = {
     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
@@ -8,7 +64,7 @@ const objectives = {
 };
 
 // ==========================================
-// 2. CENTRAL MATRIX SWITCHING ENGINE
+// 3. CENTRAL MATRIX SWITCHING ENGINE
 // ==========================================
 window.switchView = function(viewMode) {
     var academicElements = document.querySelectorAll('.academic-only');
@@ -33,7 +89,7 @@ window.switchView = function(viewMode) {
 }
 
 // ==========================================
-// 3. SECURE DOM EVENT BINDING LAYER
+// 4. SECURE DOM EVENT BINDING LAYER
 // ==========================================
 window.closeModal = function() {
     var contactSection = document.getElementById('contact-info');
@@ -76,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ==========================================
-// 4. ROUTER SWITCH ROUTINE
+// 5. ROUTER SWITCH ROUTINE
 // ==========================================
 window.handleExploreClick = function(sectionKey) {
     if (sectionKey === 'contact-info') {
@@ -107,13 +163,14 @@ window.handleExploreClick = function(sectionKey) {
     else if (sectionKey === 'skills') showSkillsModal();
     else if (sectionKey === 'conferences') showConferencesModal();
     else if (sectionKey === 'references') showReferencesModal(currentView);
-  else if (sectionKey === 'languages') showLanguagesModal();
+    else if (sectionKey === 'languages') showLanguagesModal();
     else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
-        showacedemicStrengthsModal();    }
+        showacedemicStrengthsModal();    
+    }
 }
 
 // ==========================================
-// 5. WINDOW FRAME DYNAMICS
+// 6. WINDOW FRAME DYNAMICS
 // ==========================================
 window.openHTMLModal = function(title, htmlContent) {
     var modal = document.getElementById('details-modal');
@@ -130,52 +187,56 @@ window.openHTMLModal = function(title, htmlContent) {
 }
 
 // ==========================================
-// 6. DYNAMIC CONTEXTUAL REFERENCE ENGINE
+// 7. SECURE CONTEXTUAL FIRESTORE DATA ENGINES
 // ==========================================
-window.showReferencesModal = function(currentView) {
-    var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
-    if (currentView === 'academic') {
-        html += '<h4>🎓 Academic & Research References</h4>' +
-            '<ul style="list-style:none; padding-left:0;">' +
-            '<li><strong>Mr. K Srikanth</strong> (Associate Professor)<br>GVP College of Engineering, Visakhapatnam<br>Cell: +91 9440897892<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Dr. Dipak D Bhage</strong> (Professor)<br>PCU, Pune<br>Cell: +91 7083780216<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Professor A NagaJyothi</strong><br>Vignans Institute of information Technology, Gajuwaka<br>Cell: +91 9398121200</li>' +
-            '</ul>';
-    } else {
-        html += '<h4>💼 Industry & Corporate References</h4>' +
-            '<ul style="list-style:none; padding-left:0;">' +
-            '<li><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Md. Faheem Ul Haq</strong><br>Family Friend, Family Friend<br>Cell: +91 9849022155<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>Prof. M Ramalinga Raju</strong> (Professor, Electrical Engineering)<br>Former Vice Chancellor, JNTUK Kakinada<br>Cell: +91 9603619104</li>' +
-            '</ul>' +
-            '<h4>🏠 Personal & Character References</h4>' +
-            '<ul style="list-style:none; padding-left:0;">' +
-            '<li><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045<hr style="border-top: 1px solid #eee; margin: 10px 0;"></li>' +
-            '<li><strong>T Mohanrao</strong><br>Teacher, ZP High School (Family Friend)<br>Cell: +91 9490207027</li>' +
-            '</ul>';
+window.showReferencesModal = async function(currentView) {
+    if (!auth.currentUser) {
+        openHTMLModal("Access Restricted", `
+            <div style="padding:20px; text-align:center;">
+                <p style="margin-bottom:15px; color:#dc3545; font-weight:600;">🔒 Hidden Content</p>
+                <p style="margin-bottom:20px; color:#666; font-size:14px;">Please close this popup and authenticate via Google to unlock verified references.</p>
+            </div>
+        `);
+        return;
     }
-    html += '</div>';
-    openHTMLModal('References Shared', html);
+
+    openHTMLModal("Loading...", "<p style='padding:20px; text-align:center;'>Fetching verified matrix coordinates from Firebase...</p>");
+
+    try {
+        const docRef = doc(db, "protected_data", "references");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const serverData = docSnap.data();
+            let resolvedHtml = currentView === 'academic' ? serverData.academicHtml : serverData.industryHtml;
+            openHTMLModal(currentView === 'academic' ? 'Academic References' : 'Industry & Personal References', resolvedHtml);
+        } else {
+            openHTMLModal("Error", "<p style='padding:20px; color:#dc3545;'>Data file document node missing in Firestore setup.</p>");
+        }
+    } catch (error) {
+        openHTMLModal("Database Rejection", `<p style='padding:20px; color:#dc3545;'><strong>Security Rules Blocked Access:</strong> ${error.message}</p>`);
+    }
 }
 
+// ==========================================
+// 8. UNPROTECTED SYSTEM STATIC MODALS
+// ==========================================
 window.showLanguagesModal = function() {
-    var htmlContent = `
-        <div class="modal-languages-container" style="padding: 10px 0;">
-            <p style="margin-bottom: 20px; color: #555; font-size: 15px; line-height: 1.5;">
-                Proficiency levels in regional, national, and international languages for technical development, professional instruction, and global research publication.
-            </p>
-            <div class="modal-lang-grid" style="display: flex; flex-direction: column; gap: 15px;">
-                <div style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                        <h4 style="margin: 0; color: #007bff; font-size: 18px;">English</h4>
-                        <span style="background: #007bff; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Professional</span>
-                    </div>
-                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Primary medium for research publications, international engineering courses, and global codebase architecture documentation.</p>
-                </div>
-            </div>
-        </div>`;
+                    var htmlContent = `
+                        <div class="modal-languages-container" style="padding: 10px 0;">
+                            <p style="margin-bottom: 20px; color: #555; font-size: 15px; line-height: 1.5;">
+                                Proficiency levels in regional, national, and international languages for technical development, professional instruction, and global research publication.
+                            </p>
+                            <div class="modal-lang-grid" style="display: flex; flex-direction: column; gap: 15px;">
+                                <div style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <h4 style="margin: 0; color: #007bff; font-size: 18px;">English</h4>
+                                        <span style="background: #007bff; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Professional</span>
+                                    </div>
+                                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Primary medium for research publications, international engineering courses, and global codebase architecture documentation.</p>
+                                </div>
+                            </div>
+                        </div>`;
     openHTMLModal("Languages Known & Proficiency", htmlContent);
 }
 
@@ -488,16 +549,3 @@ window.showConferencesModal=function() {
         '</div>';
     openHTMLModal('Conferences Attended Presentation Details', html);
 }
-// Dynamic Visitor Counter Engine
-// Dynamic Visitor Counter Engine
-// Replace 'gvchiranjeeviadari.online' with your actual domain or any unique key
-// Dynamic Visitor Counter Engine
-// Dynamic Visitor Counter Engine
-// Stable Visitor Counter Fallback Engine
-(function() {
-    const countEl = document.getElementById('visit-count');
-    if (countEl) {
-        // Safe default presentation since countapi.xyz domain is offline
-        countEl.innerText = "1,240+"; 
-    }
-})();
