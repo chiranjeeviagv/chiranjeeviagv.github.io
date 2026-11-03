@@ -493,14 +493,11 @@ window.showConferencesModal=function() {
 // Replace 'gvchiranjeeviadari.online' with your actual domain or any unique key
 // Dynamic Visitor Counter Engine
 // Dynamic Visitor Counter Engine
-fetch('https://countapi.xyz')
-    .then(res => res.json())
-    .then(data => {
-        const countEl = document.getElementById('visit-count');
-        if (countEl) countEl.innerText = data.value;
-    })
-    .catch(err => {
-        // Fallback display if the API has network delay
-        const countEl = document.getElementById('visit-count');
-        if (countEl) countEl.innerText = "1,240+"; 
-    });
+// Stable Visitor Counter Fallback Engine
+(function() {
+    const countEl = document.getElementById('visit-count');
+    if (countEl) {
+        // Safe default presentation since countapi.xyz domain is offline
+        countEl.innerText = "1,240+"; 
+    }
+})();
