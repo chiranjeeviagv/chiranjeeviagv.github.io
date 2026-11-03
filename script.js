@@ -1,6 +1,6 @@
-// ==========================================
-// 1. FIREBASE INITIALIZATION SYSTEM (FIXED)
-// ==========================================
+// ========================================================
+// 1. FIREBASE INITIALIZATION SYSTEM (FIXED PATHS & DOMAIN)
+// ========================================================
 import { initializeApp } from "https://gstatic.com";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 import { getFirestore, doc, getDoc } from "https://gstatic.com";
@@ -15,15 +15,11 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const db = getFirestore();
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Map functions to window so the HTML onClick handlers can read them
-window.handleSignIn = handleSignIn;
-window.handleSignOut = handleSignOut;
-window.loginWithGoogle = handleSignIn; // Safety backup alias
 // ========================================================
-// BIND EXECUTION ROUTINES DIRECTLY TO THE GLOBAL WINDOW OBJECT
+// 2. BIND AUTHENTICATION ROUTINES DIRECTLY TO THE GLOBAL WINDOW
 // ========================================================
 window.loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
@@ -40,20 +36,16 @@ window.loginWithGoogle = () => {
 
 window.logoutUser = () => { 
     signOut(auth)
-        .then(() => {
-            alert("Logged out securely.");
-        })
-        .catch((error) => {
-            console.error("Sign-out failure:", error);
-        });
+        .then(() => alert("Logged out securely."))
+        .catch((error) => console.error("Sign-out failure:", error));
 };
 
-// Backwards compatibility aliases to ensure no internal buttons break
+// Aliases to handle different event naming hooks across index.html
 window.handleSignIn = window.loginWithGoogle;
 window.handleSignOut = window.logoutUser;
 
 // ========================================================
-// CORE AUTHENTICATION LIFECYCLE MONITOR
+// 3. CORE AUTHENTICATION LIFECYCLE MONITOR
 // ========================================================
 onAuthStateChanged(auth, (user) => {
     const authGate = document.getElementById('auth-gate');
@@ -61,7 +53,6 @@ onAuthStateChanged(auth, (user) => {
     const loginBtn = document.getElementById('google-login-btn'); 
     
     if (user) {
-        // Authenticated State: Shut the lock boundary, render secure details
         if (authGate) authGate.style.display = 'none';
         if (secureContact) {
             secureContact.style.display = 'flex';
@@ -83,7 +74,6 @@ onAuthStateChanged(auth, (user) => {
             `;
         }
     } else {
-        // Unauthenticated State: Clear secure fields, restore placeholder gate
         if (secureContact) {
             secureContact.style.display = 'none';
             secureContact.innerHTML = '';
@@ -95,53 +85,8 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
-onAuthStateChanged(auth, (user) => {
-    const authGate = document.getElementById('auth-gate');
-    const secureContact = document.getElementById('secure-contact-container');
-    const loginBtn = document.getElementById('google-login-btn'); 
-    
-    if (user) {
-        // Authenticated: Hide the locked wall, show secure space
-        if (authGate) authGate.style.display = 'none';
-        if (secureContact) {
-            secureContact.style.display = 'flex';
-            secureContact.innerHTML = `
-                <div style="padding:15px; background:#e8f0fe; border-radius:6px; width:100%;">
-                    <p style="margin:0; color:#1a73e8; font-weight:600;">✅ Contact Profile Authenticated</p>
-                    <p style="margin:5px 0 10px 0; font-size:14px; color:#555;">Logged in as: <strong>${user.email}</strong></p>
-                    <button onclick="window.handleSignOut()" class="explore-btn" style="padding:5px 12px; font-size:12px; background:#f44336; color:white; border:none; border-radius:4px; cursor:pointer;">Sign Out</button>
-                </div>`;
-        }
-    } else {
-        // Unauthenticated: Restore layout parameters
-        if (authGate) authGate.style.display = 'block';
-        if (secureContact) {
-            secureContact.style.display = 'none';
-            secureContact.innerHTML = '';
-        }
-        if (loginBtn) {
-            loginBtn.innerText = "Sign In with Google";
-        }
-    }
-});
-
-function handleSignIn() {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-        .then(() => alert("Authenticated successfully! References and credentials unlocked."))
-        .catch((err) => {
-            console.error("Sign-in breakdown:", err);
-            alert("Login failed: Make sure popups are allowed in your browser.");
-        });
-}
-
-function handleSignOut() {
-    signOut(auth)
-        .then(() => alert("Logged out securely."))
-        .catch((err) => console.error("Sign-out failure:", err));
-}
 // ==========================================
-// 2. DATA AND OBJECTIVE TEMPLATE STORAGE
+// 4. DATA AND OBJECTIVE TEMPLATE STORAGE
 // ==========================================
 const objectives = {
     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
@@ -149,7 +94,7 @@ const objectives = {
 };
 
 // ==========================================
-// 3. CENTRAL MATRIX SWITCHING ENGINE
+// 5. CENTRAL MATRIX VIEW ENGINE
 // ==========================================
 window.switchView = function(viewMode) {
     var academicElements = document.querySelectorAll('.academic-only');
@@ -174,7 +119,7 @@ window.switchView = function(viewMode) {
 }
 
 // ==========================================
-// 4. SECURE DOM EVENT BINDING LAYER
+// 6. SECURE DOM EVENT BINDING LAYER
 // ==========================================
 window.closeModal = function() {
     var contactSection = document.getElementById('contact-info');
@@ -217,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ==========================================
-// 5. ROUTER SWITCH ROUTINE
+// 7. ROUTER SWITCH ROUTINE
 // ==========================================
 window.handleExploreClick = function(sectionKey) {
     if (sectionKey === 'contact-info') {
@@ -255,8 +200,9 @@ window.handleExploreClick = function(sectionKey) {
 }
 
 // ==========================================
-// 6. WINDOW FRAME DYNAMICS
+// 8. WINDOW FRAME DYNAMICS
 // ==========================================
+
 window.openHTMLModal = function(title, htmlContent) {
     var modal = document.getElementById('details-modal');
     var modalTitle = document.getElementById('modal-title');
