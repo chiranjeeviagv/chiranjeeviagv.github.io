@@ -141,6 +141,7 @@ window.handleReferencesTrigger = () => {
 };
 
 window.showReferencesModal = async function(currentView) {
+    // 1. Guard Clause: Block unauthenticated users
     if (!auth.currentUser) {
         window.openHTMLModal("Access Restricted", `
             <div style="padding:10px; text-align:center;">
@@ -150,41 +151,47 @@ window.showReferencesModal = async function(currentView) {
         `);
         return;
     }
-   'Mr. K Prasad
-Government Polytechnic, Vizianagaram
-Cell: +91 9912340292' +
-'Professor G Sridevi
-Aditya University, East Godavari
-Cell: +91 9848141867' +
-'Professor A NagaJyothi
-Vignans Institute of information Technology, Gajuwaka
-Cell: +91 9398121200' +
-'';
-} else {
-html += '💼 Industry & Corporate References' +
-'' +
-'Dr. S Suryaprakasa Rao (Retired Professor & HoD of ENT)
-AMC / Gayatri Medical College (GVPIHC&MT)
-Cell: +91 8688381481' +
-'Md. Faheem Ul Haq
-Family Friend, Family Friend
-Cell: +91 9849022155' +
-'Prof. M Ramalinga Raju (Professor, Electrical and Electronics Engineering)
-Former Vice Chancellor, JNTUK Kakinada
-Cell: +91 9603619104' +
-'' +
-'🏠 Personal & Character References' +
-'' +
-'Mrs. V Mounika (Former Principal)
-Vivekananda Degree College (Family Friend)
-Cell: +91 9866102045' +
-'T Mohanrao
-Teacher, ZP High School, Family Friend
-Cell: +91 9490207027' +
-'';
-}
-html += '';
-return html;
+
+    // 2. Initialize the HTML string template container
+    let html = `<div style="padding: 10px; line-height: 1.6; font-family: sans-serif;">`;
+
+    // 3. Segmented view logic architecture
+    if (currentView === 'academic') {
+        html += `
+            <h3 style="color:#007bff; border-bottom: 2px solid #007bff; padding-bottom: 5px; margin-bottom: 15px;">🎓 Academic & Research References</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 15px;"><strong>Mr. K Prasad</strong><br>Government Polytechnic, Vizianagaram<br>Cell: +91 9912340292</li>
+                <li style="margin-bottom: 15px;"><strong>Professor G Sridevi</strong><br>Aditya University, East Godavari<br>Cell: +91 9848141867</li>
+                <li style="margin-bottom: 15px;"><strong>Professor A NagaJyothi</strong><br>Vignans Institute of Information Technology, Gajuwaka<br>Cell: +91 9398121200</li>
+            </ul>
+        `;
+    } else {
+        html += `
+            <h3 style="color:#28a745; border-bottom: 2px solid #28a745; padding-bottom: 5px; margin-bottom: 15px;">💼 Industry & Corporate References</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 15px;"><strong>Dr. S Suryaprakasa Rao</strong> (Retired Professor & HoD of ENT)<br>AMC / Gayatri Medical College (GVPIHC&MT)<br>Cell: +91 8688381481</li>
+                <li style="margin-bottom: 15px;"><strong>Md. Faheem Ul Haq</strong><br>Family Friend<br>Cell: +91 9849022155</li>
+                <li style="margin-bottom: 15px;"><strong>Prof. M Ramalinga Raju</strong> (Professor, Electrical & Electronics Engineering)<br>Former Vice Chancellor, JNTUK Kakinada<br>Cell: +91 9603619104</li>
+            </ul>
+            
+            <h3 style="color:#17a2b8; border-bottom: 2px solid #17a2b8; padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px;">🏠 Personal & Character References</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 15px;"><strong>Mrs. V Mounika</strong> (Former Principal)<br>Vivekananda Degree College (Family Friend)<br>Cell: +91 9866102045</li>
+                <li style="margin-bottom: 15px;"><strong>T Mohanrao</strong><br>Teacher, ZP High School, Family Friend<br>Cell: +91 9490207027</li>
+            </ul>
+        `;
+    }
+
+    html += `</div>`;
+
+    // 4. Fire openHTMLModal directly using the generated templates
+    if (typeof window.openHTMLModal === 'function') {
+        window.openHTMLModal("References Directory", html);
+    } else {
+        console.error("window.openHTMLModal is not defined. Ensure your Modal system component is loaded.");
+    }
+    
+    return html;
 };
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
