@@ -491,6 +491,7 @@ window.showConferencesModal=function() {
 // Dynamic Visitor Counter Engine
 // Dynamic Visitor Counter Engine
 // Replace 'gvchiranjeeviadari.online' with your actual domain or any unique key
+// Dynamic Visitor Counter Engine
 fetch('https://countapi.xyz')
     .then(res => res.json())
     .then(data => {
@@ -502,4 +503,3 @@ fetch('https://countapi.xyz')
         const countEl = document.getElementById('visit-count');
         if (countEl) countEl.innerText = "1,240+"; 
     });
-
