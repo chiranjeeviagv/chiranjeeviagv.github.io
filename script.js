@@ -483,9 +483,8 @@ window.openHTMLModal('Subject Area Expertise', html);
 window.showExpertiseModal = function() {
     var html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto;">
-          
             <!-- Section 1: Areas of Interest -->
-                        <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Areas of Interest</h4>
+            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Areas of Interest</h4>
             <ul style="padding-left: 20px; margin-bottom: 25px;">
                 <li style="margin-bottom: 6px;">Artificial Intelligence & Machine Learning</li>
                 <li style="margin-bottom: 6px;">Cyber Security</li>
@@ -515,11 +514,11 @@ window.showExpertiseModal = function() {
                 <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electrical Technology</div>
                 <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Basic Electrical and Electronics Engineering</div>
             </div>
-
         </div>
-    `;
+    `; // Ensure there is a closing backtick here at the end of the text template string
     window.openHTMLModal('Subject Area Expertise', html);
 };
+      
 
 window.showSkillsModal = function() {
     var html = `
