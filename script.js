@@ -126,6 +126,36 @@ window.loadRecruiterMessages = async function() {
         container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Error fetching database node: Permission Denied.</p>`;
     }
 };
+// Generic fallback container builder for openHTMLModal
+window.openHTMLModal = function(title, innerHTMLContent) {
+    // Check if an old modal wrapper instance is lingering and clear it
+    let existingModal = document.getElementById('global-cv-modal-context');
+    if (existingModal) existingModal.remove();
+
+    // Create a dynamic backdrop overlay structure
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'global-cv-modal-context';
+    modalOverlay.style = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; font-family:sans-serif;";
+
+    // Create the modal container box
+    const modalBox = document.createElement('div');
+    modalBox.style = "background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.2);";
+
+    // Add modal header and close button markup layout
+    modalBox.innerHTML = `
+        <h3 style="margin-top:0; color:#333; padding-right:30px; border-bottom:1px solid #eee; padding-bottom:10px;">${title}</h3>
+        <button id="close-modal-btn" style="position:absolute; top:15px; right:15px; background:transparent; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
+        <div style="margin-top:15px;">${innerHTMLContent}</div>
+    `;
+
+    modalOverlay.appendChild(modalBox);
+    document.body.appendChild(modalOverlay);
+
+    // Event listener to shut down view nodes
+    const closeModal = () => modalOverlay.remove();
+    document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+};
 
 // Global action to delete messages
 window.deleteRecruiterMessage = async function(id) {
