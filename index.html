@@ -317,117 +317,14 @@
     });
 </script>
 <!-- Load modern Firebase SDK Core Modules via global CDN -->
+<!-- Explicitly separated Firebase authentication runtime context -->
 <script type="module">
     import { initializeApp } from "https://gstatic.com";
     import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
-    // Your specific Firebase web app configuration from your console screen
     const firebaseConfig = {
         apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
         authDomain: "://firebaseapp.com",
-        projectId: "interactive-cv-6f58a",
-        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
-        messagingSenderId: "904714357999",
-        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
-    };
-
-    // Initialize application instance
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-
-    // Sensitive data payloads kept hidden inside dynamic script variables
-    const securedContactHTML = `
-        <div class="bio-details">
-            <h3>Contact Details</h3>
-            <ul>
-                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
-                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
-                <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
-                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-                <li><strong>Scopus Author ID:</strong> 58316331900</li>
-                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
-            </ul>
-            <button id="logout-btn" style="margin-top:15px; padding:6px 12px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px; font-weight:bold;">Sign Out</button>
-        </div>
-        <div class="bio-img-container">
-            <img src="profile-pic.jpeg" alt="Profile Picture" class="profile-avatar">
-        </div>
-    `;
-
-    const securedCertificationsHTML = `
-        <h3>Verified Credentials Dashboard</h3>
-        <ul style="padding-left: 20px; margin-top: 10px; line-height: 1.8;">
-            <li><strong>IBM Full-Stack JavaScript Developer Specialization</strong> (Coursera - 2026)</li>
-            <li><strong>Microsoft AI/ML Engineering Professional Certification</strong> (Coursera - 2026)</li>
-            <li><strong>Google Cybersecurity Professional Certificate</strong> (Coursera - 2026)</li>
-            <li><strong>Advanced Computer Networks & Architecture Modules</strong> (NPTEL - 2025)</li>
-        </ul>
-    `;
-
-    // Bind login event handler
-    document.getElementById('google-login-btn').addEventListener('click', () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                console.log("Authenticated successfully as user:", result.user.email);
-            })
-            .catch((error) => {
-                alert("Authentication failed: " + error.message);
-            });
-    });
-
-    // Handle interactive validation for downstream sections
-    window.handleSecureSection = function(sectionId) {
-        const user = auth.currentUser;
-        if (!user) {
-            document.getElementById('contact-info').style.display = 'flex';
-            document.getElementById('auth-gate').scrollIntoView({ behavior: 'smooth' });
-            alert("Please sign in through the Google Authentication gate inside the Contact block first to explore additional credential nodes.");
-            return;
-        }
-        
-        if (sectionId === 'certifications') {
-            const certTarget = document.getElementById('secure-certifications-container');
-            certTarget.innerHTML = securedCertificationsHTML;
-            certTarget.style.display = 'block';
-            certTarget.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    // Keep state views completely in-sync seamlessly
-    onAuthStateChanged(auth, (user) => {
-        const authGate = document.getElementById('auth-gate');
-        const contactContent = document.getElementById('secure-contact-container');
-        
-        if (user) {
-            authGate.style.display = 'none';
-            contactContent.innerHTML = securedContactHTML;
-            contactContent.style.display = 'flex';
-            
-            // Bind newly generated clean sign-out runtime listeners
-            document.getElementById('logout-btn').addEventListener('click', () => {
-                signOut(auth);
-            });
-        } else {
-            contactContent.style.display = 'none';
-            contactContent.innerHTML = '';
-            document.getElementById('secure-certifications-container').style.display = 'none';
-            document.getElementById('secure-certifications-container').innerHTML = '';
-            authGate.style.display = 'block';
-        }
-    });
-
-    <script type="module">
-    // Correct paths pointing explicitly to the Firebase v9+ CDN scripts
-    import { initializeApp } from "https://gstatic.com";
-    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
-        authDomain: "://firebaseapp.com", // Restored missing project prefix
         projectId: "interactive-cv-6f58a",
         storageBucket: "interactive-cv-6f58a.firebasestorage.app",
         messagingSenderId: "904714357999",
@@ -483,7 +380,6 @@
         }
     });
 </script>
-
 </body>
     <p class="visitor-counter">💼 Profile Views: <span id="visit-count">Loading...</span></p>
 
