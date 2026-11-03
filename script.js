@@ -424,3 +424,19 @@ var html = '' +
 '';
 window.openHTMLModal('Conferences Attended Presentation Details', html);
 };
+// ==========================================
+// 6. DOM EVENT LISTENERS SETUP
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const btnAcademic = document.getElementById('btn-academic');
+    const btnIndustry = document.getElementById('btn-industry');
+
+    if (btnAcademic) {
+        btnAcademic.addEventListener('click', () => window.switchView('academic'));
+    }
+    
+    if (btnIndustry) {
+        btnIndustry.addEventListener('click', () => window.switchView('industry'));
+    }
+});
+
