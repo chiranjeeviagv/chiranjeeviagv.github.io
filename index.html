@@ -39,13 +39,16 @@
             <button class="explore-btn" data-section="contact-info">View Contact Info</button>
 
 <!-- Secure Contact Section Wrapper -->
-<!-- STEP A: Put this structured wrapper where your contact-info card used to be -->
-<section id="contact-info" class="hero-card bio-card" style="display: none;">
+<!-- STEP A: Replace your contact-info card layout with this fixed structure -->
+<section id="contact-info" class="hero-card bio-card">
+    <!-- Secure container that holds your actual contact details post-auth -->
     <div id="secure-contact-container" style="display: none; width: 100%; display: flex; flex-wrap: wrap; gap: 20px;"></div>
+    
+    <!-- Unified Authentication Gatehouse. Added direct onclick handler -->
     <div id="auth-gate" class="bio-details" style="width: 100%; text-align: center; padding: 20px 0;">
         <h3>🔒 Locked Content</h3>
         <p style="margin-bottom: 15px;">Please authenticate to unlock contact information and verification credentials.</p>
-        <button id="google-login-btn" class="explore-btn" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+        <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
             Sign In with Google
         </button>
     </div>
