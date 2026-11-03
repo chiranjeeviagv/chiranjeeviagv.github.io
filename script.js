@@ -1,5 +1,5 @@
 // ========================================================
-// 1. FIREBASE INITIALIZATION SYSTEM (WITH FULL RESOLVED URLS)
+// 1. FIREBASE ARCHITECTURE INITIALIZATION (FIXED CDN ENDPOINTS)
 // ========================================================
 import { initializeApp } from "https://gstatic.com";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
@@ -7,7 +7,7 @@ import { getFirestore, doc, getDoc } from "https://gstatic.com";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDoToJAX5BEthnTPayPZNTaYnccHvnbGU",
-    authDomain: "interactive-cv-6f58a.firebaseapp.com",
+    authDomain: "://firebaseapp.com",
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
@@ -18,375 +18,248 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// Global view state tracking parameter
+let activeMatrixView = 'academic';
+
 // ========================================================
-// 2. BIND AUTHENTICATION ROUTINES TO THE GLOBAL WINDOW SCOPE
+// 2. MOUNT SECURE EXECUTION HOOKS ONTO THE GLOBAL WINDOW LAYER
 // ========================================================
 window.loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
         .then((result) => { 
             console.log("Logged in successfully:", result.user.email);
-            alert("Authenticated successfully! References and credentials unlocked.");
         })
         .catch((error) => { 
-            console.error("Login Error:", error);
-            alert("Login failed: " + error.message); 
+            console.error("Login failure event:", error);
+            alert("Login Failed: Please ensure popups are unblocked in your browser window settings.");
         });
 };
 
 window.logoutUser = () => { 
     signOut(auth)
-        .then(() => alert("Logged out securely."))
-        .catch((error) => console.error("Logout Error:", error));
+        .catch((error) => console.error("Signout Error block:", error));
 };
 
-// Aliases to catch fallback method calls across your elements
-window.handleSignIn = window.loginWithGoogle;
-window.handleSignOut = window.logoutUser;
-
 // ========================================================
-// 3. CORE AUTHENTICATION LIFECYCLE MONITOR & SECURE DATA
+// 3. SECURE PROFILE VISUAL CONTENT TARGETS
 // ========================================================
 const securedContactHTML = `
-    <div class="bio-details" style="width: 100%; padding: 15px; background: #e8f0fe; border-radius: 6px;">
-        <h3 style="margin-top:0; color:#1a73e8;">📞 Verified Contact Details</h3>
-        <ul style="list-style: none; padding: 0; line-height: 1.8; color:#333;">
-            <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
-            <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
-            <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
-            <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
-            <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-            <li><strong>Scopus Author ID:</strong> 58316331900</li>
-            <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+    <div class="bio-details" style="width: 100%; padding: 5px 0;">
+        <h3 style="color:#007bff; margin-bottom:15px;">📞 Authenticated Personal Profile</h3>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+            <li><strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
+            <li><strong>Mobile Number:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
+            <li><strong>Mailing Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+            <li><strong>LinkedIn Network:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:underline;">Open Profile Matrix</a></li>
+            <li><strong>Google Scholar Link:</strong> <a href="https://google.com" target="_blank" style="color:#007bff; text-decoration:underline;">View Research Citations</a></li>
+            <li><strong>JNTUH Registration Handle:</strong> 3059-191113-150648</li>
+            <li><strong>UNIPUNE Identity Key:</strong> 52092500466</li>
+            <li><strong>Scopus Author Node ID:</strong> 58316331900</li>
+            <li><strong>ORCID Research ID:</strong> 0000-0002-7895-407X</li>
         </ul>
-        <button onclick="window.logoutUser()" class="explore-btn" style="margin-top:15px; padding:6px 14px; cursor:pointer; background:#f44336; color:#fff; border:none; border-radius:4px; font-weight:600;">Sign Out</button>
+        <button onclick="window.logoutUser()" class="explore-btn" style="margin-top:20px; background:#dc3545; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-weight:600;">Sign Out Account</button>
     </div>
 `;
 
+// ========================================================
+// 4. AUTH STATE SUBSCRIPTION PROVIDER ENGINE
+// ========================================================
 onAuthStateChanged(auth, (user) => {
     const authGate = document.getElementById('auth-gate');
-    const contactContent = document.getElementById('secure-contact-container');
+    const secureContact = document.getElementById('secure-contact-container');
     
     if (user) {
         if (authGate) authGate.style.display = 'none';
-        if (contactContent) {
-            contactContent.innerHTML = securedContactHTML;
-            contactContent.style.display = 'flex';
+        if (secureContact) {
+            secureContact.innerHTML = securedContactHTML;
+            secureContact.style.display = 'block';
         }
     } else {
-        if (contactContent) {
-            contactContent.style.display = 'none';
-            contactContent.innerHTML = '';
+        if (secureContact) {
+            secureContact.style.display = 'none';
+            secureContact.innerHTML = '';
         }
         if (authGate) authGate.style.display = 'block';
     }
 });
 
 // ==========================================
-// 4. DATA AND OBJECTIVE TEMPLATE STORAGE
+// 5. VIEW TOGGLE SUBSYSTEM CONTROLLER
 // ==========================================
 const objectives = {
     academic: "Seeking a challenging position in an academic institution to leverage research, teaching methodology, and institutional development expertise.",
     industry: "An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed."
 };
 
-// ==========================================
-// 5. CENTRAL MATRIX VIEW SWITCHING ENGINE
-// ==========================================
 window.switchView = function(viewMode) {
-    var academicElements = document.querySelectorAll('.academic-only');
-    var industryElements = document.querySelectorAll('.industry-only');
-    var objText = document.getElementById('objective-text');
-    var btnAcademic = document.getElementById('btn-academic');
-    var btnIndustry = document.getElementById('btn-industry');
+    activeMatrixView = viewMode;
+    const academicElements = document.querySelectorAll('.academic-only');
+    const industryElements = document.querySelectorAll('.industry-only');
+    const objText = document.getElementById('objective-text');
+    const btnAcademic = document.getElementById('btn-academic');
+    const btnIndustry = document.getElementById('btn-industry');
 
     if (viewMode === 'academic') {
-        academicElements.forEach(function(el) { el.style.display = 'block'; });
-        industryElements.forEach(function(el) { el.style.display = 'none'; });
+        academicElements.forEach(el => el.style.display = 'flex');
+        industryElements.forEach(el => el.style.display = 'none');
         if (objText) objText.textContent = objectives.academic;
-        if (btnAcademic) btnAcademic.className = 'toggle-btn active';
-        if (btnIndustry) btnIndustry.className = 'toggle-btn';
+        if (btnAcademic) btnAcademic.classList.add('active');
+        if (btnIndustry) btnIndustry.classList.remove('active');
     } else {
-        academicElements.forEach(function(el) { el.style.display = 'none'; });
-        industryElements.forEach(function(el) { el.style.display = 'block'; });
+        academicElements.forEach(el => el.style.display = 'none');
+        industryElements.forEach(el => el.style.display = 'flex');
         if (objText) objText.textContent = objectives.industry;
-        if (btnIndustry) btnIndustry.className = 'toggle-btn active';
-        if (btnAcademic) btnAcademic.className = 'toggle-btn';
+        if (btnIndustry) btnIndustry.classList.add('active');
+        if (btnAcademic) btnAcademic.classList.remove('active');
     }
-}
+};
 
 // ==========================================
-// 6. SECURE DOM EVENT BINDING LAYER
-// ==========================================
-window.closeModal = function() {
-    var contactSection = document.getElementById('contact-info');
-    var contactBtn = document.querySelector('.explore-btn[data-section="contact-info"]');
-    if (contactSection) {
-        contactSection.style.display = 'none';
-        if (contactBtn) contactBtn.textContent = 'View Contact Info';
-    }
-
-    var modal = document.getElementById('details-modal');
-    var modalBody = document.getElementById('modal-body');
-    if (modal) {
-        modal.style.display = 'none';
-        modal.classList.add('hidden-view');
-        if (modalBody) modalBody.innerHTML = '';
-        document.body.style.overflow = '';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    var btnAcademic = document.getElementById('btn-academic');
-    var btnIndustry = document.getElementById('btn-industry');
-    var closeBtn = document.getElementById('close-modal-btn');
-
-    if (btnAcademic) btnAcademic.onclick = function() { switchView('academic'); };
-    if (btnIndustry) btnIndustry.onclick = function() { switchView('industry'); };
-    if (closeBtn) closeBtn.onclick = closeModal;
-
-    var allExploreBtns = document.querySelectorAll('.explore-btn');
-    allExploreBtns.forEach(function(button) {
-        button.onclick = function(e) {
-            var targetSection = e.currentTarget.getAttribute('data-section');
-            if (targetSection) {
-                handleExploreClick(targetSection);
-            }
-        };
-    });
-
-    switchView('academic');
-});
-
-// ==========================================
-// 7. ROUTER SWITCH ROUTINE
-// ==========================================
-window.handleExploreClick = function(sectionKey) {
-    if (sectionKey === 'contact-info') {
-        var contactSection = document.getElementById('contact-info');
-        var btn = document.querySelector('.explore-btn[data-section="contact-info"]');
-        if (contactSection) {
-            var currentDisplay = window.getComputedStyle(contactSection).display;
-            if (currentDisplay === 'none') {
-                contactSection.style.display = 'flex';
-                if (btn) btn.textContent = 'Hide Contact Info';
-            } else {
-                contactSection.style.display = 'none';
-                if (btn) btn.textContent = 'View Contact Info';
-            }
-        }
-        return; 
-    }
-
-    var btnAcademic = document.getElementById('btn-academic');
-    var currentView = (btnAcademic && btnAcademic.classList.contains('active')) ? 'academic' : 'industry';
-
-    if (sectionKey === 'qualifications') showQualificationsModal();
-    else if (sectionKey === 'certifications') showCertificationsModal();
-    else if (sectionKey === 'experience') showExperienceModal();
-    else if (sectionKey === 'publications') showPublicationsModal();
-    else if (sectionKey === 'fdps') showDevelopmentProgramsModal();
-    else if (sectionKey === 'expertise') showExpertiseModal();
-    else if (sectionKey === 'skills') showSkillsModal();
-    else if (sectionKey === 'conferences') showConferencesModal();
-    else if (sectionKey === 'references') showReferencesModal(currentView);
-    else if (sectionKey === 'languages') showLanguagesModal();
-    else if (sectionKey === 'academic-strengths' || sectionKey === 'strengths') {
-        showacedemicStrengthsModal();    
-    }
-}
-
-// ==========================================
-// 8. WINDOW FRAME DYNAMICS
+// 6. POPUP DISPLAY WINDOW ACTIONS
 // ==========================================
 window.openHTMLModal = function(title, htmlContent) {
-    var modal = document.getElementById('details-modal');
-    var modalTitle = document.getElementById('modal-title');
-    var modalBody = document.getElementById('modal-body');
+    const modal = document.getElementById('details-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
     
     if (modal && modalTitle && modalBody) {
         modalTitle.innerText = title;
         modalBody.innerHTML = htmlContent;
-        modal.style.display = 'block';
-        modal.classList.remove('hidden-view');
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden'; 
     }
-}
+};
+
+window.closeModal = function() {
+    const modal = document.getElementById('details-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
 
 // ==========================================
-// 7. SECURE CONTEXTUAL FIRESTORE DATA ENGINES
+// 7. FIREBASE FIRESTORE DATA CONNECTOR ROUTER
 // ==========================================
+window.handleReferencesTrigger = () => {
+    window.showReferencesModal(activeMatrixView);
+};
+
 window.showReferencesModal = async function(currentView) {
     if (!auth.currentUser) {
-        openHTMLModal("Access Restricted", `
-            <div style="padding:20px; text-align:center;">
-                <p style="margin-bottom:15px; color:#dc3545; font-weight:600;">🔒 Hidden Content</p>
-                <p style="margin-bottom:20px; color:#666; font-size:14px;">Please close this popup and authenticate via Google to unlock verified references.</p>
+        window.openHTMLModal("Access Restricted", `
+            <div style="padding:10px; text-align:center;">
+                <p style="margin-bottom:15px; color:#dc3545; font-weight:600; font-size:1.1rem;">🔒 Credentials Sealed</p>
+                <p style="margin-bottom:20px; color:#666; font-size:0.95rem;">You must sign in with Google using the main button under 'Locked Contact Credentials' to unlock references.</p>
             </div>
         `);
         return;
     }
 
-    openHTMLModal("Loading...", "<p style='padding:20px; text-align:center;'>Fetching verified matrix coordinates from Firebase...</p>");
+    window.openHTMLModal("Processing...", "<p style='padding:20px; text-align:center; font-weight:500;'>Querying Firestore secure endpoints...</p>");
 
     try {
         const docRef = doc(db, "protected_data", "references");
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            const serverData = docSnap.data();
-            let resolvedHtml = currentView === 'academic' ? serverData.academicHtml : serverData.industryHtml;
-            openHTMLModal(currentView === 'academic' ? 'Academic References' : 'Industry & Personal References', resolvedHtml);
+            const data = docSnap.data();
+            let htmlPayload = currentView === 'academic' ? data.academicHtml : data.industryHtml;
+            window.openHTMLModal(currentView === 'academic' ? 'Academic & Research References' : 'Industry References', htmlPayload);
         } else {
-            openHTMLModal("Error", "<p style='padding:20px; color:#dc3545;'>Data file document node missing in Firestore setup.</p>");
+            window.openHTMLModal("Database Configuration Error", "<p style='padding:20px; color:#dc3545;'>The document item node 'references' is missing in your collection.</p>");
         }
     } catch (error) {
-        openHTMLModal("Database Rejection", `<p style='padding:20px; color:#dc3545;'><strong>Security Rules Blocked Access:</strong> ${error.message}</p>`);
+        window.openHTMLModal("Security Firewall Rejection", `<p style='padding:20px; color:#dc3545;'><strong>Firestore block reason:</strong> ${error.message}</p>`);
     }
-}
+};
 
 // ==========================================
-// 8. UNPROTECTED SYSTEM STATIC MODALS
+// 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
-window.showLanguagesModal = function() {
-                    var htmlContent = `
-                        <div class="modal-languages-container" style="padding: 10px 0;">
-                            <p style="margin-bottom: 20px; color: #555; font-size: 15px; line-height: 1.5;">
-                                Proficiency levels in regional, national, and international languages for technical development, professional instruction, and global research publication.
-                            </p>
-                            <div class="modal-lang-grid" style="display: flex; flex-direction: column; gap: 15px;">
-                                <div style="border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; background: #fafafa;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <h4 style="margin: 0; color: #007bff; font-size: 18px;">English</h4>
-                                        <span style="background: #007bff; color: white; padding: 3px 8px; font-size: 12px; border-radius: 4px; font-weight: bold;">Professional</span>
-                                    </div>
-                                    <p style="margin: 0 0 10px 0; font-size: 14px; color: #666;">Primary medium for research publications, international engineering courses, and global codebase architecture documentation.</p>
-                                </div>
-                            </div>
-                        </div>`;
-    openHTMLModal("Languages Known & Proficiency", htmlContent);
-}
-
 window.showQualificationsModal = function() {
-  var html = '<div style="padding: 10px; text-align: left;">' +
-             '<p><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction) ' +
-             '[<a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
-             
-             '<p><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction) ' +
-             '[<a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
-             
-             '<p><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10% ' +
-             '[<a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
-             
-             '<p><strong>SSC Certification:</strong> ZP High School, Jami - 89.86% ' +
-             '[<a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
-             '</div>';
-  openHTMLModal("Qualifications Records", html);
-       }
-window.showacedemicStrengthsModal=function() {
-    var html = '<div style="padding: 10px; text-align: left; max-height: 450px; overflow-y: auto;">' +
-               '<ul style="line-height: 1.6; padding-left: 20px; margin: 0;">' +
-               '<li style="margin-bottom: 12px;"><strong>9+ Years of Teaching Experience:</strong> Extensive post-M.Tech tenure delivering core Electrical and Electronics Engineering courses.</li>' +
-               '<li style="margin-bottom: 12px;"><strong>Outcome-Based Education (OBE):</strong> Comprehensive understanding of OBE frameworks, metrics, and modern Teaching-Learning processes.</li>' +
-               '<li style="margin-bottom: 12px;"><strong>Accreditation & Operations Management:</strong> Proven track record of managing department accreditation file compilation (NBA & NAAC) and coordinating internal examination branch workloads.</li>' +
-               '<li style="margin-bottom: 12px;"><strong>Regional Educational Exposure:</strong> Insightful adaptability gained from serving higher education institutional models across multiple geometric territories.</li>' +
-               '<li style="margin-bottom: 12px;"><strong>Pedagogical Methodologies:</strong> Gifted at synthesizing distinct technical instructional delivery strategies to motivate, guide, and optimize student success metrics.</li>' +
-               '<li style="margin-bottom: 12px;"><strong>Operational Autonomy:</strong> High capability to engineer and execute academic workflows with minimal supervision, strong organizational planning, and an agile growth mindset.</li>' +
-               '<li style="margin-bottom: 12px;"><strong>Core Competencies:</strong> Exceptional written and verbal communication bandwidth, high grasping power, strict punctuality, and definitive operational confidence.</li>' +
-               '</ul>' +
-               '</div>';
-               
-    openHTMLModal("Academic Strengths & Professional Traits", html);
-}
-window.showCertificationsModal=function() {
-    var html = '<div style="padding:10px; text-align:left;">' +
-        '<h4>Coursera Specialization Modules:</h4>' +
-        '<ul>' +
-        '<li>IBM Full Stack JavaScript Developer (12 Courses) - Sep 2026 ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Microsoft AI and ML Engineering (5 Courses) - Jul 2026 ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>IBM AI Developer (10 Courses) - Jun 2026 ' +
-        '[<a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>IBM Java Developer (14 Courses) - Jul 2026 ' +
-        '[<a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>IBM JavaScript Backend Developer (13 Courses) - Aug 2026 ' +
-        '[<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Google Cyber Security Specialist Track (9 Courses) - Jul 2026 ' +
-        '[<a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        '</ul>' +
-        
-        '<h4>NPTEL Certifications:</h4>' +
-        '<ul>' +
-        '<li>Advanced Computer Architecture - Apr 2026 ' +
-        '[<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Advanced Computer Networks - Apr 2025 ' +
-        '[<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Practical Cyber Security for Cyber Security Practitioners - Jul-Oct 2024 ' +
-        '[<a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Cloud Computing - Jul-Oct 2024 ' +
-        '[<a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Big Data Computing (8-Week Course) - Oct 2023 ' +
-        '[<a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        
-        '<li>Ethics in Engineering Practice (8-Week Course) - Oct 2023 ' +
-        '[<a href="#" target="_blank" style="color:#999; text-decoration:line-through; pointer-events:none;">Link Pending</a>]</li>' +
-        
-        '<li>Introduction to Smart Grid (8-Week Course) - Jul-Sep 2022 ' +
-        '[<a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>' +
-        '</ul>' +
-        '</div>';
-    openHTMLModal('Advanced Certifications & Up-Skilling', html);
-}
-window.showExperienceModal=function() {
-    var html = '<div style="padding:10px; text-align:left;">' +
-        '<p><strong>Assistant Professor – Department of Electrical Engineering (AI & ML)</strong><br>' +
-        'Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra<br>' +
-        '<em>June 2025 – May 2026</em><br>' +
-        '<span style="font-size:13px; color:#444;">• Delivered specialized courses bridging heavy electrical engineering with computational intelligence, including Artificial Intelligence Techniques and AI-Based Web Design.</span><br>' +
-        '[<a href="https://drive.google.com/file/d/1vkAjZmeYQHPg-yer47apZZG9evd2Ubp2/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
-        
-        '<p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
-        'Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad<br>' +
-        '<em>February 2023 – January 2025</em><br>' +
-        '<span style="font-size:13px; color:#444;">• Taught core undergraduate engineering subjects and guided graduation project groups.<br>' +
-        '• Managed automated tools for continuous student assessments, grading workflows, and classroom operations.</span><br>' +
-        '[<a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
-        
-        '<p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
-        'Malla Reddy Engineering College for Women (Autonomous), Secunderabad<br>' +
-        '<em>July 2022 – February 2023</em><br>' +
-        '<span style="font-size:13px; color:#444;">• Led academic instruction, micro-mentoring programs, and structured laboratory assessments.<br>' +
-        '• Contributed actively to internal department committees preparing for structural university audits.</span><br>' +
-        '[<a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
-        
-        '<p><strong>Senior Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>' +
-        'Aditya College of Engineering, Surampalem, Andhra Pradesh<br>' +
-        '<em>November 2019 – July 2021</em><br>' +
-        '<span style="font-size:13px; color:#444;">• Provided senior-level instructional delivery for advanced PG and UG courses.<br>' +
-        '• Structured curriculum changes to better incorporate simulation tools like MATLAB within lab protocols.</span><br>' +
-        '[<a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>' +
-        
-        '<p><strong>Assistant Professor – Department of EEE</strong><br>' +
-        'Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh<br>' +
-        '<em>March 2015 – November 2019</em><br>' +
-        '<span style="font-size:13px; color:#444;">• Administered core academic workloads alongside critical operational responsibilities, serving as the NBA coordinator and department Time-Table planner.<br>' +
-        '• Spearheaded institutional accreditation data compilation (NBA & NAAC files).</span><br>' +
-        '[<a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p>' +
-        '</div>';
-    openHTMLModal('Professional Experience', html);
-}
+    let html = `<div>
+        <p style='margin-bottom:10px;'><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction)</p>
+        <p style='margin-bottom:10px;'><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction)</p>
+        <p style='margin-bottom:10px;'><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10%</p>
+        <p style='margin-bottom:10px;'><strong>SSC:</strong> ZP High School, Jami - 89.86%</p>
+    </div>`;
+    window.openHTMLModal("Qualifications Records", html);
+};
 
+window.showAcademicStrengthsModal = function() {
+    let html = `<ul>
+        <li><strong>9+ Years Higher Education Tenure:</strong> Extensive delivery of core Electrical engineering branches.</li>
+        <li><strong>OBE Systems Management:</strong> Advanced mapping workflows for NAAC and NBA file audits.</li>
+    </ul>`;
+    window.openHTMLModal("Academic Strengths & Traits", html);
+};
+
+window.showCertificationsModal = function() {
+    let html = `<div style="padding:10px; text-align:left;">
+        <h4>Coursera Specialization Modules:</h4>
+        <ul>
+            <li>IBM Full Stack JavaScript Developer (12 Courses) - Sep 2026 [<a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Microsoft AI and ML Engineering (5 Courses) - Jul 2026 [<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>IBM AI Developer (10 Courses) - Jun 2026 [<a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>IBM Java Developer (14 Courses) - Jul 2026 [<a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>IBM JavaScript Backend Developer (13 Courses) - Aug 2026 [<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Google Cyber Security Specialist Track (9 Courses) - Jul 2026 [<a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+        </ul>
+        
+        <h4>NPTEL Certifications:</h4>
+        <ul>
+            <li>Advanced Computer Architecture - Apr 2026 [<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Advanced Computer Networks - Apr 2025 [<a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Practical Cyber Security for Cyber Security Practitioners - Jul-Oct 2024 [<a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Cloud Computing - Jul-Oct 2024 [<a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Big Data Computing (8-Week Course) - Oct 2023 [<a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+            <li>Ethics in Engineering Practice (8-Week Course) - Oct 2023 [<a href="#" target="_blank" style="color:#999; text-decoration:line-through; pointer-events:none;">Link Pending</a>]</li>
+            <li>Introduction to Smart Grid (8-Week Course) - Jul-Sep 2022 [<a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" target="_blank" style="color:#0066cc; text-decoration:underline;">Verify</a>]</li>
+        </ul>
+    </div>`;
+    window.openHTMLModal('Advanced Certifications & Up-Skilling', html);
+};
+
+window.showExperienceModal = function() {
+    let html = `<div style="padding:10px; text-align:left;">
+        <p><strong>Assistant Professor – Department of Electrical Engineering (AI & ML)</strong><br>
+        Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra<br>
+        <em>June 2025 – May 2026</em><br>
+        <span style="font-size:13px; color:#444;">• Delivered specialized courses bridging heavy electrical engineering with computational intelligence, including Artificial Intelligence Techniques and AI-Based Web Design.</span><br>
+        [<a href="https://drive.google.com/file/d/1vkAjZmeYQHPg-yer47apZZG9evd2Ubp2/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>
+        
+        <p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>
+        Guru Nanak Institute of Technology (Autonomous), Ibrahimpatnam, Hyderabad<br>
+        <em>February 2023 – January 2025</em><br>
+        <span style="font-size:13px; color:#444;">• Taught core undergraduate engineering subjects and guided graduation project groups.<br>
+        • Managed automated tools for continuous student assessments, grading workflows, and classroom operations.</span><br>
+        [<a href="https://drive.google.com/file/d/1OainG_BsKrMrFH7mFoFg_pD14hV00Q5Z/view?usp=drive_link" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>
+        
+        <p><strong>Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>
+        Malla Reddy Engineering College for Women (Autonomous), Secunderabad<br>
+        <em>July 2022 – February 2023</em><br>
+        <span style="font-size:13px; color:#444;">• Led academic instruction, micro-mentoring programs, and structured laboratory assessments.<br>
+        • Contributed actively to internal department committees preparing for structural university audits.</span><br>
+        [<a href="https://drive.google.com/file/d/1pu58nrED6xGO_hKPntDO-8npcOayLDhY/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>
+        
+        <p><strong>Senior Assistant Professor – Department of Electrical & Electronics Engineering</strong><br>
+        Aditya College of Engineering, Surampalem, Andhra Pradesh<br>
+        <em>November 2019 – July 2021</em><br>
+        <span style="font-size:13px; color:#444;">• Provided senior-level instructional delivery for advanced PG and UG courses.<br>
+        • Structured curriculum changes to better incorporate simulation tools like MATLAB within lab protocols.</span><br>
+        [<a href="https://drive.google.com/file/d/1kQQ39YCL-o0eyFySFIgzR0qddAOVe5Ch/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p><hr>
+        
+        <p><strong>Assistant Professor – Department of EEE</strong><br>
+        Vignan’s Institute of Information Technology (Autonomous), Visakhapatnam, Andhra Pradesh<br>
+        <em>March 2015 – November 2019</em><br>
+        <span style="font-size:13px; color:#444;">• Administered core academic workloads alongside critical operational responsibilities, serving as the NBA coordinator and department Time-Table planner.<br>
+        • Spearheaded institutional accreditation data compilation (NBA & NAAC files).</span><br>
+        [<a href="https://drive.google.com/file/d/1ooZQskDGa9NDLdzE-CIZeBs-bVynoz_8/view?usp=sharing" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:13px;">Verify Experience</a>]</p>
+    </div>`;
+    window.openHTMLModal('Professional Experience', html);
+};
 
 window.showPublicationsModal=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
