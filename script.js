@@ -164,6 +164,77 @@ function closeModal() {
         document.body.style.overflow = '';
     }
 }
+<script type="module">
+    import { initializeApp } from "https://gstatic.com";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
+        authDomain: "://firebaseapp.com",
+        projectId: "interactive-cv-6f58a",
+        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
+        messagingSenderId: "904714357999",
+        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const securedContactHTML = `
+        <div class="bio-details" style="width: 100%;">
+            <h3>Contact Details</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
+                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
+                <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
+                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+                <li><strong>Scopus Author ID:</strong> 58316331900</li>
+                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+            </ul>
+            <button onclick="logoutUser()" style="margin-top:15px; padding:8px 16px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px; font-weight:bold;">Sign Out</button>
+        </div>
+    `;
+
+    // Global binding ensures the HTML button can execute the logic instantly
+    window.loginWithGoogle = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log("Logged in successfully:", result.user.email);
+            })
+            .catch((error) => {
+                console.error("Auth Error:", error);
+                alert("Login Error: " + error.message);
+            });
+    };
+
+    window.logoutUser = () => {
+        signOut(auth);
+    };
+
+    onAuthStateChanged(auth, (user) => {
+        const authGate = document.getElementById('auth-gate');
+        const contactContent = document.getElementById('secure-contact-container');
+        
+        if (user) {
+            if (authGate) authGate.style.display = 'none';
+            if (contactContent) {
+                contactContent.innerHTML = securedContactHTML;
+                contactContent.style.display = 'block';
+            }
+        } else {
+            if (contactContent) {
+                contactContent.style.display = 'none';
+                contactContent.innerHTML = '';
+            }
+            if (authGate) authGate.style.display = 'block';
+        }
+    });
+</script>
+
 // ==========================================
 // 6. DYNAMIC CONTEXTUAL REFERENCE ENGINE
 // ==========================================
