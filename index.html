@@ -39,14 +39,12 @@
             <button class="explore-btn" data-section="contact-info">View Contact Info</button>
 
 <!-- Secure Contact Section Wrapper -->
+<!-- STEP A: Put this structured wrapper where your contact-info card used to be -->
 <section id="contact-info" class="hero-card bio-card" style="display: none;">
-    <!-- This container will stay empty until a successful authentication event occurs -->
     <div id="secure-contact-container" style="display: none; width: 100%; display: flex; flex-wrap: wrap; gap: 20px;"></div>
-    
-    <!-- Unified Authentication Gatehouse Placement -->
     <div id="auth-gate" class="bio-details" style="width: 100%; text-align: center; padding: 20px 0;">
         <h3>🔒 Locked Content</h3>
-        <p style="margin-bottom: 15px; color: var(--text-muted, #666);">Please authenticate to unlock contact information and verification credentials.</p>
+        <p style="margin-bottom: 15px;">Please authenticate to unlock contact information and verification credentials.</p>
         <button id="google-login-btn" class="explore-btn" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
             Sign In with Google
         </button>
@@ -418,7 +416,63 @@
         }
     });
 </script>
+<script type="module">
+    import { initializeApp } from "https://gstatic.com";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
+        authDomain: "://firebaseapp.com",
+        projectId: "interactive-cv-6f58a",
+        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
+        messagingSenderId: "904714357999",
+        appId: "1:904714357999:web:a23ef727d8af3b44451f1a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const securedContactHTML = `
+        <div class="bio-details">
+            <h3>Contact Details</h3>
+            <ul>
+                <li><strong>E-Mail ID:</strong> <a href="mailto:chiranjeevi210@gmail.com">chiranjeevi210@gmail.com</a></li>
+                <li><strong>Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+                <li><strong>Mobile:</strong> <a href="tel:+919949163002">+919949163002</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">linkedin.com</a></li>
+                <li><strong>Scholar:</strong> <a href="https://google.com" target="_blank">google.com</a></li>
+                <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+                <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+                <li><strong>Scopus Author ID:</strong> 58316331900</li>
+                <li><strong>ORCID ID:</strong> 0000-0002-7895-407X</li>
+            </ul>
+            <button id="logout-btn" style="margin-top:15px; padding:6px 12px; cursor:pointer; background:#e74c3c; color:#fff; border:none; border-radius:4px; font-weight:bold;">Sign Out</button>
+        </div>
+        <div class="bio-img-container">
+            <img src="profile-pic.jpeg" alt="Profile Picture" class="profile-avatar">
+        </div>
+    `;
+
+    document.getElementById('google-login-btn').addEventListener('click', () => {
+        signInWithPopup(auth, provider).catch((error) => alert("Authentication failed: " + error.message));
+    });
+
+    onAuthStateChanged(auth, (user) => {
+        const authGate = document.getElementById('auth-gate');
+        const contactContent = document.getElementById('secure-contact-container');
+        if (user) {
+            authGate.style.display = 'none';
+            contactContent.innerHTML = securedContactHTML;
+            contactContent.style.display = 'flex';
+            document.getElementById('logout-btn').addEventListener('click', () => signOut(auth));
+        } else {
+            contactContent.style.display = 'none';
+            contactContent.innerHTML = '';
+            authGate.style.display = 'block';
+        }
+    });
+</script>
 </body>
     <p class="visitor-counter">💼 Profile Views: <span id="visit-count">Loading...</span></p>
 
