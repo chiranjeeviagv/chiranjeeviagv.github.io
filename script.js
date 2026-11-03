@@ -1,4 +1,5 @@
 // ==========================================
+/// ==========================================
 // 1. DATA AND OBJECTIVE TEMPLATE STORAGE
 // ==========================================
 const objectives = {
@@ -9,7 +10,7 @@ const objectives = {
 // ==========================================
 // 2. CENTRAL MATRIX SWITCHING ENGINE
 // ==========================================
-function switchView(viewMode) {
+window.switchView = function(viewMode) {
     var academicElements = document.querySelectorAll('.academic-only');
     var industryElements = document.querySelectorAll('.industry-only');
     var objText = document.getElementById('objective-text');
@@ -34,8 +35,7 @@ function switchView(viewMode) {
 // ==========================================
 // 3. SECURE DOM EVENT BINDING LAYER
 // ==========================================
-function closeModal() {
-    // 1. Reset your contact section state if visible
+window.closeModal = function() {
     var contactSection = document.getElementById('contact-info');
     var contactBtn = document.querySelector('.explore-btn[data-section="contact-info"]');
     if (contactSection) {
@@ -43,7 +43,6 @@ function closeModal() {
         if (contactBtn) contactBtn.textContent = 'View Contact Info';
     }
 
-    // 2. Your existing frame dynamics code
     var modal = document.getElementById('details-modal');
     var modalBody = document.getElementById('modal-body');
     if (modal) {
@@ -54,7 +53,6 @@ function closeModal() {
     }
 }
 
-// DOM Initialization Events
 document.addEventListener('DOMContentLoaded', function() {
     var btnAcademic = document.getElementById('btn-academic');
     var btnIndustry = document.getElementById('btn-industry');
@@ -74,14 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     });
 
-    // Default initialization
     switchView('academic');
 });
 
 // ==========================================
 // 4. ROUTER SWITCH ROUTINE
 // ==========================================
-function handleExploreClick(sectionKey) {
+window.handleExploreClick = function(sectionKey) {
     if (sectionKey === 'contact-info') {
         var contactSection = document.getElementById('contact-info');
         var btn = document.querySelector('.explore-btn[data-section="contact-info"]');
@@ -119,7 +116,7 @@ function handleExploreClick(sectionKey) {
 // ==========================================
 // 5. WINDOW FRAME DYNAMICS
 // ==========================================
-function openHTMLModal(title, htmlContent) {
+window.openHTMLModal = function(title, htmlContent) {
     var modal = document.getElementById('details-modal');
     var modalTitle = document.getElementById('modal-title');
     var modalBody = document.getElementById('modal-body');
@@ -136,7 +133,7 @@ function openHTMLModal(title, htmlContent) {
 // ==========================================
 // 6. DYNAMIC CONTEXTUAL REFERENCE ENGINE
 // ==========================================
-function showReferencesModal(currentView) {
+window.showReferencesModal = function(currentView) {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
     if (currentView === 'academic') {
         html += '<h4>🎓 Academic & Research References</h4>' +
@@ -164,7 +161,7 @@ function showReferencesModal(currentView) {
     openHTMLModal('References Shared', html);
 }
 
-function showLanguagesModal() {
+window.showLanguagesModal = function() {
     var htmlContent = `
         <div class="modal-languages-container" style="padding: 10px 0;">
             <p style="margin-bottom: 20px; color: #555; font-size: 15px; line-height: 1.5;">
@@ -182,10 +179,8 @@ function showLanguagesModal() {
         </div>`;
     openHTMLModal("Languages Known & Proficiency", htmlContent);
 }
-// ==========================================
-// 6. SAFE SIMPLIFIED MODAL CONTENT BLOCKS
-// ==========================================
-function showQualificationsModal() {
+
+window.showQualificationsModal = function() {
   var html = '<div style="padding: 10px; text-align: left;">' +
              '<p><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction) ' +
              '[<a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank" style="color: #0066cc; text-decoration: underline;">Verify Credential</a>]</p>' +
@@ -201,7 +196,7 @@ function showQualificationsModal() {
              '</div>';
   openHTMLModal("Qualifications Records", html);
        }
-function acedemicStrengthsModal() {
+window.showcedemicStrengthsModal=function() {
     var html = '<div style="padding: 10px; text-align: left; max-height: 450px; overflow-y: auto;">' +
                '<ul style="line-height: 1.6; padding-left: 20px; margin: 0;">' +
                '<li style="margin-bottom: 12px;"><strong>9+ Years of Teaching Experience:</strong> Extensive post-M.Tech tenure delivering core Electrical and Electronics Engineering courses.</li>' +
@@ -216,7 +211,7 @@ function acedemicStrengthsModal() {
                
     openHTMLModal("Academic Strengths & Professional Traits", html);
 }
-function showCertificationsModal() {
+window.showCertificationsModal=function() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<h4>Coursera Specialization Modules:</h4>' +
         '<ul>' +
@@ -265,7 +260,7 @@ function showCertificationsModal() {
         '</div>';
     openHTMLModal('Advanced Certifications & Up-Skilling', html);
 }
-function showExperienceModal() {
+window.showExperienceModal=function() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<p><strong>Assistant Professor – Department of Electrical Engineering (AI & ML)</strong><br>' +
         'Sandip Institute of Technology and Research Centre (Sandip University), Nashik, Maharashtra<br>' +
@@ -305,7 +300,7 @@ function showExperienceModal() {
 }
 
 
-function showPublicationsModal() {
+window.showPublicationsModal=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
         '<h4>🔒 Published Patents</h4>' +
         '<ol>' +
@@ -348,7 +343,7 @@ function showPublicationsModal() {
     openHTMLModal('Research Publications & Intellectual Property', html);
 }
 
-function showDevelopmentProgramsModal() {
+window.showDevelopmentProgramsModal=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:500px; overflow-y:auto;">' +
         '<h4>🎓 Teaching Methodologies & Outcome-Based Education (OBE)</h4>' +
         '<ul>' +
@@ -398,8 +393,7 @@ function showDevelopmentProgramsModal() {
     openHTMLModal('Faculty Up-Skilling & FDP Records', html);
 }
 
-
-function showReferencesModal(currentView) {
+window.howReferencesModal(currentView)=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
     
     if (currentView === 'academic') {
@@ -430,7 +424,7 @@ function showReferencesModal(currentView) {
     // Note: You will need to return the 'html' variable or insert it into your modal container here.
  
 }
-function showExpertiseModal() {
+window.showExpertiseModal=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
         '<h4>🎯 Areas of Interest</h4>' +
         '<ul style="margin-bottom:15px;">' +
@@ -465,7 +459,7 @@ function showExpertiseModal() {
     openHTMLModal('Subject Area Expertise', html);
 }
 
-function showSkillsModal() {
+window.showSkillsModal=function() {
     var html = '<div style="padding:10px; text-align:left;">' +
         '<p><strong>Core Languages:</strong> Python (Advanced), MATLAB (Simulink Twin Engineering), JavaScript (Full-Stack Engine Stack), Core Java Basics.</p>' +
         '<p><strong>Domain Tools:</strong> FACTS Controllers Optimization, Smart Grid Architecture Twins, Cybersecurity Infrastructure Auditing.</p>' +
@@ -473,7 +467,7 @@ function showSkillsModal() {
     openHTMLModal('Technical Skills & Toolsets', html);
 }
 
-function showConferencesModal() {
+window.showConferencesModal=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">' +
         '<h4>📋 International & National Conference Presentations</h4>' +
         '<ul>' +
@@ -511,14 +505,15 @@ fetch('https://countapi.xyz')
 ### 4. Separate Script for Firebase Base Module Integration
 Because you are loading your layout scripts with plain formatting, **put this block by itself at the bottom of your `index.html` file right before `</body>`**. This uses the absolute explicit CDN addresses to prevent browser compiler breaks:
 
-```html
+```html<!-- Explicitly separated Firebase authentication runtime context -->
 <script type="module">
     import { initializeApp } from "https://gstatic.com";
     import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
 
+    // Standardized secure project key assignments
     const firebaseConfig = {
         apiKey: "AIzaSyBnGToJaX5BFrhnTPAyP7NTaYmccHvnbiU",
-        authDomain: "://firebaseapp.com",
+        authDomain: "interactive-cv-6f58a.firebaseapp.com",
         projectId: "interactive-cv-6f58a",
         storageBucket: "interactive-cv-6f58a.firebasestorage.app",
         messagingSenderId: "904714357999",
@@ -574,3 +569,4 @@ Because you are loading your layout scripts with plain formatting, **put this bl
         }
     });
 </script>
+</scrip
