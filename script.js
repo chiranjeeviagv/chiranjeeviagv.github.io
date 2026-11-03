@@ -196,7 +196,7 @@ window.showQualificationsModal = function() {
              '</div>';
   openHTMLModal("Qualifications Records", html);
        }
-window.showcedemicStrengthsModal=function() {
+window.showacedemicStrengthsModal=function() {
     var html = '<div style="padding: 10px; text-align: left; max-height: 450px; overflow-y: auto;">' +
                '<ul style="line-height: 1.6; padding-left: 20px; margin: 0;">' +
                '<li style="margin-bottom: 12px;"><strong>9+ Years of Teaching Experience:</strong> Extensive post-M.Tech tenure delivering core Electrical and Electronics Engineering courses.</li>' +
@@ -393,7 +393,7 @@ window.showDevelopmentProgramsModal=function() {
     openHTMLModal('Faculty Up-Skilling & FDP Records', html);
 }
 
-window.howReferencesModal(currentView)=function() {
+window.showReferencesModal(currentView)=function() {
     var html = '<div style="padding:10px; text-align:left; max-height:450px; overflow-y:auto;">';
     
     if (currentView === 'academic') {
@@ -503,7 +503,7 @@ fetch('https://countapi.xyz')
         if (countEl) countEl.innerText = "1,240+"; 
     });
 
-```html<!-- Explicitly separated Firebase authentication runtime context -->
+<!-- Explicitly separated Firebase authentication runtime context -->
 <script type="module">
     import { initializeApp } from "https://gstatic.com";
     import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
@@ -566,3 +566,4 @@ fetch('https://countapi.xyz')
         }
     });
 </script>
+
