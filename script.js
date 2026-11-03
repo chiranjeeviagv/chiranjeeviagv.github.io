@@ -1,5 +1,5 @@
-                // ==========================================
-// 1. FIREBASE INITIALIZATION SYSTEM
+// ==========================================
+// 1. FIREBASE INITIALIZATION SYSTEM (FIXED)
 // ==========================================
 import { initializeApp } from "https://gstatic.com";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
@@ -18,26 +18,38 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
-// Attach critical functions directly to window so legacy HTML buttons can click them
+// Map functions to window so the HTML onClick handlers can read them
 window.handleSignIn = handleSignIn;
 window.handleSignOut = handleSignOut;
+window.loginWithGoogle = handleSignIn; // Safety backup alias
 
-// Track authentication states globally
+// Dynamic UI login state listener mapped to your exact HTML elements
 onAuthStateChanged(auth, (user) => {
-    const lockedBanner = document.getElementById('locked-banner');
-    const authBtn = document.getElementById('auth-action-btn'); 
+    const authGate = document.getElementById('auth-gate');
+    const secureContact = document.getElementById('secure-contact-container');
+    const loginBtn = document.getElementById('google-login-btn'); 
     
     if (user) {
-        if (lockedBanner) lockedBanner.style.display = 'none';
-        if (authBtn) {
-            authBtn.innerText = "Sign Out";
-            authBtn.onclick = handleSignOut;
+        // Authenticated: Hide the locked wall, show secure space
+        if (authGate) authGate.style.display = 'none';
+        if (secureContact) {
+            secureContact.style.display = 'flex';
+            secureContact.innerHTML = `
+                <div style="padding:15px; background:#e8f0fe; border-radius:6px; width:100%;">
+                    <p style="margin:0; color:#1a73e8; font-weight:600;">✅ Contact Profile Authenticated</p>
+                    <p style="margin:5px 0 10px 0; font-size:14px; color:#555;">Logged in as: <strong>${user.email}</strong></p>
+                    <button onclick="window.handleSignOut()" class="explore-btn" style="padding:5px 12px; font-size:12px; background:#f44336; color:white; border:none; border-radius:4px; cursor:pointer;">Sign Out</button>
+                </div>`;
         }
     } else {
-        if (lockedBanner) lockedBanner.style.display = 'block';
-        if (authBtn) {
-            authBtn.innerText = "Sign In with Google";
-            authBtn.onclick = handleSignIn;
+        // Unauthenticated: Restore layout parameters
+        if (authGate) authGate.style.display = 'block';
+        if (secureContact) {
+            secureContact.style.display = 'none';
+            secureContact.innerHTML = '';
+        }
+        if (loginBtn) {
+            loginBtn.innerText = "Sign In with Google";
         }
     }
 });
@@ -45,8 +57,11 @@ onAuthStateChanged(auth, (user) => {
 function handleSignIn() {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
-        .then(() => alert("Authenticated successfully! Credentials unlocked."))
-        .catch((err) => console.error("Sign-in breakdown:", err));
+        .then(() => alert("Authenticated successfully! References and credentials unlocked."))
+        .catch((err) => {
+            console.error("Sign-in breakdown:", err);
+            alert("Login failed: Make sure popups are allowed in your browser.");
+        });
 }
 
 function handleSignOut() {
@@ -54,7 +69,6 @@ function handleSignOut() {
         .then(() => alert("Logged out securely."))
         .catch((err) => console.error("Sign-out failure:", err));
 }
-
 // ==========================================
 // 2. DATA AND OBJECTIVE TEMPLATE STORAGE
 // ==========================================
