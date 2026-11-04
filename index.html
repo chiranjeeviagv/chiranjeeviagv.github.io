@@ -54,11 +54,12 @@
     </div>
 </main>
 
-        <!-- Career Objective Block -->
-        <section style="margin-bottom: 30px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
-            <h2>Career Objective</h2>
-            <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
-        </section>
+<!-- Career Objective Block -->
+<section style="margin-bottom: 30px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
+    <h2>Career Objective</h2>
+    <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
+</section>
+
 <div class="contact-section">
     <h2>📬 Send a Message</h2>
     <form id="contact-form">
@@ -81,88 +82,90 @@
     <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
 </div>
 
-        <!-- Secure Contact Container -->
-        <section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
-            <div id="secure-contact-container" style="display: none; width: 100%;"></div>
-            <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
-                <h3>🔒 Locked Contact Credentials</h3>
-                <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
-                <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
-                    Sign In with Google
-                </button>
-            </div>
-        </section>
+<!-- Secure Contact Container -->
+<section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
+    <div id="secure-contact-container" style="display: none; width: 100%;"></div>
+    <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
+        <h3>🔒 Locked Contact Credentials</h3>
+        <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
+        <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
+            Sign In with Google
+        </button>
+    </div>
+</section>
 
-        <!-- Dynamic Information Grid Matrix -->
-        <div class="cv-grid-container">
-            <section class="hero-card">
-                <h2>Qualifications</h2>
-                <p>Details about degrees, university, and academic milestones common across roles.</p>
-                <button class="explore-btn" onclick="window.showQualificationsModal()">Explore More</button>
-            </section>
+<!-- Dynamic Information Grid Matrix -->
+<div class="cv-grid-container">
+    <!-- BOTH VIEWS: Qualifications (Always Visible) -->
+    <section id="qualifications-section" class="hero-card">
+        <h2>Qualifications</h2>
+        <p>Details about degrees, university, and academic milestones common across roles.</p>
+        <button class="explore-btn" onclick="window.showQualificationsModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card">
-                <h2>References</h2>
-                <p>Verified contact nodes from professional academic mentors and industry leads.</p>
-                <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
-            </section>
+    <!-- BOTH VIEWS: References (Always Visible, Internal Script Switches Content Data) -->
+    <section id="references-section" class="hero-card">
+        <h2>References</h2>
+        <p>Verified contact nodes from professional academic mentors and industry leads.</p>
+        <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
+    </section>
 
-            <section class="hero-card academic-only">
-                <h2>Publications</h2>
-                <p>List of journals, conference papers, and academic research publications.</p>
-                <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
-            </section>
+    <!-- ACADEMIC ONLY: Publications -->
+    <section id="publications-section" class="hero-card academic-only">
+        <h2>Publications</h2>
+        <p>List of journals, conference papers, and academic research publications.</p>
+        <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card academic-only">
-                <h2>Experience Timeline</h2>
-                <p>Academic teaching milestones, engineering lectureships, and university service records.</p>
-                <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
-            </section>
+    <!-- ACADEMIC ONLY: Experience Timeline -->
+    <section id="experience-section" class="hero-card academic-only">
+        <h2>Experience Timeline</h2>
+        <p>Academic teaching milestones, engineering lectureships, and university service records.</p>
+        <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card academic-only">
-                <h2>Subject Expertise</h2>
-                <p>Advanced domain curriculum fields handled including High Voltage Engineering and Control Systems.</p>
-                <button class="explore-btn" onclick="window.showExpertiseModal()">Explore More</button>
-            </section>
+    <!-- ACADEMIC ONLY: Subject Expertise -->
+    <section id="expertise-section" class="hero-card academic-only">
+        <h2>Subject Expertise</h2>
+        <p>Advanced domain curriculum fields handled including High Voltage Engineering and Control Systems.</p>
+        <button class="explore-btn" onclick="window.showExpertiseModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card academic-only">
-                <h2>Conferences Attended</h2>
-                <p>List of papers presented at national and international engineering conferences.</p>
-                <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
-            </section>
+    <!-- ACADEMIC ONLY: Conferences Attended -->
+    <section id="conferences-section" class="hero-card academic-only">
+        <h2>Conferences Attended</h2>
+        <p>List of papers presented at national and international engineering conferences.</p>
+        <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card academic-only">
-                <h2>Academic Strengths & Traits</h2>
-                <p>Details regarding academic leadership, outcome-based pedagogy, and core competencies.</p>
-                <button class="explore-btn" onclick="window.showAcademicStrengthsModal()">Explore More</button>
-            </section>
+    <!-- ACADEMIC ONLY: Academic Strengths & Traits -->
+    <section id="fdp-section" class="hero-card academic-only">
+        <h2>Skill Development (FDPs)</h2>
+        <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
+        <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card">
-                <h2>Certifications & Badges</h2>
-                <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
-                <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
-            </section>
+    <!-- INDUSTRY ONLY: Certifications & Badges (Hidden by Default) -->
+    <section id="certifications-section" class="hero-card" style="display: none;">
+        <h2>Certifications & Badges</h2>
+        <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
+        <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card">
-                <h2>Skill Development (FDPs)</h2>
-                <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
-                <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
-            </section>
+    <!-- INDUSTRY ONLY: Technical Skills (Hidden by Default) -->
+    <section id="skills-section" class="hero-card" style="display: none;">
+        <h2>Technical Skills</h2>
+        <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
+        <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
+    </section>
 
-            <section class="hero-card">
-                <h2>Technical Skills</h2>
-                <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
-                <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
-            </section>
-
-            <section class="hero-card">
-                <h2>Languages Known</h2>
-                <p>Proficiency in languages for global academic research and corporate team management.</p>
-                <button class="explore-btn" onclick="window.showLanguagesModal()">Explore More</button>
-            </section>
-        </div>
-    </main>
-
+    <!-- INDUSTRY ONLY: Languages Known (Hidden by Default) -->
+    <section id="languages-section" class="hero-card" style="display: none;">
+        <h2>Languages Known</h2>
+        <p>Proficiency in languages for global academic research and corporate team management.</p>
+        <button class="explore-btn" onclick="window.showLanguagesModal()">Explore More</button>
+    </section>
+</div>
     <!-- Global Application Modal Window -->
     <div id="details-modal" class="modal-view">
         <div class="modal-content-wrapper">
