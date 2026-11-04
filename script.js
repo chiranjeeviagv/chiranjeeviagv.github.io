@@ -308,68 +308,70 @@ window.handleReferencesTrigger = function() {
     if (activeMatrixView === 'academic') {
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
-                <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Dr. K Srikanth</strong>
-                    <span>Professor, Department of EEE</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9440897892</span>
+                <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px; font-weight: bold;">🎓 Academic Mentors & Guides</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Dr. K Srikanth</div>
+                    <span style="display: block; color: #555;">Professor, Department of EEE</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;">✉️ Mobile: 9440897892</span>
                 </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Dr. K Prasad</strong>
-                    <span>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Dr. K Prasad</div>
+                    <span style="display: block; color: #555;">Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">Director, Gayatri degree college, Vizianagaram</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;">✉️ Mobile: 9912340292</span>
                 </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Dr. A Ramesh</strong>
-                    <span>Professor, Electrical and Electronics Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Aditya University, Surampalem, Kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849219973</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Dr. A Ramesh</div>
+                    <span style="display: block; color: #555;">Professor, Electrical and Electronics Engineering</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">Aditya University, Surampalem, Kakinada</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;">✉️ Mobile: 9849219973</span>
                 </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Dr. A NagaJyothi</strong>
-                    <span>Professor, Electronics and Communication Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Vignan Institute of information Technology, Gajuwaka</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9938121200</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Dr. A NagaJyothi</div>
+                    <span style="display: block; color: #555;">Professor, Electronics and Communication Engineering</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">Vignan Institute of information Technology, Gajuwaka</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;">✉️ Mobile: 9938121200</span>
                 </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Dr. G Sridevi</strong>
-                    <span>Professor, Electronics and Communication Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Aditya University, kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9848141867</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Dr. G Sridevi</div>
+                    <span style="display: block; color: #555;">Professor, Electronics and Communication Engineering</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">Aditya University, kakinada</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;">✉️ Mobile: 9848141867</span>
                 </div>
             </div>
         `;
     } else if (activeMatrixView === 'industry') {
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
-                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Professor M Ramalingaraju</strong>
-                    <span>Professor, Electrical and Electronics Engineering, Former Vice Chancellor, JNTUK</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">JNTUK College of engineering, kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;"></span>
+                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px; font-weight: bold;">💼 Industry Leads & Technical Referrals</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Professor M Ramalingaraju</div>
+                    <span style="display: block; color: #555;">Professor, Electrical and Electronics Engineering, Former Vice Chancellor</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">JNTUK College of Engineering, Kakinada</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;"></span>
                 </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong style="display: block; color: #333; font-weight: bold; font-size: 1.1rem; margin-bottom: 4px;">Md. Faheem Hul Haq</strong>
-                    <span>Director</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Fliv developers, hyderabad</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">Mobile Number-9849022155</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px; text-align: left;">
+                    <div style="font-weight: bold; color: #333; font-size: 1.1rem; margin-bottom: 4px; display: block;">Md. Faheem Hul Haq</div>
+                    <span style="display: block; color: #555;">Director</span>
+                    <span style="font-size: 0.9rem; color: #777; display: block;">Fliv developers, Hyderabad</span>
+                    <span style="font-size: 0.85rem; color: #666; display: block; margin-top: 4px;">Mobile Number: 9849022155</span>
                 </div>
             </div>
         `;
     }
 
-    // 💡 FORCE DIRECT DOM INJECTION (Bypassing openHTMLModal framework issues)
+    // Explicit structural mapping bypass to eliminate script errors
     const referenceContainer = document.getElementById('references-modal-content'); 
     const modalWrapper = document.getElementById('references-modal');
 
     if (referenceContainer && modalWrapper) {
         referenceContainer.innerHTML = html;
         modalWrapper.style.setProperty('display', 'flex', 'important'); 
-    } else {
-        console.error("Target DOM placeholder nodes were not found in the markup framework.");
+    }
+    
+    if (typeof window.openHTMLModal === 'function') {
+        window.openHTMLModal("Professional References", html);
     }
 };
 
