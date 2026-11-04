@@ -58,7 +58,11 @@ const securedContactHTML = `
             <li><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
             <li><strong>Mailing Address:</strong> H No 4-243 4th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
         </ul>
-        
+        <div style="flex-shrink: 0; margin: 0 auto;">
+            <img src="profile-pic.jpeg" 
+                 alt="Profile Picture" 
+                 style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+        </div>
         <h3 style="color:#28a745; margin-bottom:15px; border-top: 1px solid #eee; padding-top: 15px;">📥 Recruiter Messages Inbox</h3>
         <div id="inbox-messages-container" style="max-height: 300px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 20px;">
             <p style="color: #666; font-style: italic;">Loading messages stream...</p>
