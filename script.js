@@ -181,21 +181,53 @@ window.deleteRecruiterMessage = async function(id) {
     }
 };
 // Add this view-switching engine right before Section 6
+// ==========================================
+// 7. MATRIX VIEW SWITCHER ENGINE (UPDATED)
+// ==========================================
 window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
     
-    const academicSection = document.getElementById('academic-view-section'); // Change to your actual element ID
-    const industrySection = document.getElementById('industry-view-section'); // Change to your actual element ID
+    // Target element IDs from your index layout grid
+    const elementsMap = {
+        'qualifications-section': ['academic', 'industry'],  // Visible in Both
+        'references-section': ['academic', 'industry'],      // Visible in Both
+        'certifications-section': ['industry'],              // Industry Only
+        'skills-section': ['industry'],                      // Industry Only
+        'languages-section': ['industry'],                   // Industry Only
+        'experience-section': ['academic'],                  // Academic Only
+        'publications-section': ['academic'],                // Academic Only
+        'conferences-section': ['academic'],                 // Academic Only
+        'fdp-section': ['academic'],                         // Academic Only
+        'expertise-section': ['academic']                    // Academic Only
+    };
 
-    if (viewType === 'academic') {
-        if (academicSection) academicSection.style.display = 'block';
-        if (industrySection) industrySection.style.display = 'none';
-    } else if (viewType === 'industry') {
-        if (academicSection) academicSection.style.display = 'none';
-        if (industrySection) industrySection.style.display = 'block';
+    // Loop through the layout nodes to update visibility styles dynamically
+    Object.keys(elementsMap).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            if (elementsMap[id].includes(viewType)) {
+                el.style.display = 'block'; // Or 'flex' / 'grid' depending on your layout style
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    });
+
+    // Optional: Visual active state toggles for your navigation buttons
+    const btnAcademic = document.getElementById('btn-academic');
+    const btnIndustry = document.getElementById('btn-industry');
+    if (btnAcademic && btnIndustry) {
+        if (viewType === 'academic') {
+            btnAcademic.classList.add('active');
+            btnIndustry.classList.remove('active');
+        } else {
+            btnIndustry.classList.add('active');
+            btnAcademic.classList.remove('active');
+        }
     }
 };
+    
 // Handle client messaging form inputs organically
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
