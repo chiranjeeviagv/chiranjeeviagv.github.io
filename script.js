@@ -277,35 +277,53 @@ window.handleReferencesTrigger = function() {
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
                 <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4>
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. [Name Placeholder]</strong><br>
-                    <span>Professor & Head of Department (EEE)</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">JNTU Kakinada / Affiliated Institution</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: mentor.academic@university.edu</span>
+                    <strong>Dr. K Srikanth ,  Gayatri Vidya parishad College of engineering(A), Visakhapatnam, Mobile-9440897892 </strong><br>
+                    <span>Professor , Department of EEE</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A)</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9440897892</span>
                 </div>
-                <div style="background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Prof. [Name Placeholder]</strong><br>
-                    <span>Senior Research Supervisor</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">High Voltage Engineering Lab Expert</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: research.lead@university.edu</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. K Prasad  </strong><br>
+                    <span>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
                 </div>
-            </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. A Ramesh</strong><br>
+                    <span>Professor, Electrical and Electronics Engineering</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Aditya University,Surampalem, Kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849219973</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. A NagaJyothi</strong><br>
+                    <span>Professor, Electronics and Communication Engineering</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Vignan Institute of information Technology, Gajuwaka</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9938121200</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. G Sridevi</strong><br>
+                    <span>Professor, Electronics and Communication Engineering</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Aditya University, kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9848141867</span>
+                </div>
         `;
     } else if (activeMatrixView === 'industry') {
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
                 <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Mr. [Name Placeholder]</strong><br>
-                    <span>Project Director / Software Architect</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Full-Stack Applications Division</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: industry.manager@corporate.com</span>
+                    <strong><Professor. M RamalingaRaju/strong><br>
+                    <span>Professor , Electrical and Electronics Engineering, Former Vice Chancellor, JNTUK</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">JNTUK College of engineering, kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;"></span>
                 </div>
-                <div style="background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Ms. [Name Placeholder]</strong><br>
-                    <span>Technical Engineering Lead</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Smart Grid Solutions & AI Deployment</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: tech.lead@firm.com</span>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong><Md. Faheem Hul Haq/strong><br>
+                    <span>Director</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Fliv developers, hyderabad</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">Mobile Number-9849022155</span>
                 </div>
+                
             </div>
         `;
     }
