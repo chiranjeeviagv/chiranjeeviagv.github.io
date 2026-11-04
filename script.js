@@ -373,6 +373,14 @@ window.handleReferencesTrigger = function() {
 
     window.openHTMLModal("Professional References", html);
 };
+// Target the specific reference display content body node container inside your modal template UI layout
+    const referenceContainer = document.getElementById('references-modal-content'); 
+    if (referenceContainer) {
+        referenceContainer.innerHTML = html;
+    } else {
+        console.error("Target content wrapper element inside your references popup modal container node structure was not found.");
+    }
+};
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
