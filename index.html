@@ -19,28 +19,28 @@
         body { background-color: #f0f2f5; color: var(--dark); padding: 20px; line-height: 1.6; }
         main { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         
-        /* Top Branding Card styling from image */
+        /* Top Profile Banner */
         .profile-card { background: var(--light); border: 1px solid var(--border); padding: 30px; border-radius: 12px; text-align: center; max-width: 600px; margin: 0 auto 30px auto; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
         .profile-card h1 { font-size: 2.2rem; color: var(--dark); margin-bottom: 5px; }
         .profile-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; }
         
-        /* Two View Toggle Buttons */
+        /* Perspective Filter Controls */
         .toggle-container { display: flex; justify-content: center; gap: 15px; }
         .toggle-btn { padding: 10px 24px; font-size: 1rem; font-weight: 600; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 6px; cursor: pointer; transition: all 0.3s ease; }
         .toggle-btn.active, .toggle-btn:hover { background: var(--primary); color: white; }
         
-        /* Career Objective & Contact Form Section */
+        /* Section Dividers & Forms */
         .section-bar { background: var(--light); padding: 15px 20px; border-radius: 6px; font-weight: 600; margin-bottom: 20px; border-left: 5px solid var(--primary); }
         .form-container { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 8px; }
         .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.95rem; }
         .submit-btn { align-self: flex-start; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
         .submit-btn:hover { background: var(--primary-hover); }
 
-        /* Locked Credentials Wrapper */
+        /* Lock Gates & Credentials Container */
         .lock-container { text-align: center; padding: 25px; background: var(--light); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 30px; font-size: 0.9rem; }
         .lock-btn { margin-top: 10px; padding: 8px 16px; background: #fff; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; font-weight: 500; }
 
-        /* Dynamic CV Category Grid Layout */
+        /* Flexible Content Card Block Matrix */
         .cv-grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
         .hero-card { background: white; border: 1px solid var(--border); padding: 24px; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
         .hero-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
@@ -49,40 +49,42 @@
         .explore-btn { align-self: flex-start; padding: 8px 16px; background: white; border: 1px solid var(--border); border-radius: 4px; color: var(--primary); font-weight: 500; cursor: pointer; text-decoration: none; }
         .explore-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
         
-        /* Filtering display helper */
         .hidden { display: none !important; }
     </style>
 </head>
-<body>
 
+    <body>
 <main>
-    <!-- Dynamic Header Profile Card -->
+    <!-- Branding Header Node -->
     <div class="profile-card">
         <h1>G V Chiranjeevi Adari</h1>
         <p>Electrical Engineer & Software Professional</p>
         <div class="toggle-container">
-            <button class="toggle-btn active" id="btn-academic" onclick="switchView('academic')">Academic View</button>
-            <button class="toggle-btn" id="btn-industry" onclick="switchView('industry')">Industry View</button>
+            <button class="toggle-btn active" id="btn-academic" onclick="window.switchView('academic')">Academic View</button>
+            <button class="toggle-btn" id="btn-industry" onclick="window.switchView('industry')">Industry View</button>
         </div>
     </div>
 
     <div class="section-bar">Career Objective</div>
     
+    <!-- Recruiter Secure Messaging Node -->
     <div class="section-bar">✉ Send a Message Bar</div>
-    <div class="form-container">
-        <div class="form-group"><input type="text" placeholder="Your Name / Company"></div>
-        <div class="form-group"><input type="email" placeholder="Your Email Address"></div>
-        <div class="form-group"><textarea rows="3" placeholder="Type your message here..."></textarea></div>
-        <button class="submit-btn">Send Secure Message</button>
-    </div>
+    <form id="contact-form" class="form-container">
+        <div class="form-group"><input type="text" id="recruiter-name" placeholder="Your Name / Company" required></div>
+        <div class="form-group"><input type="email" id="recruiter-email" placeholder="Your Email Address" required></div>
+        <div class="form-group"><textarea id="recruiter-msg" rows="3" placeholder="Type your message here..." required></textarea></div>
+        <button type="submit" class="submit-btn">Send Secure Message</button>
+        <div id="form-status" style="display:none; margin-top:10px; font-weight:600;"></div>
+    </form>
 
-    <div class="lock-container">
+    <!-- Secure Information Nodes Gatehouses -->
+    <div id="auth-gate" class="lock-container">
         🔒 <strong>Locked Contact Credentials</strong>
         <p style="color: var(--text-muted); margin-top: 4px;">Please verify your profile to unlock secure contact notes and lists.</p>
-        <button class="lock-btn">Sign in with Google</button>
+        <button class="lock-btn" onclick="window.loginWithGoogle()">Sign in with Google</button>
     </div>
-
-    <!-- CV Grid filtering container based on views -->
+    <div id="secure-contact-container" class="lock-container" style="display:none; text-align: left;"></div>
+    <!-- Grid Frame Layout mapping view parameters -->
     <div class="cv-grid-container">
         
         <!-- Common Content -->
@@ -91,7 +93,7 @@
                 <h2>Qualifications</h2>
                 <p>Details about degrees, university background, and academic milestones common across tracking platforms.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showQualificationsModal()">Explore More</button>
         </div>
 
         <div class="hero-card" data-academic="true" data-industry="true">
@@ -99,16 +101,16 @@
                 <h2>References</h2>
                 <p>Verified contact nodes from professional academic mentors, industry leads, and supervisors.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
         </div>
 
-        <!-- Academic Exclusive Content -->
+        <!-- Academic Exclusive -->
         <div class="hero-card" data-academic="true" data-industry="false">
             <div>
                 <h2>Experience (Teaching & Research)</h2>
                 <p>Academic profile tenure, departmental instructional assignments, classroom management, and roles held.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
         </div>
 
         <div class="hero-card" data-academic="true" data-industry="false">
@@ -116,7 +118,7 @@
                 <h2>Publications</h2>
                 <p>Peer-reviewed journal papers, international IEEE transactions, and citations indexing details.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
         </div>
 
         <div class="hero-card" data-academic="true" data-industry="false">
@@ -124,7 +126,7 @@
                 <h2>Conferences</h2>
                 <p>National and international proceedings presentations, abstract selections, and symposiums history.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
         </div>
 
         <div class="hero-card" data-academic="true" data-industry="false">
@@ -132,7 +134,7 @@
                 <h2>Skill Development (FDPs)</h2>
                 <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks attended.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
         </div>
 
         <div class="hero-card" data-academic="true" data-industry="false">
@@ -140,16 +142,16 @@
                 <h2>Academic Expertise</h2>
                 <p>Core curriculum research domains, engineering theories taught, lab setups, and pedagogical methodologies.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showExpertiseModal()">Explore More</button>
         </div>
 
-        <!-- Industry Exclusive Content -->
+        <!-- Industry Exclusive -->
         <div class="hero-card" data-academic="false" data-industry="true">
             <div>
                 <h2>Certifications & Badges</h2>
                 <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
         </div>
 
         <div class="hero-card" data-academic="false" data-industry="true">
@@ -157,21 +159,20 @@
                 <h2>Skill Set</h2>
                 <p>Core programming capabilities, Full-Stack development pipelines, automation applications, and workflows.</p>
             </div>
-            <button class="explore-btn">Explore More</button>
+            <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
         </div>
 
     </div>
 </main>
-<!-- Load Firebase CDNs from Bundle Paths First -->
 <script type="module">
     import { initializeApp } from "https://gstatic.com";
     import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
-    import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
+    import { getFirestore, doc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
 
-    // Initialize Database References
+    // App Configurations Engine Connection Node 
     const firebaseConfig = {
         apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
-        authDomain: "://firebaseapp.com", 
+        authDomain: "://firebaseapp.com",
         projectId: "interactive-cv-6f58a",
         storageBucket: "interactive-cv-6f58a.firebasestorage.app",
         messagingSenderId: "904714357999",
@@ -181,7 +182,7 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Dynamic Filter Engine Attached to Window Context
+    // Global Perspective Toggle Filter Engine
     window.switchView = function(viewType) {
         const btnAcademic = document.getElementById('btn-academic');
         const btnIndustry = document.getElementById('btn-industry');
@@ -206,22 +207,19 @@
         });
     };
 
-    // Google Authentication Routines
+    // Google Secure Authentication Popups
     window.loginWithGoogle = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-            .then((result) => console.log("Logged in successfully:", result.user.email))
-            .catch((error) => {
-                console.error("Login failure event:", error);
-                alert("Login Failed: Please ensure popups are unblocked.");
-            });
+            .then((result) => console.log("Logged in:", result.user.email))
+            .catch((error) => alert("Login Failed: Please verify popup exceptions."));
     };
 
     window.logoutUser = () => { 
-        signOut(auth).catch((error) => console.error("Signout Error block:", error));
+        signOut(auth).catch((error) => console.error("Signout Failure:", error));
     };
 
-    // Contact Panel Template Injection Template
+    // Private Information Layout Injector Template
     const securedContactHTML = `
         <div class="bio-details" style="width: 100%; padding: 5px 0; font-family: sans-serif;">
             <h3 style="color:#007bff; margin-bottom:15px;">📞 Authenticated Personal Profile</h3>
@@ -238,7 +236,7 @@
         </div>
     `;
 
-    // Auth State Event Engine Listener
+    // Real-Time Authentication Observer Subscription
     onAuthStateChanged(auth, async (user) => {
         const authGate = document.getElementById('auth-gate');
         const secureContact = document.getElementById('secure-contact-container');
@@ -259,7 +257,7 @@
         }
     });
 
-    // Database Mailbox Loader Reader
+    // Recruiter Inbox Stream Reader Engine
     window.loadRecruiterMessages = async function() {
         const container = document.getElementById('inbox-messages-container');
         if (!container) return;
@@ -290,14 +288,13 @@
             });
             container.innerHTML = inboxHTML;
         } catch (error) {
-            console.error("Error reading mailbox:", error);
-            container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Error fetching database records.</p>`;
+            container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Access Denied: Database stream blocked.</p>`;
         }
     };
 
-    // Database Document Record Removal
+    // Remove Message Logs from Firestore Context
     window.deleteRecruiterMessage = async function(id) {
-        if (confirm("Are you sure you want to permanently delete this message?")) {
+        if (confirm("Are you sure you want to permanently delete this record?")) {
             try {
                 await deleteDoc(doc(db, "messages", id));
                 const card = document.getElementById(`msg-card-${id}`);
@@ -308,22 +305,22 @@
                     container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
                 }
             } catch (error) {
-                alert("Could not remove record: " + error.message);
+                alert("Could not remove message: " + error.message);
             }
         }
     };
 
-    // Generic Popup Context Modal Frame Builder
+    // Generic Popup Window Modal Engine
     window.openHTMLModal = function(title, innerHTMLContent) {
         let existingModal = document.getElementById('global-cv-modal-context');
         if (existingModal) existingModal.remove();
 
         const modalOverlay = document.createElement('div');
         modalOverlay.id = 'global-cv-modal-context';
-        modalOverlay.style = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; font-family:sans-serif;";
+        modalOverlay.style = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; padding: 15px;";
 
         const modalBox = document.createElement('div');
-        modalBox.style = "background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.2); text-align:left;";
+        modalBox.style = "background:white; padding:25px; border-radius:8px; max-width:600px; width:100%; max-height:85vh; overflow-y:auto; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.2); text-align:left;";
 
         modalBox.innerHTML = `
             <h3 style="margin-top:0; color:#333; padding-right:30px; border-bottom:1px solid #eee; padding-bottom:10px;">${title}</h3>
@@ -339,109 +336,113 @@
         modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
     };
 
-    // Boot Initialization Engine Rules
+    // App Initialization Wire-Up Hooks
     document.addEventListener('DOMContentLoaded', () => {
         window.switchView('academic');
 
-        // Form Submit Handler Assignment
         const contactForm = document.getElementById('contact-form');
         const statusDiv = document.getElementById('form-status');
 
-        if (contactForm && statusDiv) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-const name = document.getElementById('recruiter-name').value;
-const email = document.getElementById('recruiter-email').value;
-const message = document.getElementById('recruiter-msg').value;
-statusDiv.style.display = 'block';
-statusDiv.style.color = '#333';
-statusDiv.textContent = "Sending message securely...";
-try {
-await addDoc(collection(db, "messages"), {
-name: name,
-email: email,
-message: message,
-timestamp: new Date()
-});
-statusDiv.style.color = '#28a745';
-statusDiv.textContent = "✓ Message sent successfully! Thank you.";
-contactForm.reset();
-} catch (error) {
-console.error("Submission blocked:", error);
-statusDiv.style.color = '#dc3545';
-statusDiv.textContent = "⚠️ Failed to transmit data packet. Try again later.";
+       if (contactForm && statusDiv) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('recruiter-name').value;
+        const email = document.getElementById('recruiter-email').value;
+        const message = document.getElementById('recruiter-msg').value;
+
+        // Show immediate loading status state first
+        statusDiv.style.display = 'block';
+        statusDiv.style.color = '#333';
+        statusDiv.textContent = "Sending message securely...";
+
+        try {
+            // Await the asynchronous database payload generation task
+            await addDoc(collection(db, "messages"), {
+                name: name,
+                email: email,
+                message: message,
+                timestamp: new Date()
+            });
+            
+            // Only update text to success AFTER the promise safely resolves
+            statusDiv.style.color = '#28a745';
+            statusDiv.textContent = "✓ Message sent successfully! Thank you.";
+            contactForm.reset(); // Safely clear form values once
+            
+        } catch (error) {
+            console.error("Database tracking block error:", error);
+            statusDiv.style.color = '#dc3545';
+            statusDiv.textContent = "⚠️ Failed to transmit packet. Try again later.";
+        }
+    });
 }
-});
-}
-});
-// --- Dynamic Modal Content Triggers ---
-window.showQualificationsModal = function() {
-let html =  <div style="line-height: 1.6; padding: 5px;"> <p><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction)</p> <p><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction)</p> <p><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10%</p> <p><strong>SSC:</strong> ZP High School, Jami - 89.86%</p> </div>;
-window.openHTMLModal("Qualifications Records", html);
-};
-window.showCertificationsModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px; max-height: 400px; overflow-y: auto;"> <h4 style="color: #007bff; margin-bottom: 5px;">Coursera Specialization Modules</h4> <ul> <li>IBM Full Stack JavaScript Developer - Sep 2026</li> <li>Microsoft AI and ML Engineering - Jul 2026</li> <li>IBM AI Developer - Jun 2026</li> </ul> <h4 style="color: #007bff; margin-top: 15px; margin-bottom: 5px;">NPTEL Certifications</h4> <ul> <li>Advanced Computer Architecture - Apr 2026</li> <li>Cloud Computing - Oct 2024</li> </ul> </div>;
-window.openHTMLModal('Advanced Certifications & Up-Skilling', html);
-};
-window.showExperienceModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px; max-height: 400px; overflow-y: auto;"> <p><strong>Assistant Professor (AI & ML)</strong><br>Sandip University, Nashik | <em>2025 – 2026</em></p><hr> <p><strong>Assistant Professor (EEE)</strong><br>Guru Nanak Institute of Technology | <em>2023 – 2025</em></p><hr> <p><strong>Assistant Professor (EEE)</strong><br>Vignan's Institute of Information Technology | <em>2015 – 2019</em></p> </div>;
-window.openHTMLModal('Professional Experience', html);
-};
-window.showPublicationsModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px;"> <h4 style="color:#dc3545;">Published Patents</h4> <p>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics (2024)</p> <h4 style="color:#007bff; margin-top:15px;">Journals</h4> <p>"Dynamic stability improvement of a smart grid using neural network based STATCOM"</p> </div>;
-window.openHTMLModal('Research Publications & Intellectual Property', html);
-};
-window.showDevelopmentProgramsModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px; max-height: 400px; overflow-y: auto;"> <p>• Two-day FDP on OBE Focused Curriculum Design – Sandip University (2026)</p> <p>• One-Week FDP on Emerging Trends of Generative AI – SVKM’s IT (2025)</p> </div>;
-window.openHTMLModal('Faculty Up-Skilling & FDP Records', html);
-};
-window.showExpertiseModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px;"> <h4 style="color:#dc3545;">🎯 Areas of Interest</h4> <p>AI & Machine Learning, Cyber Security, Electromagnetics, Smart Grids.</p> </div>;
-window.openHTMLModal('Subject Area Expertise', html);
-};
-window.showSkillsModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px;"> <p><strong>Languages:</strong> Python, MATLAB, JavaScript, Core Java.</p> <p><strong>Domain:</strong> FACTS Controllers, Smart Grid Architecture, Security Infrastructure.</p> </div>;
-window.openHTMLModal('Technical Skills & Toolsets', html);
-};
-window.showConferencesModal = function() {
-let html = <div style="line-height: 1.6; padding: 5px;"> <p>"System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0" (Nashik, 2026)</p> </div>;
-window.openHTMLModal('Conferences Attended Presentation Details', html);
-};
-window.handleReferencesTrigger = function() { alert("References Section Triggered."); };
-window.showLanguagesModal = function() { alert("Languages Modal Triggered."); };
-### 2. Matching Interactive HTML Grid Verification
-Ensure your buttons and grid layouts maps precisely to the window actions defined above:
 
-```html
-<!-- Interactive View Controls inside Profile Card -->
-<div class="toggle-container">
-    <button class="toggle-btn active" id="btn-academic" onclick="window.switchView('academic')">Academic View</button>
-    <button class="toggle-btn" id="btn-industry" onclick="window.switchView('industry')">Industry View</button>
-</div>
+    // --- Static Modal Content Layout Hooks ---
+    window.showQualificationsModal = function() {
+        let html = `
+            <div style="line-height: 1.8; font-size:0.95rem;">
+                <p><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction)</p>
+                <p><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction)</p>
+                <p><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10%</p>
+                <p><strong>SSC:</strong> ZP High School, Jami - 89.86%</p>
+            </div>`;
+        window.openHTMLModal("Qualifications Records", html);
+    };
 
-<!-- Lock Container Placeholder Targets -->
-<div id="auth-gate" class="lock-container">
-    🔒 <strong>Locked Contact Credentials</strong>
-    <p>Please verify your profile to unlock secure contact notes and lists.</p>
-    <button onclick="window.loginWithGoogle()" class="lock-btn">Sign in with Google</button>
-</div>
-<div id="secure-contact-container" style="display:none;"></div>
+    window.showCertificationsModal = function() {
+        let html = `
+            <div style="line-height: 1.6;">
+                <h4 style="color: #007bff; margin-bottom: 5px;">Coursera Tracks</h4>
+                <ul style="margin-left:20px; margin-bottom:15px;">
+                    <li>IBM Full Stack JavaScript Developer - Sep 2026</li>
+                    <li>Microsoft AI and ML Engineering - Jul 2026</li>
+                </ul>
+                <h4 style="color: #007bff; margin-bottom: 5px;">NPTEL Tracks</h4>
+                <ul style="margin-left:20px;">
+                    <li>Advanced Computer Architecture - Apr 2026</li>
+                </ul>
+            </div>`;
+        window.openHTMLModal('Advanced Certifications & Up-Skilling', html);
+    };
 
-<!-- Cards with Modal Event Interceptors -->
-<div class="cv-grid-container">
-    <div class="hero-card" data-academic="true" data-industry="true">
-        <h2>Qualifications</h2>
-        <p>Details about degrees and university metrics.</p>
-        <button onclick="window.showQualificationsModal()" class="explore-btn">Explore More</button>
-    </div>
-    <div class="hero-card" data-academic="true" data-industry="false">
-        <h2>Experience (Teaching & Research)</h2>
-        <p>Academic profile tenure and instruction history.</p>
-        <button onclick="window.showExperienceModal()" class="explore-btn">Explore More</button>
-    </div>
-    <div class="hero-card" data-academic="false" data-industry="true">
-        <h2>Certifications & Badges</h2>
-        <p>Professional certifications and cloud badges.</p>
-        <button onclick="window.showCertificationsModal()" class="explore-btn">Explore More</button>
-    </div>
-</div>
+    window.showExperienceModal = function() {
+        let html = `
+            <div style="line-height: 1.6;">
+                <p><strong>Assistant Professor (AI & ML)</strong><br>Sandip University, Nashik | <em>2025 – 2026</em></p>
+                <hr style="margin:10px 0; border:0; border-top:1px solid #eee;">
+                <p><strong>Assistant Professor (EEE)</strong><br>Guru Nanak Institute of Technology | <em>2023 – 2025</em></p>
+            </div>`;
+        window.openHTMLModal('Professional Experience', html);
+    };
+
+    window.showPublicationsModal = function() {
+        let html = `
+            <div style="line-height: 1.6;">
+                <h4 style="color:#dc3545;">Published Patents</h4>
+                <p>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics (2024)</p>
+            </div>`;
+        window.openHTMLModal('Research Publications & Intellectual Property', html);
+    };
+
+    window.showDevelopmentProgramsModal = function() {
+        let html = `<p>• Two-day FDP on OBE Focused Curriculum Design – Sandip University (2026)</p>`;
+        window.openHTMLModal('Faculty Up-Skilling & FDP Records', html);
+    };
+
+    window.showExpertiseModal = function() {
+        let html = `<p><strong>🎯 Areas:</strong> AI & Machine Learning, Cyber Security, Electromagnetics, Smart Grids.</p>`;
+        window.openHTMLModal('Subject Area Expertise', html);
+    };
+
+    window.showSkillsModal = function() {
+        let html = `<p><strong>Languages:</strong> Python, MATLAB, JavaScript, Core Java.</p>`;
+        window.openHTMLModal('Technical Skills & Toolsets', html);
+    };
+
+    window.showConferencesModal = function() {
+        let html = `<p>"System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0" (Nashik, 2026)</p>`;
+        window.openHTMLModal('Conferences Attended Presentation Details', html);
+    };
+
+    window.handleReferencesTrigger = function() { alert("References Section Clicked."); };
