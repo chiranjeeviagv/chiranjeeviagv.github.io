@@ -366,17 +366,7 @@ window.handleReferencesTrigger = function() {
             </div>
         `;
     }
-      else 
-        html = `
-            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
-                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Mrs. V Mounika Venkat</strong><br>
-                    <span>Former Principal, Vivekananda Degree College, hyderabad</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Contact Info-98661 02045</span>
-                </div>
-          `;
-    }
+      
     // Call open layout engine if defined, otherwise target modal tags directly
     if (typeof window.openHTMLModal === 'function') {
         window.openHTMLModal("Professional References", html);
