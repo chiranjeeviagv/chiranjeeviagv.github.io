@@ -380,7 +380,6 @@ window.handleReferencesTrigger = function() {
     } else {
         console.error("Target content wrapper element inside your references popup modal container node structure was not found.");
     }
-};
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
