@@ -260,23 +260,23 @@ window.showCertificationsModal = function() {
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 400px; overflow-y: auto;">
             <h4 style="color: #007bff; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">Coursera Specialization Modules</h4>
             <ul style="padding-left: 20px; margin-bottom: 20px;">
-                <li style="margin-bottom: 6px;">IBM Full Stack JavaScript Developer (12 Courses) - Sep 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Microsoft AI and ML Engineering (5 Courses) - Jul 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">IBM AI Developer (10 Courses) - Jun 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">IBM Java Developer (14 Courses) - Jul 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">IBM JavaScript Backend Developer (13 Courses) - Aug 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Google Cyber Security Specialist Track (9 Courses) - Jul 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM Full Stack JavaScript Developer (12 Courses) - Sep 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Microsoft AI and ML Engineering (5 Courses) - Jul 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM AI Developer (10 Courses) - Jun 2026 <a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM Java Developer (14 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM JavaScript Backend Developer (13 Courses) - Aug 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Google Cyber Security Specialist Track (9 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
             </ul>
             
             <h4 style="color: #007bff; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">NPTEL Certifications</h4>
             <ul style="padding-left: 20px;">
                 <li style="margin-bottom: 6px;">Advanced Computer Architecture - Apr 2026 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Advanced Computer Networks - Apr 2025 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Practical Cyber Security for Cyber Security Practitioners - Jul-Oct 2024 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Cloud Computing - Jul-Oct 2024 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Big Data Computing (8-Week Course) - Oct 2023 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Ethics in Engineering Practice (8-Week Course) - Oct 2023 <span style="color:#666; font-size:0.85rem;">[Link Pending]</span></li>
-                <li style="margin-bottom: 6px;">Introduction to Smart Grid (8-Week Course) - Jul-Sep 2022 <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Advanced Computer Networks - Apr 2025 <a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Practical Cyber Security for Cyber Security Practitioners - Jul-Oct 2024 <a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Cloud Computing - Jul-Oct 2024 <a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Big Data Computing (8-Week Course) - Oct 2023 <a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Ethics in Engineering Practice (8-Week Course) - Oct 2023 <a href="" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Introduction to Smart Grid (8-Week Course) - Jul-Sep 2022 <a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
             </ul>
         </div>
     `;
