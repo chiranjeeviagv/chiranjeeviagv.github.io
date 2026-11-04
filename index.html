@@ -90,12 +90,21 @@
 <!-- 3. DYNAMIC DATA MATRIX DISPLAY MATRIX LAYOUT GRID -->
 <div class="cv-grid-container" style="margin-bottom: 30px;">
     
-    <!-- BOTH VIEWS: References (Always Visible) -->
-    <section id="references-section" class="hero-card">
-        <h2>References</h2>
-        <p>Verified contact nodes from professional academic mentors and industry leads.</p>
-        <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
-    </section>
+   <!-- PROFESSIONAL REFERENCES MODAL POPUP CONTAINER LAYER -->
+<div id="references-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center;">
+    <div style="background-color: #fff; margin: auto; padding: 20px; border-radius: 8px; width: 90%; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; font-family: sans-serif;">
+        
+        <!-- Header Controls Row -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+            <h3 style="margin: 0; font-size: 1.25rem; color: #333; font-weight: 600;">Professional References</h3>
+            <span onclick="document.getElementById('references-modal').style.display = 'none';" style="color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 1;">&times;</span>
+        </div>
+
+        <!-- 💡 TARGET CONTAINER NODE: This is where your handleReferencesTrigger script injects the names and text fields dynamically -->
+        <div id="references-modal-content"></div>
+    </div>
+</div>
+
 
     <!-- ACADEMIC ONLY: Publications -->
     <section id="publications-section" class="hero-card academic-only">
