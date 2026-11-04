@@ -400,27 +400,27 @@ window.showPublicationsModal = function() {
             <ul style="padding-left: 20px; margin: 0;">
                 <li style="margin-bottom: 12px;">
                     "Dynamic stability improvement of a smart grid using neural network based STATCOM" - <em>Indian Journal of Science and Technology</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Article]</a>
+                    <a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Article]</a>
                 </li>
                 <li style="margin-bottom: 12px;">
                     "Transient Stability Improvement of SMIB using DPFC" - <em>IJPAM (2017)</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                    <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
                 </li>
                 <li style="margin-bottom: 12px;">
                     "Application of SVC for Multi Objective Power problem with PSO" - <em>IJPAM (2017)</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                    <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
                 </li>
                 <li style="margin-bottom: 12px;">
                     "A grid interfaced low frequency wind power" - <em>IJRASET (2015)</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                    <a href="https://www.ijraset.com/fileserve.php?FID=2047" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
                 </li>
                 <li style="margin-bottom: 12px;">
                     "Fuzzy based Unified Control and Power Management Scheme for PV Battery based Hybrid Micro Grids for both Grid Connected and Islanded Modes" - <em>IJAEMA</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Document]</a>
+                    <a href="https://drive.google.com/file/d/1Bhgmof-yxlzp3ZRNAsk2lemdSm7Xe6oA/view" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Document]</a>
                 </li>
                 <li style="margin-bottom: 12px;">
                     "Simulation based Analysis for fixing Optimal stages for a H-Bridge cascaded Multi Level Converters" - <em>IJSETR (2016)</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                    <a href="https://ijsetr.com/uploads/463251IJSETR9076-240.pdf" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
                 </li>
                 <li style="margin-bottom: 6px;">
                     Book Chapter: "Cyber security in smart Grids: Role of Digital Advanced Devices" - <em>Cyber security-Issues, Challenges–Solutions-Business, IGI Global Publications (Oct 2022)</em> 
@@ -627,7 +627,29 @@ window.showConferencesModal = function() {
     window.openHTMLModal('Conferences Attended Presentation Details', html);
 };
 window.handleReferencesTrigger = function() { alert("References window section placeholder."); };
-window.showLanguagesModal = function() { alert("Languages information view placeholder."); };
+window.showLanguagesModal = function() {
+    var html = `
+        <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+            
+            <div style="margin-bottom: 15px; background: #eef5ff; padding: 12px; border-left: 4px solid #007bff; border-radius: 0 6px 6px 0;">
+                <strong style="color: #007bff; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ English</strong>
+                <span style="color: #333; font-size: 0.95rem;">Professional Working Proficiency (Excellent written and verbal communication skills).</span>
+            </div>
+
+            <div style="margin-bottom: 15px; background: #f3fbf7; padding: 12px; border-left: 4px solid #28a745; border-radius: 0 6px 6px 0;">
+                <strong style="color: #28a745; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ Hindi</strong>
+                <span style="color: #333; font-size: 0.95rem;">Full Professional Proficiency (Verbal and written capabilities).</span>
+            </div>
+
+            <div style="background: #fff9e6; padding: 12px; border-left: 4px solid #ffc107; border-radius: 0 6px 6px 0;">
+                <strong style="color: #d39e00; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ Telugu</strong>
+                <span style="color: #333; font-size: 0.95rem;">Native or Bilingual Proficiency (Mother tongue).</span>
+            </div>
+
+        </div>
+    `;
+    window.openHTMLModal('Languages Known', html);
+};
 
 // ==========================================
 // 6. DOM EVENT LISTENERS SETUP
