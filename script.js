@@ -236,10 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
 window.showQualificationsModal = function() {
     let html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
-            <p style='margin-bottom:10px;'><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction)</p>
-            <p style='margin-bottom:10px;'><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction)</p>
-            <p style='margin-bottom:10px;'><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10%</p>
-            <p style='margin-bottom:10px;'><strong>SSC:</strong> ZP High School, Jami - 89.86%</p>
+            <p style='margin-bottom:10px;'><strong>M.Tech (High Voltage Engineering):</strong> <a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing">JNTU Kakinada</a> - 72.00% (Distinction)</p>
+            <p style='margin-bottom:10px;'><strong>B.Tech (Electrical & Electronics Engineering):</strong> <a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing">JNTH Hyderabad</a> - 71.63% (Distinction)</p>
+            <p style='margin-bottom:10px;'><strong>Intermediate (MPC): </strong> <a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing">Gayatri Junior College</a> - 94.10% (First class)</p>
+            <p style='margin-bottom:10px;'><strong? </strong> <a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing">ZP High school , JAMI</a> - 89.86% (First class)</p>
         </div>
     `;
     window.openHTMLModal("Qualifications Records", html);
