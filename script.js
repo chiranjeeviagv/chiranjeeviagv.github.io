@@ -649,20 +649,7 @@ window.showExpertiseModal = function() {
                 <li style="margin-bottom: 6px;">Microcontrollers & Digital Logic Design</li>
                 <li style="margin-bottom: 6px;">Non-Conventional Sources of Energy</li>
             </ul>
-           
-window.showExpertiseModal = function() {
-    var html = `
-                  <!-- Section 1: Areas of Interest -->
-            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Areas of Interest</h4>
-            <ul style="padding-left: 20px; margin-bottom: 25px;">
-                <li style="margin-bottom: 6px;">Artificial Intelligence & Machine Learning</li>
-                <li style="margin-bottom: 6px;">Cyber Security</li>
-                <li style="margin-bottom: 6px;">Electromagnetics</li>
-                <li style="margin-bottom: 6px;">Microcontrollers & Digital Logic Design</li>
-                <li style="margin-bottom: 6px;">Non-Conventional Sources of Energy</li>
-            </ul>
-
-            <!-- Section 2: Courses Handled Grid -->
+          <!-- Section 2: Courses Handled Grid -->
             <h4 style="color: #6f42c1; margin-bottom: 12px; border-bottom: 2px solid #6f42c1; padding-bottom: 4px;">📖 Courses Handled</h4>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; padding-left: 5px;">
                 <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Artificial Intelligence Techniques</div>
