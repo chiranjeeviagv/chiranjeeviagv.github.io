@@ -191,7 +191,6 @@ window.switchView = function(viewType) {
         if (industrySection) industrySection.style.display = 'block';
     }
 };
-
 // Handle client messaging form inputs organically
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
