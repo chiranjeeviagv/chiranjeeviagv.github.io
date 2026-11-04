@@ -245,6 +245,13 @@ body {
     background: #007bff;
     color: white;
 }
+/* Add this below your existing explore-btn styles to protect mobile viewports */
+@media (max-width: 768px) {
+    .cv-grid-container {
+        grid-template-columns: 1fr; /* Automatically shifts to a clean 1-column layout on phones */
+        gap: 16px;
+    }
+}
 
 /* ==========================================================================
    5. UNIFIED POPUP MODAL ARCHITECTURE
