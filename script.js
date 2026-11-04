@@ -847,7 +847,14 @@ window.showLanguagesModal = function() {
                 <strong style="color: #28a745; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ Hindi</strong>
                 <span style="color: #333; font-size: 0.95rem;">Full Professional Proficiency (Verbal and written capabilities).</span>
             </div>
-
+            <div style="margin-bottom: 15px; background: #f3fbf7; padding: 12px; border-left: 4px solid #28a745; border-radius: 0 6px 6px 0;">
+                <strong style="color: #28a745; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ Marathi</strong>
+                <span style="color: #333; font-size: 0.95rem;">Limited  Proficiency (Verbal and written capabilities).</span>
+            </div>
+            <div style="margin-bottom: 15px; background: #f3fbf7; padding: 12px; border-left: 4px solid #28a745; border-radius: 0 6px 6px 0;">
+                <strong style="color: #28a745; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ PUnjabi-Gurmukhi</strong>
+                <span style="color: #333; font-size: 0.95rem;">Limited Proficiency (Verbal and written capabilities).</span>
+            </div>
             <div style="background: #fff9e6; padding: 12px; border-left: 4px solid #ffc107; border-radius: 0 6px 6px 0;">
                 <strong style="color: #d39e00; display: block; margin-bottom: 4px; font-size: 1rem;">🗣️ Telugu</strong>
                 <span style="color: #333; font-size: 0.95rem;">Native or Bilingual Proficiency (Mother tongue).</span>
