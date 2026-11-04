@@ -213,35 +213,25 @@ window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
     
-    // Check authentication token state before opening layout switches
-    const isAuthenticated = auth.currentUser !== null;
+    // 💡 REMOVED: Immediate auth.currentUser check that hides sections prematurely during view swaps
 
     const elementsMap = {
         'qualifications-section': ['academic', 'industry'],  // Always visible
-        'references-section': ['academic', 'industry'],      // Secure
-        'certifications-section': ['industry'],              // Secure (Industry Only)
-        'skills-section': ['industry'],                      // Secure (Industry Only)
-        'languages-section': ['industry'],                   // Secure (Industry Only)
-        'experience-section': ['academic'],                  // Academic Only
-        'publications-section': ['academic'],                // Academic Only
-        'conferences-section': ['academic'],                 // Academic Only
-        'fdp-section': ['academic'],                         // Academic Only
-        'expertise-section': ['academic']                    // Academic Only
+        'references-section': ['academic', 'industry'],      // Controlled via trigger authentication instead
+        'certifications-section': ['industry'],              
+        'skills-section': ['industry'],                      
+        'languages-section': ['industry'],                   
+        'experience-section': ['academic'],                  
+        'publications-section': ['academic'],                
+        'conferences-section': ['academic'],                 
+        'fdp-section': ['academic'],                         
+        'expertise-section': ['academic']                    
     };
-
-    // Elements requiring authentication
-    const protectedElements = ['references-section', 'certifications-section', 'skills-section', 'languages-section'];
 
     Object.keys(elementsMap).forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-            // If it's a secure element and the user isn't logged in, force hide it
-            if (protectedElements.includes(id) && !isAuthenticated) {
-                el.style.setProperty('display', 'none', 'important');
-                return;
-            }
-
-            // Otherwise, show/hide normally based on the selected grid view tab
+            // Show/hide normally based on the selected grid view tab selection
             if (elementsMap[id].includes(viewType)) {
                 el.style.setProperty('display', 'block', 'important');
             } else {
@@ -250,7 +240,7 @@ window.switchView = function(viewType) {
         }
     });
 
-    // Handle button active states
+    // Handle button active classes cleanly
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     if (btnAcademic && btnIndustry) {
