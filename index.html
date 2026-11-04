@@ -74,13 +74,10 @@
 </section>
 
 <!-- 3. DYNAMIC INFORMATION GRID (Moved up here) -->
+<!-- 3. DYNAMIC DATA MATRIX DISPLAY MATRIX LAYOUT GRID -->
 <div class="cv-grid-container" style="margin-bottom: 30px;">
-    <!-- Keep your existing grid card elements right here -->
-    <!-- (Qualifications, Publications, Experience, Subject Expertise, etc.) -->
-</div>
-
-<!-- 4. SEND A MESSAGE FORM (Moved to the absolute bottom) -->
-    <!-- BOTH VIEWS: References (Always Visible, Internal Script Switches Content Data) -->
+    
+    <!-- BOTH VIEWS: References (Always Visible) -->
     <section id="references-section" class="hero-card">
         <h2>References</h2>
         <p>Verified contact nodes from professional academic mentors and industry leads.</p>
@@ -115,7 +112,7 @@
         <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
     </section>
 
-    <!-- ACADEMIC ONLY: Academic Strengths & Traits -->
+    <!-- ACADEMIC ONLY: Skill Development (FDPs) -->
     <section id="fdp-section" class="hero-card academic-only">
         <h2>Skill Development (FDPs)</h2>
         <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
@@ -142,18 +139,23 @@
         <p>Proficiency in languages for global academic research and corporate team management.</p>
         <button class="explore-btn" onclick="window.showLanguagesModal()">Explore More</button>
     </section>
-</div>
-    <!-- Global Application Modal Window -->
-    <div id="details-modal" class="modal-view">
-        <div class="modal-content-wrapper">
-            <button class="modal-close-trigger" onclick="window.closeModal()">×</button>
-            <h3 id="modal-title">Modal Title</h3>
-            <div id="modal-body">Modal Body Content</div>
-        </div>
-    </div>
 
-   
-    <script type="module" src="script.js"></script>
+</div> <!-- Cleanly closes the grid matrix here after all cards have been loaded -->
+
+
+<!-- Global Application Modal Window Wrapper -->
+<div id="details-modal" class="modal-view">
+    <div class="modal-content-wrapper">
+        <button class="modal-close-trigger" onclick="window.closeModal()">×</button>
+        <h3 id="modal-title">Modal Title</h3>
+        <div id="modal-body">Modal Body Content</div>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
+
+
+<!-- 4. RECRUITER CLIENT MESSAGING FORM (ABS BOTTOM) -->
 <div class="contact-section" style="margin-top: 40px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
     <h2>📬 Send a Message</h2>
     <form id="contact-form">
