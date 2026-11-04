@@ -357,10 +357,26 @@ window.handleReferencesTrigger = function() {
                     <span style="font-size: 0.9rem; color: #555;">Fliv developers, hyderabad</span><br>
                     <span style="font-size: 0.85rem; color: #666;">Mobile Number-9849022155</span>
                 </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Sri Gulbarg Singh Bassi</strong><br>
+                    <span>Retired Teacher & Educator</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">GSC, US</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">Contact Info-+1(678) 794-1794</span>
+                </div>
             </div>
         `;
     }
-
+      else 
+        html = `
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Mrs. V Mounika</strong><br>
+                    <span>Former Principal, Vivekananda Degree College, hyderabad</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Contact Info-98661 02045</span>
+                </div>
+          `;
+    }
     // Call open layout engine if defined, otherwise target modal tags directly
     if (typeof window.openHTMLModal === 'function') {
         window.openHTMLModal("Professional References", html);
