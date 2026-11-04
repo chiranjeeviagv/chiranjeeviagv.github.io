@@ -162,15 +162,36 @@
 
     </div>
 </main>
+<!-- Load Firebase CDNs from Bundle Paths First -->
+<script type="module">
+    import { initializeApp } from "https://gstatic.com";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+    import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
 
-<script>
-    function switchView(viewType) {
-        // Handle Active state classes on toggle buttons
-        document.getElementById('btn-academic').classList.toggle('active', viewType === 'academic');
-        document.getElementById('btn-industry').classList.toggle('active', viewType === 'industry');
+    // Initialize Database References
+    const firebaseConfig = {
+        apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
+        authDomain: "://firebaseapp.com", 
+        projectId: "interactive-cv-6f58a",
+        storageBucket: "interactive-cv-6f58a.firebasestorage.app",
+        messagingSenderId: "904714357999",
+        appId: "1:904714357999:web:a23ef727d0af3b44451f1a"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-        // Target and iterate over each grid node card to handle view mapping 
+    // Dynamic Filter Engine Attached to Window Context
+    window.switchView = function(viewType) {
+        const btnAcademic = document.getElementById('btn-academic');
+        const btnIndustry = document.getElementById('btn-industry');
         const cards = document.querySelectorAll('.hero-card');
+
+        if (btnAcademic && btnIndustry) {
+            btnAcademic.classList.toggle('active', viewType === 'academic');
+            btnIndustry.classList.toggle('active', viewType === 'industry');
+        }
+
         cards.forEach(card => {
             const displayOnAcademic = card.getAttribute('data-academic') === 'true';
             const displayOnIndustry = card.getAttribute('data-industry') === 'true';
@@ -183,9 +204,244 @@
                 card.classList.add('hidden');
             }
         });
-    }
+    };
 
-    // Initialize view state on content load
-    window.addEventListener('DOMContentLoaded', () => {
-switchView('academic');
+    // Google Authentication Routines
+    window.loginWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => console.log("Logged in successfully:", result.user.email))
+            .catch((error) => {
+                console.error("Login failure event:", error);
+                alert("Login Failed: Please ensure popups are unblocked.");
+            });
+    };
+
+    window.logoutUser = () => { 
+        signOut(auth).catch((error) => console.error("Signout Error block:", error));
+    };
+
+    // Contact Panel Template Injection Template
+    const securedContactHTML = `
+        <div class="bio-details" style="width: 100%; padding: 5px 0; font-family: sans-serif;">
+            <h3 style="color:#007bff; margin-bottom:15px;">📞 Authenticated Personal Profile</h3>
+            <ul style="list-style: none; padding: 0; line-height: 2; margin-bottom: 25px;">
+                <li><strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
+                <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
+                <li><strong>Mailing Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+            </ul>
+            <h3 style="color:#28a745; margin-bottom:15px; border-top: 1px solid #eee; padding-top: 15px;">📥 Recruiter Messages Inbox</h3>
+            <div id="inbox-messages-container" style="max-height: 300px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 20px;">
+                <p style="color: #666; font-style: italic;">Loading messages stream...</p>
+            </div>
+            <button onclick="window.logoutUser()" class="explore-btn" style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-weight:600;">Sign Out Account</button>
+        </div>
+    `;
+
+    // Auth State Event Engine Listener
+    onAuthStateChanged(auth, async (user) => {
+        const authGate = document.getElementById('auth-gate');
+        const secureContact = document.getElementById('secure-contact-container');
+        
+        if (user) {
+            if (authGate) authGate.style.display = 'none';
+            if (secureContact) {
+                secureContact.innerHTML = securedContactHTML;
+                secureContact.style.display = 'block';
+                window.loadRecruiterMessages();
+            }
+        } else {
+            if (secureContact) {
+                secureContact.style.display = 'none';
+                secureContact.innerHTML = '';
+            }
+            if (authGate) authGate.style.display = 'block';
+        }
+    });
+
+    // Database Mailbox Loader Reader
+    window.loadRecruiterMessages = async function() {
+        const container = document.getElementById('inbox-messages-container');
+        if (!container) return;
+
+        try {
+            const q = query(collection(db, "messages"), orderBy("timestamp", "desc"));
+            const querySnapshot = await getDocs(q);
+            
+            if (querySnapshot.empty) {
+                container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
+                return;
+            }
+
+            let inboxHTML = '';
+            querySnapshot.forEach((messageDoc) => {
+                const data = messageDoc.data();
+                const date = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'N/A';
+                
+                inboxHTML += `
+                    <div id="msg-card-${messageDoc.id}" style="background: white; padding: 12px; border-radius: 4px; border: 1px solid #eee; margin-bottom: 10px; position: relative;">
+                        <span style="font-size: 0.8rem; color: #999; float: right;">${date}</span>
+                        <strong style="color: #333; display: block; font-size: 0.95rem;">${data.name}</strong>
+                        <a href="mailto:${data.email}" style="font-size: 0.85rem; color: #007bff; text-decoration: none;">${data.email}</a>
+                        <p style="margin: 8px 0 0 0; color: #555; font-size: 0.9rem; white-space: pre-wrap;">${data.message}</p>
+                        <button onclick="window.deleteRecruiterMessage('${messageDoc.id}')" style="margin-top: 8px; background: transparent; color: #dc3545; border: none; padding: 0; cursor: pointer; font-size: 0.8rem; font-weight: bold;">🗑️ Delete Message</button>
+                    </div>
+                `;
+            });
+            container.innerHTML = inboxHTML;
+        } catch (error) {
+            console.error("Error reading mailbox:", error);
+            container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Error fetching database records.</p>`;
+        }
+    };
+
+    // Database Document Record Removal
+    window.deleteRecruiterMessage = async function(id) {
+        if (confirm("Are you sure you want to permanently delete this message?")) {
+            try {
+                await deleteDoc(doc(db, "messages", id));
+                const card = document.getElementById(`msg-card-${id}`);
+                if (card) card.remove();
+                
+                const container = document.getElementById('inbox-messages-container');
+                if (container && container.children.length === 0) {
+                    container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
+                }
+            } catch (error) {
+                alert("Could not remove record: " + error.message);
+            }
+        }
+    };
+
+    // Generic Popup Context Modal Frame Builder
+    window.openHTMLModal = function(title, innerHTMLContent) {
+        let existingModal = document.getElementById('global-cv-modal-context');
+        if (existingModal) existingModal.remove();
+
+        const modalOverlay = document.createElement('div');
+        modalOverlay.id = 'global-cv-modal-context';
+        modalOverlay.style = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; font-family:sans-serif;";
+
+        const modalBox = document.createElement('div');
+        modalBox.style = "background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.2); text-align:left;";
+
+        modalBox.innerHTML = `
+            <h3 style="margin-top:0; color:#333; padding-right:30px; border-bottom:1px solid #eee; padding-bottom:10px;">${title}</h3>
+            <button id="close-modal-btn" style="position:absolute; top:15px; right:15px; background:transparent; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
+            <div style="margin-top:15px;">${innerHTMLContent}</div>
+        `;
+
+        modalOverlay.appendChild(modalBox);
+        document.body.appendChild(modalOverlay);
+
+        const closeModal = () => modalOverlay.remove();
+        document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+    };
+
+    // Boot Initialization Engine Rules
+    document.addEventListener('DOMContentLoaded', () => {
+        window.switchView('academic');
+
+        // Form Submit Handler Assignment
+        const contactForm = document.getElementById('contact-form');
+        const statusDiv = document.getElementById('form-status');
+
+        if (contactForm && statusDiv) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+const name = document.getElementById('recruiter-name').value;
+const email = document.getElementById('recruiter-email').value;
+const message = document.getElementById('recruiter-msg').value;
+statusDiv.style.display = 'block';
+statusDiv.style.color = '#333';
+statusDiv.textContent = "Sending message securely...";
+try {
+await addDoc(collection(db, "messages"), {
+name: name,
+email: email,
+message: message,
+timestamp: new Date()
 });
+statusDiv.style.color = '#28a745';
+statusDiv.textContent = "✓ Message sent successfully! Thank you.";
+contactForm.reset();
+} catch (error) {
+console.error("Submission blocked:", error);
+statusDiv.style.color = '#dc3545';
+statusDiv.textContent = "⚠️ Failed to transmit data packet. Try again later.";
+}
+});
+}
+});
+// --- Dynamic Modal Content Triggers ---
+window.showQualificationsModal = function() {
+let html =  <div style="line-height: 1.6; padding: 5px;"> <p><strong>M.Tech (High Voltage Engineering):</strong> JNTU Kakinada - 72.00% (Distinction)</p> <p><strong>B.Tech (Electrical & Electronics):</strong> Chaitanya Engineering College - 71.63% (Distinction)</p> <p><strong>Intermediate (MPC):</strong> Gayatri Junior College - 94.10%</p> <p><strong>SSC:</strong> ZP High School, Jami - 89.86%</p> </div>;
+window.openHTMLModal("Qualifications Records", html);
+};
+window.showCertificationsModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px; max-height: 400px; overflow-y: auto;"> <h4 style="color: #007bff; margin-bottom: 5px;">Coursera Specialization Modules</h4> <ul> <li>IBM Full Stack JavaScript Developer - Sep 2026</li> <li>Microsoft AI and ML Engineering - Jul 2026</li> <li>IBM AI Developer - Jun 2026</li> </ul> <h4 style="color: #007bff; margin-top: 15px; margin-bottom: 5px;">NPTEL Certifications</h4> <ul> <li>Advanced Computer Architecture - Apr 2026</li> <li>Cloud Computing - Oct 2024</li> </ul> </div>;
+window.openHTMLModal('Advanced Certifications & Up-Skilling', html);
+};
+window.showExperienceModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px; max-height: 400px; overflow-y: auto;"> <p><strong>Assistant Professor (AI & ML)</strong><br>Sandip University, Nashik | <em>2025 – 2026</em></p><hr> <p><strong>Assistant Professor (EEE)</strong><br>Guru Nanak Institute of Technology | <em>2023 – 2025</em></p><hr> <p><strong>Assistant Professor (EEE)</strong><br>Vignan's Institute of Information Technology | <em>2015 – 2019</em></p> </div>;
+window.openHTMLModal('Professional Experience', html);
+};
+window.showPublicationsModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px;"> <h4 style="color:#dc3545;">Published Patents</h4> <p>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics (2024)</p> <h4 style="color:#007bff; margin-top:15px;">Journals</h4> <p>"Dynamic stability improvement of a smart grid using neural network based STATCOM"</p> </div>;
+window.openHTMLModal('Research Publications & Intellectual Property', html);
+};
+window.showDevelopmentProgramsModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px; max-height: 400px; overflow-y: auto;"> <p>• Two-day FDP on OBE Focused Curriculum Design – Sandip University (2026)</p> <p>• One-Week FDP on Emerging Trends of Generative AI – SVKM’s IT (2025)</p> </div>;
+window.openHTMLModal('Faculty Up-Skilling & FDP Records', html);
+};
+window.showExpertiseModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px;"> <h4 style="color:#dc3545;">🎯 Areas of Interest</h4> <p>AI & Machine Learning, Cyber Security, Electromagnetics, Smart Grids.</p> </div>;
+window.openHTMLModal('Subject Area Expertise', html);
+};
+window.showSkillsModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px;"> <p><strong>Languages:</strong> Python, MATLAB, JavaScript, Core Java.</p> <p><strong>Domain:</strong> FACTS Controllers, Smart Grid Architecture, Security Infrastructure.</p> </div>;
+window.openHTMLModal('Technical Skills & Toolsets', html);
+};
+window.showConferencesModal = function() {
+let html = <div style="line-height: 1.6; padding: 5px;"> <p>"System knowledge for digital twin technologies in Industry 4.0 and Industry 5.0" (Nashik, 2026)</p> </div>;
+window.openHTMLModal('Conferences Attended Presentation Details', html);
+};
+window.handleReferencesTrigger = function() { alert("References Section Triggered."); };
+window.showLanguagesModal = function() { alert("Languages Modal Triggered."); };
+### 2. Matching Interactive HTML Grid Verification
+Ensure your buttons and grid layouts maps precisely to the window actions defined above:
+
+```html
+<!-- Interactive View Controls inside Profile Card -->
+<div class="toggle-container">
+    <button class="toggle-btn active" id="btn-academic" onclick="window.switchView('academic')">Academic View</button>
+    <button class="toggle-btn" id="btn-industry" onclick="window.switchView('industry')">Industry View</button>
+</div>
+
+<!-- Lock Container Placeholder Targets -->
+<div id="auth-gate" class="lock-container">
+    🔒 <strong>Locked Contact Credentials</strong>
+    <p>Please verify your profile to unlock secure contact notes and lists.</p>
+    <button onclick="window.loginWithGoogle()" class="lock-btn">Sign in with Google</button>
+</div>
+<div id="secure-contact-container" style="display:none;"></div>
+
+<!-- Cards with Modal Event Interceptors -->
+<div class="cv-grid-container">
+    <div class="hero-card" data-academic="true" data-industry="true">
+        <h2>Qualifications</h2>
+        <p>Details about degrees and university metrics.</p>
+        <button onclick="window.showQualificationsModal()" class="explore-btn">Explore More</button>
+    </div>
+    <div class="hero-card" data-academic="true" data-industry="false">
+        <h2>Experience (Teaching & Research)</h2>
+        <p>Academic profile tenure and instruction history.</p>
+        <button onclick="window.showExperienceModal()" class="explore-btn">Explore More</button>
+    </div>
+    <div class="hero-card" data-academic="false" data-industry="true">
+        <h2>Certifications & Badges</h2>
+        <p>Professional certifications and cloud badges.</p>
+        <button onclick="window.showCertificationsModal()" class="explore-btn">Explore More</button>
+    </div>
+</div>
