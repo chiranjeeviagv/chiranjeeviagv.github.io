@@ -274,6 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // 8. DYNAMIC INFO DISPLAY POPUPS: REFERENCES
 // ==========================================
 window.handleReferencesTrigger = function() {
+    // 1. Correctly check if user is signed into Firebase auth layer
+    const user = auth.currentUser;
+    if (!user) {
+        alert("🔒 Access Denied: Please sign in with your Google account to view professional references.");
+        return;
+    }
+
     let html = '';
 
     if (activeMatrixView === 'academic') {
@@ -334,7 +341,6 @@ window.handleReferencesTrigger = function() {
 
     window.openHTMLModal("Professional References", html);
 };
-
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
