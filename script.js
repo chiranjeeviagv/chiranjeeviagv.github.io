@@ -50,14 +50,19 @@ const securedContactHTML = `
         <ul style="list-style: none; padding: 0; line-height: 2; margin-bottom: 25px;">
             <li><strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
             <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
-            <li><strong>Mailing Address:</strong> H No 4-243 th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+            <li><strong>Google Scholar ID:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank" style="color:#007bff; text-decoration:none;">o0nn0UoAAAAJ</a></li>
+            <li><strong>ORCID ID:</strong> <a href="https://orcid.org" target="_blank" style="color:#007bff; text-decoration:none;">0000-0002-7895-407X</a></li>
+            <li><strong>Scopus Author ID:</strong> <a href="https://scopus.com" target="_blank" style="color:#007bff; text-decoration:none;">58316331900</a></li>
+            <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
+            <li><strong>UNIPUNE ID:</strong> 52092500466</li>
+            <li><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
+            <li><strong>Mailing Address:</strong> H No 4-243 4th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
         </ul>
         
         <h3 style="color:#28a745; margin-bottom:15px; border-top: 1px solid #eee; padding-top: 15px;">📥 Recruiter Messages Inbox</h3>
         <div id="inbox-messages-container" style="max-height: 300px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 20px;">
             <p style="color: #666; font-style: italic;">Loading messages stream...</p>
         </div>
-
         <button onclick="window.logoutUser()" class="explore-btn" style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px; cursor:pointer; font-weight:600;">Sign Out Account</button>
     </div>
 `;
