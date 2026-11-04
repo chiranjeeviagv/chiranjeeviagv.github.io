@@ -373,13 +373,18 @@ window.handleReferencesTrigger = function() {
 
     window.openHTMLModal("Professional References", html);
 };
-// Target the specific reference display content body node container inside your modal template UI layout
+    // Target the specific reference display content body node container inside your modal template UI layout
     const referenceContainer = document.getElementById('references-modal-content'); 
-    if (referenceContainer) {
+    const modalWrapper = document.getElementById('references-modal');
+
+    if (referenceContainer && modalWrapper) {
         referenceContainer.innerHTML = html;
+        // 💡 ADD THIS LINE: Explicitly flex-display your hidden modal overlay structure instantly
+        modalWrapper.style.display = 'flex'; 
     } else {
         console.error("Target content wrapper element inside your references popup modal container node structure was not found.");
     }
+
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
