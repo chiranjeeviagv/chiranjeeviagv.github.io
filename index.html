@@ -54,14 +54,29 @@
     </div>
 </main>
 
-<!-- Career Objective Block -->
+<!-- 1. Career Objective Block (Stays at the top) -->
 <section style="margin-bottom: 30px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
     <h2>Career Objective</h2>
     <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
     <p>An Electrical Engineer and Software professional , forever a student , dreaming for career in a nice environment which is tehnically and ethically developed.</p>
 </section>
 
-<div class="contact-section">
+<!-- 2. MOVED UPWARDS: Secure Contact Container / Locked Credentials Gate -->
+<section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
+    <div id="secure-contact-container" style="display: none; width: 100%;"></div>
+    <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
+        <h3>🔒 Locked Contact Credentials</h3>
+        <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
+        <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
+            Sign In with Google
+        </button>
+    </div>
+</section>
+
+<!-- [Note: Put your <div class="cv-grid-container"> row directly here if you want it between the credentials and the form] -->
+
+<!-- 3. MOVED DOWNWARDS: Send a Message Form (Now at the bottom) -->
+<div class="contact-section" style="margin-top: 30px;">
     <h2>📬 Send a Message</h2>
     <form id="contact-form">
         <div style="margin-bottom: 15px;">
@@ -82,19 +97,6 @@
     </form>
     <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
 </div>
-
-<!-- Secure Contact Container -->
-<section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
-    <div id="secure-contact-container" style="display: none; width: 100%;"></div>
-    <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
-        <h3>🔒 Locked Contact Credentials</h3>
-        <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
-        <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
-            Sign In with Google
-        </button>
-    </div>
-</section>
-
 <!-- Dynamic Information Grid Matrix -->
 <div class="cv-grid-container">
     <!-- BOTH VIEWS: Qualifications (Always Visible) -->
