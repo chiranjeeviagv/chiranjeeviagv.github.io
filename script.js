@@ -74,7 +74,7 @@ const securedContactHTML = `
 // ========================================================
 // 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO FETCH INBOX)
 // ========================================================
-// 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO TOGGLE VISIBILITY)
+// 4. AUTH STATE SUBSCRIPTION ENGINE (CLEANED & OPTIMIZED FOR 2-COLUMNS)
 onAuthStateChanged(auth, async (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
@@ -89,8 +89,8 @@ onAuthStateChanged(auth, async (user) => {
             window.loadRecruiterMessages();
         }
         
-        // Unhide the references box interface structure now that user is verified
-        if (referencesSection) referencesSection.style.setProperty('display', 'block', 'important');
+        // REMOVE custom block override so it adopts your 2-column stylesheet grid configuration
+        if (referencesSection) referencesSection.style.removeProperty('display');
         
         // Run your layout engine to properly display standard grid elements matching the view state
         window.switchView(activeMatrixView);
@@ -116,6 +116,7 @@ onAuthStateChanged(auth, async (user) => {
         });
     }
 });
+
 // ==========================================
 // 9. RECRUITER FORM PIPELINE & INBOX ENGINE
 // ==========================================
