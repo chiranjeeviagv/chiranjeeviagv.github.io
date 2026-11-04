@@ -74,28 +74,48 @@ const securedContactHTML = `
 // ========================================================
 // 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO FETCH INBOX)
 // ========================================================
+// 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO TOGGLE VISIBILITY)
 onAuthStateChanged(auth, async (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
+    const referencesSection = document.getElementById('references-section');
     
     if (user) {
+        // --- User is Logged In ---
         if (authGate) authGate.style.display = 'none';
         if (secureContact) {
             secureContact.innerHTML = securedContactHTML;
             secureContact.style.display = 'block';
-            
-            // Automatically fetch your private messages upon successful login
             window.loadRecruiterMessages();
         }
+        
+        // Unhide the references box interface structure now that user is verified
+        if (referencesSection) referencesSection.style.setProperty('display', 'block', 'important');
+        
+        // Run your layout engine to properly display standard grid elements matching the view state
+        window.switchView(activeMatrixView);
+        
     } else {
+        // --- User is Logged Out ---
         if (secureContact) {
             secureContact.style.display = 'none';
             secureContact.innerHTML = '';
         }
         if (authGate) authGate.style.display = 'block';
+        
+        // Re-hide sections completely when logged out
+        const nodesToHide = [
+            'references-section', 
+            'certifications-section', 
+            'skills-section', 
+            'languages-section'
+        ];
+        nodesToHide.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.setProperty('display', 'none', 'important');
+        });
     }
 });
-
 // ==========================================
 // 9. RECRUITER FORM PIPELINE & INBOX ENGINE
 // ==========================================
@@ -192,13 +212,15 @@ window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
     
-    // Target element IDs from your index layout grid
+    // Check authentication token state before opening layout switches
+    const isAuthenticated = auth.currentUser !== null;
+
     const elementsMap = {
-        'qualifications-section': ['academic', 'industry'],  // Visible in Both
-        'references-section': ['academic', 'industry'],      // Visible in Both
-        'certifications-section': ['industry'],              // Industry Only
-        'skills-section': ['industry'],                      // Industry Only
-        'languages-section': ['industry'],                   // Industry Only
+        'qualifications-section': ['academic', 'industry'],  // Always visible
+        'references-section': ['academic', 'industry'],      // Secure
+        'certifications-section': ['industry'],              // Secure (Industry Only)
+        'skills-section': ['industry'],                      // Secure (Industry Only)
+        'languages-section': ['industry'],                   // Secure (Industry Only)
         'experience-section': ['academic'],                  // Academic Only
         'publications-section': ['academic'],                // Academic Only
         'conferences-section': ['academic'],                 // Academic Only
@@ -206,19 +228,28 @@ window.switchView = function(viewType) {
         'expertise-section': ['academic']                    // Academic Only
     };
 
-    // Loop through the layout nodes to update visibility styles dynamically
+    // Elements requiring authentication
+    const protectedElements = ['references-section', 'certifications-section', 'skills-section', 'languages-section'];
+
     Object.keys(elementsMap).forEach(id => {
         const el = document.getElementById(id);
         if (el) {
+            // If it's a secure element and the user isn't logged in, force hide it
+            if (protectedElements.includes(id) && !isAuthenticated) {
+                el.style.setProperty('display', 'none', 'important');
+                return;
+            }
+
+            // Otherwise, show/hide normally based on the selected grid view tab
             if (elementsMap[id].includes(viewType)) {
-                el.style.display = 'block'; // Or 'flex' / 'grid' depending on your layout style
+                el.style.setProperty('display', 'block', 'important');
             } else {
-                el.style.display = 'none';
+                el.style.setProperty('display', 'none', 'important');
             }
         }
     });
 
-    // Optional: Visual active state toggles for your navigation buttons
+    // Handle button active states
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     if (btnAcademic && btnIndustry) {
