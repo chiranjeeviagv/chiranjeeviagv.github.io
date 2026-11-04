@@ -652,8 +652,7 @@ window.showExpertiseModal = function() {
            
 window.showExpertiseModal = function() {
     var html = `
-        <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto;">
-            <!-- Section 1: Areas of Interest -->
+                  <!-- Section 1: Areas of Interest -->
             <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Areas of Interest</h4>
             <ul style="padding-left: 20px; margin-bottom: 25px;">
                 <li style="margin-bottom: 6px;">Artificial Intelligence & Machine Learning</li>
