@@ -80,28 +80,6 @@
 </div>
 
 <!-- 4. SEND A MESSAGE FORM (Moved to the absolute bottom) -->
-<div class="contact-section" style="margin-top: 40px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
-    <h2>📬 Send a Message</h2>
-    <form id="contact-form">
-        <div style="margin-bottom: 15px;">
-            <input type="text" id="recruiter-name" placeholder="Your Name / Company" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <input type="email" id="recruiter-email" placeholder="Your Email Address" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <textarea id="recruiter-msg" placeholder="Type your message here..." rows="4" required 
-                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
-        </div>
-        <button type="submit" class="explore-btn" style="background:#007bff; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:600;">
-            Send Secure Message
-        </button>
-    </form>
-    <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
-</div>
-
     <!-- BOTH VIEWS: References (Always Visible, Internal Script Switches Content Data) -->
     <section id="references-section" class="hero-card">
         <h2>References</h2>
@@ -176,5 +154,28 @@
 
    
     <script type="module" src="script.js"></script>
+<div class="contact-section" style="margin-top: 40px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
+    <h2>📬 Send a Message</h2>
+    <form id="contact-form">
+        <div style="margin-bottom: 15px;">
+            <input type="text" id="recruiter-name" placeholder="Your Name / Company" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <input type="email" id="recruiter-email" placeholder="Your Email Address" required 
+                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <textarea id="recruiter-msg" placeholder="Type your message here..." rows="4" required 
+                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
+        </div>
+        <button type="submit" class="explore-btn" style="background:#007bff; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:600;">
+            Send Secure Message
+        </button>
+    </form>
+    <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
+</div>
+
+
 </body>
 </html>
