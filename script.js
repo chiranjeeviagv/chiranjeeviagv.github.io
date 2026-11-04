@@ -199,31 +199,49 @@ window.switchView = function(viewType) {
         const btnIndustry = document.getElementById('btn-industry');
         const cards = document.querySelectorAll('.hero-card');
 
-        function switchView(viewType) {
-            if (btnAcademic && btnIndustry) {
-                btnAcademic.classList.toggle('active', viewType === 'academic');
-                btnIndustry.classList.toggle('active', viewType === 'industry');
-            }
+           // --- Optimized Module-Safe Filtering Logic ---
+    function switchView(viewType) {
+        const btnAcademic = document.getElementById('btn-academic');
+        const btnIndustry = document.getElementById('btn-industry');
+        const cards = document.querySelectorAll('.hero-card');
 
-            cards.forEach(card => {
-                const displayOnAcademic = card.getAttribute('data-academic') === 'true';
-                const displayOnIndustry = card.getAttribute('data-industry') === 'true';
-
-                if (viewType === 'academic' && displayOnAcademic) {
-                    card.classList.remove('hidden');
-                } else if (viewType === 'industry' && displayOnIndustry) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+        // Handle visual button states securely
+        if (btnAcademic && btnIndustry) {
+            btnAcademic.classList.toggle('active', viewType === 'academic');
+            btnIndustry.classList.toggle('active', viewType === 'industry');
         }
 
-        if (btnAcademic) btnAcademic.addEventListener('click', () => switchView('academic'));
-        if (btnIndustry) btnIndustry.addEventListener('click', () => switchView('industry'));
+        // Toggle card matrices based on strict attribute logic
+        cards.forEach(card => {
+            const displayOnAcademic = card.getAttribute('data-academic') === 'true';
+            const displayOnIndustry = card.getAttribute('data-industry') === 'true';
 
-        // Initialize default view configuration
+            if (viewType === 'academic' && displayOnAcademic) {
+                card.classList.remove('hidden');
+            } else if (viewType === 'industry' && displayOnIndustry) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // --- DOM Init Lifecycle Hook ---
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize default view safely
         switchView('academic');
+
+        // Explicitly attach click listeners to bypass the module boundary
+        const btnAcademic = document.getElementById('btn-academic');
+        const btnIndustry = document.getElementById('btn-industry');
+
+        if (btnAcademic) {
+            btnAcademic.addEventListener('click', () => switchView('academic'));
+        }
+        if (btnIndustry) {
+            btnIndustry.addEventListener('click', () => switchView('industry'));
+        }
+    });
 
 
         // --- 2. Existing Messaging Form Logic ---
