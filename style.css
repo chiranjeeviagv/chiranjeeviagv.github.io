@@ -395,3 +395,29 @@ body {
     background-color: #ffffff;
 }
 
+css
+body {
+    /* Replace 'your-background-image.jpg' with your actual image path or URL */
+    background-image: url('background.jpg'); 
+    
+    /* Keeps the background image locked in place so content scrolls over it smoothly */
+    background-attachment: fixed; 
+    
+    /* Scales the image evenly to ensure it fills the entire viewport width and height */
+    background-size: cover; 
+    
+    /* Centers the background image perfectly on the screen */
+    background-position: center center; 
+    
+    /* Prevents the image from repeating like a tile grid pattern */
+    background-repeat: no-repeat; 
+    
+    /* Fallback background color if the image fails to load or download */
+    background-color: #f7fafc; 
+    
+    /* Keep your existing spacing parameters intact */
+    margin: 0;
+    padding: 20px;
+}
+Use code with caution.
+
