@@ -709,7 +709,52 @@ window.showConferencesModal = function() {
     `;
     window.openHTMLModal('Conferences Attended Presentation Details', html);
 };
-window.handleReferencesTrigger = function() { alert("References window section placeholder."); };
+// ==========================================
+// 8. DYNAMIC INFO DISPLAY POPUPS: REFERENCES
+// ==========================================
+window.handleReferencesTrigger = function() {
+    let html = '';
+
+    if (activeMatrixView === 'academic') {
+        html = `
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+                <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. [Academic Name]</strong><br>
+                    <span>Professor & Head of Department (EEE)</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Vignan's Institute of Information Technology / Affiliated University</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: hod.eee@viit.edu.in</span>
+                </div>
+                <div style="background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Prof. [Research Reference]</strong><br>
+                    <span>Senior Research Supervisor</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">High Voltage Engineering Lab Expert</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: research.lead@university.edu</span>
+                </div>
+            </div>
+        `;
+    } else if (activeMatrixView === 'industry') {
+        html = `
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Mr. [Industry Contact]</strong><br>
+                    <span>Project Director / Software Architect</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Full-Stack Applications Division</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: industry.manager@corporate.com</span>
+                </div>
+                <div style="background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Ms. [Engineering Reference]</strong><br>
+                    <span>Technical Engineering Lead</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Smart Grid Solutions & AI Deployment</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Email: tech.lead@firm.com</span>
+                </div>
+            </div>
+        `;
+    }
+
+    window.openHTMLModal("Professional References", html);
+};
 window.showLanguagesModal = function() {
     var html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
