@@ -248,12 +248,17 @@ window.showQualificationsModal = function() {
 window.showAcademicStrengthsModal = function() {
     let html = `
         <ul style="font-family: sans-serif; line-height: 1.8; padding-left: 20px;">
-            <li style="margin-bottom: 8px;"><strong>9+ Years Higher Education Tenure:</strong> Extensive delivery of core Electrical engineering branches.</li>
-            <li style="margin-bottom: 8px;"><strong>OBE Systems Management:</strong> Advanced mapping workflows for NAAC and NBA file audits.</li>
+            <li style="margin-bottom: 8px;"><strong>9+ Years Higher Education Tenure:</strong> Extensive experience (post-M.Tech) teaching core Electrical & Electronics Engineering branches across diverse regional systems.</li>
+            <li style="margin-bottom: 8px;"><strong>OBE & Pedagogy Mastery:</strong> Deep knowledge of Outcome-Based Education (OBE) frameworks and interactive teaching-learning methodologies.</li>
+            <li style="margin-bottom: 8px;"><strong>Accreditation & Administration:</strong> Proven hands-on track record managing Department Examination branch activities and preparing documentation for NAAC/NBA audits.</li>
+            <li style="margin-bottom: 8px;"><strong>Student Mentorship:</strong> Recognized ability to effectively guide, motivate, and elevate student performance.</li>
+            <li style="margin-bottom: 8px;"><strong>Core Professional Traits:</strong> Possess excellent verbal/written communication, problem analysis, and rapid grasping skills with a highly punctual, self-motivated attitude.</li>
+            <li style="margin-bottom: 8px;"><strong>Operational Efficiency:</strong> Strong organizational and time-management capabilities to execute departmental tasks with minimal supervision.</li>
         </ul>
     `;
     window.openHTMLModal("Academic Strengths & Traits", html);
 };
+
 
 window.showCertificationsModal = function() {
     let html = `
