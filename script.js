@@ -320,13 +320,13 @@ window.handleReferencesTrigger = function() {
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
                 <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4>
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. K Srikanth , Gayatri Vidya parishad College of engineering(A), Visakhapatnam, Mobile-9440897892 </strong><br>
-                    <span>Professor , Department of EEE</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A)</span><br>
+                    <strong>Dr. K Srikanth</strong><br>
+                    <span>Professor, Department of EEE</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9440897892</span>
                 </div>
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. K Prasad  </strong><br>
+                    <strong>Dr. K Prasad</strong><br>
                     <span>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram</span><br>
                     <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
@@ -334,7 +334,7 @@ window.handleReferencesTrigger = function() {
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
                     <strong>Dr. A Ramesh</strong><br>
                     <span>Professor, Electrical and Electronics Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Aditya University,Surampalem, Kakinada</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Aditya University, Surampalem, Kakinada</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849219973</span>
                 </div>
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
@@ -355,10 +355,10 @@ window.handleReferencesTrigger = function() {
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
                 <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Professor M Ramalingaraju </strong><br>
-                    <span>Professor, Electrical and Electronics Engineering,Former Vice Chancellor</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">JNTUK Kakinada</span><br>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Professor M Ramalingaraju</strong><br>
+                    <span>Professor, Electrical and Electronics Engineering, Former Vice Chancellor, JNTUK</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">JNTUK College of engineering, kakinada</span><br>
                     <span style="font-size: 0.85rem; color: #666;"></span>
                 </div>
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
@@ -371,19 +371,21 @@ window.handleReferencesTrigger = function() {
         `;
     }
 
-    window.openHTMLModal("Professional References", html);
-};
-    // Target the specific reference display content body node container inside your modal template UI layout
-    const referenceContainer = document.getElementById('references-modal-content'); 
-    const modalWrapper = document.getElementById('references-modal');
-
-    if (referenceContainer && modalWrapper) {
-        referenceContainer.innerHTML = html;
-        // 💡 ADD THIS LINE: Explicitly flex-display your hidden modal overlay structure instantly
-        modalWrapper.style.display = 'flex'; 
+    // Call open layout engine if defined, otherwise target modal tags directly
+    if (typeof window.openHTMLModal === 'function') {
+        window.openHTMLModal("Professional References", html);
     } else {
-        console.error("Target content wrapper element inside your references popup modal container node structure was not found.");
+        const referenceContainer = document.getElementById('references-modal-content'); 
+        const modalWrapper = document.getElementById('references-modal');
+
+        if (referenceContainer && modalWrapper) {
+            referenceContainer.innerHTML = html;
+            modalWrapper.style.setProperty('display', 'flex', 'important'); 
+        } else {
+            console.error("Target content placeholder matching 'references-modal-content' layout was not discovered in DOM tree elements.");
+        }
     }
+}; // 💡 The function container now wraps all operational logic safely inside
 
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
