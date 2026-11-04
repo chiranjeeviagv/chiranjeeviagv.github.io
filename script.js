@@ -192,95 +192,44 @@ window.switchView = function(viewType) {
     }
 };
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- 1. View Toggling Logic ---
-        const btnAcademic = document.getElementById('btn-academic');
-        const btnIndustry = document.getElementById('btn-industry');
-        const cards = document.querySelectorAll('.hero-card');
+// Handle client messaging form inputs organically
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
 
-           // --- Optimized Module-Safe Filtering Logic ---
-    function switchView(viewType) {
-        const btnAcademic = document.getElementById('btn-academic');
-        const btnIndustry = document.getElementById('btn-industry');
-        const cards = document.querySelectorAll('.hero-card');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('recruiter-name').value;
+            const email = document.getElementById('recruiter-email').value;
+            const message = document.getElementById('recruiter-msg').value;
 
-        // Handle visual button states securely
-        if (btnAcademic && btnIndustry) {
-            btnAcademic.classList.toggle('active', viewType === 'academic');
-            btnIndustry.classList.toggle('active', viewType === 'industry');
-        }
+            statusDiv.style.display = 'block';
+            statusDiv.style.color = '#333';
+            statusDiv.textContent = "Sending message securely...";
 
-        // Toggle card matrices based on strict attribute logic
-        cards.forEach(card => {
-            const displayOnAcademic = card.getAttribute('data-academic') === 'true';
-            const displayOnIndustry = card.getAttribute('data-industry') === 'true';
+            try {
+                // Safely write document payload node straight into Firestore rules block
+                await addDoc(collection(db, "messages"), {
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: new Date() // Server rules will extract tracking benchmarks
+                });
 
-            if (viewType === 'academic' && displayOnAcademic) {
-                card.classList.remove('hidden');
-            } else if (viewType === 'industry' && displayOnIndustry) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
+                statusDiv.style.color = '#28a745';
+                statusDiv.textContent = "✓ Message sent successfully! Thank you.";
+                contactForm.reset();
+            } catch (error) {
+                console.error("Submission blocked:", error);
+                statusDiv.style.color = '#dc3545';
+                statusDiv.textContent = "⚠️ Failed to transmit data packet. Try again later.";
             }
         });
     }
+});
 
-    // --- DOM Init Lifecycle Hook ---
-    document.addEventListener('DOMContentLoaded', () => {
-        // Initialize default view safely
-        switchView('academic');
-
-        // Explicitly attach click listeners to bypass the module boundary
-        const btnAcademic = document.getElementById('btn-academic');
-        const btnIndustry = document.getElementById('btn-industry');
-
-        if (btnAcademic) {
-            btnAcademic.addEventListener('click', () => switchView('academic'));
-        }
-        if (btnIndustry) {
-            btnIndustry.addEventListener('click', () => switchView('industry'));
-        }
-    });
-
-
-        // --- 2. Existing Messaging Form Logic ---
-        const contactForm = document.getElementById('contact-form');
-        const statusDiv = document.getElementById('form-status');
-
-        if (contactForm && statusDiv) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('recruiter-name').value;
-                const email = document.getElementById('recruiter-email').value;
-                const message = document.getElementById('recruiter-msg').value;
-
-                statusDiv.style.display = 'block';
-                statusDiv.style.color = '#333';
-                statusDiv.textContent = "Sending message securely...";
-
-                try {
-                    // Writes document payload node straight into Firestore
-                    await addDoc(collection(db, "messages"), {
-                        name: name,
-                        email: email,
-                        message: message,
-                        timestamp: new Date()
-                    });
-
-                    statusDiv.style.color = '#28a745';
-                    statusDiv.textContent = "✓ Message sent successfully! Thank you.";
-                    contactForm.reset();
-                } catch (error) {
-                    console.error("Submission blocked:", error);
-                    statusDiv.style.color = '#dc3545';
-                    statusDiv.textContent = "⚠️ Failed to transmit data packet. Try again later.";
-                }
-            });
-        }
-    });
-</script>
 
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
