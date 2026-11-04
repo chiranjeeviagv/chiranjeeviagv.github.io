@@ -213,25 +213,35 @@ window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
     
-    // 💡 REMOVED: Immediate auth.currentUser check that hides sections prematurely during view swaps
+    // Check authentication token state before opening layout switches
+    const isAuthenticated = auth.currentUser !== null;
 
     const elementsMap = {
         'qualifications-section': ['academic', 'industry'],  // Always visible
-        'references-section': ['academic', 'industry'],      // Controlled via trigger authentication instead
-        'certifications-section': ['industry'],              
-        'skills-section': ['industry'],                      
-        'languages-section': ['industry'],                   
-        'experience-section': ['academic'],                  
-        'publications-section': ['academic'],                
-        'conferences-section': ['academic'],                 
-        'fdp-section': ['academic'],                         
-        'expertise-section': ['academic']                    
+        'references-section': ['academic', 'industry'],      // Secure
+        'certifications-section': ['industry'],              // Secure (Industry Only)
+        'skills-section': ['industry'],                      // Secure (Industry Only)
+        'languages-section': ['industry'],                   // Secure (Industry Only)
+        'experience-section': ['academic'],                  // Academic Only
+        'publications-section': ['academic'],                // Academic Only
+        'conferences-section': ['academic'],                 // Academic Only
+        'fdp-section': ['academic'],                         // Academic Only
+        'expertise-section': ['academic']                    // Academic Only
     };
+
+    // Elements requiring authentication
+    const protectedElements = ['references-section', 'certifications-section', 'skills-section', 'languages-section'];
 
     Object.keys(elementsMap).forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-            // Show/hide normally based on the selected grid view tab selection
+            // If it's a secure element and the user isn't logged in, force hide it
+            if (protectedElements.includes(id) && !isAuthenticated) {
+                el.style.setProperty('display', 'none', 'important');
+                return;
+            }
+
+            // Otherwise, show/hide normally based on the selected grid view tab
             if (elementsMap[id].includes(viewType)) {
                 el.style.setProperty('display', 'block', 'important');
             } else {
@@ -240,7 +250,7 @@ window.switchView = function(viewType) {
         }
     });
 
-    // Handle button active classes cleanly
+    // Handle button active states
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     if (btnAcademic && btnIndustry) {
@@ -295,9 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ==========================================
 // 8. DYNAMIC INFO DISPLAY POPUPS: REFERENCES
 // ==========================================
-// ==========================================
-// 8. DYNAMIC INFO DISPLAY POPUPS: REFERENCES
-// ==========================================
 window.handleReferencesTrigger = function() {
     // 1. Correctly check if user is signed into Firebase auth layer
     const user = auth.currentUser;
@@ -309,57 +316,63 @@ window.handleReferencesTrigger = function() {
     let html = '';
 
     if (activeMatrixView === 'academic') {
-        html = 
-            "🎓 ACADEMIC MENTORS & GUIDES\n\n" +
-            "• DR. K SRIKANTH\n" +
-            "  Professor, Department of EEE\n" +
-            "  Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam\n" +
-            "  Mobile: 9440897892\n\n" +
-            "• DR. K PRASAD\n" +
-            "  Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram\n" +
-            "  Director, Gayatri degree college, Vizianagaram\n" +
-            "  Mobile: 9912340292\n\n" +
-            "• DR. A RAMESH\n" +
-            "  Professor, Electrical and Electronics Engineering\n" +
-            "  Aditya University, Surampalem, Kakinada\n" +
-            "  Mobile: 9849219973\n\n" +
-            "• DR. A NAGA JYOTHI\n" +
-            "  Professor, Electronics and Communication Engineering\n" +
-            "  Vignan Institute of Information Technology, Gajuwaka\n" +
-            "  Mobile: 9938121200\n\n" +
-            "• DR. G SRIDEVI\n" +
-            "  Professor, Electronics and Communication Engineering\n" +
-            "  Aditya University, Kakinada\n" +
-            "  Mobile: 9848141867";
+        html = `
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+                <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. K Srikanth , Gayatri Vidya parishad College of engineering(A), Visakhapatnam, Mobile-9440897892 </strong><br>
+                    <span>Professor , Department of EEE</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A)</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9440897892</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. K Prasad  </strong><br>
+                    <span>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. A Ramesh</strong><br>
+                    <span>Professor, Electrical and Electronics Engineering</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Aditya University,Surampalem, Kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849219973</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. A NagaJyothi</strong><br>
+                    <span>Professor, Electronics and Communication Engineering</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Vignan Institute of information Technology, Gajuwaka</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9938121200</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. G Sridevi</strong><br>
+                    <span>Professor, Electronics and Communication Engineering</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Aditya University, kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9848141867</span>
+                </div>
+            </div>
+        `;
     } else if (activeMatrixView === 'industry') {
-        html = 
-            "💼 INDUSTRY LEADS & TECHNICAL REFERRALS\n\n" +
-            "• PROFESSOR M RAMALINGARAJU\n" +
-            "  Professor, Electrical and Electronics Engineering, Former Vice Chancellor\n" +
-            "  JNTUK College of Engineering, Kakinada\n\n" +
-            "• MD. FAHEEM HUL HAQ\n" +
-            "  Director\n" +
-            "  Fliv Developers, Hyderabad\n" +
-            "  Mobile: 9849022155";
+        html = `
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Professor M Ramalingaraju </strong><br>
+                    <span>Professor, Electrical and Electronics Engineering,Former Vice Chancellor</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">JNTUK Kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;"></span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Md. Faheem Hul Haq</strong><br>
+                    <span>Director</span><br>
+                    <span style="font-size: 0.9rem; color: #555;">Fliv developers, hyderabad</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">Mobile Number-9849022155</span>
+                </div>
+            </div>
+        `;
     }
 
-    // Direct Injection to bypass openHTMLModal tag stripping filters
-    const referenceContainer = document.getElementById('references-modal-content'); 
-    const modalWrapper = document.getElementById('references-modal');
-
-    if (referenceContainer && modalWrapper) {
-        // Use white-space preserving formatting
-        referenceContainer.setAttribute('style', 'white-space: pre-wrap; font-family: sans-serif; line-height: 1.6; padding: 10px; text-align: left; color: #333;');
-        referenceContainer.innerText = html;
-        modalWrapper.style.setProperty('display', 'flex', 'important'); 
-    }
-    
-    // Call framework engine modal if it handles plain strings
-    if (typeof window.openHTMLModal === 'function') {
-        window.openHTMLModal("Professional References", html.replace(/\n/g, "<br>"));
-    }
+    window.openHTMLModal("Professional References", html);
 };
-
 // ==========================================
 // 8. STATIC INFO DISPLAY POPUPS
 // ==========================================
