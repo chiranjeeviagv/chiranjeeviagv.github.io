@@ -93,7 +93,6 @@ onAuthStateChanged(auth, async (user) => {
 window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Active view state:", viewType);
-
     const elementsMap = {
       'qualifications-section': ['academic', 'industry']  
       'publications-section': ['academic', 'industry'],
