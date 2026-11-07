@@ -212,7 +212,7 @@ body {
     gap: 24px;
 }
 
-.cv-grid-container > butch, 
+/* Fixed: Removed the corrupted element token */
 .cv-grid-container > section {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
