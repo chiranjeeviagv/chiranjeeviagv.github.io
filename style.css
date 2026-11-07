@@ -9,7 +9,7 @@
 
 body {
     /* Swap 'background.jpg' out with your local asset path or an active link */
-    background-image: url('background.jpg');
+    background-image: url('https://github.com/chiranjeeviagv/chiranjeeviagv.github.io/blob/main/background.jpg');
     
     /* Ensures the background image stays fixed in place while you scroll the content */
     background-attachment: fixed;
