@@ -48,8 +48,8 @@
         
         <div class="toggle-container">
             <!-- Removed the inline onclick handlers -->
-            <button id="btn-academic" class="toggle-btn active">Academic View</button>
-            <button id="btn-industry" class="toggle-btn">Industry View</button>
+            <button id="btn-academic" class="toggle-btn">Academic View</button>
+            <button id="btn-industry" class="toggle-btn active">Industry View</button>
         </div>
     </div>
 </main>
@@ -60,8 +60,8 @@
     <div style="flex: 1; min-width: 280px;">
         <h2 style="margin-top: 0;">Career Objective</h2>
         <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
-        <p style="line-height: 1.6; color: #4a5568; margin-bottom: 0;">
-            An Electrical Engineer and Software professional, forever a student, dreaming for a career in a nice environment which is technically and ethically developed.
+        <p style="line-height: 2; color: #4a5568; margin-bottom: 0;">
+            Full-Stack Software & AI Developer with a strong foundation in Electrical Engineering, Python automation, and JavaScript web development. Experienced in building scalable applications, integrating AI workflows, and solving complex analytical problems. Proven ability to translate technical research into production-ready software solutions while collaborating across multidisciplinary teams.
         </p>
     </div>
     
@@ -148,20 +148,19 @@
         <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
         <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
     </section>
-
+      <!-- INDUSTRY ONLY: Technical Skills (Hidden by Default) -->
+    <section id="skills-section" class="hero-card" style="display: none;">
+        <h2>Technical Skills</h2>
+        <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
+        <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
+    </section>
     <!-- INDUSTRY ONLY: Certifications & Badges (Hidden by Default) -->
     <section id="certifications-section" class="hero-card" style="display: none;">
         <h2>Certifications & Badges</h2>
         <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
         <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
     </section>
-
-    <!-- INDUSTRY ONLY: Technical Skills (Hidden by Default) -->
-    <section id="skills-section" class="hero-card" style="display: none;">
-        <h2>Technical Skills</h2>
-        <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
-        <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
-    </section>
+  
 
     <!-- INDUSTRY ONLY: Languages Known (Hidden by Default) -->
     <section id="languages-section" class="hero-card" style="display: none;">
