@@ -94,19 +94,18 @@ window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Active view state:", viewType);
     const elementsMap = {
-      'qualifications-section': ['academic', 'industry']  
-      'publications-section': ['academic', 'industry'],
+        'qualifications-section': ['academic', 'industry'], //  Fixed: Added comma
+        'publications-section': ['academic', 'industry'],
         'experience-section': ['academic', 'industry'],
         'expertise-section': ['academic', 'industry'],
-        'projects-section': ['industry'],                    
-        'skills-section': ['industry'],                      
-        'certifications-section': ['industry'],              
-        'languages-section': ['industry'],                   
-        'references-section': ['academic'],                  
-        'conferences-section': ['academic'],                 
-        'fdp-section': ['academic']                         
+        'projects-section': ['industry'],
+        'skills-section': ['industry'],
+        'certifications-section': ['industry'],
+        'languages-section': ['industry'],
+        'references-section': ['academic'],
+        'conferences-section': ['academic'],
+        'fdp-section': ['academic']
     };
-
     const user = auth.currentUser;
 
     Object.keys(elementsMap).forEach(id => {
