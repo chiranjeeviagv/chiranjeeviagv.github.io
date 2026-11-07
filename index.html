@@ -5,30 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G V Chiranjeevi Adari - Professional CV</title>
-    <!-- External stylesheet attachment point -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           CORE FALLBACK STYLES (Keeps layout clean if external style.css doesn't load)
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; font-family: system-ui, -apple-system, sans-serif; }
+        .page-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .main-header { text-align: center; padding: 30px 20px; margin-bottom: 20px; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; position: relative; }
+        .subtitle-text { font-style: italic; color: #666; margin-bottom: 15px; }
+        .view-toggle-container { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
+        .toggle-btn { padding: 10px 24px; font-size: 0.95rem; font-weight: 600; cursor: pointer; border: 2px solid #007bff; background-color: transparent; color: #007bff; border-radius: 25px; transition: all 0.25s ease; }
+        .toggle-btn.active, .toggle-btn:hover { background-color: #007bff; color: white; }
+        .profile-hero-row { display: flex; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+        .hero-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); flex: 1; }
+        .cv-grid-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 30px; }
+        .cv-grid-container > section { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); }
+        .cv-grid-container h2 { color: #1a1a1a; font-size: 1.35rem; margin-bottom: 10px; border-left: 4px solid #007bff; padding-left: 10px; }
+        .cv-grid-container p { color: #4a5568; font-size: 0.95rem; margin-bottom: 15px; }
+        .explore-btn { padding: 8px 18px; font-size: 0.88rem; color: #007bff; background: #e6f2ff; border: 1px solid #b3d7ff; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s ease; display: inline-block; }
+        .explore-btn:hover { background: #007bff; color: white; }
+        .hidden-layout-node { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+        .message-form-container { background: white; border: 1px solid #e2e8f0; padding: 24px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 30px; }
+        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
+        .form-group label { font-size: 0.9rem; font-weight: 600; color: #4a5568; }
+        .form-group input, .form-group textarea { padding: 10px; font-size: 0.95rem; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit; }
+        @media (max-width: 992px) { .profile-hero-row { flex-direction: column; } }
+        @media (max-width: 768px) { .cv-grid-container { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
 
 <div class="page-container">
-    <!-- Header Control Dashboard -->
+    
+    <!-- 1. HEADER SECTION & CONTROL SWITCHES -->
     <header class="main-header">
         <h1>G V Chiranjeevi Adari</h1>
         <p class="subtitle-text">Electrical Engineer & Software Professional</p>
         
         <div class="view-toggle-container">
-            <button id="btn-academic" class="toggle-btn">Academic View</button>
-            <button id="btn-industry" class="toggle-btn active">Industry View</button>
+            <button id="btn-academic" class="toggle-btn active">Academic View</button>
+            <button id="btn-industry" class="toggle-btn">Industry View</button>
         </div>
-
-        <a href="#" class="download-link-wrapper">
-            <button class="download-pdf-btn">Download PDF CV</button>
-        </a>
     </header>
 
-    <!-- Profile Hero Row Container Layout Matrix -->
+    <!-- 2. HERO ROW: OBJECTIVE & SECURE GATE -->
     <div class="profile-hero-row">
-        <!-- Career Objective Block -->
+        
+        <!-- Career Objective Description -->
         <section id="objective" class="hero-card">
             <h2>Career Objective</h2>
             <p style="margin-top: 12px; color: #4a5568;">
@@ -36,128 +60,84 @@
             </p>
         </section>
         
-        <!-- Secure Contact Gate Block -->
-        <section id="contact-info" class="hero-card">
+        <!-- Secure Access Authentication Block -->
+        <section id="contact-info" class="hero-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 250px;">
             <div id="secure-contact-container" style="display: none; width: 100%;"></div>
             <div id="auth-gate" style="width: 100%; text-align: center;">
-                <h3>🔒 Locked Contact Credentials</h3>
-                <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
-                <button id="google-login-btn" class="explore-btn" style="margin: 0 auto; display: block;">
+                <h3 style="margin-bottom: 8px;">🔒 Locked Contact Credentials</h3>
+                <p style="margin-bottom: 15px; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
+                <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
                     Sign In with Google
                 </button>
             </div>
         </section>
+
     </div>
 
-    <!-- CV Section Content Dashboard Grid -->
+    <!-- 3. INTERACTIVE DASHBOARD SECTION GRID -->
     <div class="cv-grid-container">
         
-        <section id="expertise-section">
-            <h2>Core Expertise</h2>
-            <p>Analytical systems processing, electrical network designs, and grid controllers.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Core Expertise')">Explore More</button>
-        </section>
-
-        <section id="skills-section">
-            <h2>Technical Skills 🔒</h2>
-            <p>Programming frameworks, automation stacks, and full-stack runtime systems.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Technical Skills')">Explore More</button>
-        </section>
-
-        <section id="experience-section">
-            <h2>Experience Timeline</h2>
-            <p>Academic teaching milestones, engineering lectureships, and industry service records.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Experience Timeline')">Explore More</button>
-        </section>
-
-        <section id="projects-section">
-            <h2>Project Portfolio</h2>
-            <p>Production software projects, AI workflows, and automation system deployments.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Project Portfolio')">Explore More</button>
+        <!-- Academic View Exclusive / Shared Nodes -->
+        <section id="references-section">
+            <h2>References 🔒</h2>
+            <p>Verified contact nodes from professional academic mentors and industry leads.</p>
+            <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
         </section>
 
         <section id="publications-section">
             <h2>Publications</h2>
-            <p>List of international journals, conference papers, and academic research publications.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Publications')">Explore More</button>
+            <p>List of journals, conference papers, and academic research publications.</p>
+            <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
         </section>
 
-        <section id="certifications-section">
-            <h2>Certifications 🔒</h2>
-            <p>Verified professional training and validation parameters from cloud & hardware leads.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Certifications')">Explore More</button>
+        <section id="experience-section">
+            <h2>Experience Timeline</h2>
+            <p>Academic teaching milestones, engineering lectureships, and university service records.</p>
+            <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
         </section>
 
-        <section id="languages-section">
-            <h2>Languages 🔒</h2>
-            <p>Linguistic capacities for multi-regional corporate team communications.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Languages')">Explore More</button>
-        </section>
-
-        <section id="references-section">
-            <h2>References</h2>
-            <p>Verified contact nodes from professional academic mentors and industry leads.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('References')">Explore More</button>
+        <section id="expertise-section">
+            <h2>Subject Expertise</h2>
+            <p>Advanced domain curriculum fields handled including High Voltage Engineering and Control Systems.</p>
+            <button class="explore-btn" onclick="window.showExpertiseModal()">Explore More</button>
         </section>
 
         <section id="conferences-section">
-            <h2>Conferences</h2>
-            <p>Symposium attendance, global presentation modules, and research speaking panels.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('Conferences')">Explore More</button>
+            <h2>Conferences Attended</h2>
+            <p>List of papers presented at national and international engineering conferences.</p>
+            <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
         </section>
 
         <section id="fdp-section">
-            <h2>FDP Programs</h2>
-            <p>Faculty development workshops, institutional training courses, and curriculum labs.</p>
-            <button class="explore-btn" onclick="window.handleExplorationTrigger('FDP Programs')">Explore More</button>
+            <h2>Skill Development (FDPs)</h2>
+            <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
+            <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
+        </section>
+
+        <!-- Industry View Exclusive / Secure Nodes -->
+        <section id="skills-section">
+            <h2>Technical Skills 🔒</h2>
+            <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
+            <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
+        </section>
+
+        <section id="certifications-section">
+            <h2>Certifications & Badges 🔒</h2>
+            <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
+            <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
+        </section>
+
+        <section id="projects-section">
+            <h2>Projects & Live Applications</h2>
+            <p>Deployed full-stack web platforms (College CMS, Hospital System), Python/Streamlit apps, and AI control models.</p>
+            <button class="explore-btn" onclick="window.showProjectsModal()">Explore More</button>
+        </section>
+
+        <section id="languages-section">
+            <h2>Languages Known 🔒</h2>
+            <p>Proficiency in languages for global academic research and corporate team management.</p>
+            <button class="explore-btn" onclick="window.showLanguagesModal()">Explore More</button>
         </section>
 
     </div>
 
-    <!-- Unified Popup Global Modal Overlay Architecture Layer -->
-    <div id="global-modal-overlay" class="modal-overlay" style="display: none;">
-        <div class="modal-content">
-            <div class="modal-header-row">
-                <h2 id="modal-title-target">Modal Content</h2>
-                <span class="modal-close-x" id="modal-close-trigger-x">&times;</span>
-            </div>
-            <div id="modal-body-target"></div>
-            <button id="close-modal-btn">Close Window</button>
-        </div>
-    </div>
-</div>
-
-<!-- Attach your logic infrastructure below -->
-<script type="module" src="app.js"></script>
-</body>
-</html>
-
-<script type="module" src="script.js"></script>
-
-
-<!-- 4. RECRUITER CLIENT MESSAGING FORM (ABS BOTTOM) -->
-<div class="contact-section" style="margin-top: 40px; padding: 20px; background: var(--light); border-radius: 8px; border: 1px solid var(--border);">
-    <h2>📬 Send a Message</h2>
-    <form id="contact-form">
-        <div style="margin-bottom: 15px;">
-            <input type="text" id="recruiter-name" placeholder="Your Name / Company" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <input type="email" id="recruiter-email" placeholder="Your Email Address" required 
-                   style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <textarea id="recruiter-msg" placeholder="Type your message here..." rows="4" required 
-                      style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; resize: vertical;"></textarea>
-        </div>
-        <button type="submit" class="explore-btn" style="background:#007bff; color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer; font-weight:600;">
-            Send Secure Message
-        </button>
-    </form>
-    <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
-</div>
-
-
-</body>
-</html>
