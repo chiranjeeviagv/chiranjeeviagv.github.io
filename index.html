@@ -140,4 +140,29 @@
         </section>
 
     </div>
+    <div class="message-form-container">
+        <h2 style="margin-bottom: 10px; color: #1a1a1a;">📬 Send a Message</h2>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">Are you looking to schedule an interview or discuss a project? Drop a secure message directly into my database inbox below.</p>
+        
+        <form id="recruiter-contact-form" onsubmit="window.handleMessageSubmission(event)">
+            <div class="form-group">
+                <label for="recruiter-name">Full Name / Company Name</label>
+                <input type="text" id="recruiter-name" required placeholder="e.g. John Doe / Tech Corp">
+            </div>
+            
+            <div class="form-group">
+                <label for="recruiter-email">Contact Email Address</label>
+                <input type="email" id="recruiter-email" required placeholder="e.g. johndoe@company.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="recruiter-msg">Message / Offer Terms</label>
+                <textarea id="recruiter-msg" rows="4" required placeholder="Type your message description here..."></textarea>
+            </div>
+            
+            <button type="submit" class="explore-btn" style="background: #28a745; color: white; border: none; margin-top: 5px;">
+                Send Secure Message
+            </button>
+        </form>
+    </div>
 
