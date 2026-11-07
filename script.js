@@ -438,42 +438,97 @@ window.showCertificationsModal = function() {
 };
 
 window.showExpertiseModal = function() {
-    var html = `
+    const html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto;">
-            <!-- Section 1: Areas of Interest -->
-            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Areas of Interest</h4>
-            <ul style="padding-left: 20px; margin-bottom: 25px;">
-                <li style="margin-bottom: 6px;">Artificial Intelligence & Machine Learning</li>
-                <li style="margin-bottom: 6px;">Cyber Security</li>
-                <li style="margin-bottom: 6px;">Electromagnetics</li>
-                <li style="margin-bottom: 6px;">Microcontrollers & Digital Logic Design</li>
-                <li style="margin-bottom: 6px;">Non-Conventional Sources of Energy</li>
+            
+            <!-- Section 1: Core Technical Domains -->
+            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🎯 Core Technical Domains</h4>
+            <ul style="padding-left: 20px; margin-bottom: 22px;">
+                <li style="margin-bottom: 6px;"><strong>Artificial Intelligence & Machine Learning:</strong> Applied AI techniques, expert systems, and intelligent web integration</li>
+                <li style="margin-bottom: 6px;"><strong>Software Engineering & Testing:</strong> Python development, software quality assurance, and discrete logic</li>
+                <li style="margin-bottom: 6px;"><strong>Cybersecurity & Systems Architecture:</strong> Network security principles, digital logic, and secure infrastructure</li>
+                <li style="margin-bottom: 6px;"><strong>Embedded Systems & Industrial Control:</strong> Microcontrollers, digital controllers, and automated control systems</li>
+                <li style="margin-bottom: 6px;"><strong>Smart Grids & Clean Energy Tech:</strong> Power system analysis, protection, and renewable energy systems</li>
             </ul>
 
-            <!-- Section 2: Courses Handled Grid -->
-            <h4 style="color: #6f42c1; margin-bottom: 12px; border-bottom: 2px solid #6f42c1; padding-bottom: 4px;">📖 Courses Handled</h4>
+            <!-- Section 2: Software, AI & Computing Modules -->
+            <h4 style="color: #007bff; margin-bottom: 12px; border-bottom: 2px solid #007bff; padding-bottom: 4px;">💻 Software, AI & Computing Expertise</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; padding-left: 5px; margin-bottom: 22px;">
+                <div style="background: #f0f7ff; padding: 8px 10px; border-left: 3px solid #007bff; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Advanced Python Programming</div>
+                <div style="background: #f0f7ff; padding: 8px 10px; border-left: 3px solid #007bff; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Artificial Intelligence Techniques</div>
+                <div style="background: #f0f7ff; padding: 8px 10px; border-left: 3px solid #007bff; font-size: 0.9rem; border-radius: 0 4px 4px 0;">AI-Based Web Design</div>
+                <div style="background: #f0f7ff; padding: 8px 10px; border-left: 3px solid #007bff; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Software Testing & QA</div>
+                <div style="background: #f0f7ff; padding: 8px 10px; border-left: 3px solid #007bff; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Introduction to Expert Systems</div>
+                <div style="background: #f0f7ff; padding: 8px 10px; border-left: 3px solid #007bff; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Discrete Mathematics & Logic</div>
+            </div>
+
+            <!-- Section 3: Hardware, Control & Power Systems -->
+            <h4 style="color: #6f42c1; margin-bottom: 12px; border-bottom: 2px solid #6f42c1; padding-bottom: 4px;">⚡ Hardware, Control & Power Systems</h4>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; padding-left: 5px;">
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Artificial Intelligence Techniques</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">AI Based Web Design</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Introduction to Expert Systems</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Advanced Python Programming</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Discrete Mathematics and Logic</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Software Testing Certification</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electro Magnetic Fields</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Microprocessors and Microcontrollers</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Microprocessors & Microcontrollers</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Digital Controllers & Control Systems</div>
                 <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Digital Logic Design</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Digital Controllers</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Control Systems</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Power System Analysis</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Power System Protection</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Power System Analysis & Protection</div>
                 <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">High Voltage Engineering</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Non-Conventional Sources of Energy</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electrical Technology</div>
-                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Basic Electrical and Electronics Engineering</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electromagnetic Fields</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Renewable & Clean Energy Systems</div>
+                <div style="background: #f8f9fa; padding: 8px 10px; border-left: 3px solid #6f42c1; font-size: 0.9rem; border-radius: 0 4px 4px 0;">Electrical & Electronics Engineering</div>
             </div>
         </div>
     `;
-    window.openHTMLModal('Subject Area Expertise', html);
+    window.openHTMLModal('Domain & Technical Expertise', html);
+};
+window.showQualificationsModal = function() {
+    let html = `
+        <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
+            <p style='margin-bottom:10px;'><strong>M.Tech (High Voltage Engineering):</strong> <a href="https://drive.google.com/file/d/1kZD7vgJqHsifE2tw9LUEyVgCb6adR8HM/view?usp=sharing" target="_blank">JNTU Kakinada</a> - 72.00% (Distinction)</p>
+            <p style='margin-bottom:10px;'><strong>B.Tech (Electrical & Electronics Engineering):</strong> <a href="https://drive.google.com/file/d/1SMhWIF0aFxWplG4e83fom6THEuU4RtgS/view?usp=sharing" target="_blank">JNTU Hyderabad</a> - 71.63% (Distinction)</p>
+            <p style='margin-bottom:10px;'><strong>Intermediate (MPC):</strong> <a href="https://drive.google.com/file/d/1EF5XlMU8kwqbM_g7lFCqYSwNuwtHFklk/view?usp=sharing" target="_blank">Gayatri Junior College</a> - 94.10% (First Class)</p>
+            <p style='margin-bottom:10px;'><strong>SSC (10th Standard):</strong> <a href="https://drive.google.com/file/d/12HNfZv_ltMW8Lw_KnB7q5gLGwAwHcxQU/view?usp=sharing" target="_blank">ZP High School, Jami</a> - 89.86% (First Class)</p>
+        </div>
+    `;
+    window.openHTMLModal("Academic Qualifications", html);
+};
+
+window.showAcademicStrengthsModal = function() {
+    let html = `
+        <ul style="font-family: sans-serif; line-height: 1.8; padding-left: 20px;">
+            <li style="margin-bottom: 8px;"><strong>9+ Years Technical & Analytical Leadership:</strong> Proven track record translating complex electrical and computational concepts into practical, real-world engineering solutions.</li>
+            <li style="margin-bottom: 8px;"><strong>Structured Training & Onboarding:</strong> Experienced in designing outcome-driven technical modules, upskilling cohorts, and simplifying complex documentation for diverse audiences.</li>
+            <li style="margin-bottom: 8px;"><strong>Compliance, Audits & Operations:</strong> Hands-on experience managing large-scale operational workflows, data compilation, and regulatory quality audits (NBA/NAAC).</li>
+            <li style="margin-bottom: 8px;"><strong>Team Mentorship:</strong> Skilled at coaching cross-functional project groups from initial concept through final execution and delivery.</li>
+            <li style="margin-bottom: 8px;"><strong>Rapid Technical Adaptability:</strong> Fast learner who independently transitioned from core electrical systems into Full-Stack JavaScript, AI/ML, and Cybersecurity.</li>
+        </ul>
+    `;
+    window.openHTMLModal("Core Strengths & Transferable Skills", html);
+};
+
+window.showCertificationsModal = function() {
+    let html = `
+        <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 400px; overflow-y: auto;">
+            <h4 style="color: #007bff; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">Industry Professional Certificates (IBM, Microsoft & Google)</h4>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+                <li style="margin-bottom: 6px;">IBM Full Stack JavaScript Developer (12 Courses) - Sep 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/L2Q2VEP5W243" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM JavaScript Backend Developer (13 Courses) - Aug 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Microsoft AI and ML Engineering (5 Courses) - Jul 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/5SGHZ101WA4W" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM Java Developer (14 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Google Cyber Security Specialist Track (9 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">IBM AI Developer (10 Courses) - Jun 2026 <a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+            </ul>
+            
+            <h4 style="color: #007bff; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">NPTEL Technical Certifications</h4>
+            <ul style="padding-left: 20px;">
+                <li style="margin-bottom: 6px;">Advanced Computer Architecture - Apr 2026</li>
+                <li style="margin-bottom: 6px;">Advanced Computer Networks - Apr 2025 <a href="https://drive.google.com/file/d/1yQeZ1-coDoRCZBwwtXYv7aXvsFdXdBTV/view" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Practical Cyber Security for Cyber Security Practitioners - Oct 2024 <a href="https://drive.google.com/file/d/1CyKiCImdnXHfHaCmLDpV2pUHx6PvOmti/view" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Cloud Computing - Oct 2024 <a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Big Data Computing (8-Week Course) - Oct 2023 <a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Ethics in Engineering Practice (8-Week Course) - Oct 2023</li>
+                <li style="margin-bottom: 6px;">Introduction to Smart Grid (8-Week Course) - Sep 2022 <a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+            </ul>
+        </div>
+    `;
+    window.openHTMLModal('Industry & Technical Certifications', html);
 };
 
 window.showExperienceModal = function() {
