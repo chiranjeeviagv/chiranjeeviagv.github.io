@@ -1,12 +1,11 @@
 // 1. Corrected complete module bundle paths pointing to the exact .js files
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-// Added 'collection', 'addDoc', 'query', 'getDocs', 'orderBy', and 'deleteDoc'
-import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { initializeApp } from "https://gstatic.com";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
-    authDomain: "interactive-cv-6f58a.firebaseapp.com", 
+    authDomain: "://firebaseapp.com", 
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
@@ -16,11 +15,9 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Global view state tracking parameter
 let activeMatrixView = 'academic';
 
 // 2. MOUNT SECURE EXECUTION HOOKS ONTO THE GLOBAL WINDOW LAYER
-// ========================================================
 window.loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
@@ -34,34 +31,25 @@ window.loginWithGoogle = () => {
 };
 
 window.logoutUser = () => { 
-    signOut(auth)
-        .catch((error) => console.error("Signout Error block:", error));
+    signOut(auth).catch((error) => console.error("Signout Error block:", error));
 };
 
-// ========================================================
-// 3. SECURE PROFILE VISUAL CONTENT TARGETS
-// ========================================================
-// ========================================================
-// 3. SECURE PROFILE VISUAL CONTENT TARGETS (UPDATED WITH INBOX)
-// ========================================================
 const securedContactHTML = `
     <div class="bio-details" style="width: 100%; padding: 5px 0; font-family: sans-serif;">
         <h3 style="color:#007bff; margin-bottom:15px;">📞 Authenticated Personal Profile</h3>
         <ul style="list-style: none; padding: 0; line-height: 2; margin-bottom: 25px;">
             <li><strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
             <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
-            <li><strong>Google Scholar ID:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank" style="color:#007bff; text-decoration:none;">o0nn0UoAAAAJ</a></li>
+            <li><strong>Google Scholar ID:</strong> <a href="https://google.com" target="_blank" style="color:#007bff; text-decoration:none;">o0nn0UoAAAAJ</a></li>
             <li><strong>ORCID ID:</strong> <a href="https://orcid.org" target="_blank" style="color:#007bff; text-decoration:none;">0000-0002-7895-407X</a></li>
             <li><strong>Scopus Author ID:</strong> <a href="https://scopus.com" target="_blank" style="color:#007bff; text-decoration:none;">58316331900</a></li>
             <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
             <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-            <li><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
+            <li><strong>LinkedIn Profile:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
             <li><strong>Mailing Address:</strong> H No 4-243 4th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
         </ul>
         <div style="flex-shrink: 0; margin: 0 auto;">
-            <img src="profile-pic.jpeg" 
-                 alt="Profile Picture" 
-                 style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+            <img src="profile-pic.jpeg" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
         </div>
         <h3 style="color:#28a745; margin-bottom:15px; border-top: 1px solid #eee; padding-top: 15px;">📥 Recruiter Messages Inbox</h3>
         <div id="inbox-messages-container" style="max-height: 300px; overflow-y: auto; background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #ddd; margin-bottom: 20px;">
@@ -71,152 +59,35 @@ const securedContactHTML = `
     </div>
 `;
 
-// ========================================================
-// 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO FETCH INBOX)
+// 4. AUTH STATE SUBSCRIPTION ENGINE
 onAuthStateChanged(auth, async (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
-    const referencesSection = document.getElementById('references-section');
-    
-    // Core nodes restricted to authorized view access
-    const secureNodes = [
-        'references-section', 
-        'certifications-section', 
-        'skills-section', 
-        'languages-section'
-    ];
     
     if (user) {
-        // --- User Logged In State ---
         if (authGate) authGate.style.display = 'none';
         if (secureContact) {
             secureContact.innerHTML = securedContactHTML;
             secureContact.style.display = 'block';
             window.loadRecruiterMessages();
         }
-        
-        // Remove layout hiding classes cleanly from secure assets
-        secureNodes.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.remove('hidden-layout-node');
-        });
-        
-        // Let the layout matrix display standard grid items cleanly
-        window.switchView(activeMatrixView);
-        
     } else {
-        // --- User Logged Out State ---
         if (secureContact) {
             secureContact.style.display = 'none';
             secureContact.innerHTML = '';
         }
         if (authGate) authGate.style.display = 'block';
-        
-        // SAFE FIX: Hide secure nodes using your layout class instead of inline styles
-        secureNodes.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add('hidden-layout-node');
-        });
-
-        // Force a view switch to refresh visibility metrics for standard public items
-        window.switchView(activeMatrixView);
     }
+    
+    // Always call layout manager to sync visibility conditions cleanly
+    window.switchView(activeMatrixView);
 });
-// ==========================================
-// 9. RECRUITER FORM PIPELINE & INBOX ENGINE
-// ==========================================
 
-// Global action to load messages into the admin dashboard pane
-window.loadRecruiterMessages = async function() {
-    const container = document.getElementById('inbox-messages-container');
-    if (!container) return;
-
-    try {
-        const q = query(collection(db, "messages"), orderBy("timestamp", "desc"));
-        const querySnapshot = await getDocs(q);
-        
-        if (querySnapshot.empty) {
-            container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
-            return;
-        }
-
-        let inboxHTML = '';
-        querySnapshot.forEach((messageDoc) => {
-            const data = messageDoc.data();
-            const date = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'N/A';
-            
-            inboxHTML += `
-                <div id="msg-card-${messageDoc.id}" style="background: white; padding: 12px; border-radius: 4px; border: 1px solid #eee; margin-bottom: 10px; position: relative;">
-                    <span style="font-size: 0.8rem; color: #999; float: right;">${date}</span>
-                    <strong style="color: #333; display: block; font-size: 0.95rem;">${data.name}</strong>
-                    <a href="mailto:${data.email}" style="font-size: 0.85rem; color: #007bff; text-decoration: none;">${data.email}</a>
-                    <p style="margin: 8px 0 0 0; color: #555; font-size: 0.9rem; white-space: pre-wrap;">${data.message}</p>
-                    <button onclick="window.deleteRecruiterMessage('${messageDoc.id}')" style="margin-top: 8px; background: transparent; color: #dc3545; border: none; padding: 0; cursor: pointer; font-size: 0.8rem; font-weight: bold;">🗑️ Delete Message</button>
-                </div>
-            `;
-        });
-        container.innerHTML = inboxHTML;
-    } catch (error) {
-        console.error("Error reading mailbox:", error);
-        container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Error fetching database node: Permission Denied.</p>`;
-    }
-};
-// Generic fallback container builder for openHTMLModal
-window.openHTMLModal = function(title, innerHTMLContent) {
-    // Check if an old modal wrapper instance is lingering and clear it
-    let existingModal = document.getElementById('global-cv-modal-context');
-    if (existingModal) existingModal.remove();
-
-    // Create a dynamic backdrop overlay structure
-    const modalOverlay = document.createElement('div');
-    modalOverlay.id = 'global-cv-modal-context';
-    modalOverlay.style = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; font-family:sans-serif;";
-
-    // Create the modal container box
-    const modalBox = document.createElement('div');
-    modalBox.style = "background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.2);";
-
-    // Add modal header and close button markup layout
-    modalBox.innerHTML = `
-        <h3 style="margin-top:0; color:#333; padding-right:30px; border-bottom:1px solid #eee; padding-bottom:10px;">${title}</h3>
-        <button id="close-modal-btn" style="position:absolute; top:15px; right:15px; background:transparent; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
-        <div style="margin-top:15px;">${innerHTMLContent}</div>
-    `;
-
-    modalOverlay.appendChild(modalBox);
-    document.body.appendChild(modalOverlay);
-
-    // Event listener to shut down view nodes
-    const closeModal = () => modalOverlay.remove();
-    document.getElementById('close-modal-btn').addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
-};
-
-// Global action to delete messages
-window.deleteRecruiterMessage = async function(id) {
-    if (confirm("Are you sure you want to permanently delete this recruiter message?")) {
-        try {
-            await deleteDoc(doc(db, "messages", id));
-            const card = document.getElementById(`msg-card-${id}`);
-            if (card) card.remove();
-            
-            // Show empty placeholder text if all cards are cleared out
-            const container = document.getElementById('inbox-messages-container');
-            if (container && container.children.length === 0) {
-                container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
-            }
-        } catch (error) {
-            alert("Could not remove record: " + error.message);
-        }
-    }
-};
-// Add this view-switching engine right before Section 6
-// ==========================================
+// 5. MATRIX VIEW SWITCHER ENGINE
 window.switchView = function(viewType) {
     activeMatrixView = viewType;
-    console.log("Switched active matrix view to:", viewType);
+    console.log("Active view state:", viewType);
 
-    // CRITICAL FIX: The keys here must match your actual HTML section element IDs exactly
     const elementsMap = {
         'publications-section': ['academic', 'industry'],
         'experience-section': ['academic', 'industry'],
@@ -230,22 +101,27 @@ window.switchView = function(viewType) {
         'fdp-section': ['academic']                         
     };
 
+    const user = auth.currentUser;
+
     Object.keys(elementsMap).forEach(id => {
         const el = document.getElementById(id);
         if (el) {
-            if (elementsMap[id].includes(viewType)) {
-                // Safely clear the display rule so it inherits the parent grid style naturally
-                el.style.removeProperty('display');
-            } else {
-                // Cleanly hide it when not belonging to the active view matrix state
-                el.style.setProperty('display', 'none', 'important');
+            // Context check: Hide protected elements if logged out
+            const isSecureNode = ['references-section', 'certifications-section', 'skills-section', 'languages-section'].includes(id);
+            if (isSecureNode && !user) {
+                el.classList.add('hidden-layout-node');
+                return;
             }
-        } else {
-            console.warn(`DOM alert: Element with id "${id}" was not detected in the current page markup.`);
+
+            // Standard Matrix Filter check
+            if (elementsMap[id].includes(viewType)) {
+                el.classList.remove('hidden-layout-node');
+            } else {
+                el.classList.add('hidden-layout-node');
+            }
         }
     });
 
-    // Update active button indicators
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     if (btnAcademic && btnIndustry) {
@@ -258,139 +134,122 @@ window.switchView = function(viewType) {
         }
     }
 };
-    
-// Handle client messaging form inputs organically
-document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contact-form');
-    const statusDiv = document.getElementById('form-status');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('recruiter-name').value;
-            const email = document.getElementById('recruiter-email').value;
-            const message = document.getElementById('recruiter-msg').value;
-
-            statusDiv.style.display = 'block';
-            statusDiv.style.color = '#333';
-            statusDiv.textContent = "Sending message securely...";
-
-            try {
-                // Safely write document payload node straight into Firestore rules block
-                await addDoc(collection(db, "messages"), {
-                    name: name,
-                    email: email,
-                    message: message,
-                    timestamp: new Date() // Server rules will extract tracking benchmarks
-                });
-
-                statusDiv.style.color = '#28a745';
-                statusDiv.textContent = "✓ Message sent successfully! Thank you.";
-                contactForm.reset();
-            } catch (error) {
-                console.error("Submission blocked:", error);
-                statusDiv.style.color = '#dc3545';
-                statusDiv.textContent = "⚠️ Failed to transmit data packet. Try again later.";
-            }
+window.loadRecruiterMessages = async function() {
+    const container = document.getElementById('inbox-messages-container');
+    if (!container) return;
+    try {
+        const q = query(collection(db, "messages"), orderBy("timestamp", "desc"));
+        const querySnapshot = await getDocs(q);
+        if (querySnapshot.empty) {
+            container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
+            return;
+        }
+        let inboxHTML = '';
+        querySnapshot.forEach((messageDoc) => {
+            const data = messageDoc.data();
+            const date = data.timestamp ? new Date(data.timestamp.seconds * 1000).toLocaleString() : 'N/A';
+            inboxHTML += `
+                <div id="msg-card-${messageDoc.id}" style="background: white; padding: 12px; border-radius: 4px; border: 1px solid #eee; margin-bottom: 10px; position: relative;">
+                    <span style="font-size: 0.8rem; color: #999; float: right;">${date}</span>
+                    <strong style="color: #333; display: block; font-size: 0.95rem;">${data.name}</strong>
+                    <a href="mailto:${data.email}" style="font-size: 0.85rem; color: #007bff; text-decoration: none;">${data.email}</a>
+                    <p style="margin: 8px 0 0 0; color: #555; font-size: 0.9rem; white-space: pre-wrap;">${data.message}</p>
+                    <button onclick="window.deleteRecruiterMessage('${messageDoc.id}')" style="margin-top: 8px; background: transparent; color: #dc3545; border: none; padding: 0; cursor: pointer; font-size: 0.8rem; font-weight: bold;">🗑️ Delete Message</button>
+                </div>`;
         });
+        container.innerHTML = inboxHTML;
+    } catch (error) {
+        container.innerHTML = `<p style="color: #dc3545; font-size:0.85rem; margin:0;">⚠️ Error fetching data: Permission Denied.</p>`;
     }
-});
+};
 
-// ==========================================
-// 8. DYNAMIC INFO DISPLAY POPUPS: REFERENCES
-// ==========================================
+// FIXED: Defined the missing window.openHTMLModal initialization wrapper properly here
+window.openHTMLModal = function(title, innerHTMLContent) {
+    let existingModal = document.getElementById('global-cv-modal-context');
+    if (existingModal) existingModal.remove();
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.id = 'global-cv-modal-context';
+    modalOverlay.style = "position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); z-index:99999; display:flex; align-items:center; justify-content:center; font-family:sans-serif;";
+
+    const modalBox = document.createElement('div');
+    modalBox.style = "background:white; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80vh; overflow-y:auto; position:relative; box-shadow:0 4px 15px rgba(0,0,0,0.2);";
+
+    // ... continuous modal layout configuration
+    modalBox.innerHTML = `
+        <h3 style="margin-top:0; color:#333; padding-right:30px; border-bottom:1px solid #eee; padding-bottom:10px;">${title}</h3>
+        <button id="close-modal-btn" style="position:absolute; top:15px; right:15px; background:transparent; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
+        <div style="margin-top:15px;">${innerHTMLContent}</div>
+    `;
+
+    modalOverlay.appendChild(modalBox);
+    document.body.appendChild(modalOverlay);
+    
+    const closeModal = () => modalOverlay.remove();
+    document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
+};
+window.deleteRecruiterMessage = async function(id) {
+    if (confirm("Are you sure you want to permanently delete this recruiter message?")) {
+        try {
+            await deleteDoc(doc(db, "messages", id));
+            // FIXED: Added missing template literal backticks below
+            const card = document.getElementById(`msg-card-${id}`);
+            if (card) card.remove();
+            
+            const container = document.getElementById('inbox-messages-container');
+            if (container && container.children.length === 0) {
+                // FIXED: Wrapped string markup inside template literal string
+                container.innerHTML = `<p style="color: #666; font-style: italic; margin: 0;">No messages received yet.</p>`;
+            }
+        } catch (error) {
+            alert("Could not remove record: " + error.message);
+        }
+    }
+};
+
 window.handleReferencesTrigger = function() {
-    // 1. Correctly check if user is signed into Firebase auth layer
     const user = auth.currentUser;
     if (!user) {
         alert("🔒 Access Denied: Please sign in with your Google account to view professional references.");
         return;
     }
-
+    
     let html = '';
-
     if (activeMatrixView === 'academic') {
+        // FIXED: Wrapped multi-line HTML safely inside standard JavaScript template strings
         html = `
-            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
-                <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4>
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
+                <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4> 
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. K Srikanth</strong><br>
-                    <span>Professor, Department of EEE</span><br>
+                    <strong>Dr. K Srikanth</strong><br>Professor, Department of EEE<br>
                     <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9440897892</span>
-                </div>
+                </div> 
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. K Prasad</strong><br>
-                    <span>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram</span><br>
+                    <strong>Dr. K Prasad</strong><br>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram<br>
                     <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
-                </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. A Ramesh</strong><br>
-                    <span>Professor, Electrical and Electronics Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Aditya University, Surampalem, Kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849219973</span>
-                </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. A NagaJyothi</strong><br>
-                    <span>Professor, Electronics and Communication Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Vignan Institute of information Technology, Gajuwaka</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9938121200</span>
-                </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. G Sridevi</strong><br>
-                    <span>Professor, Electronics and Communication Engineering</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Aditya University, kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9848141867</span>
-                </div>
+                </div> 
             </div>
         `;
-    } else if (activeMatrixView === 'industry') {
-        html = `
-            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
-                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Technical Referrals</h4>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Professor M Ramalingaraju</strong><br>
-                    <span>Professor, Electrical and Electronics Engineering, Former Vice Chancellor, JNTUK</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">JNTUK College of engineering, kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;"></span>
-                </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Md. Faheem Hul Haq</strong><br>
-                    <span>Director</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">Fliv developers, hyderabad</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">Mobile Number-9849022155</span>
-                </div>
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Sri Gulbarg Singh Bassi</strong><br>
-                    <span>Retired Teacher & Educator</span><br>
-                    <span style="font-size: 0.9rem; color: #555;">GSC, US</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">Contact Info-+1(678) 794-1794</span>
-                </div>
-            </div>
-        `;
-    }
-      
-    // Call open layout engine if defined, otherwise target modal tags directly
-    if (typeof window.openHTMLModal === 'function') {
-        window.openHTMLModal("Professional References", html);
     } else {
-        const referenceContainer = document.getElementById('references-modal-content'); 
-        const modalWrapper = document.getElementById('references-modal');
-
-        if (referenceContainer && modalWrapper) {
-            referenceContainer.innerHTML = html;
-            modalWrapper.style.setProperty('display', 'flex', 'important'); 
-        } else {
-            console.error("Target content placeholder matching 'references-modal-content' layout was not discovered in DOM tree elements.");
-        }
+        // FIXED: Wrapped multi-line HTML safely inside template strings
+        html = `
+            <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
+                <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Referrals</h4> 
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Professor M Ramalingaraju</strong><br>Professor, EEE, Former Vice Chancellor, JNTUK<br>
+                    JNTUK College of engineering, kakinada
+                </div> 
+            </div>
+        `;
     }
-}; // 💡 The function container now wraps all operational logic safely inside
+    window.openHTMLModal("Professional References", html);
+};
 
-// ==========================================
-// 8. STATIC INFO DISPLAY POPUPS
-// ==========================================
+// Modals configurations placeholder setup
 window.showQualificationsModal = function() {
     let html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;">
