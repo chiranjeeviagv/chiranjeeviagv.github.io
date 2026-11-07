@@ -31,14 +31,6 @@ body {
     transition: background-color 0.2s ease;
 }
 /* Hide references and industry sections until user passes authentication gate */
-#references-section,
-#certifications-section,
-#skills-section,
-#languages-section 
-.hidden-layout-node {
-    display: none !important;{
-    display: none !important;
-}
 
 .view-btn:hover {
     background-color: #0056b3;
@@ -423,4 +415,8 @@ body {
     margin: 0;
     padding: 20px;
 }
-Use code with caution.
+
+/* ADD THIS TO THE BOTTOM OF YOUR CSS FILE */
+.hidden-layout-node {
+    display: none !important;
+}
