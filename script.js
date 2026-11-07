@@ -1,8 +1,8 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
   
   // 2. FIXED: Add the full CDN paths for Auth and Firestore
-  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com/firebasejs/13.2.0/firebase-auth.js";
-  import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com/https://gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+  import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://www.gstatic.com/https://gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
