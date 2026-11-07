@@ -42,150 +42,84 @@
 <body>
 
 <main>
+    <!-- Header Controls -->
     <div class="header-section">
         <h1>G V Chiranjeevi Adari</h1>
         <p>Electrical Engineer & Software Professional</p>
         
         <div class="toggle-container">
-            <!-- Removed the inline onclick handlers -->
             <button id="btn-academic" class="toggle-btn">Academic View</button>
             <button id="btn-industry" class="toggle-btn active">Industry View</button>
         </div>
     </div>
-</main>
-<!-- 1. CAREER OBJECTIVE BLOCK WITH PROFILE PICTURE -->
-<section style="margin-bottom: 30px; padding: 25px; background: var(--light); border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
-    
-    <!-- Left Side: Text Content Container -->
-    <div style="flex: 1; min-width: 280px;">
-        <h2 style="margin-top: 0;">Career Objective</h2>
-        <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
-        <p style="line-height: 2; color: #4a5568; margin-bottom: 0;">
-            Full-Stack Software & AI Developer with a strong foundation in Electrical Engineering, Python automation, and JavaScript web development. Experienced in building scalable applications, integrating AI workflows, and solving complex analytical problems. Proven ability to translate technical research into production-ready software solutions while collaborating across multidisciplinary teams.
-        </p>
-    </div>
-    
-    <!-- Right Side: Profile Picture Container -->
-    <div style="flex-shrink: 0; margin: 0 auto;">
-        <img src="mypicture.jpg" 
-             alt="G V Chiranjeevi Adari Profile" 
-             style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-    </div>
 
-</section
-    
-<!-- 2. SECURE CONTACT GATE (Directly below Objective) -->
-<section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
-    <div id="secure-contact-container" style="display: none; width: 100%;"></div>
-    <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
-        <h3>🔒 Locked Contact Credentials</h3>
-        <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
-        <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
-            Sign In with Google
-        </button>
-    </div>
-</section>
-
-<!-- 3. DYNAMIC INFORMATION GRID (Moved up here) -->
-<div class="cv-grid-container" style="margin-bottom: 30px;">
-    
-    <!-- 💡 FIXED NODE: The main display dashboard card grid item mapped to your JS loop -->
-    <section id="references-section" class="hero-card" style="display: block !important;">
-        <h2>References</h2>
-        <p>Verified contact nodes from professional academic mentors and industry leads.</p>
-        <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
+    <!-- 1. CAREER OBJECTIVE BLOCK WITH PROFILE PICTURE -->
+    <section style="margin-bottom: 30px; padding: 25px; background: var(--light); border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap;">
+        <!-- Left Side: Text Content Container -->
+        <div style="flex: 1; min-width: 280px;">
+            <h2 style="margin-top: 0;">Career Objective</h2>
+            <p id="objective-text" style="margin-top: 10px; color: #4a5568;"></p>
+            <p style="line-height: 2; color: #4a5568; margin-bottom: 0;">
+                Full-Stack Software & AI Developer with a strong foundation in Electrical Engineering, Python automation, and JavaScript web development. Experienced in building scalable applications, integrating AI workflows, and solving complex analytical problems. Proven ability to translate technical research into production-ready software solutions while collaborating across multidisciplinary teams.
+            </p>
+        </div>
+        
+        <!-- Right Side: Profile Picture Container -->
+        <div style="flex-shrink: 0; margin: 0 auto;">
+            <img src="mypicture.jpg" 
+                 alt="G V Chiranjeevi Adari Profile" 
+                 style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+        </div>
+    </section>
+        
+    <!-- 2. SECURE CONTACT GATE -->
+    <section id="contact-info" class="hero-card" style="width: 100%; margin-bottom: 30px;">
+        <div id="secure-contact-container" style="display: none; width: 100%;"></div>
+        <div id="auth-gate" style="width: 100%; text-align: center; padding: 15px 0;">
+            <h3>🔒 Locked Contact Credentials</h3>
+            <p style="margin: 10px 0 15px 0; color: #718096; font-size: 0.9rem;">Please verify your profile to unlock secure contact notes and links.</p>
+            <button id="google-login-btn" class="explore-btn" onclick="window.loginWithGoogle()" style="margin: 0 auto; display: block;">
+                Sign In with Google
+            </button>
+        </div>
     </section>
 
-    <!-- PROFESSIONAL REFERENCES MODAL POPUP CONTAINER LAYER -->
+    <!-- 3. DYNAMIC INFORMATION GRID -->
+    <div class="cv-grid-container" style="margin-bottom: 30px;">
+        
+        <!-- References Card -->
+        <section id="references-section" class="hero-card" style="display: block !important;">
+            <h2>References</h2>
+            <p>Verified contact nodes from professional academic mentors and industry leads.</p>
+            <button class="explore-btn" onclick="window.handleReferencesTrigger()">Explore More</button>
+        </section>
+
+        <!-- ACADEMIC ONLY: Publications -->
+        <section id="publications-section" class="hero-card academic-only">
+            <h2>Publications</h2>
+            <p>List of journals, conference papers, and academic research publications.</p>
+            <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
+        </section>
+
+        <!-- ACADEMIC ONLY: Experience Timeline -->
+        <section id="experience-section" class="hero-card academic-only">
+            <h2>Experience Timeline</h2>
+            <p>Academic teaching milestones, engineering lectureships, and university service record.</p>
+            <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
+        </section>
+    </div>
+
+    <!-- REFERENCES MODAL POPUP -->
     <div id="references-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center;">
-        <div style="background-color: #fff; margin: auto; padding: 20px; border-radius: 8px; width: 90%; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: relative; font-family: sans-serif;">
-            
-            <!-- Header Controls Row -->
+        <div style="background-color: #fff; margin: auto; padding: 20px; border-radius: 8px; width: 90%; max-width: 600px; box-shadow: 0 4px 15 rgba(0,0,0,0.2); position: relative; font-family: sans-serif;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
                 <h3 style="margin: 0; font-size: 1.25rem; color: #333; font-weight: 600;">Professional References</h3>
                 <span onclick="document.getElementById('references-modal').style.display = 'none';" style="color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; line-height: 1;">&times;</span>
             </div>
-
-            <!-- TARGET CONTAINER NODE: JS injects text payload profiles here -->
             <div id="references-modal-content"></div>
         </div>
     </div>
-
-</div>
-
-
-    <!-- ACADEMIC ONLY: Publications -->
-    <section id="publications-section" class="hero-card academic-only">
-        <h2>Publications</h2>
-        <p>List of journals, conference papers, and academic research publications.</p>
-        <button class="explore-btn" onclick="window.showPublicationsModal()">Explore More</button>
-    </section>
-
-    <!-- ACADEMIC ONLY: Experience Timeline -->
-    <section id="experience-section" class="hero-card academic-only">
-        <h2>Experience Timeline</h2>
-        <p>Academic teaching milestones, engineering lectureships, and university service records.</p>
-        <button class="explore-btn" onclick="window.showExperienceModal()">Explore More</button>
-    </section>
-
-    <!-- ACADEMIC ONLY: Subject Expertise -->
-    <section id="expertise-section" class="hero-card academic-only">
-        <h2>Subject Expertise</h2>
-        <p>Advanced domain curriculum fields handled including High Voltage Engineering and Control Systems.</p>
-        <button class="explore-btn" onclick="window.showExpertiseModal()">Explore More</button>
-    </section>
-
-    <!-- ACADEMIC ONLY: Conferences Attended -->
-    <section id="conferences-section" class="hero-card academic-only">
-        <h2>Conferences Attended</h2>
-        <p>List of papers presented at national and international engineering conferences.</p>
-        <button class="explore-btn" onclick="window.showConferencesModal()">Explore More</button>
-    </section>
-
-    <!-- ACADEMIC ONLY: Skill Development (FDPs) -->
-    <section id="fdp-section" class="hero-card academic-only">
-        <h2>Skill Development (FDPs)</h2>
-        <p>Details of Faculty Development Programs, technical workshops, and specialized training tracks.</p>
-        <button class="explore-btn" onclick="window.showDevelopmentProgramsModal()">Explore More</button>
-    </section>
-      <!-- INDUSTRY ONLY: Technical Skills (Hidden by Default) -->
-    <section id="skills-section" class="hero-card" style="display: none;">
-        <h2>Technical Skills</h2>
-        <p>Core programming capabilities: JavaScript Full-Stack development, AI applications, and Python scripting workflows.</p>
-        <button class="explore-btn" onclick="window.showSkillsModal()">Explore More</button>
-    </section>
-    <!-- INDUSTRY ONLY: Certifications & Badges (Hidden by Default) -->
-    <section id="certifications-section" class="hero-card" style="display: none;">
-        <h2>Certifications & Badges</h2>
-        <p>Details of Professional cloud certifications, technical expertise credentials, and international badges.</p>
-        <button class="explore-btn" onclick="window.showCertificationsModal()">Explore More</button>
-    </section>
-    <!-- INDUSTRY ONLY: Projects & Live Applications -->
-    <section id="projects-section" class="hero-card">
-    <h2>Projects &amp; Live Applications</h2>
-    <p>Deployed full-stack web platforms (College CMS, Hospital System), Python/Streamlit apps, and AI control models.</p>
-    <button class="explore-btn" onclick="window.showProjectsModal()">Explore More</button>
-    </section>
-
-
-    <!-- INDUSTRY ONLY: Languages Known (Hidden by Default) -->
-    <section id="languages-section" class="hero-card" style="display: none;">
-        <h2>Languages Known</h2>
-        <p>Proficiency in languages for global academic research and corporate team management.</p>
-        <button class="explore-btn" onclick="window.showLanguagesModal()">Explore More</button>
-    </section>
-
-</div> <!-- Cleanly closes the grid matrix here after all cards have been loaded -->
-
-
-<!-- Global Application Modal Window Wrapper -->
-<div id="details-modal" class="modal-view">
-    <div class="modal-content-wrapper">
-        <button class="modal-close-trigger" onclick="window.closeModal()">×</button>
-        <h3 id="modal-title">Modal Title</h3>
-        <div id="modal-body">Modal Body Content</div>
-    </div>
-</div>
+</main>
 
 <script type="module" src="script.js"></script>
 
