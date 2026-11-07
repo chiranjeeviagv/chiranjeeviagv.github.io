@@ -213,18 +213,19 @@ window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
 
-    const elementsMap = {
-        'qualifications-section': ['academic', 'industry'],
-        'experience-section': ['academic', 'industry'],      // FIXED: Now visible to industry recruiters!
-        'skills-section': ['industry'],                      
-        'certifications-section': ['industry'],              
-        'languages-section': ['industry'],                   
-        'references-section': ['academic'],                  // Moved to academic only to reduce clutter
-        'publications-section': ['academic'],                
-        'conferences-section': ['academic'],                 
-        'fdp-section': ['academic'],                         
-        'expertise-section': ['academic']                    
-    };
+  const elementsMap = {
+    'qualifications-section': ['academic', 'industry'],
+    'experience-section': ['academic', 'industry'],
+    'projects-section': ['industry'],                    // NEW: Live Web & Engineering Projects!
+    'skills-section': ['industry'],                      
+    'certifications-section': ['industry'],              
+    'expertise-section': ['academic', 'industry'],
+    'publications-section': ['academic', 'industry'],
+    'languages-section': ['industry'],                   
+    'references-section': ['academic'],                  
+    'conferences-section': ['academic'],                 
+    'fdp-section': ['academic']                         
+};
 
     Object.keys(elementsMap).forEach(id => {
         const el = document.getElementById(id);
@@ -408,6 +409,59 @@ window.showAcademicStrengthsModal = function() {
     window.openHTMLModal("Academic Strengths & Traits", html);
 };
 
+window.showProjectsModal = function() {
+    const html = `
+        <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto; text-align: left;">
+            
+            <!-- Section 1: Deployed Full-Stack & Cloud Web Applications -->
+            <h4 style="color: #0066cc; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #0066cc; padding-bottom: 4px;">🚀 Deployed Full-Stack &amp; Python Web Applications</h4>
+            
+            <div style="margin-bottom: 14px; padding: 10px; background: #f8f9fa; border-left: 3px solid #0066cc; border-radius: 0 4px 4px 0;">
+                <strong>College Content Management System (CMS)</strong> 
+                <a href="https://onrender.com" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Live Demo ↗]</a><br>
+                <span style="font-size: 0.88rem; color: #444;">Full-stack institutional management web platform deployed on Render for academic workflows, records, and content administration.</span>
+            </div>
+
+            <div style="margin-bottom: 14px; padding: 10px; background: #f8f9fa; border-left: 3px solid #0066cc; border-radius: 0 4px 4px 0;">
+                <strong>Hospital Management System</strong> 
+                <a href="https://streamlit.app" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Live App ↗]</a><br>
+                <span style="font-size: 0.88rem; color: #444;">Interactive Python &amp; Streamlit healthcare operations application built for patient management and clinical workflow tracking.</span>
+            </div>
+
+            <div style="margin-bottom: 14px; padding: 10px; background: #f8f9fa; border-left: 3px solid #0066cc; border-radius: 0 4px 4px 0;">
+                <strong>Interactive Dual-View Portfolio Architecture</strong> 
+                <a href="https://gvchiranjeeviadari.online" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Production Site ↗]</a><br>
+                <span style="font-size: 0.88rem; color: #444;">Dynamic JavaScript web application featuring state-driven view switching, modal rendering, and responsive UI design.</span>
+            </div>
+
+            <div style="margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-left: 3px solid #0066cc; border-radius: 0 4px 4px 0;">
+                <strong>Cloud-Hosted Interactive Resume Prototypes (Python &amp; Full-Stack)</strong><br>
+                <span style="font-size: 0.88rem; color: #444;">Built and deployed multi-platform versions across Streamlit Cloud and Render: 
+                <a href="https://streamlit.app" target="_blank" style="color:#0066cc; text-decoration:underline;">[Streamlit Build ↗]</a> | 
+                <a href="https://onrender.com" target="_blank" style="color:#0066cc; text-decoration:underline;">[Render Build ↗]</a></span>
+            </div>
+
+            <!-- Section 2: Applied AI, Simulation & Systems Engineering Projects -->
+            <h4 style="color: #6f42c1; margin-top: 20px; margin-bottom: 12px; border-bottom: 2px solid #6f42c1; padding-bottom: 4px;">⚙️ AI, Control Systems &amp; Engineering R&amp;D Projects</h4>
+            <ul style="padding-left: 20px; margin: 0;">
+                <li style="margin-bottom: 10px;">
+                    <strong>AI Fuzzy Logic Controller &amp; Decision Maker (Postgraduate Thesis):</strong><br>
+                    <span style="font-size: 0.88rem; color: #444;">Designed an intelligent rule-based control algorithm to damp load-frequency oscillations across interconnected multi-area power systems.</span>
+                </li>
+                <li style="margin-bottom: 10px;">
+                    <strong>Automated Load Frequency Control Using Fuzzy Logic (Undergraduate Project):</strong><br>
+                    <span style="font-size: 0.88rem; color: #444;">Modeled and simulated closed-loop stability control for single-area power generation networks.</span>
+                </li>
+                <li style="margin-bottom: 6px;">
+                    <strong>Technical Project Leadership &amp; Mentorship:</strong><br>
+                    <span style="font-size: 0.88rem; color: #444;">Supervised <strong>10 end-to-end engineering capstone projects</strong> (8 B.Tech &amp; 2 M.Tech) spanning AI, IoT, embedded systems, and automation.</span>
+                </li>
+            </ul>
+
+        </div>
+    `;
+    window.openHTMLModal('Projects & Live Applications', html);
+};
 
 window.showCertificationsModal = function() {
     let html = `
