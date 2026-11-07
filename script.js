@@ -1,5 +1,3 @@
-<script type="module">
-  // 1. Import Core Firebase App
   import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
   
   // 2. FIXED: Add the full CDN paths for Auth and Firestore
