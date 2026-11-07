@@ -9,6 +9,12 @@
 
 body {
     background-color: #f8f9fa;
+    /* Uncomment the lines below if you are using background.jpg */
+    /* background-image: url('background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; */
     color: #333;
     line-height: 1.6;
     font-family: system-ui, -apple-system, sans-serif;
@@ -19,6 +25,7 @@ body {
     margin: 0 auto;
     padding: 0 20px 40px 20px;
 }
+
 .view-btn {
     background-color: #007bff;
     color: white;
@@ -30,16 +37,16 @@ body {
     margin-bottom: 15px;
     transition: background-color 0.2s ease;
 }
-/* Hide references and industry sections until user passes authentication gate */
-#references-section,
-#certifications-section,
-#skills-section,
-#languages-section {
-    display: none !important;
-}
 
 .view-btn:hover {
     background-color: #0056b3;
+}
+
+/* Hide Academic-only sections by default so Industry View loads immediately */
+#references-section,
+#conferences-section,
+#fdp-section {
+    display: none !important;
 }
 
 /* ==========================================================================
@@ -54,7 +61,7 @@ body {
     padding: 30px 20px 20px 20px;
     margin-bottom: 20px;
     background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .main-header h1 {
@@ -87,7 +94,8 @@ body {
     transition: all 0.25s ease;
 }
 
-.toggle-btn.active, .toggle-btn:hover {
+.toggle-btn.active,
+.toggle-btn:hover {
     background-color: #007bff;
     color: white;
 }
@@ -111,7 +119,6 @@ body {
 }
 
 .download-pdf-btn:hover {
-    background: #edd;
     background-color: #f5222d;
     color: white;
     border-color: #f5222d;
@@ -196,11 +203,11 @@ body {
 }
 
 /* ==========================================================================
-   4. TWO COLUMN DASHBOARD GRID SYSTEM
+   4. TWO-COLUMN DASHBOARD GRID SYSTEM
    ========================================================================== */
 .cv-grid-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
 
@@ -210,7 +217,9 @@ body {
     border-radius: 8px;
     padding: 24px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps all 'Explore More' buttons aligned at the bottom of each card */
 }
 
 .cv-grid-container h2 {
@@ -224,11 +233,11 @@ body {
 .cv-grid-container p {
     color: #4a5568;
     font-size: 0.95rem;
-    margin-bottom: 15px; /* Added spacing above the button */
+    margin-bottom: 18px;
 }
 
-/* Unified Explore Button Design System */
 .explore-btn {
+    align-self: flex-start;
     padding: 8px 18px;
     font-size: 0.88rem;
     color: #007bff;
@@ -238,7 +247,6 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s ease;
-    display: inline-block;
 }
 
 .explore-btn:hover {
