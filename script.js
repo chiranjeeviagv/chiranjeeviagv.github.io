@@ -95,7 +95,8 @@ window.switchView = function(viewType) {
     console.log("Active view state:", viewType);
 
     const elementsMap = {
-        'publications-section': ['academic', 'industry'],
+      'qualifications-section': ['academic', 'industry']  
+      'publications-section': ['academic', 'industry'],
         'experience-section': ['academic', 'industry'],
         'expertise-section': ['academic', 'industry'],
         'projects-section': ['industry'],                    
