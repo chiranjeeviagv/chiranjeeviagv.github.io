@@ -1,7 +1,7 @@
 // 1. Corrected complete module bundle paths pointing to the exact .js files
-import { initializeApp } from "https://gstatic.com";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
-import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
+import { initializeApp } from "https://gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
