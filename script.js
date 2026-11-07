@@ -756,19 +756,13 @@ window.showLanguagesModal = function() {
     window.openHTMLModal('Languages Known', html);
 };
 // ==========================================================================
-// 7. SECURE RECRUITER CONTACT FORM TRANSMISSION ENGINE
-// ==========================================================================
-import { serverTimestamp, addDoc, collection } from "https://gstatic.com";
-
 window.handleMessageSubmission = async function(event) {
     // Prevent the browser page from reloading on form submit
     event.preventDefault();
-
     const nameInput = document.getElementById('recruiter-name');
     const emailInput = document.getElementById('recruiter-email');
     const messageInput = document.getElementById('recruiter-msg');
     const submitBtn = event.target.querySelector('button[type="submit"]');
-
     if (!nameInput || !emailInput || !messageInput) return;
 
     const name = nameInput.value.trim();
@@ -811,7 +805,6 @@ window.handleMessageSubmission = async function(event) {
         }
     }
 };
-
 
                 
 // ==========================================
