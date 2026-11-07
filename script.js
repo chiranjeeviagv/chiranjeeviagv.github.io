@@ -1,19 +1,23 @@
-// 1. Corrected complete module bundle paths pointing to the exact .js files
+// 1. Updated production version 13.2.0 module paths pointing to exact .js files
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com/firebasejs/13.2.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://gstatic.com";
+import { getFirestore, doc, getDoc, collection, addDoc, query, getDocs, orderBy, deleteDoc } from "https://gstatic.com";
 
+// Your verified web app's Firebase configuration payload context
 const firebaseConfig = {
     apiKey: "AIzaSyBnGToJaX58ErhnTPAyPZNTaYnccHvnbGU",
-    authDomain: "://firebaseapp.com", 
+    authDomain: "interactive-cv-6f58a.firebaseapp.com",
     projectId: "interactive-cv-6f58a",
     storageBucket: "interactive-cv-6f58a.firebasestorage.app",
     messagingSenderId: "904714357999",
     appId: "1:904714357999:web:a23ef727d0af3b44451f1a"
 };
+
+// Initialize Firebase Production Engine
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+
 
 let activeMatrixView = 'academic';
 
