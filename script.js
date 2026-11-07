@@ -755,7 +755,65 @@ window.showLanguagesModal = function() {
     `;
     window.openHTMLModal('Languages Known', html);
 };
+/ ==========================================================================
+// 7. SECURE RECRUITER CONTACT FORM TRANSMISSION ENGINE
+// ==========================================================================
+import { serverTimestamp, addDoc, collection } from "https://gstatic.com";
 
+window.handleMessageSubmission = async function(event) {
+    // Prevent the browser page from reloading on form submit
+    event.preventDefault();
+
+    const nameInput = document.getElementById('recruiter-name');
+    const emailInput = document.getElementById('recruiter-email');
+    const messageInput = document.getElementById('recruiter-msg');
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+
+    if (!nameInput || !emailInput || !messageInput) return;
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    // Disable button to prevent double-submissions while processing
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Transmitting... ⏳";
+    }
+
+    try {
+        // Safe asynchronous payload mapping to Cloud Firestore
+        await addDoc(collection(db, "messages"), {
+            name: name,
+            email: email,
+            message: message,
+            timestamp: serverTimestamp() // Generates safe server-side timezone parameters
+        });
+
+        alert("📨 Message sent successfully! It has been securely logged in the administrator inbox stream.");
+        
+        // Reset the form fields safely
+        event.target.reset();
+
+        // If the user is authenticated, refresh their inbox instantly to show the message
+        if (auth.currentUser) {
+            window.loadRecruiterMessages();
+        }
+
+    } catch (error) {
+        console.error("Database submission write crash error:", error);
+        alert("Transmission Failed: " + error.message);
+    } finally {
+        // Re-enable submission controls cleanly
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Send Secure Message";
+        }
+    }
+};
+
+
+                
 // ==========================================
 // 6. DOM EVENT LISTENERS SETUP
 // ==========================================
