@@ -19,6 +19,7 @@ body {
     margin: 0 auto;
     padding: 0 20px 40px 20px;
 }
+
 .view-btn {
     background-color: #007bff;
     color: white;
@@ -30,7 +31,6 @@ body {
     margin-bottom: 15px;
     transition: background-color 0.2s ease;
 }
-/* Hide references and industry sections until user passes authentication gate */
 
 .view-btn:hover {
     background-color: #0056b3;
@@ -105,7 +105,6 @@ body {
 }
 
 .download-pdf-btn:hover {
-    background: #edd;
     background-color: #f5222d;
     color: white;
     border-color: #f5222d;
@@ -218,7 +217,7 @@ body {
 .cv-grid-container p {
     color: #4a5568;
     font-size: 0.95rem;
-    margin-bottom: 15px; /* Added spacing above the button */
+    margin-bottom: 15px;
 }
 
 /* Unified Explore Button Design System */
@@ -238,13 +237,6 @@ body {
 .explore-btn:hover {
     background: #007bff;
     color: white;
-}
-/* Add this below your existing explore-btn styles to protect mobile viewports */
-@media (max-width: 768px) {
-    .cv-grid-container {
-        grid-template-columns: 1fr; /* Automatically shifts to a clean 1-column layout on phones */
-        gap: 16px;
-    }
 }
 
 /* ==========================================================================
@@ -335,10 +327,9 @@ body {
 
 @media (max-width: 768px) {
     .cv-grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 24px;
-}
+        grid-template-columns: 1fr; /* Corrected to step down to a clean 1-column layout on small screens */
+        gap: 16px;
+    }
     .download-link-wrapper {
         position: static;
         margin-top: 15px;
@@ -351,6 +342,7 @@ body {
         height: 100px;
     }
 }
+
 /* ==========================================================================
    8. FEEDBACK FORM STYLING
    ========================================================================== */
@@ -380,43 +372,5 @@ body {
     border: 1px solid #cbd5e1;
     border-radius: 6px;
     font-family: inherit;
-    background-color: #f8f9fa;
-    transition: border-color 0.2s ease;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus {
-    outline: none;
-    border-color: #007bff;
     background-color: #ffffff;
-}
-
-css
-body {
-    /* Replace 'your-background-image.jpg' with your actual image path or URL */
-    background-image: url('background.jpg'); 
-    
-    /* Keeps the background image locked in place so content scrolls over it smoothly */
-    background-attachment: fixed; 
-    
-    /* Scales the image evenly to ensure it fills the entire viewport width and height */
-    background-size: cover; 
-    
-    /* Centers the background image perfectly on the screen */
-    background-position: center center; 
-    
-    /* Prevents the image from repeating like a tile grid pattern */
-    background-repeat: no-repeat; 
-    
-    /* Fallback background color if the image fails to load or download */
-    background-color: #f7fafc; 
-    
-    /* Keep your existing spacing parameters intact */
-    margin: 0;
-    padding: 20px;
-}
-
-/* ADD THIS TO THE BOTTOM OF YOUR CSS FILE */
-.hidden-layout-node {
-    display: none !important;
 }
