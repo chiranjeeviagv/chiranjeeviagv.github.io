@@ -740,7 +740,7 @@ window.showSkillsModal = function() {
             
             <div style="margin-bottom: 15px; background: #eef5ff; padding: 12px; border-left: 4px solid #007bff; border-radius: 0 6px 6px 0;">
                 <strong style="color: #007bff; display: block; margin-bottom: 4px; font-size: 1rem;">💻 Core Languages</strong>
-                <span style="color: #333; font-size: 0.95rem;">Python (Advanced), MATLAB (Simulink Twin Engineering), JavaScript (Full-Stack Engine Stack), Core Java Basics.</span>
+                <span style="color: #333; font-size: 0.95rem;">Python (Advanced), MATLAB (Simulink Twin Engineering), JavaScript (Full-Stack Engine Stack), Core Java Basics. Cyber security Analyst</span>
             </div>
 
             <div style="background: #f3fbf7; padding: 12px; border-left: 4px solid #28a745; border-radius: 0 6px 6px 0;">
