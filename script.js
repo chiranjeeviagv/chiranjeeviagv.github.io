@@ -73,20 +73,21 @@ const securedContactHTML = `
 
 // ========================================================
 // 4. AUTH STATE SUBSCRIPTION ENGINE (UPDATED TO FETCH INBOX)
-// ========================================================
-// 4. AUTH STATE SUBSCRIPTION ENGINE (CLEANED & OPTIMIZED FOR 2-COLUMNS)
 onAuthStateChanged(auth, async (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
+    const referencesSection = document.getElementById('references-section');
     
-    const nodesToToggle = [
+    // Core nodes restricted to authorized view access
+    const secureNodes = [
         'references-section', 
         'certifications-section', 
         'skills-section', 
         'languages-section'
     ];
-
+    
     if (user) {
+        // --- User Logged In State ---
         if (authGate) authGate.style.display = 'none';
         if (secureContact) {
             secureContact.innerHTML = securedContactHTML;
@@ -94,26 +95,31 @@ onAuthStateChanged(auth, async (user) => {
             window.loadRecruiterMessages();
         }
         
-        // Remove hiding classes to inherit base styles cleanly
-        nodesToToggle.forEach(id => {
+        // Remove layout hiding classes cleanly from secure assets
+        secureNodes.forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.remove('hidden-layout-node');
         });
         
+        // Let the layout matrix display standard grid items cleanly
         window.switchView(activeMatrixView);
         
     } else {
+        // --- User Logged Out State ---
         if (secureContact) {
             secureContact.style.display = 'none';
             secureContact.innerHTML = '';
         }
         if (authGate) authGate.style.display = 'block';
         
-        // Hide securely by appending the utility class name configuration
-        nodesToToggle.forEach(id => {
+        // SAFE FIX: Hide secure nodes using your layout class instead of inline styles
+        secureNodes.forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.add('hidden-layout-node');
         });
+
+        // Force a view switch to refresh visibility metrics for standard public items
+        window.switchView(activeMatrixView);
     }
 });
 // ==========================================
