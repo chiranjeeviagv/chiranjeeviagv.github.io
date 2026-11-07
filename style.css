@@ -374,3 +374,35 @@ body {
     font-family: inherit;
     background-color: #ffffff;
 }
+body {
+    /* Swap 'background.jpg' out with your local path or an online hosting link */
+    background-image: url('background.jpg');
+    
+    /* Ensures the background image stays fixed in place while you scroll the content */
+    background-attachment: fixed;
+    
+    /* Scales the image proportionally to completely cover the entire width and height */
+    background-size: cover;
+    
+    /* Centers the background image perfectly within the viewport window */
+    background-position: center center;
+    
+    /* Prevents the image from duplicating or tiling if the window scales out wide */
+    background-repeat: no-repeat;
+    
+    /* Fallback color to display while your image is loading from the network */
+    background-color: #f0f2f5; 
+    
+    color: #333;
+    line-height: 1.6;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+.main-header, 
+.hero-card, 
+.cv-grid-container > section, 
+.message-form-container {
+    background: rgba(255, 255, 255, 0.96) !important; /* White with 96% opacity */
+    backdrop-filter: blur(5px); /* Creates a subtle glassy background texture */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /* Soft depth shadow shadow drop */
+}
+
