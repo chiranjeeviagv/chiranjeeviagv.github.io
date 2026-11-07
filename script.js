@@ -290,13 +290,13 @@ window.showProjectsModal = function() {
             
             <div style="margin-bottom: 14px; padding: 10px; background: #f8f9fa; border-left: 3px solid #0066cc; border-radius: 0 4px 4px 0;">
                 <strong>College Content Management System (CMS)</strong> 
-                <a href="https://onrender.com" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Live Demo ↗]</a><br>
+                <a href="https://my-college-cms.onrender.com/" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Live Demo ↗]</a><br>
                 <span style="font-size: 0.88rem; color: #444;">Full-stack institutional management web platform deployed on Render for academic workflows, records, and content administration.</span>
             </div>
 
             <div style="margin-bottom: 14px; padding: 10px; background: #f8f9fa; border-left: 3px solid #0066cc; border-radius: 0 4px 4px 0;">
                 <strong>Hospital Management System</strong> 
-                <a href="https://streamlit.app" target="_blank" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Live App ↗]</a><br>
+                <a href="https://hospitalsystem-do4y4imlrzkxaegq5ayftj.streamlit.app/"_blank" style="color:#0066cc; text-decoration:underline; font-size:0.85rem; margin-left:6px;">[Live App ↗]</a><br>
                 <span style="font-size: 0.88rem; color: #444;">Interactive Python &amp; Streamlit healthcare operations application built for patient management and clinical workflow tracking.</span>
             </div>
 
