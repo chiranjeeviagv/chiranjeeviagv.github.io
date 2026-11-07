@@ -210,14 +210,14 @@ window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
 
+    // CRITICAL FIX: The keys here must match your actual HTML section element IDs exactly
     const elementsMap = {
-        'qualifications-section': ['academic', 'industry'],
+        'publications-section': ['academic', 'industry'],
         'experience-section': ['academic', 'industry'],
+        'expertise-section': ['academic', 'industry'],
         'projects-section': ['industry'],                    
         'skills-section': ['industry'],                      
         'certifications-section': ['industry'],              
-        'expertise-section': ['academic', 'industry'],
-        'publications-section': ['academic', 'industry'],
         'languages-section': ['industry'],                   
         'references-section': ['academic'],                  
         'conferences-section': ['academic'],                 
@@ -228,14 +228,18 @@ window.switchView = function(viewType) {
         const el = document.getElementById(id);
         if (el) {
             if (elementsMap[id].includes(viewType)) {
-                // Remove hiding classes entirely; allows elements to blend smoothly into the 2-column parent layout grid
-                el.classList.remove('hidden-layout-node');
+                // Safely clear the display rule so it inherits the parent grid style naturally
+                el.style.removeProperty('display');
             } else {
-                el.classList.add('hidden-layout-node');
+                // Cleanly hide it when not belonging to the active view matrix state
+                el.style.setProperty('display', 'none', 'important');
             }
+        } else {
+            console.warn(`DOM alert: Element with id "${id}" was not detected in the current page markup.`);
         }
     });
 
+    // Update active button indicators
     const btnAcademic = document.getElementById('btn-academic');
     const btnIndustry = document.getElementById('btn-industry');
     if (btnAcademic && btnIndustry) {
