@@ -8,31 +8,24 @@
 }
 
 body {
-   body {
-    /* Swap 'background.jpg' out with your local path or an online hosting link */
+    /* Swap 'background.jpg' out with your local asset path or an active link */
     background-image: url('background.jpg');
     
     /* Ensures the background image stays fixed in place while you scroll the content */
     background-attachment: fixed;
     
-    /* Scales the image proportionally to completely cover the entire width and height */
+    /* Scales the image proportionally to completely cover the entire viewport height and width */
     background-size: cover;
     
-    /* Centers the background image perfectly within the viewport window */
+    /* Centers the background image perfectly within the layout window */
     background-position: center center;
     
     /* Prevents the image from duplicating or tiling if the window scales out wide */
     background-repeat: no-repeat;
     
-    /* Fallback color to display while your image is loading from the network */
+    /* Fallback color to display while your image is downloading from the hosting server network */
     background-color: #f0f2f5; 
     
-    color: #333;
-    line-height: 1.6;
-    font-family: system-ui, -apple-system, sans-serif;
-}
-
-    background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
     font-family: system-ui, -apple-system, sans-serif;
@@ -71,8 +64,8 @@ body {
     text-align: center;
     padding: 30px 20px 20px 20px;
     margin-bottom: 20px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
 }
 
 .main-header h1 {
@@ -147,11 +140,9 @@ body {
 }
 
 .hero-card {
-    background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 24px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 #objective {
@@ -213,28 +204,31 @@ body {
 }
 
 /* ==========================================================================
-   4. TWO COLUMN DASHBOARD GRID SYSTEM
+   4. TWO COLUMN DASHBOARD GRID SYSTEM & GLASS ARCHITECTURE
    ========================================================================== */
 .cv-grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     gap: 24px;
- section {
-   .main-header, 
-.hero-card, 
-.cv-grid-container > section, 
-.message-form-container {
-    background: rgba(255, 255, 255, 0.96) !important; /* White with 96% opacity */
-    backdrop-filter: blur(5px); /* Creates a subtle glassy background texture */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /* Soft depth shadow shadow drop */
 }
 
-    background: #ffffff;
+.cv-grid-container > butch, 
+.cv-grid-container > section {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 24px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     transition: transform 0.2s ease;
+}
+
+/* Glassmorphism Overrides: Applies a clean, frosted translucent layer to let artwork peek through */
+.main-header, 
+.hero-card, 
+.cv-grid-container > section, 
+.message-form-container,
+.modal-content {
+    background: rgba(255, 255, 255, 0.94) !important; /* Semi-transparent layout backup color */
+    backdrop-filter: blur(10px) !important; /* Premium glassy backdrop blur refraction */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06) !important; /* Elegant modern layout card depth */
 }
 
 .cv-grid-container h2 {
@@ -279,22 +273,11 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
-}
-
-.modal-content {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    width: 90%;
-    max-width: 650px;
-    max-height: 80vh;
-    overflow-y: auto;
 }
 
 .modal-content h2 {
@@ -340,7 +323,7 @@ body {
 /* ==========================================================================
    6. STATE MANIPULATION CLASSES (CRITICAL VISIBILITY MATRIX)
    ========================================================================== */
-.hidden-view {
+.hidden-layout-node {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -358,59 +341,11 @@ body {
 
 @media (max-width: 768px) {
     .cv-grid-container {
-        grid-template-columns: 1fr; /* Corrected to step down to a clean 1-column layout on small screens */
+        grid-template-columns: 1fr; /* Correctly transforms system layout into a clean single column on mobile */
         gap: 16px;
     }
     .download-link-wrapper {
         position: static;
         margin-top: 15px;
     }
-    #contact-info {
-        flex-direction: column;
-    }
-    .profile-avatar-fallback {
-        width: 100%;
-        height: 100px;
-    }
 }
-
-/* ==========================================================================
-   8. FEEDBACK FORM STYLING
-   ========================================================================== */
-.feedback-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: left;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #4a5568;
-}
-
-.form-group input, 
-.form-group textarea {
-    padding: 10px;
-    font-size: 0.95rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    font-family: inherit;
-    background-color: #ffffff;
-}
-.main-header, 
-.hero-card, 
-.cv-grid-container > section, 
-.message-form-container {
-    background: rgba(255, 255, 255, 0.96) !important; /* White with 96% opacity */
-    backdrop-filter: blur(5px); /* Creates a subtle glassy background texture */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important; /* Soft depth shadow shadow drop */
-}
-
