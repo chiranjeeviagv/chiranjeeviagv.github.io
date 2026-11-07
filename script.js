@@ -78,10 +78,15 @@ const securedContactHTML = `
 onAuthStateChanged(auth, async (user) => {
     const authGate = document.getElementById('auth-gate');
     const secureContact = document.getElementById('secure-contact-container');
-    const referencesSection = document.getElementById('references-section');
     
+    const nodesToToggle = [
+        'references-section', 
+        'certifications-section', 
+        'skills-section', 
+        'languages-section'
+    ];
+
     if (user) {
-        // --- User is Logged In ---
         if (authGate) authGate.style.display = 'none';
         if (secureContact) {
             secureContact.innerHTML = securedContactHTML;
@@ -89,34 +94,28 @@ onAuthStateChanged(auth, async (user) => {
             window.loadRecruiterMessages();
         }
         
-        // REMOVE custom block override so it adopts your 2-column stylesheet grid configuration
-        if (referencesSection) referencesSection.style.removeProperty('display');
+        // Remove hiding classes to inherit base styles cleanly
+        nodesToToggle.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('hidden-layout-node');
+        });
         
-        // Run your layout engine to properly display standard grid elements matching the view state
         window.switchView(activeMatrixView);
         
     } else {
-        // --- User is Logged Out ---
         if (secureContact) {
             secureContact.style.display = 'none';
             secureContact.innerHTML = '';
         }
         if (authGate) authGate.style.display = 'block';
         
-        // Re-hide sections completely when logged out
-        const nodesToHide = [
-            'references-section', 
-            'certifications-section', 
-            'skills-section', 
-            'languages-section'
-        ];
-        nodesToHide.forEach(id => {
+        // Hide securely by appending the utility class name configuration
+        nodesToToggle.forEach(id => {
             const el = document.getElementById(id);
-            if (el) el.style.setProperty('display', 'none', 'important');
+            if (el) el.classList.add('hidden-layout-node');
         });
     }
 });
-
 // ==========================================
 // 9. RECRUITER FORM PIPELINE & INBOX ENGINE
 // ==========================================
@@ -207,33 +206,32 @@ window.deleteRecruiterMessage = async function(id) {
 };
 // Add this view-switching engine right before Section 6
 // ==========================================
-// 7. MATRIX VIEW SWITCHER ENGINE (UPDATED)
-// ==========================================
 window.switchView = function(viewType) {
     activeMatrixView = viewType;
     console.log("Switched active matrix view to:", viewType);
 
-  const elementsMap = {
-    'qualifications-section': ['academic', 'industry'],
-    'experience-section': ['academic', 'industry'],
-    'projects-section': ['industry'],                    // NEW: Live Web & Engineering Projects!
-    'skills-section': ['industry'],                      
-    'certifications-section': ['industry'],              
-    'expertise-section': ['academic', 'industry'],
-    'publications-section': ['academic', 'industry'],
-    'languages-section': ['industry'],                   
-    'references-section': ['academic'],                  
-    'conferences-section': ['academic'],                 
-    'fdp-section': ['academic']                         
-};
+    const elementsMap = {
+        'qualifications-section': ['academic', 'industry'],
+        'experience-section': ['academic', 'industry'],
+        'projects-section': ['industry'],                    
+        'skills-section': ['industry'],                      
+        'certifications-section': ['industry'],              
+        'expertise-section': ['academic', 'industry'],
+        'publications-section': ['academic', 'industry'],
+        'languages-section': ['industry'],                   
+        'references-section': ['academic'],                  
+        'conferences-section': ['academic'],                 
+        'fdp-section': ['academic']                         
+    };
 
     Object.keys(elementsMap).forEach(id => {
         const el = document.getElementById(id);
         if (el) {
             if (elementsMap[id].includes(viewType)) {
-                el.style.setProperty('display', 'block', 'important');
+                // Remove hiding classes entirely; allows elements to blend smoothly into the 2-column parent layout grid
+                el.classList.remove('hidden-layout-node');
             } else {
-                el.style.setProperty('display', 'none', 'important');
+                el.classList.add('hidden-layout-node');
             }
         }
     });
