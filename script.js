@@ -580,62 +580,68 @@ window.showExperienceModal = function() {
 };
 
 window.showPublicationsModal = function() {
-    var html = `
+    const html = `
         <div style="font-family: sans-serif; line-height: 1.6; padding: 10px; max-height: 450px; overflow-y: auto;">
             
             <!-- Section 1: Patents -->
-            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">🔒 Published Patents</h4>
+            <h4 style="color: #dc3545; margin-top: 0; margin-bottom: 12px; border-bottom: 2px solid #dc3545; padding-bottom: 4px;">💡 Published Patents & Intellectual Property</h4>
             <div style="margin-bottom: 20px; padding-left: 5px;">
-                <p style="margin: 0 0 4px 0;"><strong>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics</strong></p>
-                <p style="margin: 0 0 15px 0; font-size: 0.88rem; color: #666;">Field: Bio-Medical Engineering | Pub. Number: 11/2024(INA)</p>
+                <p style="margin: 0 0 2px 0;"><strong>Smart Medical Diagnosis System Using IoT-Driven Machine Learning and Big Data Analytics</strong></p>
+                <p style="margin: 0 0 14px 0; font-size: 0.88rem; color: #555;">Applied AI, IoT & Big Data Architecture | Pub. Number: 11/2024(INA)</p>
                 
-                <p style="margin: 0 0 4px 0;"><strong>Power Quality Analysis Using IoT</strong></p>
-                <p style="margin: 0 0 5px 0; font-size: 0.88rem; color: #666;">Field: Power Systems / Automation | App. Number: 202441060301 | Aug 2024</p>
+                <p style="margin: 0 0 2px 0;"><strong>Power Quality Analysis Using IoT</strong></p>
+                <p style="margin: 0 0 5px 0; font-size: 0.88rem; color: #555;">Industrial IoT & Automated Grid Monitoring | App. Number: 202441060301 (Aug 2024)</p>
             </div>
 
             <!-- Section 2: Books -->
-            <h4 style="color: #fd7e14; margin-top: 20px; margin-bottom: 12px; border-bottom: 2px solid #fd7e14; padding-bottom: 4px;">📚 Forthcoming Books</h4>
+            <h4 style="color: #fd7e14; margin-top: 20px; margin-bottom: 12px; border-bottom: 2px solid #fd7e14; padding-bottom: 4px;">📚 Authored Technical Books</h4>
             <div style="margin-bottom: 20px; padding-left: 5px;">
-                <p style="margin: 0 0 4px 0;"><strong>Logical Introduction to Digital Electronics</strong></p>
-                <p style="margin: 0 0 5px 0; font-size: 0.9rem; color: #555; font-style: italic;">Accepted for publication by BPB Publications (Final editing phases for 2026 launch).</p>
+                <p style="margin: 0 0 2px 0;"><strong>Logical Introduction to Digital Electronics</strong> — <em>BPB Publications</em></p>
+                <p style="margin: 0 0 5px 0; font-size: 0.88rem; color: #555;">Accepted for publication by one of Asia's leading IT & engineering publishers (2026 release).</p>
             </div>
 
-            <!-- Section 3: Journals & Chapters -->
-            <h4 style="color: #007bff; margin-top: 20px; margin-bottom: 12px; border-bottom: 2px solid #007bff; padding-bottom: 4px;">📄 Peer-Reviewed Book Chapters & Journal Papers</h4>
+            <!-- Section 3: Applied Research & Technical Papers -->
+            <h4 style="color: #007bff; margin-top: 20px; margin-bottom: 12px; border-bottom: 2px solid #007bff; padding-bottom: 4px;">📄 Applied Research & Peer-Reviewed Publications</h4>
             <ul style="padding-left: 20px; margin: 0;">
-                <li style="margin-bottom: 12px;">
-                    "Dynamic stability improvement of a smart grid using neural network based STATCOM" - <em>Indian Journal of Science and Technology</em> 
-                    <a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Article]</a>
+                <li style="margin-bottom: 14px;">
+                    <strong>"Dynamic Stability Improvement of a Smart Grid Using Neural Network-Based STATCOM"</strong> — <em>Indian Journal of Science and Technology</em> 
+                    <a href="https://indjst.org/articles/dynamic-stability-improvement-of-a-smart-grid-using-neural-network-based-statcom" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Article]</a><br>
+                    <span style="font-size: 0.85rem; color: #555;">Applied artificial neural networks for real-time smart grid stabilization and fault recovery.</span>
                 </li>
-                <li style="margin-bottom: 12px;">
-                    "Transient Stability Improvement of SMIB using DPFC" - <em>IJPAM (2017)</em> 
-                    <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                <li style="margin-bottom: 14px;">
+                    <strong>Book Chapter: "Cyber Security in Smart Grids: Role of Digital Advanced Devices"</strong> — <em>IGI Global Publications (Oct 2022)</em><br>
+                    <span style="font-size: 0.85rem; color: #555;">Analyzed threat vectors, digital protection architectures, and cybersecurity resilience in modern connected infrastructure.</span>
                 </li>
-                <li style="margin-bottom: 12px;">
-                    "Application of SVC for Multi Objective Power problem with PSO" - <em>IJPAM (2017)</em> 
-                    <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                <li style="margin-bottom: 14px;">
+                    <strong>"Application of SVC for Multi-Objective Power Flow Problem Using PSO"</strong> — <em>IJPAM (2017)</em> 
+                    <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/3.pdf" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a><br>
+                    <span style="font-size: 0.85rem; color: #555;">Implemented Multi-Objective Particle Swarm Optimization (MOPSO) in MATLAB to minimize operational cost, transmission loss, and system instability across IEEE 30-bus networks.</span>
                 </li>
-                <li style="margin-bottom: 12px;">
-                    "A grid interfaced low frequency wind power" - <em>IJRASET (2015)</em> 
-                    <a href="https://www.ijraset.com/fileserve.php?FID=2047" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                <li style="margin-bottom: 14px;">
+                    <strong>"Transient Stability Improvement of SMIB System Using DPFC"</strong> — <em>IJPAM (2017)</em> 
+                    <a href="https://acadpubl.eu/jsi/2017-114-7-ICPCIT-2017/articles/8/27.pdf" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a><br>
+                    <span style="font-size: 0.85rem; color: #555;">Designed a Mamdani Fuzzy Inference System (FIS) adaptive controller in MATLAB/Simulink to eliminate oscillatory instability under dynamic load faults.</span>
                 </li>
-                <li style="margin-bottom: 12px;">
-                    "Fuzzy based Unified Control and Power Management Scheme for PV Battery based Hybrid Micro Grids for both Grid Connected and Islanded Modes" - <em>IJAEMA</em> 
-                    <a href="https://drive.google.com/file/d/1Bhgmof-yxlzp3ZRNAsk2lemdSm7Xe6oA/view" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Document]</a>
+                <li style="margin-bottom: 14px;">
+                    <strong>"Simulation-Based Analysis for Fixing Optimal Stages for H-Bridge Cascaded Multi-Level Converters"</strong> — <em>IJSETR (2016)</em> 
+                    <a href="https://ijsetr.com/uploads/463251IJSETR9076-240.pdf" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a><br>
+                    <span style="font-size: 0.85rem; color: #555;">Modeled 3-to-23 level EV battery energy management topologies in MATLAB/Simulink, reducing Total Harmonic Distortion (THD) from 21.00% down to 2.13%.</span>
                 </li>
-                <li style="margin-bottom: 12px;">
-                    "Simulation based Analysis for fixing Optimal stages for a H-Bridge cascaded Multi Level Converters" - <em>IJSETR (2016)</em> 
-                    <a href="https://ijsetr.com/uploads/463251IJSETR9076-240.pdf" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a>
+                <li style="margin-bottom: 14px;">
+                    <strong>"Fuzzy-Based Unified Control and Power Management Scheme for PV-Battery Hybrid Microgrids"</strong> — <em>IJAEMA</em> 
+                    <a href="https://drive.google.com/file/d/1Bhgmof-yxlzp3ZRNAsk2lemdSm7Xe6oA/view" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View Document]</a><br>
+                    <span style="font-size: 0.85rem; color: #555;">Engineered automated fuzzy-logic control algorithms for seamless transitions between grid-connected and islanded microgrid modes.</span>
                 </li>
                 <li style="margin-bottom: 6px;">
-                    Book Chapter: "Cyber security in smart Grids: Role of Digital Advanced Devices" - <em>Cyber security-Issues, Challenges–Solutions-Business, IGI Global Publications (Oct 2022)</em> 
-                    <a href="#" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[CrossRef DOI]</a>
+                    <strong>"A Grid-Interfaced Low-Frequency Offshore Wind Power System"</strong> — <em>IJRASET (2015)</em> 
+                    <a href="https://www.ijraset.com/fileserve.php?FID=2047" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem; margin-left:5px;">[View PDF]</a><br>
+                    <span style="font-size: 0.85rem; color: #555;">Simulated 12-pulse thyristor inverter and cycloconverter control systems in MATLAB/Simulink and PLECS for long-distance offshore wind transmission.</span>
                 </li>
             </ul>
 
         </div>
     `;
-    window.openHTMLModal('Research Publications & Intellectual Property', html);
+    window.openHTMLModal('Patents, Books & Applied Research IP', html);
 };
 window.showDevelopmentProgramsModal = function() {
     var html = `
