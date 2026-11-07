@@ -349,3 +349,8 @@ body {
         margin-top: 15px;
     }
 }
+/* Safety Override: Prevents structural html wrappers from blocking your background artwork */
+html {
+    background: transparent !important;
+}
+
