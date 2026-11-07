@@ -8,16 +8,17 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    /* Uncomment the lines below if you are using background.jpg */
-    /* background-image: url('background.jpg');
+    background-image: url('background.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat;
+    background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
     font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
 .page-container {
@@ -42,7 +43,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Hide Academic-only sections by default so Industry View loads immediately */
+/* Hide Academic-only sections on initial load so Industry View displays cleanly */
 #references-section,
 #conferences-section,
 #fdp-section {
@@ -203,7 +204,7 @@ body {
 }
 
 /* ==========================================================================
-   4. TWO-COLUMN DASHBOARD GRID SYSTEM
+   4. TWO COLUMN DASHBOARD GRID SYSTEM
    ========================================================================== */
 .cv-grid-container {
     display: grid;
@@ -217,9 +218,10 @@ body {
     border-radius: 8px;
     padding: 24px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Keeps all 'Explore More' buttons aligned at the bottom of each card */
+    justify-content: space-between;
 }
 
 .cv-grid-container h2 {
@@ -233,7 +235,7 @@ body {
 .cv-grid-container p {
     color: #4a5568;
     font-size: 0.95rem;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
 .explore-btn {
@@ -247,12 +249,14 @@ body {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s ease;
+    display: inline-block;
 }
 
 .explore-btn:hover {
     background: #007bff;
     color: white;
 }
+
 /* ==========================================================================
    5. UNIFIED POPUP MODAL ARCHITECTURE
    ========================================================================== */
@@ -264,7 +268,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.6);
-    display: none; /* Hidden by default until opened via JS */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 99999;
@@ -301,12 +305,12 @@ body {
     background-color: #dc3545;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
     font-size: 0.9rem;
     font-weight: 600;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 #close-modal-btn:hover,
@@ -331,7 +335,45 @@ body {
     background-color: #f8f9fa;
     color: #007bff;
 }
- ==========================================================================
+
+/* ==========================================================================
+   6. STATE MANIPULATION CLASSES (CRITICAL VISIBILITY MATRIX)
+   ========================================================================== */
+.hidden-view {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .profile-hero-row {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .cv-grid-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .download-link-wrapper {
+        position: static;
+        margin-top: 15px;
+    }
+    #contact-info {
+        flex-direction: column;
+    }
+    .profile-avatar-fallback {
+        width: 100%;
+        height: 100px;
+    }
+}
+
+/* ==========================================================================
    8. FEEDBACK FORM STYLING
    ========================================================================== */
 .feedback-form {
@@ -353,7 +395,7 @@ body {
     color: #4a5568;
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
     padding: 10px;
     font-size: 0.95rem;
@@ -364,36 +406,9 @@ body {
     transition: border-color 0.2s ease;
 }
 
-.form-group input:focus, 
+.form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: #007bff;
     background-color: #ffffff;
 }
-
-css
-body {
-    /* Replace 'your-background-image.jpg' with your actual image path or URL */
-    background-image: url('background.jpg'); 
-    
-    /* Keeps the background image locked in place so content scrolls over it smoothly */
-    background-attachment: fixed; 
-    
-    /* Scales the image evenly to ensure it fills the entire viewport width and height */
-    background-size: cover; 
-    
-    /* Centers the background image perfectly on the screen */
-    background-position: center center; 
-    
-    /* Prevents the image from repeating like a tile grid pattern */
-    background-repeat: no-repeat; 
-    
-    /* Fallback background color if the image fails to load or download */
-    background-color: #f7fafc; 
-    
-    /* Keep your existing spacing parameters intact */
-    margin: 0;
-    padding: 20px;
-}
-Use code with caution.
-
