@@ -221,8 +221,7 @@ window.handleReferencesTrigger = function() {
         return;
     }
     else 
-    let html = '';
-    if (activeMatrixView === 'academic') {
+        if (activeMatrixView === 'academic') {
         // FIXED: Wrapped multi-line HTML safely inside standard JavaScript template strings
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
