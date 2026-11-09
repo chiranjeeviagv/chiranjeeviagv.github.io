@@ -46,13 +46,13 @@ const securedContactHTML = `
         <ul style="list-style: none; padding: 0; line-height: 2; margin-bottom: 25px;">
             <li><strong>Email:</strong> <a href="mailto:chiranjeevi210@gmail.com" style="color:#007bff; text-decoration:none;">chiranjeevi210@gmail.com</a></li>
             <li><strong>Mobile:</strong> <a href="tel:+919949163002" style="color:#007bff; text-decoration:none;">+919949163002</a></li>
-            <li><strong>Google Scholar ID:</strong> <a href="https://google.com" target="_blank" style="color:#007bff; text-decoration:none;">o0nn0UoAAAAJ</a></li>
+            <li><strong>Google Scholar ID:</strong> <a href="https://scholar.google.com/citations?user=o0nn0UoAAAAJ&hl=en" target="_blank" style="color:#007bff; text-decoration:none;">o0nn0UoAAAAJ</a></li>
             <li><strong>ORCID ID:</strong> <a href="https://orcid.org" target="_blank" style="color:#007bff; text-decoration:none;">0000-0002-7895-407X</a></li>
             <li><strong>Scopus Author ID:</strong> <a href="https://scopus.com" target="_blank" style="color:#007bff; text-decoration:none;">58316331900</a></li>
             <li><strong>JNTUH Registration ID:</strong> 3059-191113-150648</li>
             <li><strong>UNIPUNE ID:</strong> 52092500466</li>
-            <li><strong>LinkedIn Profile:</strong> <a href="https://linkedin.com" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
-            <li><strong>Mailing Address:</strong> H No 4-243 4th lane BC colony, Vepagunta, Visakhapatnam-530047, India</li>
+            <li><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/%E0%A8%9C%E0%A8%BF-%E0%A8%B5%E0%A8%BF-%E0%A8%9A%E0%A8%BF%E0%A8%B0%E0%A9%B1%E0%A8%9C%E0%A9%80%E0%A8%B5%E0%A8%BF-%E0%A8%86%E0%A8%A1%E0%A8%BE%E0%A8%B0%E0%A8%BF-6a085717/" target="_blank" style="color:#007bff; text-decoration:none;">View Profile</a></li>
+            <li><strong>Mailing Address:</strong> H No 4-243 4th lane BC colony, Vepagunta, Visakhapatnam, Andhrapradesh-530047, India</li>
         </ul>
         <div style="flex-shrink: 0; margin: 0 auto;">
             <img src="profile-pic.jpeg" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
@@ -112,7 +112,7 @@ window.switchView = function(viewType) {
         const el = document.getElementById(id);
         if (el) {
             // Context check: Hide protected elements if logged out
-            const isSecureNode = ['references-section', 'certifications-section', 'skills-section', 'languages-section'].includes(id);
+            const isSecureNode = ['references-section', 'skills-section', 'languages-section'].includes(id);
             if (isSecureNode && !user) {
                 el.classList.add('hidden-layout-node');
                 return;
