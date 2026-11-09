@@ -220,7 +220,7 @@ window.handleReferencesTrigger = function() {
         alert("🔒 Access Denied: Please sign in with your Google account to view professional references.");
         return;
     }
-    else 
+    let html='-' 
         if (activeMatrixView === 'academic') {
         // FIXED: Wrapped multi-line HTML safely inside standard JavaScript template strings
         html = `
