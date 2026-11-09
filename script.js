@@ -220,8 +220,10 @@ window.handleReferencesTrigger = function() {
         alert("🔒 Access Denied: Please sign in with your Google account to view professional references.");
         return;
     }
-    let html='-' 
-        if (activeMatrixView === 'academic') {
+    
+    let html = '-'; 
+    
+    if (activeMatrixView === 'academic') {
         // FIXED: Wrapped multi-line HTML safely inside standard JavaScript template strings
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
@@ -239,18 +241,23 @@ window.handleReferencesTrigger = function() {
             </div>
         `;
     } else {
-        // FIXED: Wrapped multi-line HTML safely inside template strings
+        // FIXED: Closed out the industrial layout and matched the styling with a green theme (#28a745)
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
                 <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Referrals</h4> 
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Professor M Ramalingaraju</strong><br>Professor, EEE, Former Vice Chancellor, JNTUK<br>
-                    JNTUK College of engineering, kakinada
-                </div> 
+                    <strong>[Reference Name]</strong><br>[Job Title / Designation]<br>
+                    <span style="font-size: 0.9rem; color: #555;">[Company Name / Location]</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: [Phone Number] / Email: [Email Address]</span>
+                </div>
             </div>
         `;
     }
-    window.openHTMLModal("Professional References", html);
+
+    // Note: Don't forget to inject this 'html' variable into your target DOM element here, 
+    // for example: document.getElementById('referencesContainer').innerHTML = html;
+};
+
 };
 
 // Modals configurations placeholder setup
