@@ -238,6 +238,21 @@ window.handleReferencesTrigger = function() {
                     <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
                 </div> 
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Sri T Mohanrao</strong><br>SGT, Social studies<br>
+                    <span style="font-size: 0.9rem; color: #555;">ZP High school, Srikakulam</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9490207027</span>
+                </div> 
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. Dipak D Bage</strong><br>Professor<br>
+                    <span style="font-size: 0.9rem; color: #555;">Pimpiri Chinchwada university,Pune</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile:70837 80216 </span>
+                </div> 
+                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
+                    <strong>Dr. G Sridevi</strong><br>Professor, ECE<br>
+                    <span style="font-size: 0.9rem; color: #555;">Aditya University, kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9848141867</span>
+                </div> 
             </div>
         `;
     } else {
@@ -446,6 +461,7 @@ window.showCertificationsModal = function() {
                 <li style="margin-bottom: 6px;">IBM Java Developer (14 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
                 <li style="margin-bottom: 6px;">Google Cyber Security Specialist Track (9 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
                 <li style="margin-bottom: 6px;">IBM AI Developer (10 Courses) - Jun 2026 <a href="https://coursera.org/verify/professional-cert/E06UAT9KFM8S" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Smart Grid Technologies with Cloud Computing Solutions (5 Courses) - Nov 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/25B9OOWRHLB5" target="_blank" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
             </ul>
             
             <h4 style="color: #007bff; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">NPTEL Technical Certifications</h4>
