@@ -273,8 +273,6 @@ window.handleReferencesTrigger = function() {
     // for example: document.getElementById('referencesContainer').innerHTML = html;
 };
 
-};
-
 // Modals configurations placeholder setup
 window.showQualificationsModal = function() {
     let html = `
