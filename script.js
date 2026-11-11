@@ -291,6 +291,7 @@ window.handleReferencesTrigger = function() {
             </div>
         `;
     }
+  window.openHTMLModal("Professional References", html);
 };
 
 // Modals configurations placeholder setup
