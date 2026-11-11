@@ -221,10 +221,12 @@ window.handleReferencesTrigger = function() {
         return;
     }
     
-    let html = '-'; 
+    let html = ''; 
     
-    if (activeMatrixView === 'academic') {
-        // FIXED: Wrapped multi-line HTML safely inside standard JavaScript template strings
+    // Safely check view state regardless of upper/lower case string mismatches
+    const currentView = typeof activeMatrixView === 'string' ? activeMatrixView.toLowerCase() : '';
+
+    if (currentView === 'academic') {
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
                 <h4 style="color: #007bff; margin-top: 0; border-bottom: 2px solid #007bff; padding-bottom: 4px;">🎓 Academic Mentors & Guides</h4> 
@@ -255,22 +257,52 @@ window.handleReferencesTrigger = function() {
                 </div> 
             </div>
         `;
-    } else {
-        // FIXED: Closed out the industrial layout and matched the styling with a green theme (#28a745)
+    } else if (currentView === 'industry') {
         html = `
             <div style="font-family: sans-serif; line-height: 1.6; padding: 10px;"> 
                 <h4 style="color: #28a745; margin-top: 0; border-bottom: 2px solid #28a745; padding-bottom: 4px;">💼 Industry Leads & Referrals</h4> 
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>[Reference Name]</strong><br>[Job Title / Designation]<br>
-                    <span style="font-size: 0.9rem; color: #555;">[Company Name / Location]</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: [Phone Number] / Email: [Email Address]</span>
+                    <strong>Professor M Ramalingaraju</strong><br>Professor, Electrical and Electronics Engineering, Former Vice Chancellor<br>
+                    <span style="font-size: 0.9rem; color: #555;">Jawaharlal Nehru Technological university, Kakinada</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">📧 Email: raju_manyala@rediffmail.com</span>
                 </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Md. Faheem Ul Haq</strong><br>Director<br>
+                    <span style="font-size: 0.9rem; color: #555;">Fliv Developers, Hyderabad</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849022155</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Mr. Gulbarg Singh Bassi</strong><br>
+                    <span style="font-size: 0.9rem; color: #555;">GSC, US</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: +16787941794</span>
+                </div>
+                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Dr. S Surya Prakasarao</strong><br>Rtd. Professor, ENT Surgeon<br>
+                    <span style="font-size: 0.9rem; color: #555;">Andhra Medical College, Visakhapatnam</span><br>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9849113551</span>
+                </div>
+            </div>
+        `;
+    } else {
+        // Fallback layout in case activeMatrixView matches neither string
+        html = `
+            <div style="font-family: sans-serif; padding: 10px; color: #666; text-align: center;">
+            <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
+                    <strong>Mrs. V Mounika<br>/strong><br>Principal, vivekanada degree college, hyderabad<br>
+                    <span style="font-size: 0.9rem; color: #555;">Family friend</span>
+                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile:9866102045</span>
+                </div>
+                
             </div>
         `;
     }
 
-    // Note: Don't forget to inject this 'html' variable into your target DOM element here, 
-    // for example: document.getElementById('referencesContainer').innerHTML = html;
+    const targetContainer = document.getElementById('referencesContainer');
+    if (targetContainer) {
+        targetContainer.innerHTML = html;
+    } else {
+        console.error("Could not find an element with id 'referencesContainer' on the page.");
+    }
 };
 
 // Modals configurations placeholder setup
