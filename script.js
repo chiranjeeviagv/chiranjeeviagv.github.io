@@ -287,21 +287,9 @@ window.handleReferencesTrigger = function() {
         // Fallback layout in case activeMatrixView matches neither string
         html = `
             <div style="font-family: sans-serif; padding: 10px; color: #666; text-align: center;">
-            <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #28a745; border-radius: 4px;">
-                    <strong>Mrs. V Mounika<br>/strong><br>Principal, vivekanada degree college, hyderabad<br>
-                    <span style="font-size: 0.9rem; color: #555;">Family friend</span>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile:9866102045</span>
-                </div>
-                
+                           
             </div>
         `;
-    }
-
-    const targetContainer = document.getElementById('referencesContainer');
-    if (targetContainer) {
-        targetContainer.innerHTML = html;
-    } else {
-        console.error("Could not find an element with id 'referencesContainer' on the page.");
     }
 };
 
