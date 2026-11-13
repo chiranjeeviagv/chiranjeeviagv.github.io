@@ -386,6 +386,9 @@ window.showCertificationsModal = function() {
                 <li style="margin-bottom: 6px;">IBM Java Developer (14 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/CGMXJ0SN33A5" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
                 <li style="margin-bottom: 6px;">IBM JavaScript Backend Developer (13 Courses) - Aug 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/R9G3UO4SYXJM" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
                 <li style="margin-bottom: 6px;">Google Cyber Security Specialist Track (9 Courses) - Jul 2026 <a href="https://coursera.org/verify/professional-cert/SZEO3FT6Q193" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">ntroduction to Microprocessorsan -  2026 <a https://www.coursera.org/account/accomplishments/verify/5UXP7PLC882S" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Smart Grid Technologies with Cloud Computing Solutions (5 Courses) - Jul 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/25B9OOWRHLB5" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Energy Production, Distribution & Safety,powered by Stony Brook University-Nov 2026 <a href="https://www.coursera.org/account/accomplishments/specialization/ZQ04LTNBJ9NG" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a><
             </ul>
             
             <h4 style="color: #007bff; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px;">NPTEL Certifications</h4>
@@ -396,7 +399,8 @@ window.showCertificationsModal = function() {
                 <li style="margin-bottom: 6px;">Cloud Computing - Jul-Oct 2024 <a href="https://drive.google.com/file/d/13fxey0JvaQSHKq4JAOxsczLCXCl887uz/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
                 <li style="margin-bottom: 6px;">Big Data Computing (8-Week Course) - Oct 2023 <a href="https://drive.google.com/file/d/1DtA5WR6waMt2C8tUpDK-2K55aZx_pkRn/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
                 <li style="margin-bottom: 6px;">Ethics in Engineering Practice (8-Week Course) - Oct 2023 <a href="" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
-                <li style="margin-bottom: 6px;">Introduction to Smart Grid (8-Week Course) - Jul-Sep 2022 <a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Introduction to Smart Grid (8-Week Course) - November 2026 <a href="https://drive.google.com/file/d/1wpngaRqihuwbp1HmI5J0b-qxdqqXhNny/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
+                <li style="margin-bottom: 6px;">Energy :The Enterprise, powered by University of buffalo-Nov 2026 <a href="https://www.coursera.org/account/accomplishments/verify/6ZSZZNASVOBL/view" style="color:#007bff; text-decoration:none; font-size:0.85rem;">[Verify]</a></li>
             </ul>
         </div>
     `;
