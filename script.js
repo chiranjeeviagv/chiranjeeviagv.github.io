@@ -235,26 +235,13 @@ window.handleReferencesTrigger = function() {
                     <span style="font-size: 0.9rem; color: #555;">Gayatri Vidya Parishad College of Engineering(A), Visakhapatnam</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9440897892</span>
                 </div> 
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. K Prasad</strong><br>Rt. Sr. Lecturer, Government Polytechnique, Vizianagaram<br>
-                    <span style="font-size: 0.9rem; color: #555;">Director, Gayatri degree college, Vizianagaram</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9912340292</span>
-                </div> 
-                <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Sri T Mohanrao</strong><br>SGT, Social studies<br>
-                    <span style="font-size: 0.9rem; color: #555;">ZP High school, Srikakulam</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9490207027</span>
-                </div> 
+                
                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
                     <strong>Dr. Dipak D Bage</strong><br>Professor<br>
                     <span style="font-size: 0.9rem; color: #555;">Pimpiri Chinchwada university,Pune</span><br>
                     <span style="font-size: 0.85rem; color: #666;">✉️ Mobile:70837 80216 </span>
                 </div> 
-                 <div style="margin-bottom: 15px; background: #f8f9fa; padding: 12px; border-left: 4px solid #007bff; border-radius: 4px;">
-                    <strong>Dr. G Sridevi</strong><br>Professor, ECE<br>
-                    <span style="font-size: 0.9rem; color: #555;">Aditya University, kakinada</span><br>
-                    <span style="font-size: 0.85rem; color: #666;">✉️ Mobile: 9848141867</span>
-                </div> 
+                
             </div>
         `;
     } else if (currentView === 'industry') {
